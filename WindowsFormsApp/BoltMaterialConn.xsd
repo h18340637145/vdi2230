@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BoltMaterialConn" targetNamespace="http://tempuri.org/BoltMaterialConn.xsd" xmlns:mstns="http://tempuri.org/BoltMaterialConn.xsd" xmlns="http://tempuri.org/BoltMaterialConn.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BoltConnectionSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BoltConnectionSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApp1.Properties.Settings.GlobalReference.Default.BoltConnectionSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="materialBoltTableAdapter" GeneratorDataComponentClassName="materialBoltTableAdapter" Name="materialBolt" UserDataComponentName="materialBoltTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BoltConnectionSystemConnectionString (Settings)" DbObjectName="BoltConnectionSystem.dbo.materialBolt" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT BoltMaterialLevel, BoltMaterialRatio_fB, BoltMatrialEs_yangshi, BoltMatrialRpmin_qufu, BoltMaterialRm_kangla, BoltMaterialA_alpha, BoltMaterialTmax FROM dbo.materialBolt</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BoltMaterialLevel" DataSetColumn="BoltMaterialLevel" />
+              <Mapping SourceColumn="BoltMaterialRatio_fB" DataSetColumn="BoltMaterialRatio_fB" />
+              <Mapping SourceColumn="BoltMatrialEs_yangshi" DataSetColumn="BoltMatrialEs_yangshi" />
+              <Mapping SourceColumn="BoltMatrialRpmin_qufu" DataSetColumn="BoltMatrialRpmin_qufu" />
+              <Mapping SourceColumn="BoltMaterialRm_kangla" DataSetColumn="BoltMaterialRm_kangla" />
+              <Mapping SourceColumn="BoltMaterialA_alpha" DataSetColumn="BoltMaterialA_alpha" />
+              <Mapping SourceColumn="BoltMaterialTmax" DataSetColumn="BoltMaterialTmax" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BoltMaterialConn" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BoltMaterialConn" msprop:Generator_UserDSName="BoltMaterialConn">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="materialBolt" msprop:Generator_TableClassName="materialBoltDataTable" msprop:Generator_TableVarName="tablematerialBolt" msprop:Generator_TablePropName="materialBolt" msprop:Generator_RowDeletingName="materialBoltRowDeleting" msprop:Generator_RowChangingName="materialBoltRowChanging" msprop:Generator_RowEvHandlerName="materialBoltRowChangeEventHandler" msprop:Generator_RowDeletedName="materialBoltRowDeleted" msprop:Generator_UserTableName="materialBolt" msprop:Generator_RowChangedName="materialBoltRowChanged" msprop:Generator_RowEvArgName="materialBoltRowChangeEvent" msprop:Generator_RowClassName="materialBoltRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BoltMaterialLevel" msprop:Generator_ColumnVarNameInTable="columnBoltMaterialLevel" msprop:Generator_ColumnPropNameInRow="BoltMaterialLevel" msprop:Generator_ColumnPropNameInTable="BoltMaterialLevelColumn" msprop:Generator_UserColumnName="BoltMaterialLevel" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BoltMaterialRatio_fB" msprop:Generator_ColumnVarNameInTable="columnBoltMaterialRatio_fB" msprop:Generator_ColumnPropNameInRow="BoltMaterialRatio_fB" msprop:Generator_ColumnPropNameInTable="BoltMaterialRatio_fBColumn" msprop:Generator_UserColumnName="BoltMaterialRatio_fB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BoltMatrialEs_yangshi" msprop:Generator_ColumnVarNameInTable="columnBoltMatrialEs_yangshi" msprop:Generator_ColumnPropNameInRow="BoltMatrialEs_yangshi" msprop:Generator_ColumnPropNameInTable="BoltMatrialEs_yangshiColumn" msprop:Generator_UserColumnName="BoltMatrialEs_yangshi" type="xs:int" minOccurs="0" />
+              <xs:element name="BoltMatrialRpmin_qufu" msprop:Generator_ColumnVarNameInTable="columnBoltMatrialRpmin_qufu" msprop:Generator_ColumnPropNameInRow="BoltMatrialRpmin_qufu" msprop:Generator_ColumnPropNameInTable="BoltMatrialRpmin_qufuColumn" msprop:Generator_UserColumnName="BoltMatrialRpmin_qufu" type="xs:int" minOccurs="0" />
+              <xs:element name="BoltMaterialRm_kangla" msprop:Generator_ColumnVarNameInTable="columnBoltMaterialRm_kangla" msprop:Generator_ColumnPropNameInRow="BoltMaterialRm_kangla" msprop:Generator_ColumnPropNameInTable="BoltMaterialRm_kanglaColumn" msprop:Generator_UserColumnName="BoltMaterialRm_kangla" type="xs:int" minOccurs="0" />
+              <xs:element name="BoltMaterialA_alpha" msprop:Generator_ColumnVarNameInTable="columnBoltMaterialA_alpha" msprop:Generator_ColumnPropNameInRow="BoltMaterialA_alpha" msprop:Generator_ColumnPropNameInTable="BoltMaterialA_alphaColumn" msprop:Generator_UserColumnName="BoltMaterialA_alpha" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BoltMaterialTmax" msprop:Generator_ColumnVarNameInTable="columnBoltMaterialTmax" msprop:Generator_ColumnPropNameInRow="BoltMaterialTmax" msprop:Generator_ColumnPropNameInTable="BoltMaterialTmaxColumn" msprop:Generator_UserColumnName="BoltMaterialTmax" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

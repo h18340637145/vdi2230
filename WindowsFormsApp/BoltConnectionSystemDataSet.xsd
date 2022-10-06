@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BoltConnectionSystemDataSet" targetNamespace="http://tempuri.org/BoltConnectionSystemDataSet.xsd" xmlns:mstns="http://tempuri.org/BoltConnectionSystemDataSet.xsd" xmlns="http://tempuri.org/BoltConnectionSystemDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BoltConnectionSystemConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BoltConnectionSystemConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApp1.Properties.Settings.GlobalReference.Default.BoltConnectionSystemConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="screwTypeTableTableAdapter" GeneratorDataComponentClassName="screwTypeTableTableAdapter" Name="screwTypeTable" UserDataComponentName="screwTypeTableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BoltConnectionSystemConnectionString (Settings)" DbObjectName="BoltConnectionSystem.dbo.screwTypeTable" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT screwType FROM dbo.screwTypeTable</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="screwType" DataSetColumn="screwType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BoltConnectionSystemDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BoltConnectionSystemDataSet" msprop:Generator_UserDSName="BoltConnectionSystemDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="screwTypeTable" msprop:Generator_TableClassName="screwTypeTableDataTable" msprop:Generator_TableVarName="tablescrewTypeTable" msprop:Generator_TablePropName="screwTypeTable" msprop:Generator_RowDeletingName="screwTypeTableRowDeleting" msprop:Generator_RowChangingName="screwTypeTableRowChanging" msprop:Generator_RowEvHandlerName="screwTypeTableRowChangeEventHandler" msprop:Generator_RowDeletedName="screwTypeTableRowDeleted" msprop:Generator_UserTableName="screwTypeTable" msprop:Generator_RowChangedName="screwTypeTableRowChanged" msprop:Generator_RowEvArgName="screwTypeTableRowChangeEvent" msprop:Generator_RowClassName="screwTypeTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="screwType" msprop:Generator_ColumnVarNameInTable="columnscrewType" msprop:Generator_ColumnPropNameInRow="screwType" msprop:Generator_ColumnPropNameInTable="screwTypeColumn" msprop:Generator_UserColumnName="screwType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

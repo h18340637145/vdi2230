@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A11875B-8853-40BA-AD9A-B33578F9200E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CopyModules">
+      <HintPath>bin\Debug\dll\CopyModules.dll</HintPath>
+    </Reference>
+    <Reference Include="devDept.Eyeshot.Control.Win.v12, Version=12.0.239.0, Culture=neutral, PublicKeyToken=5385d83d2fb4d7d9, processorArchitecture=MSIL" />
+    <Reference Include="devDept.Eyeshot.Control.Win.v12.Design, Version=12.0.239.0, Culture=neutral, PublicKeyToken=e7c15929995d127a, processorArchitecture=MSIL" />
+    <Reference Include="devDept.Geometry.v12, Version=12.0.239.0, Culture=neutral, PublicKeyToken=9440825e8b4733bc, processorArchitecture=MSIL" />
+    <Reference Include="devDept.Graphics.Shaders.v12, Version=12.0.239.0, Culture=neutral, PublicKeyToken=54ce5f5f803e4b42, processorArchitecture=MSIL" />
+    <Reference Include="devDept.Graphics.Win.v12, Version=12.0.239.0, Culture=neutral, PublicKeyToken=f3cd437f0d8061b5, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bolt.cs" />
+    <Compile Include="BoltChooseClass.cs" />
+    <Compile Include="BoltChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoltChooseForm.Designer.cs">
+      <DependentUpon>BoltChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BoltClass.cs" />
+    <Compile Include="BoltConnectionSystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltMaterialConn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltMaterialConn.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ClampedClass.cs" />
+    <Compile Include="ComputeResult.cs" />
+    <Compile Include="Dao.cs" />
+    <Compile Include="Draw.Fem.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GasketClass.cs" />
+    <Compile Include="IModelEntity.cs" />
+    <Compile Include="InitDesignChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitDesignChooseForm.Designer.cs">
+      <DependentUpon>InitDesignChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InitDesignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitDesignForm.Designer.cs">
+      <DependentUpon>InitDesignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ISolve.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertBaseForm.Designer.cs">
+      <DependentUpon>InsertBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterialBase.Designer.cs">
+      <DependentUpon>MaterialBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialChooseClass.cs" />
+    <Compile Include="NutClass.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveData.cs" />
+    <Compile Include="SqlComman.cs" />
+    <Compile Include="StrengthGradeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StrengthGradeForm.Designer.cs">
+      <DependentUpon>StrengthGradeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ValidateDesignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValidateDesignForm.Designer.cs">
+      <DependentUpon>ValidateDesignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VDI2230BoltConGeoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VDI2230BoltConGeoForm.Designer.cs">
+      <DependentUpon>VDI2230BoltConGeoForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BoltChooseForm.resx">
+      <DependentUpon>BoltChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitDesignChooseForm.resx">
+      <DependentUpon>InitDesignChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="initDesignForm.resx">
+      <DependentUpon>InitDesignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertBaseForm.resx">
+      <DependentUpon>InsertBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialBase.resx">
+      <DependentUpon>MaterialBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="strengthGradeForm.resx">
+      <DependentUpon>StrengthGradeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValidateDesignForm.resx">
+      <DependentUpon>ValidateDesignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VDI2230BoltConGeoForm.resx">
+      <DependentUpon>VDI2230BoltConGeoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="BoltConnectionSystemDataSet.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet.xss">
+      <DependentUpon>BoltConnectionSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet1.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet1.xss">
+      <DependentUpon>BoltConnectionSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet2.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet2.xss">
+      <DependentUpon>BoltConnectionSystemDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet3.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet3.xss">
+      <DependentUpon>BoltConnectionSystemDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet4.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet4.xss">
+      <DependentUpon>BoltConnectionSystemDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet5.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet5.xss">
+      <DependentUpon>BoltConnectionSystemDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet6.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet6.xss">
+      <DependentUpon>BoltConnectionSystemDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet7.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet7.xss">
+      <DependentUpon>BoltConnectionSystemDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet8.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet8.xss">
+      <DependentUpon>BoltConnectionSystemDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet9.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet9.xss">
+      <DependentUpon>BoltConnectionSystemDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="BoltMaterialConn.xsc">
+      <DependentUpon>BoltMaterialConn.xsd</DependentUpon>
+    </None>
+    <None Include="BoltMaterialConn.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltMaterialConn.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltMaterialConn.xss">
+      <DependentUpon>BoltMaterialConn.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meffd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\meffd.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
