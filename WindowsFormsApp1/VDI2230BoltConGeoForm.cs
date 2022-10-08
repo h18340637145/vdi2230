@@ -33,20 +33,28 @@ namespace WindowsFormsApp1
 
         private void VDI2230BoltConGeoForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet6.boltStdTable”中。您可以根据需要移动或删除它。
-            this.boltStdTableTableAdapter.Fill(this.boltConnectionSystemDataSet6.boltStdTable);
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet5.screwTypeTable”中。您可以根据需要移动或删除它。
-            this.screwTypeTableTableAdapter1.Fill(this.boltConnectionSystemDataSet5.screwTypeTable);
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet4.boltTypeTable”中。您可以根据需要移动或删除它。
-            this.boltTypeTableTableAdapter1.Fill(this.boltConnectionSystemDataSet4.boltTypeTable);
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet3.BoltTable”中。您可以根据需要移动或删除它。
-            this.boltTableTableAdapter.Fill(this.boltConnectionSystemDataSet3.BoltTable);
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet2.boltSpeciTable”中。您可以根据需要移动或删除它。
-            this.boltSpeciTableTableAdapter.Fill(this.boltConnectionSystemDataSet2.boltSpeciTable);
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet1.boltTypeTable”中。您可以根据需要移动或删除它。
-            this.boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet1.boltTypeTable);
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet.screwTypeTable”中。您可以根据需要移动或删除它。
-            this.screwTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet.screwTypeTable);
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet13.dbo_boltStdTable”中。您可以根据需要移动或删除它。
+            this.dbo_boltStdTableTableAdapter.Fill(this.boltConnectionSystemDataSet13.dbo_boltStdTable);
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet12.dbo_boltSpeciTable”中。您可以根据需要移动或删除它。
+            this.dbo_boltSpeciTableTableAdapter.Fill(this.boltConnectionSystemDataSet12.dbo_boltSpeciTable);
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet11.dbo_boltTypeTable”中。您可以根据需要移动或删除它。
+            this.dbo_boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet11.dbo_boltTypeTable);
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet10.dbo_screwTypeTable”中。您可以根据需要移动或删除它。
+            this.dbo_screwTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet10.dbo_screwTypeTable);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet6.boltStdTable”中。您可以根据需要移动或删除它。
+            //this.boltStdTableTableAdapter.Fill(this.boltConnectionSystemDataSet6.boltStdTable);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet5.screwTypeTable”中。您可以根据需要移动或删除它。
+            //this.screwTypeTableTableAdapter1.Fill(this.boltConnectionSystemDataSet5.screwTypeTable);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet4.boltTypeTable”中。您可以根据需要移动或删除它。
+            //this.boltTypeTableTableAdapter1.Fill(this.boltConnectionSystemDataSet4.boltTypeTable);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet3.BoltTable”中。您可以根据需要移动或删除它。
+            //this.boltTableTableAdapter.Fill(this.boltConnectionSystemDataSet3.BoltTable);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet2.boltSpeciTable”中。您可以根据需要移动或删除它。
+            //this.boltSpeciTableTableAdapter.Fill(this.boltConnectionSystemDataSet2.boltSpeciTable);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet1.boltTypeTable”中。您可以根据需要移动或删除它。
+            //this.boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet1.boltTypeTable);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet.screwTypeTable”中。您可以根据需要移动或删除它。
+            //this.screwTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet.screwTypeTable);
 
         }
 
@@ -94,16 +102,16 @@ namespace WindowsFormsApp1
             }
             else
             {
-                string sql = "select * from BoltTable join boltSpeciTable on boltSpeciTable.boltSpeciIndex=BoltTable.boltSpeci " +
-                    "join boltStdTable on boltStdTable.boltStdIndex=BoltTable.boltStd " +
-                    "join boltTypeTable on boltTypeTable.boltTypeIndex=BoltTable.boltType " +
-                    "join screwTypeTable on screwTypeTable.screwTypeIndex=BoltTable.screwType " +
-                    "join nutTable on nutTable.nutIndex=BoltTable.nutIndex " +
-                    "join gasketTable on gasketTable.gasketIndex=BoltTable.gasketIndex " +
-                    "where screwTypeTable.screwType='" + screwTypeString + "' and boltTypeTable.boltType='" + boltTypeString + "' and boltSpeciTable.boltSpeci='"
-                    + boltSpeciString + "' and boltStdTable.boltStd='" + boltStdString + "'";
+                string sql = "select * from ((((((dbo_BoltTable inner join dbo_boltSpeciTable on dbo_boltSpeciTable.boltSpeciIndex=dbo_BoltTable.boltSpeci) " +
+                    "inner join dbo_boltStdTable on dbo_boltStdTable.boltStdIndex=dbo_BoltTable.boltStd) " +
+                    "inner join dbo_boltTypeTable on dbo_boltTypeTable.boltTypeIndex=dbo_BoltTable.boltType) " +
+                    "inner join dbo_screwTypeTable on dbo_screwTypeTable.screwTypeIndex=dbo_BoltTable.screwType) " +
+                    "inner join dbo_nutTable on dbo_nutTable.nutIndex=dbo_BoltTable.nutIndex) " +
+                    "inner join dbo_gasketTable on dbo_gasketTable.gasketIndex=dbo_BoltTable.gasketIndex) " +
+                    "where dbo_screwTypeTable.screwType='" + screwTypeString + "' and dbo_boltTypeTable.boltType='" + boltTypeString + "' and dbo_boltSpeciTable.boltSpeci='"
+                    + boltSpeciString + "' and dbo_boltStdTable.boltStd='" + boltStdString + "'";
                 MessageBox.Show(sql);
-                Dao dao = new Dao();
+                DaoAccess dao = new DaoAccess();
                 IDataReader dr = dao.read(sql);
                 if (dr.Read())
                 {
@@ -121,6 +129,10 @@ namespace WindowsFormsApp1
                     polishRodLen_l1 = dr["polishRodLen_l1"].ToString();
                     boltNutSideWid_s = dr["boltNutSideWid_s"].ToString();
                     boltNutScrewMinD_D1 = dr["boltNutScrewMinD_D1"].ToString();
+                    gasketIndex = dr["dbo_gaskettable.gasketIndex"].ToString();
+                    nutIndex = dr["dbo_nuttable.nutIndex"].ToString();
+                    isnut = dr["isnut"].ToString();
+                    isgasket = dr["isgasket"].ToString();
 
                     boltChooseClass = new BoltChooseClass();
                     boltChooseClass.NormalD_d = double.Parse(normalD_d);
@@ -138,15 +150,13 @@ namespace WindowsFormsApp1
                     string[] str = { normalD_d, screwP_P, boltLen_ls, boreD_dh, boltHeadOutD_dw, boltHeadInnerD_da,
                         screwMidD_d2, screwMinD_d3, polishRodLen_l1, boltNutSideWid_s, boltNutScrewMinD_D1 };
                     
-                    isnut = dr["isnut"].ToString();
-                    isgasket = dr["isgasket"].ToString();
+
                     if (isnut.Equals("1"))
                     {
                         nutGroup.Visible = true;
                         nut = new NutClass();
                         //有螺母的
-                        nutIndex = dr["nutIndex"].ToString();
-                        string sql2 = "select * from nutTable where nutIndex='" + nutIndex + "'";
+                        string sql2 = "select * from dbo_nutTable where nutIndex=" + nutIndex;
                         IDataReader dr2 = dao.read(sql2);
                         if (dr2.Read())
                         {
@@ -181,8 +191,7 @@ namespace WindowsFormsApp1
                         gasket = new GasketClass();
                         gasketGroup.Visible = true;
                         //有垫片的
-                        gasketIndex = dr["gasketIndex"].ToString();
-                        string sql3 = "select * from gasketTable where gasketindex='" + gasketIndex + "'";
+                        string sql3 = "select * from dbo_gasketTable where gasketindex=" + gasketIndex;
                         IDataReader dr3 = dao.read(sql3);
                         if (dr3.Read())
                         {

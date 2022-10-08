@@ -34,7 +34,8 @@ namespace WindowsFormsApp1
          * @fuction get database command
          */
         public SqlCommand command(string sql)
-        {//可对于数据进行操作的对象
+        {
+            //可对于数据进行操作的对象
             SqlCommand sc = new SqlCommand(sql, connection());//调用上面connection函数  要用到自己写的
             return sc;
         }

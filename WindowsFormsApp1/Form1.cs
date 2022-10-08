@@ -179,6 +179,19 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from dbo_boltSpeciTable";
+            DaoAccess dao = new DaoAccess();
+            IDataReader dr2 = dao.read(sql);
+            while (dr2.Read())
+            {
+                MessageBox.Show(dr2["boltSpeciIndex"].ToString());
+                MessageBox.Show(dr2["boltSpeci"].ToString());
+            }
+            dr2.Close();
+        }
+
 
         //    private void timer1_Tick(object sender, EventArgs e)
         //    {
