@@ -24,14 +24,14 @@ namespace WindowsFormsApp1
             InitializeComponent();
             if (idx == 1)
             {
-                this.tableName = "materialBolt";
+                this.tableName = "dbo_materialBolt";
                 label2.Hide();
                 textBox2.Hide();
                 Table(1);
             }
             else
             {
-                this.tableName = "materialClamped";
+                this.tableName = "dbo_materialClamped";
                 Table(2);
             }
         }
@@ -46,14 +46,13 @@ namespace WindowsFormsApp1
             return this.idx;
         }
 
+        // idx == 1 2 分别表示连接件和螺栓的材料
         public void Table(int idx)
         {
             //form2中的datagrid
             dataGridView1.Rows.Clear();
             string sql = "select * from " + this.getTableName();
-            
-            
-            Dao dao = new Dao();
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             while (dr.Read())
             {
@@ -111,7 +110,7 @@ namespace WindowsFormsApp1
                 }
             }
 
-            Dao dao = new Dao();
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             while (dr.Read())
             {
@@ -165,7 +164,7 @@ namespace WindowsFormsApp1
                 else {
                     sql = "delete from " + this.tableName + " where ClampedMaterialIndex ='" + id + "'";
                 }
-                Dao dao = new Dao();
+                DaoAccess dao = new DaoAccess();
                 dao.Excute(sql);
                 Table(this.idx);
             }

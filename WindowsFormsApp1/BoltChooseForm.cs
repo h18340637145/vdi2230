@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
                 "join boltStdTable on boltStdTable.boltStdIndex=BoltTable.boltStd " +
                 "ORDER BY DN asc";
             MessageBox.Show(sql, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            Dao dao = new Dao();
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             while (dr.Read())
             {
@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
                 " and boltStdTable.boltStd='" + dataGridView1.SelectedCells[1].Value.ToString()+ "'";
             MessageBox.Show(sql, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Console.WriteLine(sql);
-            Dao dao = new Dao();
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             while (dr.Read())
             {

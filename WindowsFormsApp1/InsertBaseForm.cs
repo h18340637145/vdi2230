@@ -22,7 +22,8 @@ namespace WindowsFormsApp1
             InitializeComponent();
             updateButton.Hide();
         }
-        public InsertBaseForm(MaterialBase materialBase, string[] str )
+
+        public InsertBaseForm(MaterialBase materialBase, string[] str)
         {
             this.materialBase = materialBase;
             this.flag = "修改";
@@ -61,7 +62,7 @@ namespace WindowsFormsApp1
                     + "," + textBox4.Text + "," + textBox5.Text + "," + textBox6.Text + "," + textBox7.Text + ",20)";
                 }
                 MessageBox.Show(sql);
-                Dao dao = new Dao();
+                DaoAccess dao = new DaoAccess();
                 int i = dao.Excute(sql);
                 if (i > 0)
                 {
@@ -101,7 +102,7 @@ namespace WindowsFormsApp1
                     {
                         sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialIndex='" + textBox1.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
                     }
-                    Dao dao = new Dao();
+                    DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
                     initstr[0] = textBox1.Text;
                 }
@@ -115,7 +116,7 @@ namespace WindowsFormsApp1
                     {
                         sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialName='" + textBox2.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
                     }
-                    Dao dao = new Dao();
+                    DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
                     initstr[1] = textBox2.Text;
                 }
@@ -130,7 +131,7 @@ namespace WindowsFormsApp1
                         sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialRatio_fB='" + textBox3.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
                     }
 
-                    Dao dao = new Dao();
+                    DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
                     initstr[2] = textBox3.Text;
                 }
@@ -145,7 +146,7 @@ namespace WindowsFormsApp1
                     {
                         sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialRatio_fG='" + textBox4.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
                     }
-                    Dao dao = new Dao();
+                    DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
                     initstr[3] = textBox4.Text;
                 }
@@ -161,7 +162,7 @@ namespace WindowsFormsApp1
                         sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialEp_yangshi='" + textBox5.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
                     }
 
-                    Dao dao = new Dao();
+                    DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
                     initstr[4] = textBox5.Text;
                 }
@@ -176,7 +177,7 @@ namespace WindowsFormsApp1
                         sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialRmmin_kangla='" + textBox6.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
                     }
 
-                    Dao dao = new Dao();
+                    DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
                     initstr[5] = textBox6.Text;
                 }
@@ -191,7 +192,7 @@ namespace WindowsFormsApp1
                         sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialA_alpha='" + textBox7.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
                     }
 
-                    Dao dao = new Dao();
+                    DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
                     initstr[6] = textBox7.Text;
                 }
