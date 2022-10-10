@@ -21,10 +21,12 @@ namespace WindowsFormsApp1
 
         private void StrengthGradeForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“boltMaterialConn.materialBolt”中。您可以根据需要移动或删除它。
-            this.materialBoltTableAdapter1.Fill(this.boltMaterialConn.materialBolt);
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet8.materialBolt”中。您可以根据需要移动或删除它。
-            this.materialBoltTableAdapter.Fill(this.boltConnectionSystemDataSet8.materialBolt);
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet17.dbo_materialBolt”中。您可以根据需要移动或删除它。
+            this.dbo_materialBoltTableAdapter.Fill(this.boltConnectionSystemDataSet17.dbo_materialBolt);
+            //// TODO: 这行代码将数据加载到表“boltMaterialConn.materialBolt”中。您可以根据需要移动或删除它。
+            //this.materialBoltTableAdapter1.Fill(this.boltMaterialConn.materialBolt);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet8.materialBolt”中。您可以根据需要移动或删除它。
+            //this.materialBoltTableAdapter.Fill(this.boltConnectionSystemDataSet8.materialBolt);
         }
 
         private void optBtn_Click(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace WindowsFormsApp1
         public void Table(int idx)
         {
             dataGridView1.Rows.Clear();
-            string sql = "select * from materialBolt";
+            string sql = "select * from dbo_materialBolt";
             MessageBox.Show(sql, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Dao dao = new Dao();
             IDataReader dr = dao.read(sql);

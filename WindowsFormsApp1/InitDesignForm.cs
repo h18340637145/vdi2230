@@ -158,8 +158,8 @@ namespace WindowsFormsApp1
             int force = getForce(fres);
 
             MessageBox.Show(force.ToString());
-            sql = "select * from strengthGradeAndDN where force=" + force;
-            Dao dao = new Dao();
+            sql = "select * from dbo_strengthGradeAndDN where force=" + force;
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             while (dr.Read())
             {
@@ -214,8 +214,12 @@ namespace WindowsFormsApp1
 
         private void InitDesignForm_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet15.dbo_boltTypeTable”中。您可以根据需要移动或删除它。
+            this.dbo_boltTypeTableTableAdapter1.Fill(this.boltConnectionSystemDataSet15.dbo_boltTypeTable);
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet14.dbo_boltTypeTable”中。您可以根据需要移动或删除它。
+            this.dbo_boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet14.dbo_boltTypeTable);
             // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet1.boltTypeTable”中。您可以根据需要移动或删除它。
-            this.boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet1.boltTypeTable);
+            //this.boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet1.boltTypeTable);
         }
     }
 }

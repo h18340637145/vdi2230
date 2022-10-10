@@ -155,8 +155,10 @@ namespace WindowsFormsApp1
 
         private void ValidateDesignForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet9.materialClamped”中。您可以根据需要移动或删除它。
-            this.materialClampedTableAdapter.Fill(this.boltConnectionSystemDataSet9.materialClamped);
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet18.dbo_materialClamped”中。您可以根据需要移动或删除它。
+            this.dbo_materialClampedTableAdapter.Fill(this.boltConnectionSystemDataSet18.dbo_materialClamped);
+            //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet9.materialClamped”中。您可以根据需要移动或删除它。
+            //this.materialClampedTableAdapter.Fill(this.boltConnectionSystemDataSet9.materialClamped);
 
         }
 
@@ -414,9 +416,9 @@ namespace WindowsFormsApp1
 
         public string[] Table(int index)
         {
-            string sql = "select introGroup,introLabel from IntroDetailTable where introindex=" + index;
+            string sql = "select introGroup,introLabel from dbo_IntroDetailTable where introindex=" + index;
             string introGroupDetail = "", introLabelDetail = "";
-            Dao dao = new Dao();
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             if (dr.Read())
             {
@@ -715,18 +717,17 @@ namespace WindowsFormsApp1
         private NutClass NutData(BoltChooseClass boltChooseClass)
         {
             NutClass nut = new NutClass();
-            string sql = "select isnut, nutindex from BoltTable " +
-                    "where normalD_d='" + boltChooseClass.NormalD_d
-                    + "' and screwP_P='" + boltChooseClass.ScrewP_P
-                    + "' and boreD_dh='" + boltChooseClass.BoreD_dh
-                    + "' and boltHeadOutD_dw='" + boltChooseClass.BoltHeadOutD_dw
-                    + "' and screwMidD_d2='" + boltChooseClass.ScrewMidD_d2
-                    + "' and screwMinD_d3='" + boltChooseClass.ScrewMinD_d3
-                    + "' and polishRodLen_l1='" + boltChooseClass.PolishRodLen_l1
-                    + "' and boltNutScrewMinD_D1='" + boltChooseClass.BoltNutScrewMinD_D1
-                    + "' and boltHeadInnerD_da='" + boltChooseClass.BoltHeadInnerD_da
-                    + "'";
-            Dao dao = new Dao();
+            string sql = "select isnut, nutindex from dbo_BoltTable " +
+                    "where normalD_d=" + boltChooseClass.NormalD_d
+                    + " and screwP_P=" + boltChooseClass.ScrewP_P
+                    + " and boreD_dh=" + boltChooseClass.BoreD_dh
+                    + " and boltHeadOutD_dw=" + boltChooseClass.BoltHeadOutD_dw
+                    + " and screwMidD_d2=" + boltChooseClass.ScrewMidD_d2
+                    + " and screwMinD_d3=" + boltChooseClass.ScrewMinD_d3
+                    + " and polishRodLen_l1=" + boltChooseClass.PolishRodLen_l1
+                    + " and boltNutScrewMinD_D1=" + boltChooseClass.BoltNutScrewMinD_D1
+                    + " and boltHeadInnerD_da=" + boltChooseClass.BoltHeadInnerD_da;
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             if (dr.Read())
             {
@@ -736,7 +737,7 @@ namespace WindowsFormsApp1
                 {
                     //有螺母的
                     nutIndex = dr["nutIndex"].ToString();
-                    string sql2 = "select * from nutTable where nutIndex='" + nutIndex + "'";
+                    string sql2 = "select * from dbo_nutTable where nutIndex=" + nutIndex;
                     IDataReader dr2 = dao.read(sql2);
 
                     if (dr2.Read())
@@ -794,18 +795,17 @@ namespace WindowsFormsApp1
         private GasketClass GasketData()
         {
             GasketClass gasketTemp = new GasketClass();
-            string sql = "select isgasket, gasketindex from BoltTable " +
-                    "where normalD_d='" + boltChooseClass.NormalD_d
-                    + "' and screwP_P='" + boltChooseClass.ScrewP_P
-                    + "' and boreD_dh='" + boltChooseClass.BoreD_dh
-                    + "' and boltHeadOutD_dw='" + boltChooseClass.BoltHeadOutD_dw
-                    + "' and screwMidD_d2='" + boltChooseClass.ScrewMidD_d2
-                    + "' and screwMinD_d3='" + boltChooseClass.ScrewMinD_d3
-                    + "' and polishRodLen_l1='" + boltChooseClass.PolishRodLen_l1
-                    + "' and boltNutScrewMinD_D1='" + boltChooseClass.BoltNutScrewMinD_D1
-                    + "' and boltHeadInnerD_da='" + boltChooseClass.BoltHeadInnerD_da
-                    + "'";
-            Dao dao = new Dao();
+            string sql = "select isgasket, gasketindex from dbo_BoltTable " +
+                    "where normalD_d=" + boltChooseClass.NormalD_d
+                    + " and screwP_P=" + boltChooseClass.ScrewP_P
+                    + " and boreD_dh=" + boltChooseClass.BoreD_dh
+                    + " and boltHeadOutD_dw=" + boltChooseClass.BoltHeadOutD_dw
+                    + " and screwMidD_d2=" + boltChooseClass.ScrewMidD_d2
+                    + " and screwMinD_d3=" + boltChooseClass.ScrewMinD_d3
+                    + " and polishRodLen_l1=" + boltChooseClass.PolishRodLen_l1
+                    + " and boltNutScrewMinD_D1=" + boltChooseClass.BoltNutScrewMinD_D1
+                    + " and boltHeadInnerD_da=" + boltChooseClass.BoltHeadInnerD_da;
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             if (dr.Read())
             {
@@ -815,7 +815,7 @@ namespace WindowsFormsApp1
                 {
                     //有垫片的
                     gasketIndex = dr["gasketIndex"].ToString();
-                    string sql2 = "select * from gaskettable where gasketIndex='" + gasketIndex + "'";
+                    string sql2 = "select * from dbo_gaskettable where gasketIndex=" + gasketIndex;
                     IDataReader dr2 = dao.read(sql2);
 
                     if (dr2.Read())
@@ -1496,15 +1496,15 @@ namespace WindowsFormsApp1
 
         private void loadData()
         {
-            string sql = "select * from BoltTable join boltSpeciTable on boltSpeciTable.boltSpeciIndex=BoltTable.boltSpeci " +
-                    "join boltStdTable on boltStdTable.boltStdIndex=BoltTable.boltStd " +
-                    "join boltTypeTable on boltTypeTable.boltTypeIndex=BoltTable.boltType " +
-                    "join screwTypeTable on screwTypeTable.screwTypeIndex=BoltTable.screwType " +
-                    "join nutTable on nutTable.nutIndex=BoltTable.nutIndex " +
-                    "join gasketTable on gasketTable.gasketIndex=BoltTable.gasketIndex " +
-                    "where screwTypeTable.screwType='" + screwType.Text + "' and boltTypeTable.boltType='" + BoltType.Text + "' and boltSpeciTable.boltSpeci='"
-                    + boltChooseForm.GetBoltChooseClass().speci + "' and boltStdTable.boltStd='" + boltStd.Text + "'";
-            Dao dao = new Dao();
+            string sql = "select * from ((((((dbo_BoltTable inner join dbo_boltSpeciTable on dbo_boltSpeciTable.boltSpeciIndex=dbo_BoltTable.boltSpeci) " +
+                    "inner join dbo_boltStdTable on dbo_boltStdTable.boltStdIndex=dbo_BoltTable.boltStd) " +
+                    "inner join dbo_boltTypeTable on dbo_boltTypeTable.boltTypeIndex=dbo_BoltTable.boltType) " +
+                    "inner join dbo_screwTypeTable on dbo_screwTypeTable.screwTypeIndex=dbo_BoltTable.screwType) " +
+                    "inner join dbo_nutTable on dbo_nutTable.nutIndex=dbo_BoltTable.nutIndex) " +
+                    "inner join dbo_gasketTable on dbo_gasketTable.gasketIndex=dbo_BoltTable.gasketIndex) " +
+                    "where dbo_screwTypeTable.screwType='" + screwType.Text + "' and dbo_boltTypeTable.boltType='" + BoltType.Text + "' and dbo_boltSpeciTable.boltSpeci='"
+                    + boltChooseForm.GetBoltChooseClass().speci + "' and dbo_boltStdTable.boltStd='" + boltStd.Text + "'";
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             if (dr.Read())
             {
@@ -1522,6 +1522,11 @@ namespace WindowsFormsApp1
                 polishRodLen_l1 = dr["polishRodLen_l1"].ToString();
                 boltNutSideWid_s = dr["boltNutSideWid_s"].ToString();
                 boltNutScrewMinD_D1 = dr["boltNutScrewMinD_D1"].ToString();
+                nutIndex = dr["dbo_bolttable.nutIndex"].ToString();
+                gasketIndex = dr["dbo_bolttable.gasketIndex"].ToString();
+
+                isnut = dr["isnut"].ToString();
+                isgasket = dr["isgasket"].ToString();
                 string[] str = { normalD_d, screwP_P, boltLen_ls, boreD_dh, boltHeadOutD_dw, boltHeadInnerD_da,
                         screwMidD_d2, screwMinD_d3, polishRodLen_l1, boltNutSideWid_s, boltNutScrewMinD_D1 };
 
@@ -1536,13 +1541,11 @@ namespace WindowsFormsApp1
                 bolt.PolishRodLen_l1 = double.Parse(polishRodLen_l1);
                 bolt.BoltNutSideWid_s = double.Parse(boltNutSideWid_s);
                 bolt.BoltNutScrewMinD_D1 = double.Parse(boltNutScrewMinD_D1);
-                isnut = dr["isnut"].ToString();
-                isgasket = dr["isgasket"].ToString();
+                
                 if (isnut.Equals("1"))
                 {
                     //有螺母的
-                    nutIndex = dr["nutIndex"].ToString();
-                    string sql2 = "select * from nutTable where nutIndex='" + nutIndex + "'";
+                    string sql2 = "select * from dbo_nutTable where nutIndex=" + nutIndex;
                     IDataReader dr2 = dao.read(sql2);
                     if (dr2.Read())
                     {
@@ -1567,8 +1570,7 @@ namespace WindowsFormsApp1
                 if (isgasket.Equals("1") && gasketChooseBtn.Checked == true)
                 {
                     //有垫片的
-                    gasketIndex = dr["gasketIndex"].ToString();
-                    string sql3 = "select * from gasketTable where gasketindex='" + gasketIndex + "'";
+                    string sql3 = "select * from dbo_gasketTable where gasketindex=" + gasketIndex;
                     IDataReader dr3 = dao.read(sql3);
                     if (dr3.Read())
                     {

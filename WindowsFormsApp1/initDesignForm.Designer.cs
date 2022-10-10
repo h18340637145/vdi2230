@@ -54,9 +54,15 @@
             this.screwTypeLabel = new System.Windows.Forms.Label();
             this.BoltConTypeLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.boltTypeTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet1TableAdapters.boltTypeTableTableAdapter();
             this.strengthGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boltTypeTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet1TableAdapters.boltTypeTableTableAdapter();
+            this.boltConnectionSystemDataSet14 = new WindowsFormsApp1.BoltConnectionSystemDataSet14();
+            this.dboboltTypeTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbo_boltTypeTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet14TableAdapters.dbo_boltTypeTableTableAdapter();
+            this.boltConnectionSystemDataSet15 = new WindowsFormsApp1.BoltConnectionSystemDataSet15();
+            this.dboboltTypeTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dbo_boltTypeTableTableAdapter1 = new WindowsFormsApp1.BoltConnectionSystemDataSet15TableAdapters.dbo_boltTypeTableTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.strengthGradeAndDNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet7)).BeginInit();
             this.panel1.SuspendLayout();
@@ -67,6 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.boltTypeTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dboboltTypeTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dboboltTypeTableBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // strengthGradeAndDNBindingSource
@@ -87,15 +97,17 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.splitContainer1);
-            this.panel1.Location = new System.Drawing.Point(95, 34);
+            this.panel1.Location = new System.Drawing.Point(71, 27);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 497);
+            this.panel1.Size = new System.Drawing.Size(600, 398);
             this.panel1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -121,15 +133,17 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 497);
-            this.splitContainer1.SplitterDistance = 338;
+            this.splitContainer1.Size = new System.Drawing.Size(600, 398);
+            this.splitContainer1.SplitterDistance = 253;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
             // optBtn
             // 
-            this.optBtn.Location = new System.Drawing.Point(195, 413);
+            this.optBtn.Location = new System.Drawing.Point(146, 330);
+            this.optBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.optBtn.Name = "optBtn";
-            this.optBtn.Size = new System.Drawing.Size(95, 37);
+            this.optBtn.Size = new System.Drawing.Size(71, 30);
             this.optBtn.TabIndex = 50;
             this.optBtn.Text = "选择";
             this.optBtn.UseVisualStyleBackColor = true;
@@ -137,9 +151,10 @@
             // 
             // computeBtn
             // 
-            this.computeBtn.Location = new System.Drawing.Point(28, 413);
+            this.computeBtn.Location = new System.Drawing.Point(21, 330);
+            this.computeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.computeBtn.Name = "computeBtn";
-            this.computeBtn.Size = new System.Drawing.Size(95, 37);
+            this.computeBtn.Size = new System.Drawing.Size(71, 30);
             this.computeBtn.TabIndex = 49;
             this.computeBtn.Text = "计算";
             this.computeBtn.UseVisualStyleBackColor = true;
@@ -155,26 +170,29 @@
             "B级预估摩擦系数的扭矩扳手",
             "A级预估摩擦系数的扭矩扳手",
             "冲击扳手或扭矩控制的冲击扳手拧紧"});
-            this.tightenTheProcess.Location = new System.Drawing.Point(174, 358);
+            this.tightenTheProcess.Location = new System.Drawing.Point(130, 286);
+            this.tightenTheProcess.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tightenTheProcess.Name = "tightenTheProcess";
-            this.tightenTheProcess.Size = new System.Drawing.Size(121, 23);
+            this.tightenTheProcess.Size = new System.Drawing.Size(92, 20);
             this.tightenTheProcess.TabIndex = 48;
             // 
             // TightenTheProcessLabel
             // 
             this.TightenTheProcessLabel.AutoSize = true;
-            this.TightenTheProcessLabel.Location = new System.Drawing.Point(33, 363);
+            this.TightenTheProcessLabel.Location = new System.Drawing.Point(25, 290);
+            this.TightenTheProcessLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TightenTheProcessLabel.Name = "TightenTheProcessLabel";
-            this.TightenTheProcessLabel.Size = new System.Drawing.Size(82, 15);
+            this.TightenTheProcessLabel.Size = new System.Drawing.Size(65, 12);
             this.TightenTheProcessLabel.TabIndex = 47;
             this.TightenTheProcessLabel.Text = "拧紧工艺：";
             // 
             // isEccentricLabel
             // 
             this.isEccentricLabel.AutoSize = true;
-            this.isEccentricLabel.Location = new System.Drawing.Point(30, 320);
+            this.isEccentricLabel.Location = new System.Drawing.Point(22, 256);
+            this.isEccentricLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.isEccentricLabel.Name = "isEccentricLabel";
-            this.isEccentricLabel.Size = new System.Drawing.Size(82, 15);
+            this.isEccentricLabel.Size = new System.Drawing.Size(65, 12);
             this.isEccentricLabel.TabIndex = 46;
             this.isEccentricLabel.Text = "是否偏心：";
             // 
@@ -184,33 +202,37 @@
             this.isEccentric.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.isEccentric.Location = new System.Drawing.Point(174, 314);
+            this.isEccentric.Location = new System.Drawing.Point(130, 251);
+            this.isEccentric.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.isEccentric.Name = "isEccentric";
-            this.isEccentric.Size = new System.Drawing.Size(121, 23);
+            this.isEccentric.Size = new System.Drawing.Size(92, 20);
             this.isEccentric.TabIndex = 45;
             // 
             // UpperLimitAxialLoadDisplay
             // 
             this.UpperLimitAxialLoadDisplay.AutoSize = true;
-            this.UpperLimitAxialLoadDisplay.Location = new System.Drawing.Point(340, 264);
+            this.UpperLimitAxialLoadDisplay.Location = new System.Drawing.Point(255, 211);
+            this.UpperLimitAxialLoadDisplay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UpperLimitAxialLoadDisplay.Name = "UpperLimitAxialLoadDisplay";
-            this.UpperLimitAxialLoadDisplay.Size = new System.Drawing.Size(15, 15);
+            this.UpperLimitAxialLoadDisplay.Size = new System.Drawing.Size(11, 12);
             this.UpperLimitAxialLoadDisplay.TabIndex = 44;
             this.UpperLimitAxialLoadDisplay.Text = "N";
             // 
             // upperLimitAxialLoad
             // 
-            this.upperLimitAxialLoad.Location = new System.Drawing.Point(174, 260);
+            this.upperLimitAxialLoad.Location = new System.Drawing.Point(130, 208);
+            this.upperLimitAxialLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.upperLimitAxialLoad.Name = "upperLimitAxialLoad";
-            this.upperLimitAxialLoad.Size = new System.Drawing.Size(121, 25);
+            this.upperLimitAxialLoad.Size = new System.Drawing.Size(92, 21);
             this.upperLimitAxialLoad.TabIndex = 43;
             // 
             // UpperLimitAxialLoadLabel
             // 
             this.UpperLimitAxialLoadLabel.AutoSize = true;
-            this.UpperLimitAxialLoadLabel.Location = new System.Drawing.Point(27, 264);
+            this.UpperLimitAxialLoadLabel.Location = new System.Drawing.Point(20, 211);
+            this.UpperLimitAxialLoadLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UpperLimitAxialLoadLabel.Name = "UpperLimitAxialLoadLabel";
-            this.UpperLimitAxialLoadLabel.Size = new System.Drawing.Size(142, 15);
+            this.UpperLimitAxialLoadLabel.Size = new System.Drawing.Size(113, 12);
             this.UpperLimitAxialLoadLabel.TabIndex = 42;
             this.UpperLimitAxialLoadLabel.Text = "轴向载荷的上限值：";
             // 
@@ -220,29 +242,32 @@
             this.workingLoads.Items.AddRange(new object[] {
             "动态",
             "静态"});
-            this.workingLoads.Location = new System.Drawing.Point(174, 206);
+            this.workingLoads.Location = new System.Drawing.Point(130, 165);
+            this.workingLoads.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.workingLoads.Name = "workingLoads";
-            this.workingLoads.Size = new System.Drawing.Size(121, 23);
+            this.workingLoads.Size = new System.Drawing.Size(92, 20);
             this.workingLoads.TabIndex = 41;
             // 
             // workingLoadsLabel
             // 
             this.workingLoadsLabel.AutoSize = true;
-            this.workingLoadsLabel.Location = new System.Drawing.Point(27, 210);
+            this.workingLoadsLabel.Location = new System.Drawing.Point(20, 168);
+            this.workingLoadsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.workingLoadsLabel.Name = "workingLoadsLabel";
-            this.workingLoadsLabel.Size = new System.Drawing.Size(82, 15);
+            this.workingLoadsLabel.Size = new System.Drawing.Size(65, 12);
             this.workingLoadsLabel.TabIndex = 40;
             this.workingLoadsLabel.Text = "工作载荷：";
             // 
             // boltType
             // 
             this.boltType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.boltTypeTableBindingSource, "boltType", true));
-            this.boltType.DataSource = this.boltTypeTableBindingSource;
+            this.boltType.DataSource = this.dboboltTypeTableBindingSource1;
             this.boltType.DisplayMember = "boltType";
             this.boltType.FormattingEnabled = true;
-            this.boltType.Location = new System.Drawing.Point(174, 152);
+            this.boltType.Location = new System.Drawing.Point(130, 122);
+            this.boltType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.boltType.Name = "boltType";
-            this.boltType.Size = new System.Drawing.Size(121, 23);
+            this.boltType.Size = new System.Drawing.Size(92, 20);
             this.boltType.TabIndex = 39;
             this.boltType.ValueMember = "boltType";
             // 
@@ -259,9 +284,10 @@
             // boltTypeLabel
             // 
             this.boltTypeLabel.AutoSize = true;
-            this.boltTypeLabel.Location = new System.Drawing.Point(27, 155);
+            this.boltTypeLabel.Location = new System.Drawing.Point(20, 124);
+            this.boltTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.boltTypeLabel.Name = "boltTypeLabel";
-            this.boltTypeLabel.Size = new System.Drawing.Size(82, 15);
+            this.boltTypeLabel.Size = new System.Drawing.Size(65, 12);
             this.boltTypeLabel.TabIndex = 38;
             this.boltTypeLabel.Text = "螺栓类型：";
             // 
@@ -271,9 +297,10 @@
             this.screwType.Items.AddRange(new object[] {
             "标准螺纹",
             "细牙螺纹"});
-            this.screwType.Location = new System.Drawing.Point(174, 98);
+            this.screwType.Location = new System.Drawing.Point(130, 78);
+            this.screwType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.screwType.Name = "screwType";
-            this.screwType.Size = new System.Drawing.Size(121, 23);
+            this.screwType.Size = new System.Drawing.Size(92, 20);
             this.screwType.TabIndex = 37;
             // 
             // boltConType
@@ -282,26 +309,29 @@
             this.boltConType.Items.AddRange(new object[] {
             "单螺栓连接",
             "受横向载荷的多螺栓连接"});
-            this.boltConType.Location = new System.Drawing.Point(174, 46);
+            this.boltConType.Location = new System.Drawing.Point(130, 37);
+            this.boltConType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.boltConType.Name = "boltConType";
-            this.boltConType.Size = new System.Drawing.Size(121, 23);
+            this.boltConType.Size = new System.Drawing.Size(92, 20);
             this.boltConType.TabIndex = 36;
             // 
             // screwTypeLabel
             // 
             this.screwTypeLabel.AutoSize = true;
-            this.screwTypeLabel.Location = new System.Drawing.Point(27, 103);
+            this.screwTypeLabel.Location = new System.Drawing.Point(20, 82);
+            this.screwTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.screwTypeLabel.Name = "screwTypeLabel";
-            this.screwTypeLabel.Size = new System.Drawing.Size(82, 15);
+            this.screwTypeLabel.Size = new System.Drawing.Size(65, 12);
             this.screwTypeLabel.TabIndex = 35;
             this.screwTypeLabel.Text = "螺纹类型：";
             // 
             // BoltConTypeLabel
             // 
             this.BoltConTypeLabel.AutoSize = true;
-            this.BoltConTypeLabel.Location = new System.Drawing.Point(27, 49);
+            this.BoltConTypeLabel.Location = new System.Drawing.Point(20, 39);
+            this.BoltConTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BoltConTypeLabel.Name = "BoltConTypeLabel";
-            this.BoltConTypeLabel.Size = new System.Drawing.Size(112, 15);
+            this.BoltConTypeLabel.Size = new System.Drawing.Size(89, 12);
             this.BoltConTypeLabel.TabIndex = 34;
             this.BoltConTypeLabel.Text = "螺栓连接类型：";
             // 
@@ -314,15 +344,12 @@
             this.DN});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(458, 497);
+            this.dataGridView1.Size = new System.Drawing.Size(344, 398);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // boltTypeTableTableAdapter
-            // 
-            this.boltTypeTableTableAdapter.ClearBeforeFill = true;
             // 
             // strengthGrade
             // 
@@ -334,13 +361,46 @@
             this.DN.HeaderText = "公称直径";
             this.DN.Name = "DN";
             // 
+            // boltTypeTableTableAdapter
+            // 
+            this.boltTypeTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // boltConnectionSystemDataSet14
+            // 
+            this.boltConnectionSystemDataSet14.DataSetName = "BoltConnectionSystemDataSet14";
+            this.boltConnectionSystemDataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dboboltTypeTableBindingSource
+            // 
+            this.dboboltTypeTableBindingSource.DataMember = "dbo_boltTypeTable";
+            this.dboboltTypeTableBindingSource.DataSource = this.boltConnectionSystemDataSet14;
+            // 
+            // dbo_boltTypeTableTableAdapter
+            // 
+            this.dbo_boltTypeTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // boltConnectionSystemDataSet15
+            // 
+            this.boltConnectionSystemDataSet15.DataSetName = "BoltConnectionSystemDataSet15";
+            this.boltConnectionSystemDataSet15.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dboboltTypeTableBindingSource1
+            // 
+            this.dboboltTypeTableBindingSource1.DataMember = "dbo_boltTypeTable";
+            this.dboboltTypeTableBindingSource1.DataSource = this.boltConnectionSystemDataSet15;
+            // 
+            // dbo_boltTypeTableTableAdapter1
+            // 
+            this.dbo_boltTypeTableTableAdapter1.ClearBeforeFill = true;
+            // 
             // InitDesignForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(990, 565);
+            this.ClientSize = new System.Drawing.Size(742, 452);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "InitDesignForm";
             this.Text = "initDesignForm";
             this.Load += new System.EventHandler(this.InitDesignForm_Load);
@@ -355,6 +415,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.boltTypeTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dboboltTypeTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dboboltTypeTableBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,5 +452,11 @@
         private BoltConnectionSystemDataSet1TableAdapters.boltTypeTableTableAdapter boltTypeTableTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn strengthGrade;
         private System.Windows.Forms.DataGridViewTextBoxColumn DN;
+        private BoltConnectionSystemDataSet14 boltConnectionSystemDataSet14;
+        private System.Windows.Forms.BindingSource dboboltTypeTableBindingSource;
+        private BoltConnectionSystemDataSet14TableAdapters.dbo_boltTypeTableTableAdapter dbo_boltTypeTableTableAdapter;
+        private BoltConnectionSystemDataSet15 boltConnectionSystemDataSet15;
+        private System.Windows.Forms.BindingSource dboboltTypeTableBindingSource1;
+        private BoltConnectionSystemDataSet15TableAdapters.dbo_boltTypeTableTableAdapter dbo_boltTypeTableTableAdapter1;
     }
 }

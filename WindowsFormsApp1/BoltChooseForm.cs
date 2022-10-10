@@ -30,11 +30,11 @@ namespace WindowsFormsApp1
         {
             //form2中的datagrid
             dataGridView1.Rows.Clear();
-            string sql = "select boltSpeciTable.boltSpeci as speci,boltStdTable.boltStd as std,BoltTable.normalD_d as DN, " +
-                "BoltTable.boltLen_ls as ls,BoltTable.polishRodLen_l1 as l1,boreD_dh as dh " +
-                "from boltSpeciTable join BoltTable on boltSpeciTable.boltSpeciIndex=BoltTable.boltSpeci " +
-                "join boltStdTable on boltStdTable.boltStdIndex=BoltTable.boltStd " +
-                "ORDER BY DN asc";
+            string sql = "select dbo_boltSpeciTable.boltSpeci as speci,dbo_boltStdTable.boltStd as std,dbo_BoltTable.normalD_d as DN, " +
+                "dbo_BoltTable.boltLen_ls as ls,dbo_BoltTable.polishRodLen_l1 as l1,boreD_dh as dh " +
+                "from ((dbo_boltSpeciTable inner join dbo_BoltTable on dbo_boltSpeciTable.boltSpeciIndex=dbo_BoltTable.boltSpeci) " +
+                "inner join dbo_boltStdTable on dbo_boltStdTable.boltStdIndex=dbo_BoltTable.boltStd) " +
+                "ORDER BY dbo_BoltTable.normalD_d asc";
             MessageBox.Show(sql, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
@@ -66,14 +66,14 @@ namespace WindowsFormsApp1
         {
             BoltChooseClass boltChooseClass = new BoltChooseClass();
 
-            string sql = "select boltSpeciTable.boltSpeci,boltStdTable.boltStd,BoltTable.* " +
-                "from boltSpeciTable join BoltTable on boltSpeciTable.boltSpeciIndex=BoltTable.boltSpeci " +
-                "join boltStdTable on boltStdTable.boltStdIndex=BoltTable.boltStd where normalD_d=" + dataGridView1.SelectedCells[2].Value.ToString() +
+            string sql = "select dbo_boltSpeciTable.boltSpeci,dbo_boltStdTable.boltStd,dbo_BoltTable.* " +
+                "from ((dbo_boltSpeciTable inner join dbo_BoltTable on dbo_boltSpeciTable.boltSpeciIndex=dbo_BoltTable.boltSpeci) " +
+                "inner join dbo_boltStdTable on dbo_boltStdTable.boltStdIndex=dbo_BoltTable.boltStd) where normalD_d=" + dataGridView1.SelectedCells[2].Value.ToString() +
                 " and boltLen_ls="+ dataGridView1.SelectedCells[3].Value.ToString() +
                 " and polishRodLen_l1=" + dataGridView1.SelectedCells[4].Value.ToString() +
                 " and boreD_dh=" + dataGridView1.SelectedCells[5].Value.ToString() +
-                " and boltSpeciTable.boltSpeci='" + dataGridView1.SelectedCells[0].Value.ToString()+ "'" +
-                " and boltStdTable.boltStd='" + dataGridView1.SelectedCells[1].Value.ToString()+ "'";
+                " and dbo_boltSpeciTable.boltSpeci='" + dataGridView1.SelectedCells[0].Value.ToString()+ "'" +
+                " and dbo_boltStdTable.boltStd='" + dataGridView1.SelectedCells[1].Value.ToString()+ "'";
             MessageBox.Show(sql, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Console.WriteLine(sql);
             DaoAccess dao = new DaoAccess();
@@ -81,8 +81,8 @@ namespace WindowsFormsApp1
             while (dr.Read())
             {
                 //string speci, std, DN, ls, l1, dh;
-                boltChooseClass.speci = dr["boltSpeci"].ToString();// 把强度等级
-                boltChooseClass.std = dr["boltStd"].ToString();// 
+                boltChooseClass.speci = dr["dbo_boltSpeciTable.boltSpeci"].ToString();// 把强度等级
+                boltChooseClass.std = dr["dbo_boltStdTable.boltStd"].ToString();// 
                 boltChooseClass.NormalD_d = double.Parse(dr["normalD_d"].ToString());//
                 boltChooseClass.BoltLen_ls = double.Parse(dr["boltLen_ls"].ToString());// 
                 boltChooseClass.PolishRodLen_l1 = double.Parse(dr["polishRodLen_l1"].ToString());//

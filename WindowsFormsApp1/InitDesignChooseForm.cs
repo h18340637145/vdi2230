@@ -43,13 +43,13 @@ namespace WindowsFormsApp1
             dataGridView1.Rows.Clear();
             //string sql = "select * from strengthGradeAndDN where force=" + force;
             // 根据传入的信息 ， 查数据库  显示数据的名称，标准  d ls  l1  l2 dt  dh
-            string sql = "select boltSpeciTable.boltSpeci as speci,boltStdTable.boltStd as std,BoltTable.normalD_d as DN, " +
-                "BoltTable.boltLen_ls as ls,BoltTable.polishRodLen_l1 as l1,boreD_dh as dh " +
-                "from boltSpeciTable join BoltTable on boltSpeciTable.boltSpeciIndex=BoltTable.boltSpeci " +
-                "join boltStdTable on boltStdTable.boltStdIndex=BoltTable.boltStd " +
-                "where boltSpeciTable.boltSpeci like 'M" + str[1] + "%%'";
+            string sql = "select dbo_boltSpeciTable.boltSpeci as speci,dbo_boltStdTable.boltStd as std,dbo_BoltTable.normalD_d as DN, " +
+                "dbo_BoltTable.boltLen_ls as ls,dbo_BoltTable.polishRodLen_l1 as l1,boreD_dh as dh " +
+                "from ((dbo_boltSpeciTable inner join dbo_BoltTable on dbo_boltSpeciTable.boltSpeciIndex=dbo_BoltTable.boltSpeci) " +
+                "inner join dbo_boltStdTable on dbo_boltStdTable.boltStdIndex=dbo_BoltTable.boltStd) " +
+                "where dbo_boltSpeciTable.boltSpeci like 'M" + str[1] + "%%'";
             MessageBox.Show(sql, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            Dao dao = new Dao();
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             while (dr.Read())
             {
@@ -92,14 +92,14 @@ namespace WindowsFormsApp1
             string boltTypeString = type[2]; // 内六角
             string boltSpeciString = str[0]; // 12 * 60
             string boltStdString = str[1]; // DIN en iso 4762
-            string sql = "select * from BoltTable join boltSpeciTable on boltSpeciTable.boltSpeciIndex=BoltTable.boltSpeci " +
-                    "join boltStdTable on boltStdTable.boltStdIndex=BoltTable.boltStd " +
-                    "join boltTypeTable on boltTypeTable.boltTypeIndex=BoltTable.boltType " +
-                    "join screwTypeTable on screwTypeTable.screwTypeIndex=BoltTable.screwType " +
-                    "join nutTable on nutTable.nutIndex=BoltTable.nutIndex " +
-                    "join gasketTable on gasketTable.gasketIndex=BoltTable.gasketIndex " +
-                    "where screwTypeTable.screwType='" + screwTypeString + "' and boltTypeTable.boltType='" + boltTypeString + "' and boltSpeciTable.boltSpeci='"
-                    + boltSpeciString + "' and boltStdTable.boltStd='" + boltStdString + "'";
+            string sql = "select * from ((((((dbo_BoltTable inner join dbo_boltSpeciTable on dbo_boltSpeciTable.boltSpeciIndex=dbo_BoltTable.boltSpeci) " +
+                    "inner join dbo_boltStdTable on dbo_boltStdTable.boltStdIndex=dbo_BoltTable.boltStd) " +
+                    "inner join dbo_boltTypeTable on dbo_boltTypeTable.boltTypeIndex=dbo_BoltTable.boltType) " +
+                    "inner join dbo_screwTypeTable on dbo_screwTypeTable.screwTypeIndex=dbo_BoltTable.screwType) " +
+                    "inner join dbo_nutTable on dbo_nutTable.nutIndex=dbo_BoltTable.nutIndex) " +
+                    "inner join dbo_gasketTable on dbo_gasketTable.gasketIndex=dbo_BoltTable.gasketIndex) " +
+                    "where dbo_screwTypeTable.screwType='" + screwTypeString + "' and dbo_boltTypeTable.boltType='" + boltTypeString + "' and dbo_boltSpeciTable.boltSpeci='"
+                    + boltSpeciString + "' and dbo_boltStdTable.boltStd='" + boltStdString + "'";
             //MessageBox.Show(sql);
             try
             {
@@ -113,7 +113,7 @@ namespace WindowsFormsApp1
             }
             
 
-            Dao dao = new Dao();
+            DaoAccess dao = new DaoAccess();
             IDataReader dr = dao.read(sql);
             if (dr.Read())
             {
@@ -149,7 +149,7 @@ namespace WindowsFormsApp1
 
             // 材料数据
             IDataReader dr2 = dao.read(sql);
-            string materialSql = "select * from materialBolt where BoltMaterialLevel=" + initstr[0];
+            string materialSql = "select * from dbo_materialBolt where BoltMaterialLevel=" + initstr[0];
             dr2 = dao.read(materialSql);
             if (dr2.Read())
             {

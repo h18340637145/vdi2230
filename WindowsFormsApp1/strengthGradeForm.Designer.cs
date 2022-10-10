@@ -31,14 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.materialBoltBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.boltConnectionSystemDataSet8 = new WindowsFormsApp1.BoltConnectionSystemDataSet8();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.optBtn = new System.Windows.Forms.Button();
-            this.materialBoltTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet8TableAdapters.materialBoltTableAdapter();
-            this.boltMaterialConn = new WindowsFormsApp1.BoltMaterialConn();
-            this.materialBoltBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.materialBoltTableAdapter1 = new WindowsFormsApp1.BoltMaterialConnTableAdapters.materialBoltTableAdapter();
             this.boltMaterialLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boltMatrialEsyangshiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boltMatrialRpminqufuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,16 +38,29 @@
             this.boltMaterialRatiofBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boltMaterialTmaxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoltMaterialA_alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialBoltBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.boltMaterialConn = new WindowsFormsApp1.BoltMaterialConn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.optBtn = new System.Windows.Forms.Button();
+            this.materialBoltBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boltConnectionSystemDataSet8 = new WindowsFormsApp1.BoltConnectionSystemDataSet8();
+            this.materialBoltTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet8TableAdapters.materialBoltTableAdapter();
+            this.materialBoltTableAdapter1 = new WindowsFormsApp1.BoltMaterialConnTableAdapters.materialBoltTableAdapter();
+            this.boltConnectionSystemDataSet17 = new WindowsFormsApp1.BoltConnectionSystemDataSet17();
+            this.dbomaterialBoltBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbo_materialBoltTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet17TableAdapters.dbo_materialBoltTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltMaterialConn)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet8)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.boltMaterialConn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbomaterialBoltBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -90,7 +95,7 @@
             this.boltMaterialRatiofBDataGridViewTextBoxColumn,
             this.boltMaterialTmaxDataGridViewTextBoxColumn,
             this.BoltMaterialA_alpha});
-            this.dataGridView1.DataSource = this.materialBoltBindingSource1;
+            this.dataGridView1.DataSource = this.dbomaterialBoltBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
@@ -99,55 +104,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(597, 450);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // materialBoltBindingSource
-            // 
-            this.materialBoltBindingSource.DataMember = "materialBolt";
-            this.materialBoltBindingSource.DataSource = this.boltConnectionSystemDataSet8;
-            // 
-            // boltConnectionSystemDataSet8
-            // 
-            this.boltConnectionSystemDataSet8.DataSetName = "BoltConnectionSystemDataSet8";
-            this.boltConnectionSystemDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.optBtn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 450);
-            this.panel2.TabIndex = 0;
-            // 
-            // optBtn
-            // 
-            this.optBtn.Location = new System.Drawing.Point(43, 47);
-            this.optBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.optBtn.Name = "optBtn";
-            this.optBtn.Size = new System.Drawing.Size(77, 34);
-            this.optBtn.TabIndex = 47;
-            this.optBtn.Text = "选择";
-            this.optBtn.UseVisualStyleBackColor = true;
-            this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
-            // 
-            // materialBoltTableAdapter
-            // 
-            this.materialBoltTableAdapter.ClearBeforeFill = true;
-            // 
-            // boltMaterialConn
-            // 
-            this.boltMaterialConn.DataSetName = "BoltMaterialConn";
-            this.boltMaterialConn.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // materialBoltBindingSource1
-            // 
-            this.materialBoltBindingSource1.DataMember = "materialBolt";
-            this.materialBoltBindingSource1.DataSource = this.boltMaterialConn;
-            // 
-            // materialBoltTableAdapter1
-            // 
-            this.materialBoltTableAdapter1.ClearBeforeFill = true;
             // 
             // boltMaterialLevelDataGridViewTextBoxColumn
             // 
@@ -191,6 +147,69 @@
             this.BoltMaterialA_alpha.HeaderText = "BoltMaterialA_alpha";
             this.BoltMaterialA_alpha.Name = "BoltMaterialA_alpha";
             // 
+            // materialBoltBindingSource1
+            // 
+            this.materialBoltBindingSource1.DataMember = "materialBolt";
+            this.materialBoltBindingSource1.DataSource = this.boltMaterialConn;
+            // 
+            // boltMaterialConn
+            // 
+            this.boltMaterialConn.DataSetName = "BoltMaterialConn";
+            this.boltMaterialConn.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.optBtn);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 450);
+            this.panel2.TabIndex = 0;
+            // 
+            // optBtn
+            // 
+            this.optBtn.Location = new System.Drawing.Point(43, 47);
+            this.optBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.optBtn.Name = "optBtn";
+            this.optBtn.Size = new System.Drawing.Size(77, 34);
+            this.optBtn.TabIndex = 47;
+            this.optBtn.Text = "选择";
+            this.optBtn.UseVisualStyleBackColor = true;
+            this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
+            // 
+            // materialBoltBindingSource
+            // 
+            this.materialBoltBindingSource.DataMember = "materialBolt";
+            this.materialBoltBindingSource.DataSource = this.boltConnectionSystemDataSet8;
+            // 
+            // boltConnectionSystemDataSet8
+            // 
+            this.boltConnectionSystemDataSet8.DataSetName = "BoltConnectionSystemDataSet8";
+            this.boltConnectionSystemDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // materialBoltTableAdapter
+            // 
+            this.materialBoltTableAdapter.ClearBeforeFill = true;
+            // 
+            // materialBoltTableAdapter1
+            // 
+            this.materialBoltTableAdapter1.ClearBeforeFill = true;
+            // 
+            // boltConnectionSystemDataSet17
+            // 
+            this.boltConnectionSystemDataSet17.DataSetName = "BoltConnectionSystemDataSet17";
+            this.boltConnectionSystemDataSet17.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dbomaterialBoltBindingSource
+            // 
+            this.dbomaterialBoltBindingSource.DataMember = "dbo_materialBolt";
+            this.dbomaterialBoltBindingSource.DataSource = this.boltConnectionSystemDataSet17;
+            // 
+            // dbo_materialBoltTableAdapter
+            // 
+            this.dbo_materialBoltTableAdapter.ClearBeforeFill = true;
+            // 
             // StrengthGradeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -205,11 +224,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltMaterialConn)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet8)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.boltMaterialConn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbomaterialBoltBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,5 +254,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn boltMaterialRatiofBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn boltMaterialTmaxDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoltMaterialA_alpha;
+        private BoltConnectionSystemDataSet17 boltConnectionSystemDataSet17;
+        private System.Windows.Forms.BindingSource dbomaterialBoltBindingSource;
+        private BoltConnectionSystemDataSet17TableAdapters.dbo_materialBoltTableAdapter dbo_materialBoltTableAdapter;
     }
 }
