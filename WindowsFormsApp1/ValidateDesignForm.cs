@@ -1799,7 +1799,6 @@ namespace WindowsFormsApp1
             }
 
             // 防呆组合问题
-
             //ComputeResult rs = new ComputeResult();
             this.GetCalParameter();
             rs = this.Solve();
@@ -1823,6 +1822,11 @@ namespace WindowsFormsApp1
             if (isN.Text == "自定义" && n.Enabled == true)
             {
                 // n直接输入的情况
+                if (n.Text == "")
+                {
+                    MessageBox.Show("请输入n值");
+                    return 0;
+                }
                 Nn = double.Parse(n.Text);
             }
             else
