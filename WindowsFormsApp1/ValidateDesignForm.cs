@@ -946,6 +946,9 @@ namespace WindowsFormsApp1
         }
 
         #endregion
+
+
+        #region clickBtn
         private void boltConnect_Click(object sender, EventArgs e)
         {
             introGroup.Visible = true;
@@ -970,6 +973,15 @@ namespace WindowsFormsApp1
             introLabel.Text = intro[1];
         }
 
+        private void strengthGradeChooseBtn_Click(object sender, EventArgs e)
+        {
+            strengthGradeForm = new StrengthGradeForm(this);
+            strengthGradeForm.ShowDialog();
+        }
+        #endregion
+
+        #region selected_changed
+
         private void BoltType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (BoltType.Text == "内六角螺栓")
@@ -984,12 +996,6 @@ namespace WindowsFormsApp1
                 dtUnit.Visible = true;
                 dt.Visible = true;
             }
-        }
-
-        private void strengthGradeChooseBtn_Click(object sender, EventArgs e)
-        {
-            strengthGradeForm = new StrengthGradeForm(this);
-            strengthGradeForm.ShowDialog();
         }
 
         private void isAngle_SelectedIndexChanged(object sender, EventArgs e)
@@ -1007,7 +1013,6 @@ namespace WindowsFormsApp1
 
         private void isCounterBore_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (isCounterBore.Text == "考虑")
             {
                 CounterBoreDepth.ReadOnly = false;
@@ -1021,7 +1026,6 @@ namespace WindowsFormsApp1
 
         private void pEmbeddedValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (pEmbeddedValue.Text == "考虑")
             {
                 EmbeddedValue.ReadOnly = false;
@@ -1061,7 +1065,7 @@ namespace WindowsFormsApp1
             }
             else if (tighten.Text == "屈服控制拧紧")
             {
-                //Fkerf.Clear();
+                // Fkerf.Clear();
                 tightenCoef.ReadOnly = true;
             }
         }
@@ -1121,8 +1125,6 @@ namespace WindowsFormsApp1
             }
         }
 
-
-
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isFz.Text == "是")
@@ -1154,7 +1156,6 @@ namespace WindowsFormsApp1
                 localFilePath = sfd.FileName.ToString(); //获得文件路径 
                 fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1); //获取文件名，不带路径
             }
-
 
             SaveData s = new SaveData();
             s.clampingWay = clampingWay.Text;
@@ -1225,7 +1226,6 @@ namespace WindowsFormsApp1
             s.isSGsoll = isSGsoll.Text;
             s.SGsoll = SGsoll.Text;
 
-
             try
             {
                 string out1 = serializer.Serialize(s);
@@ -1240,7 +1240,6 @@ namespace WindowsFormsApp1
 
         private void readTempData_Click(object sender, EventArgs e)
         {
-
             // strFileName 是文件的路径+文件名
             string strFileName = "";
             OpenFileDialog ofd = new OpenFileDialog();
@@ -1490,6 +1489,33 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void clampingWay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (clampingWay.Text == "同心")
+            {
+                pianxinGroup.Visible = false;
+                a.Enabled = false;
+            }
+            else if (clampingWay.Text == "偏心")
+            {
+                pianxinGroup.Visible = true;
+                a.Enabled = true;  
+            }
+        }
+
+        private void isIbt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isIbt.Text == "是")
+            {
+                Ibt.Enabled = true;
+            }
+            else if (isIbt.Text == "否")
+            {
+                Ibt.Enabled = false;
+            }
+        }
+        #endregion
+
         #endregion
 
         #region calculation
@@ -1681,6 +1707,8 @@ namespace WindowsFormsApp1
 
         private void computeBtn_Click(object sender, EventArgs e)
         {
+            // 防呆
+            #region fangdai
             // 防呆检测
             // 基础
             if (clampingWay.Text == "")
@@ -1798,10 +1826,15 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            #endregion
             // 防呆组合问题
             //ComputeResult rs = new ComputeResult();
+            // 获取参数
             this.GetCalParameter();
+
+            // 计算结果
             rs = this.Solve();
+
             // 显示结果
             resGrid.SelectedObject = rs;
             if (rs.Sf >= 1 && rs.Sg >= 1 && rs.Sp >= 1 && rs.Sd >= 1)
@@ -1814,7 +1847,6 @@ namespace WindowsFormsApp1
         private double computeN(double H)
         {
             double Nn = 0;
-
             double LA = 0;
             double Ak = 0;
             string SV = "";
@@ -2369,8 +2401,7 @@ namespace WindowsFormsApp1
             }
             return Nn;
         }
-
-
+        
         #endregion
 
         private void BoltType_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -2387,31 +2418,34 @@ namespace WindowsFormsApp1
             }
         }
 
-
         // 接口实现 获取界面参数值
         public void GetCalParameter()
         {
             // 加载螺栓，螺母，垫片数据
             loadData();
-        }
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
         public ComputeResult Solve()
         {
             ComputeResult rs = new ComputeResult();
 
             // R2：计算DA DAGr = dw + w lk TanPhi
+            // 确定最小夹紧载荷 Fkerf                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
             Console.WriteLine("R2:");
             // 计算w
+            double dw = bolt.BoltHeadOutD_dw;
             int w = 0;
             // 计算夹紧长度H = lk  贯穿的螺栓是求和
             // 螺纹是求第一个夹紧件高度
             double H = 0;
+            double hmin = int.MaxValue;
             if (BoltConnectType.Text == "通孔螺栓连接")
             {
                 w = 1; // DSV
                 int rows = dataClampedChoosed.RowCount - 1;
                 for (int i = 0; i < rows; i++)
                 {
+                    hmin = Math.Min(hmin, Convert.ToSingle(dataClampedChoosed.Rows[i].Cells[5].Value));
                     H += Convert.ToSingle(dataClampedChoosed.Rows[i].Cells[5].Value);
                 }
             }
@@ -2423,6 +2457,10 @@ namespace WindowsFormsApp1
             }
 
             double DAGr = computeDAGr(w, H);
+            double D_A = Convert.ToDouble(DA.Text);
+
+            
+           
 
             // R3: 计算回弹及系数
             // R3.1: 计算回弹及系数
@@ -2449,15 +2487,177 @@ namespace WindowsFormsApp1
             Console.WriteLine("deltaS:" + deltaS.ToString());
 
             // R3.3: compute deltaP
-            double deltaP = computeDeltaP(w, H, double.Parse(Es_yangshi.Text), DAGr);
-            //MessageBox.Show("deltaP:" + deltaP.ToString());
+            double deltaP = 0;
+            double deltaP_star = 0;
+            double deltaP_star_star = 0;
+            double I_bt = 0;
+            double a_ = 0;
+            double s_sym = Convert.ToDouble(Ssym.Text);
+            double c_T = Convert.ToDouble(cT.Text);
+            double c_B = Convert.ToDouble(cB.Text);
+            double b_T = Convert.ToDouble(bT.Text);
 
+            //MessageBox.Show("deltaP:" + deltaP.ToString());
+            if (clampingWay.Text == "同心")
+            {
+                // 同心计算回弹量
+
+                if (D_A >= DAGr)
+                {
+                    // 计算deltaP
+                    // p45  deltaP = deltaPz
+                    deltaP = computeDeltaP(w, H, double.Parse(Es_yangshi.Text), DAGr);
+                }
+                else if (dw < D_A && D_A < DAGr)
+                {
+                    // 替代变形体由锥和筒组成
+                    deltaP = computeDeltaP(w, H, double.Parse(Es_yangshi.Text), DAGr);
+
+                    //// 也可以单独计算替代变形锥和变形筒的回弹量
+                    //double deltaPv = conputeDeltaPv(w, H, Convert.ToDouble(Es_yangshi.Text), DAGr);
+                    //// 筒的回弹量
+                    //double deltaPh = computeDeltaPh(w, H, Convert.ToDouble(Es_yangshi.Text), DAGr);
+                    //double deltaP = deltaPh + deltaPv * 2 / w;
+                }
+                I_bt = 0.47 * (D_A - dw) * dw * dw * dw * D_A * D_A * D_A / (D_A * D_A * D_A - dw * dw * dw);
+            }
+            else if (clampingWay.Text == "偏心")
+            {
+                if (D_A >= DAGr)
+                {
+                    // 计算deltaP
+                    // p45  deltaP = deltaPz
+                    deltaP = computeDeltaP(w, H, double.Parse(Es_yangshi.Text), DAGr);
+                }
+                else if (dw < D_A && D_A < DAGr)
+                {
+                    // 替代变形体由锥和筒组成
+                    deltaP = computeDeltaP(w, H, double.Parse(Es_yangshi.Text), DAGr);
+
+                    //// 也可以单独计算替代变形锥和变形筒的回弹量
+                    //double deltaPv = conputeDeltaPv(w, H, Convert.ToDouble(Es_yangshi.Text), DAGr);
+                    //// 筒的回弹量
+                    //double deltaPh = computeDeltaPh(w, H, Convert.ToDouble(Es_yangshi.Text), DAGr);
+                    //double deltaP = deltaPh + deltaPv * 2 / w;
+                }
+
+                // 偏心计算回弹量
+                // 偏心夹紧 --- 区别与偏心加载
+                #region pianxin_wanqu
+                // 偏心，弯曲---deltaP*
+                // deltaP* = deltaP + ssym ^ 2 + ∑li / EPi / IBersi
+                double G = 0;
+                if (BoltConnectType.Text == "通孔螺栓连接")
+                {
+                    G = dw + hmin; // 通孔
+                }
+                else if (BoltConnectType.Text == "盲孔螺栓连接")
+                {
+                    G = 1.5 * dw; // 盲孔估计值
+                }
+                double G_max_dot = 3 * dw;
+                // bolt 与 clamped 距离
+                
+                if (isIbt.Text == "是")
+                {
+                    I_bt = Convert.ToDouble(Ibt.Text);
+                }
+                else
+                {
+                    // 计算偏心距Ibers
+                    I_bt = 0.47 * (D_A - dw) * dw * dw * dw * D_A * D_A * D_A / (D_A * D_A * D_A - dw * dw * dw);
+                    I_bt = I_bt + s_sym * s_sym * Math.PI * D_A * D_A / 4;
+                }
+                double e_ = Convert.ToDouble(e.Text);
+                // u 
+                double u_u = e_ + s_sym;
+
+                string jia_zai_qing_kuang = jiaZaiQingKuang.Text;
+
+                if (s_sym > G / 2 - e_ )
+                {
+                    MessageBox.Show("偏心距离Ssym过大！请重新设置");
+                    return null;
+                }
+
+                // 偏心夹紧回弹计算,
+                if (a.Text == "")
+                {
+                    a_ = 0;
+                    int rows = dataClampedChoosed.RowCount - 1;
+                    deltaP_star = deltaP;
+                    for (int i = 0; i < rows; i++)
+                    {
+                        deltaP_star += s_sym * s_sym * Convert.ToDouble(dataClampedChoosed.Rows[i].Cells[5].Value) / Convert.ToDouble(dataClampedChoosed.Rows[i].Cells[1].Value) / I_bt;
+                    }
+                }
+                else
+                {
+                    // 偏心加载轴向工作载荷
+                    a_ = Convert.ToDouble(a.Text);
+                    int rows = dataClampedChoosed.RowCount - 1;
+                    deltaP_star_star = deltaP;
+                    for (int i = 0; i < rows; i++)
+                    {
+                        deltaP_star_star += s_sym * a_ * Convert.ToDouble(dataClampedChoosed.Rows[i].Cells[5].Value) / Convert.ToDouble(dataClampedChoosed.Rows[i].Cells[1].Value) / I_bt;
+                    }
+                }
+
+
+                #endregion
+
+
+
+            }
             double deltaPzu = (w - 1) * deltaM;
+
             double PhiK = (deltaP + deltaPzu) / (deltaP + deltaS);
             double PhiN = Nn * PhiK;
+
+            double phi_ = 0;
+            double phi_n_star = 0;
+            double phi_en_star = 0;
+            if (a.Text == "")
+            {
+                a_ = 0;
+            }
+
+            // a = 0 是同心加载 同心夹紧
+            if (a_ == 0 && s_sym == 0)
+            {
+                phi_ = Nn * (deltaP + deltaPzu) / (deltaS + deltaP);
+            }
+            else if (clampingWay.Text == "偏心" && a_ == 0)
+            {
+                // 偏心夹紧&同心加载
+                phi_n_star = Nn * (deltaP + deltaPzu) / (deltaS + deltaP_star);
+            }
+            else if (clampingWay.Text == "偏心" && a_ != 0)
+            {
+                // 偏心夹紧，  偏心加载
+                phi_en_star = Nn * (deltaP_star_star + deltaPzu) / (deltaS + deltaP_star);
+            }
+
             Console.WriteLine("deltaS:" + deltaS.ToString());
             Console.WriteLine("PhiK:" + PhiK.ToString());
             Console.WriteLine("PhiN:" + PhiN.ToString());
+
+            if (MB.Text != "")
+            {
+                // 有工作力矩
+                // 计算FSA的时候需要将力和力矩同时计算进去
+                double F_SA = 0;
+                int rows = dataClampedChoosed.RowCount - 1;
+                for (int i = 0; i < rows; i++)
+                {
+                    double phi_m_star = 
+                        Nn * s_sym * s_sym * Convert.ToSingle(dataClampedChoosed.Rows[1].Cells[5].Value) / 
+                        ((deltaS + deltaP) * Convert.ToSingle(dataClampedChoosed.Rows[1].Cells[1].Value) * I_bt + s_sym * s_sym * Convert.ToSingle(dataClampedChoosed.Rows[1].Cells[5].Value));
+                }
+                F_SA = phi_en_star * Convert.ToDouble(FAO.Text) + (Convert.ToDouble(MB) / s_sym);
+            }
+
+            // 松开极限
 
             // R4:
             Console.WriteLine("R4:");
@@ -2599,7 +2799,7 @@ namespace WindowsFormsApp1
             // R10
             Console.WriteLine("R10:");
             double dh = bolt.BoreD_dh;
-            double dw = bolt.BoltHeadOutD_dw;
+            
             double Apmin = pi * (dw * dw - dh * dh) / 4;
             double pMmax = Fmzul / Apmin;
             // pG = fG*Rm  行数有问题，待定
@@ -2879,7 +3079,6 @@ namespace WindowsFormsApp1
         {
 
         }
-
 
     }
 }
