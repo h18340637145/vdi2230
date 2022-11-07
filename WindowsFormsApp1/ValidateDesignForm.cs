@@ -1024,18 +1024,18 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void pEmbeddedValue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (pEmbeddedValue.Text == "考虑")
-            {
-                EmbeddedValue.ReadOnly = false;
-            }
-            else if (pEmbeddedValue.Text == "不考虑")
-            {
-                EmbeddedValue.Clear();
-                EmbeddedValue.ReadOnly = true;
-            }
-        }
+        //private void pEmbeddedValue_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (pEmbeddedValue.Text == "考虑")
+        //    {
+        //        EmbeddedValue.ReadOnly = false;
+        //    }
+        //    else if (pEmbeddedValue.Text == "不考虑")
+        //    {
+        //        EmbeddedValue.Clear();
+        //        EmbeddedValue.ReadOnly = true;
+        //    }
+        //}
 
         private void boltChooseBtn_Click_1(object sender, EventArgs e)
         {
@@ -1182,9 +1182,9 @@ namespace WindowsFormsApp1
             s.dha = dha.Text;
             s.isCounterBore = isCounterBore.Text;
             s.CounterBoreDepth = CounterBoreDepth.Text;
-            s.pEmbeddedValue = pEmbeddedValue.Text;
+            //s.pEmbeddedValue = pEmbeddedValue.Text;
             s.surfaceRoughness = Rz.Text;
-            s.EmbeddedValue = EmbeddedValue.Text;
+            //s.EmbeddedValue = EmbeddedValue.Text;
             s.Es_gasket = Es_gasket.Text;
             s.RmminS = RmminS.Text;
             s.Daz = Daz.Text;
@@ -1280,9 +1280,9 @@ namespace WindowsFormsApp1
                 dha.Text = s.dha;
                 isCounterBore.Text = s.isCounterBore;
                 CounterBoreDepth.Text = s.CounterBoreDepth;
-                pEmbeddedValue.Text = s.pEmbeddedValue;
+                //pEmbeddedValue.Text = s.pEmbeddedValue;
                 Rz.Text = s.surfaceRoughness;
-                EmbeddedValue.Text = s.EmbeddedValue;
+                //EmbeddedValue.Text = s.EmbeddedValue;
                 Es_gasket.Text = s.Es_gasket;
                 RmminS.Text = s.RmminS;
                 Daz.Text = s.Daz;
@@ -1359,9 +1359,9 @@ namespace WindowsFormsApp1
             dha.Text = "";
             isCounterBore.Text = "";
             CounterBoreDepth.Text = "";
-            pEmbeddedValue.Text = "";
+            //pEmbeddedValue.Text = "";
             Rz.Text = "";
-            EmbeddedValue.Text = "";
+            //EmbeddedValue.Text = "";
             Es_gasket.Text = "";
             RmminS.Text = "";
             Daz.Text = "";
@@ -1534,14 +1534,14 @@ namespace WindowsFormsApp1
             IDataReader dr = dao.read(sql);
             if (dr.Read())
             {
-                string normalD_d, screwP_P, boltLen_ls, boreD_dh, boreD_dw, boltHeadOutD_dw, boltHeadInnerD_da,
+                string normalD_d, screwP_P, boltLen_ls, boreD_dh, BoreD_dT, boltHeadOutD_dw, boltHeadInnerD_da,
                     screwMidD_d2, screwMinD_d3, polishRodLen_l1, polishRodLen_l2, boltNutSideWid_s, boltNutScrewMinD_D1;
                 string isnut, isgasket, nutIndex, gasketIndex;
                 normalD_d = dr["normalD_d"].ToString();
                 screwP_P = dr["screwP_P"].ToString();
                 boltLen_ls = dr["boltLen_ls"].ToString();
                 boreD_dh = dr["boreD_dh"].ToString();
-                boreD_dw = dr["boreD_dw"].ToString();
+                BoreD_dT = dr["dT"].ToString();
                 boltHeadOutD_dw = dr["boltHeadOutD_dw"].ToString();
                 boltHeadInnerD_da = dr["boltHeadInnerD_da"].ToString();
                 screwMidD_d2 = dr["screwMidD_d2"].ToString();
@@ -1555,13 +1555,14 @@ namespace WindowsFormsApp1
 
                 isnut = dr["isnut"].ToString();
                 isgasket = dr["isgasket"].ToString();
-                string[] str = { normalD_d, screwP_P, boltLen_ls, boreD_dh, boltHeadOutD_dw, boltHeadInnerD_da,
+                string[] str = { normalD_d, screwP_P, boltLen_ls, boreD_dh, BoreD_dT, boltHeadOutD_dw, boltHeadInnerD_da,
                         screwMidD_d2, screwMinD_d3, polishRodLen_l1, boltNutSideWid_s, boltNutScrewMinD_D1 };
 
                 bolt.BoltLen_ls = double.Parse(boltLen_ls);
                 bolt.NormalD_d = double.Parse(normalD_d);
                 bolt.ScrewP_P = double.Parse(screwP_P);
                 bolt.BoreD_dh = double.Parse(boreD_dh);
+                bolt.BoreD_dT = double.Parse(BoreD_dT);
                 bolt.BoltHeadOutD_dw = double.Parse(boltHeadOutD_dw);
                 bolt.BoltHeadInnerD_da = double.Parse(boltHeadInnerD_da);
                 bolt.ScrewMidD_d2 = double.Parse(screwMidD_d2);
@@ -1625,7 +1626,7 @@ namespace WindowsFormsApp1
         {
             double Da = double.Parse(DA.Text);
             double Lk = H;
-            if (w == 1)
+            if (w == 2)
             {
                 Lk = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[5].Value);
             }
@@ -1647,7 +1648,7 @@ namespace WindowsFormsApp1
         private double computeDAGr(int w, double H)
         {
             double Lk = H;
-            if (w == 1)
+            if (w == 2)
             {
                 Lk = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[5].Value);
             }
@@ -1658,6 +1659,10 @@ namespace WindowsFormsApp1
             // 计算DAGr
             
             double DAGr = Ddwm + w * Lk * TanPhi;
+            Console.WriteLine("lk:" + Lk);
+            Console.WriteLine("TanPhi:" + TanPhi);
+            Console.WriteLine("DAGr:" + DAGr);
+
             return DAGr;
         }
 
@@ -1677,7 +1682,7 @@ namespace WindowsFormsApp1
             {
                 lsk = 0.4 * bolt.NormalD_d;
             }
-            double deltaSK = lsk / double.Parse(Es_yangshi.Text) / Ad3;
+            double deltaSK = lsk / double.Parse(Es_yangshi.Text) / AN;
             double deltaS = deltaSK + deltaS1 + deltaS2 + deltaGew + deltaGM;
 
             Console.WriteLine("bolt.PolishRodLen_l1:" + bolt.PolishRodLen_l1.ToString());
@@ -1694,15 +1699,12 @@ namespace WindowsFormsApp1
         private double computeDeltaP(int w, double H, double Ep, double DAGr)
         {
             // R3.3: compute deltaP
-            Console.WriteLine("w:" + w.ToString());
-            Console.WriteLine("h:" + H.ToString());
-            Console.WriteLine("Ep:" + Ep.ToString());
 
             double deltaP = 0;
             double dw = (bolt.BoltHeadOutD_dw);
             double dh = bolt.BoreD_dh;
             double Lk = H;
-            if (w == 1)
+            if (w == 2)
             {
                 Lk = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[5].Value);
             }
@@ -1717,10 +1719,8 @@ namespace WindowsFormsApp1
             {
                 TanPhi = 0.348 + 0.013 * Math.Log(BL) + 0.193 * Math.Log(y);
             }
-            Console.WriteLine("dw:" + dw.ToString()); // x
-            Console.WriteLine("dh:" + dh.ToString());
+            Console.WriteLine("phi:" + Math.Atan(TanPhi));
             Console.WriteLine("DAGr:" + DAGr.ToString()); // x
-            Console.WriteLine("y:" + y.ToString());
             Console.WriteLine("TanPhi:" + TanPhi.ToString());
 
             if (double.Parse(DA.Text) >= DAGr)
@@ -1736,7 +1736,7 @@ namespace WindowsFormsApp1
                 double right = 4 * (Lk - (da - dw) / w / TanPhi) / (da * da - dh * dh);
                 deltaP = (left + right) / Ep / pi;
             }
-            Console.WriteLine("deltaP:" + deltaP.ToString());
+            //Console.WriteLine("deltaP:" + deltaP.ToString());
 
             return deltaP;
         }
@@ -2495,7 +2495,7 @@ namespace WindowsFormsApp1
                 Console.WriteLine("H=" + H.ToString());
             }
             double Lk = H;
-            if (w == 1)
+            if (w == 2)
             {
                 Lk = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[5].Value);
             }
@@ -2584,6 +2584,7 @@ namespace WindowsFormsApp1
             }
             //Console.WriteLine("Es_yangshi:" + double.Parse(Es_yangshi.Text));
 
+            #region delta_S
             // δM
             double deltaM = lM / double.Parse(Es_yangshi.Text) / AN;
             // δG
@@ -2592,19 +2593,29 @@ namespace WindowsFormsApp1
             double deltaGM = deltaG + deltaM;
 
             double deltaS = ComputeDeltaS(w, H, deltaGM, AN);
-            Console.WriteLine("deltaGM:" + deltaGM.ToString());
+            //Console.WriteLine("deltaGM:" + deltaGM.ToString());
             Console.WriteLine("deltaS:" + deltaS.ToString());
 
+            #endregion
+
+            #region delta_P
             // R3.3: compute deltaP
             double deltaP = 0;
             double deltaP_star = 0;
             double deltaP_star_star = 0;
             double I_bt = 0;
             double a_ = 0;
-            double s_sym = Convert.ToDouble(Ssym.Text);
-            double c_T = Convert.ToDouble(cT.Text);
-            double c_B = Convert.ToDouble(cB.Text);
-            double b_T = Convert.ToDouble(bT.Text);
+            double s_sym = 0;
+            double c_T = 0;
+            double c_B =0;
+            double b_T = 0;
+            if (clampingWay.Text == "偏心")
+            {
+                s_sym = Convert.ToDouble(Ssym.Text);
+                c_T = Convert.ToDouble(cT.Text);
+                c_B = Convert.ToDouble(cB.Text);
+                b_T = Convert.ToDouble(bT.Text);
+            }
 
             //MessageBox.Show("deltaP:" + deltaP.ToString());
             if (clampingWay.Text == "同心")
@@ -2815,16 +2826,19 @@ namespace WindowsFormsApp1
             //}
 
 
-            Console.WriteLine("deltaS:" + deltaS.ToString());
-            Console.WriteLine("PhiK:" + PhiK.ToString());
-            Console.WriteLine("PhiN:" + PhiN.ToString());
-            Console.WriteLine("phi_:" + phi_.ToString());
-            Console.WriteLine("PhiN:" + PhiN.ToString());
+            Console.WriteLine("deltaP:" + deltaP);
+            Console.WriteLine("deltaP_star:" + deltaP_star);
+            Console.WriteLine("deltaP_star_star:" + deltaP_star_star);
+            Console.WriteLine("alpha:" + tightenCoef.Text);
+            Console.WriteLine("n:" + Nn);
+            Console.WriteLine("phi_n:" + phi_.ToString());
 
+            double M_B = 0;
             if (MB.Text != "")
             {
                 // 有工作力矩
                 // 计算FSA的时候需要将力和力矩同时计算进去  p67
+                M_B = Convert.ToDouble(MB.Text);
                 double F_SA = 0;
                 int rows = dataClampedChoosed.RowCount - 1;
                 double phi_m_star = 0;
@@ -2836,9 +2850,10 @@ namespace WindowsFormsApp1
                 // double phi_m_star = 
                 //    Nn * s_sym * s_sym * Convert.ToSingle(dataClampedChoosed.Rows[1].Cells[5].Value) / 
                 //    ((deltaS + deltaP) * Convert.ToSingle(dataClampedChoosed.Rows[1].Cells[1].Value) * I_bt + s_sym * s_sym * Convert.ToSingle(dataClampedChoosed.Rows[1].Cells[5].Value));
-                F_SA = phi_m_star * Convert.ToDouble(FAO.Text) + (Convert.ToDouble(MB) / s_sym);
+                F_SA = phi_m_star * Convert.ToDouble(FAO.Text) + M_B / s_sym;
             }
 
+            #endregion
             // 松开极限
             // 无案例
 
@@ -2856,6 +2871,7 @@ namespace WindowsFormsApp1
             }
             double Fz = ffz / (deltaS + deltaP);
             rs.Fz = Fz;
+            Console.WriteLine("ffz:" + ffz.ToString());
             Console.WriteLine("Fz:" + rs.Fz.ToString());
 
             // R5:
@@ -2871,7 +2887,7 @@ namespace WindowsFormsApp1
             {
                 Famin = double.Parse(fau.Text);
             }
-            double Fmmin = f_kerf + (1 - PhiN) * Famax + Fz;
+            double Fmmin = f_kerf + (1 - phi_) * Famax + Fz;
             rs.Fmmin = Fmmin;
             Console.WriteLine("Fmmin:" + rs.Fmmin.ToString());
 
@@ -2890,10 +2906,13 @@ namespace WindowsFormsApp1
             rs.Fmmax = Fmmax;
             Console.WriteLine("Fmmax:" + rs.Fmmax.ToString());
 
-
             // R7:
             Console.WriteLine("R7:");
-            double V = double.Parse(v.Text);
+            double V = 1;
+            if (v.ReadOnly == false)
+            {
+                V = double.Parse(v.Text);
+            }
             double d0 = (bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2;
             double A0 = pi * d0 * d0 / 4;
             double Rp = double.Parse(Rpmin_qufu.Text);
@@ -2904,7 +2923,8 @@ namespace WindowsFormsApp1
             double p_pid_2 = Pp / pi / d2;
             double square = (d2_3_2d0 * (p_pid_2 + 1.155 * Ugmin)) * (d2_3_2d0 * (p_pid_2 + 1.155 * Ugmin));
             double Fmzul = A0 * V * Rp / Math.Sqrt(1 + 3 * square);
-            if (Fmzul > Fmmax)
+            double f_mtb = table1() * 1000;
+            if (Fmzul >= Fmmax || f_mtb >= Fmmax)
             {
                 // 合理
                 Console.WriteLine("合理");
@@ -2913,12 +2933,13 @@ namespace WindowsFormsApp1
             {
                 // 不合理
                 Console.WriteLine("不合理");
+                MessageBox.Show("不满足Fmzul >= Fmmax || f_mtb >= Fmmax，请重新设计");
+                return null;
             }
             rs.Fmzul = Fmzul;
             Console.WriteLine("A0:" + A0.ToString());
             Console.WriteLine("square:" + square.ToString());
             Console.WriteLine("Fmzul:" + rs.Fmzul.ToString());
-
 
             // R8: 工作应力
             // 温度影响
@@ -3261,6 +3282,207 @@ namespace WindowsFormsApp1
             return rs;
         }
 
+        private double table1()
+        {
+            int d = Convert.ToInt32(bolt.NormalD_d);
+            string level = bolt.boltMaterial.BoltMaterialLevel;
+            double u_G = Convert.ToDouble(UGmin.Text);
+
+            int level_index = 0;
+            int ug_index = 0;
+            if (u_G == 0.08)
+            {
+                ug_index = 0;
+            }
+            else if (u_G == 0.1)
+            {
+                ug_index = 1;
+            }
+            else if(u_G == 0.12)
+            {
+                ug_index = 2;
+            }
+            else if (u_G == 0.14)
+            {
+                ug_index = 3;
+            }
+            else if (u_G == 0.16)
+            {
+                ug_index = 4;
+            }
+            else if (u_G == 0.2)
+            {
+                ug_index = 5;
+            } 
+            else if (u_G == 0.24)
+            {
+                ug_index = 6;
+            }
+
+            if (level == "8.8")
+            {
+                level_index = 0;
+            }
+            else if (level == "10.9")
+            {
+                level_index = 1;
+            }
+            else if (level == "12.9")
+            {
+                level_index = 2;
+            }
+
+            double Ftb = 0;
+            switch (d)
+            {
+                case 4:
+                    double[,] arr4 = new double[3, 7] {
+                        { 4.6, 4.5, 4.4, 4.3, 4.2, 3.9, 3.7 },
+                        { 6.8, 6.7, 6.5, 6.3, 6.1, 5.7, 5.4 },
+                        { 8,   7.8, 7.6, 7.4, 7.1, 6.7, 6.3}
+                    };
+                    Ftb = arr4[level_index,ug_index];
+                    break;
+                case 5:
+                    double[,] arr5 = new double[3, 7] {
+                        { 7.6, 7.4, 7.2, 7.0, 6.8, 6.4, 6 },
+                        { 11.1,10.8,10.6,10.3,10.0,9.4, 8.8 },
+                        { 13,  12.7,12.4,12.0,11.7,11.0,10.3}
+                    };
+                    Ftb = arr5[level_index, ug_index];
+                    break;
+                case 6:
+                    double[,] arr6 = new double[3, 7] {
+                        { 10.7, 10.4, 10.2, 9.9, 9.6, 9.0, 8.4 },
+                        { 15.7, 15.3, 14.9, 14.5,14.1,13.2,12.4 },
+                        { 18.4, 17.9, 17.5, 17.0,16.5, 15.5, 14.5}
+                    };
+                    Ftb = arr6[level_index, ug_index];
+                    break;
+                case 7:
+                    double[,] arr7 = new double[3, 7] {
+                        { 15.5, 15.1, 14.8, 14.4, 14.0, 13.1, 12.3 },
+                        { 22.7, 22.5, 21.7, 21.1, 20.5, 19.3, 18.1 },
+                        { 26.6, 26.0, 25.4, 24.7, 24.0, 22.6, 21.2}
+                    };
+                    Ftb = arr7[level_index, ug_index];
+                    break;
+                case 8:
+                    double[,] arr8 = new double[3, 7] {
+                        { 19.5, 19.1, 18.6, 18.1, 17.6, 16.5, 15.5 },
+                        { 28.7, 28.0, 27.3, 26.6, 25.8, 24.3, 22.7 },
+                        { 33.6, 32.8, 32.0, 31.1, 30.2, 28.4, 26.6}
+                    };
+                    Ftb = arr8[level_index, ug_index];
+                    break;
+                case 10:
+                    double[,] arr10 = new double[3, 7] {
+                        { 31.0, 30.3, 29.6, 28.8, 27.9, 26.3, 24.7 },
+                        { 45.6, 44.5, 43.4, 42.2, 41.0, 38.6, 36.2 },
+                        { 53.3, 52.1, 50.8, 49.4, 48.0, 45.2, 42.4}
+                    };
+                    Ftb = arr10[level_index, ug_index];
+                    break;
+                case 12:
+                    double[,] arr12 = new double[3, 7] {
+                        { 45.2, 44.1, 43.0, 41.9, 40.7, 38.3, 35.9 },
+                        { 66.3, 64.8, 63.2, 61.5, 59.8, 56.3, 52.8 },
+                        { 77.6, 75.9, 74.0, 72.0, 70.0, 65.8, 61.8}
+                    };
+                    Ftb = arr12[level_index, ug_index];
+                    break;
+                case 14:
+                    double[,] arr14 = new double[3, 7] {
+                        { 62.0, 60.6, 59.1, 57.5, 55.9, 52.6, 49.3 },
+                        { 91.0, 88.9 ,86.7, 84.4, 82.1, 77.2, 72.5 },
+                        { 106.5,104.1,101.5,98.8, 96.0, 90.4, 84.8}
+                    };
+                    Ftb = arr14[level_index, ug_index];
+                    break;
+                case 16:
+                    double[,] arr16 = new double[3, 7] {
+                        { 62.0, 60.6, 59.1, 57.5, 55.9, 52.6, 49.3 },
+                        { 91.0, 88.9 ,86.7, 84.4, 82.1, 77.2, 72.5 },
+                        { 106.5,104.1,101.5,98.8, 96.0, 90.4, 84.8}
+                    };
+                    Ftb = arr16[level_index, ug_index];
+                    break;
+                case 18:
+                    double[,] arr18 = new double[3, 7] {
+                        { 107, 104, 102, 99, 96, 91, 85 },
+                        { 152, 149, 145, 141, 137, 129, 121},
+                        { 178, 174, 170, 165, 160, 151 , 142}
+                    };
+                    Ftb = arr18[level_index, ug_index];
+                    break;
+                case 20:
+                    double[,] arr20 = new double[3, 7] {
+                        { 136, 134, 130, 127, 123, 116, 109 },
+                        { 194, 190, 186, 181, 176, 166, 156},
+                        { 227, 223, 217, 212, 206, 194, 182}
+                    };
+                    Ftb = arr20[level_index, ug_index];
+                    break;
+                case 22:
+                    double[,] arr22 = new double[3, 7] {
+                        { 170, 166, 162, 158, 154, 145, 137 },
+                        { 242, 237, 231, 225, 219, 207, 194},
+                        { 283, 277, 271, 264, 257, 242, 228}
+                    };
+                    Ftb = arr22[level_index, ug_index];
+                    break;
+                case 24:
+                    double[,] arr24 = new double[3, 7] {
+                        { 196, 192, 188, 183, 178 ,168, 157},
+                        { 280, 274, 267, 260, 253, 239, 224},
+                        { 327, 320 , 313 ,305, 296 ,279, 262}
+                    };
+                    Ftb = arr24[level_index, ug_index];
+                    break;
+                case 27:
+                    double[,] arr27 = new double[3, 7] {
+                        { 257, 252, 246, 240 ,234, 220, 207},
+                        { 367, 359, 351, 342, 333 ,314, 295},
+                        { 429, 420 ,410 ,400 ,389 ,367, 345}
+                    };
+                    Ftb = arr27[level_index, ug_index];
+                    break;
+                case 30:
+                    double[,] arr30 = new double[3, 7] {
+                        { 313, 307, 300, 292, 284 ,268,252},
+                        { 446, 437, 427, 416, 405, 382 ,359},
+                        { 522, 511 ,499, 487 ,474 ,447 ,420}
+                    };
+                    Ftb = arr30[level_index, ug_index];
+                    break;
+                case 33:
+                    double[,] arr33 = new double[3, 7] {
+                        { 389, 381, 373 ,363 ,354 ,334 ,314},
+                        { 554 ,543 ,531 ,517 ,504 ,475 ,447},
+                        { 649 ,635 ,621 ,605 ,589 ,556 ,523}
+                    };
+                    Ftb = arr33[level_index, ug_index];
+                    break;
+                case 36:
+                    double[,] arr36 = new double[3, 7] {
+                        { 458, 448 ,438 ,427 ,415 ,392 ,368},
+                        { 652 ,638, 623 ,608 ,591 ,558 ,524},
+                        { 763 ,747 ,729 ,711 ,692 ,653, 614}
+                    };
+                    Ftb = arr36[level_index, ug_index];
+                    break;
+                case 39:
+                    double[,] arr39 = new double[3, 7] {
+                        { 548, 537, 525 ,512 ,498 ,470 ,443},
+                        { 781 ,765 ,748 ,729 ,710 ,670 ,630},
+                        { 914 ,895 ,875 ,853 ,831 ,784 ,738}
+                    };
+                    Ftb = arr39[level_index, ug_index];
+                    break;
+            }
+            return Ftb;
+        }
+
         private double table5()
         {
             double ffz = 0;
@@ -3270,10 +3492,18 @@ namespace WindowsFormsApp1
                 if (boltConnectLoad.Text == "单螺栓连接")
                 {
                     ffz = 7;
+                    if (BoltConnectType.Text == "通孔螺栓连接")
+                    {
+                        ffz = ffz + 2.5;
+                    }
                 }
                 else if (boltConnectLoad.Text == "受横向载荷的单螺栓连接")
                 {
                     ffz = 8;
+                    if (BoltConnectType.Text == "通孔螺栓连接")
+                    {
+                        ffz = ffz + 3;
+                    }
                 }
             }
             else if (R_z >= 10 && R_z < 40)
@@ -3281,10 +3511,18 @@ namespace WindowsFormsApp1
                 if (boltConnectLoad.Text == "单螺栓连接")
                 {
                     ffz = 8;
+                    if (BoltConnectType.Text == "通孔螺栓连接")
+                    {
+                        ffz = ffz + 3;
+                    }
                 }
                 else if (boltConnectLoad.Text == "受横向载荷的单螺栓连接")
                 {
                     ffz = 10;
+                    if (BoltConnectType.Text == "通孔螺栓连接")
+                    {
+                        ffz = ffz + 4.5;
+                    }
                 }
             }
             else if (R_z >= 40 && R_z < 160)
@@ -3292,10 +3530,18 @@ namespace WindowsFormsApp1
                 if (boltConnectLoad.Text == "单螺栓连接")
                 {
                     ffz = 10;
+                    if (BoltConnectType.Text == "通孔螺栓连接")
+                    {
+                        ffz = ffz + 4;
+                    }
                 }
                 else if (boltConnectLoad.Text == "受横向载荷的单螺栓连接")
                 {
                     ffz = 13;
+                    if (BoltConnectType.Text == "通孔螺栓连接")
+                    {
+                        ffz = ffz + 6.5;
+                    }
                 }
             }
             else
@@ -3303,7 +3549,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Rz输入错误，请检查");
                 throw new Exception();
             }
-            return ffz;
+            return ffz / 1000;
         }
 
         private void gasketMaterialChooseBtn_Click(object sender, EventArgs e)
