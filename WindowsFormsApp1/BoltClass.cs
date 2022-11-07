@@ -25,11 +25,13 @@ namespace WindowsFormsApp1
         public double ScrewP_P { get; set; }
         public double BoltLen_ls { get; set; }
         public double BoreD_dh { get; set; }
+        public double BoreD_dT { get; set; }
         public double BoltHeadOutD_dw { get; set; }
         public double BoltHeadInnerD_da { get; set; }
         public double ScrewMidD_d2 { get; set; }
         public double ScrewMinD_d3 { get; set; }
         public double PolishRodLen_l1 { get; set; }
+        public double PolishRodLen_l2 { get; set; }
         public double BoltNutSideWid_s { get; set; }
         public double BoltNutScrewMinD_D1 { get; set; }
 

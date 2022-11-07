@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            devDept.Eyeshot.CancelToolBarButton cancelToolBarButton8 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ProgressBar progressBar8 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton8, false, 0.1D, true);
-            devDept.Graphics.BackgroundSettings backgroundSettings8 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
-            devDept.Eyeshot.Camera camera8 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800006327009897D, false, 0.001D);
-            devDept.Eyeshot.HomeToolBarButton homeToolBarButton8 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
-            devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton8 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton8 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ZoomToolBarButton zoomToolBarButton8 = new devDept.Eyeshot.ZoomToolBarButton("Zoom", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.PanToolBarButton panToolBarButton8 = new devDept.Eyeshot.PanToolBarButton("Pan", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.RotateToolBarButton rotateToolBarButton8 = new devDept.Eyeshot.RotateToolBarButton("Rotate", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ZoomFitToolBarButton zoomFitToolBarButton8 = new devDept.Eyeshot.ZoomFitToolBarButton("Zoom Fit", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
-            devDept.Eyeshot.ToolBar toolBar8 = new devDept.Eyeshot.ToolBar(devDept.Eyeshot.ToolBar.positionType.HorizontalTopCenter, true, new devDept.Eyeshot.ToolBarButton[] {
-            ((devDept.Eyeshot.ToolBarButton)(homeToolBarButton8)),
-            ((devDept.Eyeshot.ToolBarButton)(magnifyingGlassToolBarButton8)),
-            ((devDept.Eyeshot.ToolBarButton)(zoomWindowToolBarButton8)),
-            ((devDept.Eyeshot.ToolBarButton)(zoomToolBarButton8)),
-            ((devDept.Eyeshot.ToolBarButton)(panToolBarButton8)),
-            ((devDept.Eyeshot.ToolBarButton)(rotateToolBarButton8)),
-            ((devDept.Eyeshot.ToolBarButton)(zoomFitToolBarButton8))});
-            devDept.Eyeshot.Grid grid8 = new devDept.Eyeshot.Grid(new devDept.Geometry.Point3D(-100D, -100D, 0D), new devDept.Geometry.Point3D(100D, 100D, 0D), 10D, new devDept.Geometry.Plane(new devDept.Geometry.Point3D(0D, 0D, 0D), new devDept.Geometry.Vector3D(0D, 0D, 1D)), System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(0))))), false, true, false, false, 10, 100, 10, System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90))))), System.Drawing.Color.Transparent, false, System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255))))));
-            devDept.Eyeshot.RotateSettings rotateSettings8 = new devDept.Eyeshot.RotateSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.None), 10D, true, 1D, devDept.Eyeshot.rotationType.Trackball, devDept.Eyeshot.rotationCenterType.CursorLocation, new devDept.Geometry.Point3D(0D, 0D, 0D), false);
-            devDept.Eyeshot.ZoomSettings zoomSettings8 = new devDept.Eyeshot.ZoomSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Shift), 25, true, devDept.Eyeshot.zoomStyleType.AtCursorLocation, false, 1D, System.Drawing.Color.Empty, devDept.Eyeshot.Camera.perspectiveFitType.Accurate, false, 10, true);
-            devDept.Eyeshot.PanSettings panSettings8 = new devDept.Eyeshot.PanSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Ctrl), 25, true);
-            devDept.Eyeshot.NavigationSettings navigationSettings8 = new devDept.Eyeshot.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Left, devDept.Eyeshot.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
-            devDept.Eyeshot.Viewport.SavedViewsManager savedViewsManager8 = new devDept.Eyeshot.Viewport.SavedViewsManager(8);
-            devDept.Eyeshot.Viewport viewport8 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(477, 388), backgroundSettings8, camera8, new devDept.Eyeshot.ToolBar[] {
-            toolBar8}, devDept.Eyeshot.displayType.Rendered, true, false, false, false, new devDept.Eyeshot.Grid[] {
-            grid8}, false, rotateSettings8, zoomSettings8, panSettings8, navigationSettings8, savedViewsManager8, devDept.Eyeshot.viewType.Trimetric);
-            devDept.Eyeshot.CoordinateSystemIcon coordinateSystemIcon8 = new devDept.Eyeshot.CoordinateSystemIcon(System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.coordinateSystemPositionType.BottomLeft, 37, false);
-            devDept.Eyeshot.OriginSymbol originSymbol8 = new devDept.Eyeshot.OriginSymbol(10, devDept.Eyeshot.originSymbolStyleType.Ball, System.Drawing.Color.Black, System.Drawing.Color.Red, System.Drawing.Color.Green, System.Drawing.Color.Blue, "Origin", "X", "Y", "Z", true, null, false);
-            devDept.Eyeshot.ViewCubeIcon viewCubeIcon8 = new devDept.Eyeshot.ViewCubeIcon(devDept.Eyeshot.coordinateSystemPositionType.TopRight, true, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(20)))), ((int)(((byte)(147))))), true, "FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM", System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), 'S', 'N', 'W', 'E', true, System.Drawing.Color.White, System.Drawing.Color.Black, 120, true, true, null, null, null, null, null, null, false);
+            devDept.Eyeshot.CancelToolBarButton cancelToolBarButton1 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ProgressBar progressBar1 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton1, false, 0.1D, true);
+            devDept.Graphics.BackgroundSettings backgroundSettings1 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
+            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800005957399191D, false, 0.001D);
+            devDept.Eyeshot.HomeToolBarButton homeToolBarButton1 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
+            devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton1 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton1 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ZoomToolBarButton zoomToolBarButton1 = new devDept.Eyeshot.ZoomToolBarButton("Zoom", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.PanToolBarButton panToolBarButton1 = new devDept.Eyeshot.PanToolBarButton("Pan", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.RotateToolBarButton rotateToolBarButton1 = new devDept.Eyeshot.RotateToolBarButton("Rotate", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ZoomFitToolBarButton zoomFitToolBarButton1 = new devDept.Eyeshot.ZoomFitToolBarButton("Zoom Fit", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
+            devDept.Eyeshot.ToolBar toolBar1 = new devDept.Eyeshot.ToolBar(devDept.Eyeshot.ToolBar.positionType.HorizontalTopCenter, true, new devDept.Eyeshot.ToolBarButton[] {
+            ((devDept.Eyeshot.ToolBarButton)(homeToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(magnifyingGlassToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(zoomWindowToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(zoomToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(panToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(rotateToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(zoomFitToolBarButton1))});
+            devDept.Eyeshot.Grid grid1 = new devDept.Eyeshot.Grid(new devDept.Geometry.Point3D(-100D, -100D, 0D), new devDept.Geometry.Point3D(100D, 100D, 0D), 10D, new devDept.Geometry.Plane(new devDept.Geometry.Point3D(0D, 0D, 0D), new devDept.Geometry.Vector3D(0D, 0D, 1D)), System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(0))))), false, true, false, false, 10, 100, 10, System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90))))), System.Drawing.Color.Transparent, false, System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255))))));
+            devDept.Eyeshot.RotateSettings rotateSettings1 = new devDept.Eyeshot.RotateSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.None), 10D, true, 1D, devDept.Eyeshot.rotationType.Trackball, devDept.Eyeshot.rotationCenterType.CursorLocation, new devDept.Geometry.Point3D(0D, 0D, 0D), false);
+            devDept.Eyeshot.ZoomSettings zoomSettings1 = new devDept.Eyeshot.ZoomSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Shift), 25, true, devDept.Eyeshot.zoomStyleType.AtCursorLocation, false, 1D, System.Drawing.Color.Empty, devDept.Eyeshot.Camera.perspectiveFitType.Accurate, false, 10, true);
+            devDept.Eyeshot.PanSettings panSettings1 = new devDept.Eyeshot.PanSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Ctrl), 25, true);
+            devDept.Eyeshot.NavigationSettings navigationSettings1 = new devDept.Eyeshot.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Left, devDept.Eyeshot.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
+            devDept.Eyeshot.Viewport.SavedViewsManager savedViewsManager1 = new devDept.Eyeshot.Viewport.SavedViewsManager(8);
+            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(477, 388), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
+            toolBar1}, devDept.Eyeshot.displayType.Rendered, true, false, false, false, new devDept.Eyeshot.Grid[] {
+            grid1}, false, rotateSettings1, zoomSettings1, panSettings1, navigationSettings1, savedViewsManager1, devDept.Eyeshot.viewType.Trimetric);
+            devDept.Eyeshot.CoordinateSystemIcon coordinateSystemIcon1 = new devDept.Eyeshot.CoordinateSystemIcon(System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.coordinateSystemPositionType.BottomLeft, 37, false);
+            devDept.Eyeshot.OriginSymbol originSymbol1 = new devDept.Eyeshot.OriginSymbol(10, devDept.Eyeshot.originSymbolStyleType.Ball, System.Drawing.Color.Black, System.Drawing.Color.Red, System.Drawing.Color.Green, System.Drawing.Color.Blue, "Origin", "X", "Y", "Z", true, null, false);
+            devDept.Eyeshot.ViewCubeIcon viewCubeIcon1 = new devDept.Eyeshot.ViewCubeIcon(devDept.Eyeshot.coordinateSystemPositionType.TopRight, true, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(20)))), ((int)(((byte)(147))))), true, "FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM", System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), 'S', 'N', 'W', 'E', true, System.Drawing.Color.White, System.Drawing.Color.Black, 120, true, true, null, null, null, null, null, null, false);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ValidateDesignForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.saveTempData = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,23 +80,39 @@
             this.cB = new System.Windows.Forms.TextBox();
             this.b = new System.Windows.Forms.TextBox();
             this.e = new System.Windows.Forms.TextBox();
+            this.Ibt = new System.Windows.Forms.TextBox();
             this.bT = new System.Windows.Forms.TextBox();
             this.cT = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cBUnit = new System.Windows.Forms.Label();
             this.bUnit = new System.Windows.Forms.Label();
             this.eUnit = new System.Windows.Forms.Label();
+            this.IbtUnit = new System.Windows.Forms.Label();
             this.bTUnit = new System.Windows.Forms.Label();
             this.cTUnit = new System.Windows.Forms.Label();
             this.isIbt = new System.Windows.Forms.ComboBox();
             this.jiaZaiQingKuang = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.bLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.IbtLabel = new System.Windows.Forms.Label();
             this.bTLabel = new System.Windows.Forms.Label();
             this.cTLabel = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SsymUnit = new System.Windows.Forms.Label();
             this.Ssym = new System.Windows.Forms.TextBox();
             this.splitBasic = new System.Windows.Forms.SplitContainer();
+            this.FtauGroup = new System.Windows.Forms.GroupBox();
+            this.isSGsoll = new System.Windows.Forms.ComboBox();
+            this.isSGsollLabel = new System.Windows.Forms.Label();
+            this.UTmin = new System.Windows.Forms.TextBox();
+            this.SGsoll = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.UTminLabel = new System.Windows.Forms.Label();
+            this.FQ = new System.Windows.Forms.TextBox();
+            this.FQLabel = new System.Windows.Forms.Label();
+            this.FQUnit = new System.Windows.Forms.Label();
             this.basicGroup = new System.Windows.Forms.GroupBox();
             this.ClampingWayLabel = new System.Windows.Forms.Label();
             this.BoltConnectTypeLabel = new System.Windows.Forms.Label();
@@ -111,24 +127,32 @@
             this.JointFaceEquOutDiameterLabel = new System.Windows.Forms.Label();
             this.Dhamax = new System.Windows.Forms.TextBox();
             this.ra = new System.Windows.Forms.TextBox();
+            this.pimax = new System.Windows.Forms.TextBox();
             this.dtau = new System.Windows.Forms.TextBox();
             this.DA2 = new System.Windows.Forms.TextBox();
             this.ifRaLabel = new System.Windows.Forms.Label();
             this.DhamaxUnit = new System.Windows.Forms.Label();
             this.raUnit = new System.Windows.Forms.Label();
             this.ifMtLabel = new System.Windows.Forms.Label();
+            this.ADLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.ifPreDtLabel = new System.Windows.Forms.Label();
+            this.pimaxUnit = new System.Windows.Forms.Label();
             this.dtauUnit = new System.Windows.Forms.Label();
             this.ifRa = new System.Windows.Forms.ComboBox();
+            this.ADUnit = new System.Windows.Forms.Label();
             this.DA2Label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.isMt = new System.Windows.Forms.ComboBox();
             this.raLabel = new System.Windows.Forms.Label();
+            this.ifPimax = new System.Windows.Forms.ComboBox();
             this.ifDt = new System.Windows.Forms.ComboBox();
+            this.pimaxLabel = new System.Windows.Forms.Label();
             this.dtauLabel = new System.Windows.Forms.Label();
             this.JointFaceUpEquOutDiameterLabel = new System.Windows.Forms.Label();
             this.UpperLimitAxialLoadDisplay = new System.Windows.Forms.Label();
             this.DA = new System.Windows.Forms.TextBox();
+            this.AD = new System.Windows.Forms.TextBox();
             this.BoltGroup = new System.Windows.Forms.GroupBox();
             this.fBS = new System.Windows.Forms.TextBox();
             this.Rm_kangla = new System.Windows.Forms.TextBox();
@@ -232,18 +256,15 @@
             this.fGLabel = new System.Windows.Forms.Label();
             this.RmminSLabel = new System.Windows.Forms.Label();
             this.EPSLabel = new System.Windows.Forms.Label();
-            this.EmbeddedValueUnit = new System.Windows.Forms.Label();
             this.surfaceRoughnessUnit = new System.Windows.Forms.Label();
             this.CounterBoreDepthUnit = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.hs2Unit = new System.Windows.Forms.Label();
             this.DAUUnit = new System.Windows.Forms.Label();
             this.dhasUnitLabel = new System.Windows.Forms.Label();
-            this.EmbeddedValue = new System.Windows.Forms.TextBox();
-            this.surfaceRoughness = new System.Windows.Forms.TextBox();
+            this.Rz = new System.Windows.Forms.TextBox();
             this.CounterBoreDepth = new System.Windows.Forms.TextBox();
             this.dha = new System.Windows.Forms.TextBox();
-            this.EmbeddedValueLabel = new System.Windows.Forms.Label();
             this.hs2 = new System.Windows.Forms.TextBox();
             this.surfaceRoughnessLabel = new System.Windows.Forms.Label();
             this.CounterBoreDepthLabel = new System.Windows.Forms.Label();
@@ -252,9 +273,7 @@
             this.hs2Label = new System.Windows.Forms.Label();
             this.dhas = new System.Windows.Forms.TextBox();
             this.DAULabel = new System.Windows.Forms.Label();
-            this.pEmbeddedValue = new System.Windows.Forms.ComboBox();
             this.isCounterBore = new System.Windows.Forms.ComboBox();
-            this.pEmbeddedValueLabel = new System.Windows.Forms.Label();
             this.isAngle = new System.Windows.Forms.ComboBox();
             this.isCounterBoreLabel = new System.Windows.Forms.Label();
             this.isAngleLabel = new System.Windows.Forms.Label();
@@ -271,16 +290,6 @@
             this.DaLabel = new System.Windows.Forms.Label();
             this.splitLoadData = new System.Windows.Forms.SplitContainer();
             this.loadDataGroup = new System.Windows.Forms.GroupBox();
-            this.FtauGroup = new System.Windows.Forms.GroupBox();
-            this.isSGsoll = new System.Windows.Forms.ComboBox();
-            this.isSGsollLabel = new System.Windows.Forms.Label();
-            this.UTmin = new System.Windows.Forms.TextBox();
-            this.SGsoll = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.UTminLabel = new System.Windows.Forms.Label();
-            this.FQ = new System.Windows.Forms.TextBox();
-            this.FQLabel = new System.Windows.Forms.Label();
-            this.FQUnit = new System.Windows.Forms.Label();
             this.fz = new System.Windows.Forms.TextBox();
             this.fzlabel = new System.Windows.Forms.Label();
             this.fzUnit = new System.Windows.Forms.Label();
@@ -351,12 +360,6 @@
             this.materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet9TableAdapters.materialClampedTableAdapter();
             this.materialClampedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbo_materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet18TableAdapters.dbo_materialClampedTableAdapter();
-            this.IbtLabel = new System.Windows.Forms.Label();
-            this.IbtUnit = new System.Windows.Forms.Label();
-            this.Ibt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.DataInputTable.SuspendLayout();
             this.basicData.SuspendLayout();
@@ -377,6 +380,7 @@
             this.splitBasic.Panel1.SuspendLayout();
             this.splitBasic.Panel2.SuspendLayout();
             this.splitBasic.SuspendLayout();
+            this.FtauGroup.SuspendLayout();
             this.basicGroup.SuspendLayout();
             this.phiDimGroup.SuspendLayout();
             this.BoltGroup.SuspendLayout();
@@ -430,7 +434,6 @@
             this.splitLoadData.Panel1.SuspendLayout();
             this.splitLoadData.SuspendLayout();
             this.loadDataGroup.SuspendLayout();
-            this.FtauGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
@@ -676,6 +679,13 @@
             this.e.Size = new System.Drawing.Size(110, 21);
             this.e.TabIndex = 65;
             // 
+            // Ibt
+            // 
+            this.Ibt.Location = new System.Drawing.Point(178, 269);
+            this.Ibt.Name = "Ibt";
+            this.Ibt.Size = new System.Drawing.Size(110, 21);
+            this.Ibt.TabIndex = 65;
+            // 
             // bT
             // 
             this.bT.Location = new System.Drawing.Point(178, 204);
@@ -689,6 +699,13 @@
             this.cT.Name = "cT";
             this.cT.Size = new System.Drawing.Size(110, 21);
             this.cT.TabIndex = 65;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(178, 63);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(110, 21);
+            this.textBox1.TabIndex = 65;
             // 
             // cBUnit
             // 
@@ -719,6 +736,16 @@
             this.eUnit.Size = new System.Drawing.Size(17, 12);
             this.eUnit.TabIndex = 60;
             this.eUnit.Text = "mm";
+            // 
+            // IbtUnit
+            // 
+            this.IbtUnit.AutoSize = true;
+            this.IbtUnit.Location = new System.Drawing.Point(293, 276);
+            this.IbtUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.IbtUnit.Name = "IbtUnit";
+            this.IbtUnit.Size = new System.Drawing.Size(23, 12);
+            this.IbtUnit.TabIndex = 60;
+            this.IbtUnit.Text = "mm4";
             // 
             // bTUnit
             // 
@@ -772,6 +799,16 @@
             this.jiaZaiQingKuang.TabIndex = 59;
             this.jiaZaiQingKuang.ValueMember = "boltType";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(293, 70);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(17, 12);
+            this.label11.TabIndex = 60;
+            this.label11.Text = "mm";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -799,6 +836,15 @@
             this.label9.TabIndex = 63;
             this.label9.Text = "从接合面带有张开风险的\r\n边缘至螺栓轴的距离e：";
             // 
+            // IbtLabel
+            // 
+            this.IbtLabel.AutoSize = true;
+            this.IbtLabel.Location = new System.Drawing.Point(14, 273);
+            this.IbtLabel.Name = "IbtLabel";
+            this.IbtLabel.Size = new System.Drawing.Size(83, 12);
+            this.IbtLabel.TabIndex = 63;
+            this.IbtLabel.Text = "转动惯量Ibt：";
+            // 
             // bTLabel
             // 
             this.bTLabel.AutoSize = true;
@@ -816,6 +862,15 @@
             this.cTLabel.Size = new System.Drawing.Size(137, 12);
             this.cTLabel.TabIndex = 63;
             this.cTLabel.Text = "被连接件接合面长度cT：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(11, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(149, 12);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "从0-0轴至开口处的距离u：";
             // 
             // SsymUnit
             // 
@@ -843,6 +898,8 @@
             // 
             // splitBasic.Panel1
             // 
+            this.splitBasic.Panel1.AutoScroll = true;
+            this.splitBasic.Panel1.Controls.Add(this.FtauGroup);
             this.splitBasic.Panel1.Controls.Add(this.basicGroup);
             // 
             // splitBasic.Panel2
@@ -850,8 +907,112 @@
             this.splitBasic.Panel2.AutoScroll = true;
             this.splitBasic.Panel2.Controls.Add(this.phiDimGroup);
             this.splitBasic.Size = new System.Drawing.Size(357, 526);
-            this.splitBasic.SplitterDistance = 164;
+            this.splitBasic.SplitterDistance = 236;
             this.splitBasic.TabIndex = 0;
+            this.splitBasic.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitBasic_SplitterMoved);
+            // 
+            // FtauGroup
+            // 
+            this.FtauGroup.AutoSize = true;
+            this.FtauGroup.Controls.Add(this.isSGsoll);
+            this.FtauGroup.Controls.Add(this.isSGsollLabel);
+            this.FtauGroup.Controls.Add(this.UTmin);
+            this.FtauGroup.Controls.Add(this.SGsoll);
+            this.FtauGroup.Controls.Add(this.label2);
+            this.FtauGroup.Controls.Add(this.UTminLabel);
+            this.FtauGroup.Controls.Add(this.FQ);
+            this.FtauGroup.Controls.Add(this.FQLabel);
+            this.FtauGroup.Controls.Add(this.FQUnit);
+            this.FtauGroup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FtauGroup.Location = new System.Drawing.Point(0, 162);
+            this.FtauGroup.Name = "FtauGroup";
+            this.FtauGroup.Size = new System.Drawing.Size(340, 152);
+            this.FtauGroup.TabIndex = 74;
+            this.FtauGroup.TabStop = false;
+            this.FtauGroup.Text = "附加剪力系数";
+            this.FtauGroup.Visible = false;
+            // 
+            // isSGsoll
+            // 
+            this.isSGsoll.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.isSGsoll.FormattingEnabled = true;
+            this.isSGsoll.Items.AddRange(new object[] {
+            "是",
+            "否"});
+            this.isSGsoll.Location = new System.Drawing.Point(191, 83);
+            this.isSGsoll.Margin = new System.Windows.Forms.Padding(2);
+            this.isSGsoll.Name = "isSGsoll";
+            this.isSGsoll.Size = new System.Drawing.Size(76, 20);
+            this.isSGsoll.TabIndex = 70;
+            this.isSGsoll.SelectedIndexChanged += new System.EventHandler(this.isSGsoll_SelectedIndexChanged);
+            // 
+            // isSGsollLabel
+            // 
+            this.isSGsollLabel.AutoSize = true;
+            this.isSGsollLabel.Location = new System.Drawing.Point(4, 86);
+            this.isSGsollLabel.Name = "isSGsollLabel";
+            this.isSGsollLabel.Size = new System.Drawing.Size(161, 12);
+            this.isSGsollLabel.TabIndex = 69;
+            this.isSGsollLabel.Text = "预定所需的抗滑移安全系数：";
+            // 
+            // UTmin
+            // 
+            this.UTmin.Location = new System.Drawing.Point(189, 50);
+            this.UTmin.Name = "UTmin";
+            this.UTmin.Size = new System.Drawing.Size(76, 21);
+            this.UTmin.TabIndex = 66;
+            // 
+            // SGsoll
+            // 
+            this.SGsoll.Location = new System.Drawing.Point(191, 111);
+            this.SGsoll.Name = "SGsoll";
+            this.SGsoll.ReadOnly = true;
+            this.SGsoll.Size = new System.Drawing.Size(76, 21);
+            this.SGsoll.TabIndex = 67;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 12);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "抗滑移安全系数SGsoll：";
+            // 
+            // UTminLabel
+            // 
+            this.UTminLabel.AutoSize = true;
+            this.UTminLabel.Location = new System.Drawing.Point(2, 47);
+            this.UTminLabel.Name = "UTminLabel";
+            this.UTminLabel.Size = new System.Drawing.Size(119, 24);
+            this.UTminLabel.TabIndex = 63;
+            this.UTminLabel.Text = "被连接件接合面间\r\n最小摩擦系数UTmin：";
+            // 
+            // FQ
+            // 
+            this.FQ.Location = new System.Drawing.Point(189, 15);
+            this.FQ.Name = "FQ";
+            this.FQ.Size = new System.Drawing.Size(76, 21);
+            this.FQ.TabIndex = 68;
+            this.FQ.Text = "0";
+            // 
+            // FQLabel
+            // 
+            this.FQLabel.AutoSize = true;
+            this.FQLabel.Location = new System.Drawing.Point(2, 19);
+            this.FQLabel.Name = "FQLabel";
+            this.FQLabel.Size = new System.Drawing.Size(77, 12);
+            this.FQLabel.TabIndex = 65;
+            this.FQLabel.Text = "横向载荷FQ：";
+            // 
+            // FQUnit
+            // 
+            this.FQUnit.AutoSize = true;
+            this.FQUnit.Location = new System.Drawing.Point(270, 16);
+            this.FQUnit.Name = "FQUnit";
+            this.FQUnit.Size = new System.Drawing.Size(17, 12);
+            this.FQUnit.TabIndex = 62;
+            this.FQUnit.Text = "mm";
             // 
             // basicGroup
             // 
@@ -862,10 +1023,10 @@
             this.basicGroup.Controls.Add(this.BoltConnectType);
             this.basicGroup.Controls.Add(this.boltConnectLoad);
             this.basicGroup.Controls.Add(this.boltConnectLoadLabel);
-            this.basicGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.basicGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.basicGroup.Location = new System.Drawing.Point(0, 0);
             this.basicGroup.Name = "basicGroup";
-            this.basicGroup.Size = new System.Drawing.Size(357, 164);
+            this.basicGroup.Size = new System.Drawing.Size(340, 162);
             this.basicGroup.TabIndex = 70;
             this.basicGroup.TabStop = false;
             this.basicGroup.Text = "基础";
@@ -955,35 +1116,43 @@
             this.phiDimGroup.Controls.Add(this.JointFaceEquOutDiameterLabel);
             this.phiDimGroup.Controls.Add(this.Dhamax);
             this.phiDimGroup.Controls.Add(this.ra);
+            this.phiDimGroup.Controls.Add(this.pimax);
             this.phiDimGroup.Controls.Add(this.dtau);
             this.phiDimGroup.Controls.Add(this.DA2);
             this.phiDimGroup.Controls.Add(this.ifRaLabel);
             this.phiDimGroup.Controls.Add(this.DhamaxUnit);
             this.phiDimGroup.Controls.Add(this.raUnit);
             this.phiDimGroup.Controls.Add(this.ifMtLabel);
+            this.phiDimGroup.Controls.Add(this.ADLabel);
+            this.phiDimGroup.Controls.Add(this.label12);
             this.phiDimGroup.Controls.Add(this.ifPreDtLabel);
+            this.phiDimGroup.Controls.Add(this.pimaxUnit);
             this.phiDimGroup.Controls.Add(this.dtauUnit);
             this.phiDimGroup.Controls.Add(this.ifRa);
+            this.phiDimGroup.Controls.Add(this.ADUnit);
             this.phiDimGroup.Controls.Add(this.DA2Label);
             this.phiDimGroup.Controls.Add(this.label1);
             this.phiDimGroup.Controls.Add(this.isMt);
             this.phiDimGroup.Controls.Add(this.raLabel);
+            this.phiDimGroup.Controls.Add(this.ifPimax);
             this.phiDimGroup.Controls.Add(this.ifDt);
+            this.phiDimGroup.Controls.Add(this.pimaxLabel);
             this.phiDimGroup.Controls.Add(this.dtauLabel);
             this.phiDimGroup.Controls.Add(this.JointFaceUpEquOutDiameterLabel);
             this.phiDimGroup.Controls.Add(this.UpperLimitAxialLoadDisplay);
             this.phiDimGroup.Controls.Add(this.DA);
+            this.phiDimGroup.Controls.Add(this.AD);
             this.phiDimGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.phiDimGroup.Location = new System.Drawing.Point(0, 0);
             this.phiDimGroup.Name = "phiDimGroup";
-            this.phiDimGroup.Size = new System.Drawing.Size(340, 393);
+            this.phiDimGroup.Size = new System.Drawing.Size(340, 451);
             this.phiDimGroup.TabIndex = 70;
             this.phiDimGroup.TabStop = false;
             this.phiDimGroup.Text = "几何尺寸";
             // 
             // Mt
             // 
-            this.Mt.Location = new System.Drawing.Point(171, 235);
+            this.Mt.Location = new System.Drawing.Point(171, 301);
             this.Mt.Name = "Mt";
             this.Mt.ReadOnly = true;
             this.Mt.Size = new System.Drawing.Size(110, 21);
@@ -992,7 +1161,7 @@
             // MtLabel
             // 
             this.MtLabel.AutoSize = true;
-            this.MtLabel.Location = new System.Drawing.Point(11, 240);
+            this.MtLabel.Location = new System.Drawing.Point(11, 306);
             this.MtLabel.Name = "MtLabel";
             this.MtLabel.Size = new System.Drawing.Size(113, 12);
             this.MtLabel.TabIndex = 69;
@@ -1001,7 +1170,7 @@
             // MtUnit
             // 
             this.MtUnit.AutoSize = true;
-            this.MtUnit.Location = new System.Drawing.Point(283, 238);
+            this.MtUnit.Location = new System.Drawing.Point(283, 304);
             this.MtUnit.Name = "MtUnit";
             this.MtUnit.Size = new System.Drawing.Size(23, 12);
             this.MtUnit.TabIndex = 68;
@@ -1018,7 +1187,7 @@
             // 
             // Dhamax
             // 
-            this.Dhamax.Location = new System.Drawing.Point(171, 352);
+            this.Dhamax.Location = new System.Drawing.Point(171, 410);
             this.Dhamax.Name = "Dhamax";
             this.Dhamax.ReadOnly = true;
             this.Dhamax.Size = new System.Drawing.Size(110, 21);
@@ -1026,15 +1195,23 @@
             // 
             // ra
             // 
-            this.ra.Location = new System.Drawing.Point(171, 312);
+            this.ra.Location = new System.Drawing.Point(171, 370);
             this.ra.Name = "ra";
             this.ra.ReadOnly = true;
             this.ra.Size = new System.Drawing.Size(110, 21);
             this.ra.TabIndex = 65;
             // 
+            // pimax
+            // 
+            this.pimax.Location = new System.Drawing.Point(174, 140);
+            this.pimax.Name = "pimax";
+            this.pimax.ReadOnly = true;
+            this.pimax.Size = new System.Drawing.Size(110, 21);
+            this.pimax.TabIndex = 65;
+            // 
             // dtau
             // 
-            this.dtau.Location = new System.Drawing.Point(171, 160);
+            this.dtau.Location = new System.Drawing.Point(171, 236);
             this.dtau.Name = "dtau";
             this.dtau.ReadOnly = true;
             this.dtau.Size = new System.Drawing.Size(110, 21);
@@ -1052,7 +1229,7 @@
             // ifRaLabel
             // 
             this.ifRaLabel.AutoSize = true;
-            this.ifRaLabel.Location = new System.Drawing.Point(11, 279);
+            this.ifRaLabel.Location = new System.Drawing.Point(11, 337);
             this.ifRaLabel.Name = "ifRaLabel";
             this.ifRaLabel.Size = new System.Drawing.Size(77, 12);
             this.ifRaLabel.TabIndex = 63;
@@ -1061,7 +1238,7 @@
             // DhamaxUnit
             // 
             this.DhamaxUnit.AutoSize = true;
-            this.DhamaxUnit.Location = new System.Drawing.Point(286, 359);
+            this.DhamaxUnit.Location = new System.Drawing.Point(286, 417);
             this.DhamaxUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DhamaxUnit.Name = "DhamaxUnit";
             this.DhamaxUnit.Size = new System.Drawing.Size(17, 12);
@@ -1071,7 +1248,7 @@
             // raUnit
             // 
             this.raUnit.AutoSize = true;
-            this.raUnit.Location = new System.Drawing.Point(286, 319);
+            this.raUnit.Location = new System.Drawing.Point(286, 377);
             this.raUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.raUnit.Name = "raUnit";
             this.raUnit.Size = new System.Drawing.Size(17, 12);
@@ -1081,25 +1258,53 @@
             // ifMtLabel
             // 
             this.ifMtLabel.AutoSize = true;
-            this.ifMtLabel.Location = new System.Drawing.Point(11, 203);
+            this.ifMtLabel.Location = new System.Drawing.Point(11, 273);
             this.ifMtLabel.Name = "ifMtLabel";
             this.ifMtLabel.Size = new System.Drawing.Size(53, 12);
             this.ifMtLabel.TabIndex = 63;
             this.ifMtLabel.Text = "预定扭矩";
             // 
+            // ADLabel
+            // 
+            this.ADLabel.AutoSize = true;
+            this.ADLabel.Location = new System.Drawing.Point(14, 172);
+            this.ADLabel.Name = "ADLabel";
+            this.ADLabel.Size = new System.Drawing.Size(77, 12);
+            this.ADLabel.TabIndex = 63;
+            this.ADLabel.Text = "密封面积AD：";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 111);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(125, 12);
+            this.label12.TabIndex = 63;
+            this.label12.Text = "考虑密封需要的内压：";
+            // 
             // ifPreDtLabel
             // 
             this.ifPreDtLabel.AutoSize = true;
-            this.ifPreDtLabel.Location = new System.Drawing.Point(11, 123);
+            this.ifPreDtLabel.Location = new System.Drawing.Point(11, 205);
             this.ifPreDtLabel.Name = "ifPreDtLabel";
             this.ifPreDtLabel.Size = new System.Drawing.Size(89, 12);
             this.ifPreDtLabel.TabIndex = 63;
             this.ifPreDtLabel.Text = "预定剪切面直径";
             // 
+            // pimaxUnit
+            // 
+            this.pimaxUnit.AutoSize = true;
+            this.pimaxUnit.Location = new System.Drawing.Point(289, 147);
+            this.pimaxUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pimaxUnit.Name = "pimaxUnit";
+            this.pimaxUnit.Size = new System.Drawing.Size(29, 12);
+            this.pimaxUnit.TabIndex = 60;
+            this.pimaxUnit.Text = "N/m2";
+            // 
             // dtauUnit
             // 
             this.dtauUnit.AutoSize = true;
-            this.dtauUnit.Location = new System.Drawing.Point(286, 167);
+            this.dtauUnit.Location = new System.Drawing.Point(286, 243);
             this.dtauUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dtauUnit.Name = "dtauUnit";
             this.dtauUnit.Size = new System.Drawing.Size(17, 12);
@@ -1115,13 +1320,23 @@
             this.ifRa.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.ifRa.Location = new System.Drawing.Point(171, 276);
+            this.ifRa.Location = new System.Drawing.Point(171, 334);
             this.ifRa.Margin = new System.Windows.Forms.Padding(2);
             this.ifRa.Name = "ifRa";
             this.ifRa.Size = new System.Drawing.Size(110, 20);
             this.ifRa.TabIndex = 59;
             this.ifRa.ValueMember = "boltType";
             this.ifRa.SelectedIndexChanged += new System.EventHandler(this.ifRa_SelectedIndexChanged);
+            // 
+            // ADUnit
+            // 
+            this.ADUnit.AutoSize = true;
+            this.ADUnit.Location = new System.Drawing.Point(286, 174);
+            this.ADUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ADUnit.Name = "ADUnit";
+            this.ADUnit.Size = new System.Drawing.Size(23, 12);
+            this.ADUnit.TabIndex = 60;
+            this.ADUnit.Text = "mm2";
             // 
             // DA2Label
             // 
@@ -1136,7 +1351,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 354);
+            this.label1.Location = new System.Drawing.Point(11, 412);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 12);
             this.label1.TabIndex = 63;
@@ -1151,7 +1366,7 @@
             this.isMt.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.isMt.Location = new System.Drawing.Point(171, 200);
+            this.isMt.Location = new System.Drawing.Point(171, 270);
             this.isMt.Margin = new System.Windows.Forms.Padding(2);
             this.isMt.Name = "isMt";
             this.isMt.Size = new System.Drawing.Size(110, 20);
@@ -1162,11 +1377,28 @@
             // raLabel
             // 
             this.raLabel.AutoSize = true;
-            this.raLabel.Location = new System.Drawing.Point(11, 314);
+            this.raLabel.Location = new System.Drawing.Point(11, 372);
             this.raLabel.Name = "raLabel";
             this.raLabel.Size = new System.Drawing.Size(77, 12);
             this.raLabel.TabIndex = 63;
             this.raLabel.Text = "摩擦半径ra：";
+            // 
+            // ifPimax
+            // 
+            this.ifPimax.DisplayMember = "boltType";
+            this.ifPimax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ifPimax.Enabled = false;
+            this.ifPimax.FormattingEnabled = true;
+            this.ifPimax.Items.AddRange(new object[] {
+            "是",
+            "否"});
+            this.ifPimax.Location = new System.Drawing.Point(171, 110);
+            this.ifPimax.Margin = new System.Windows.Forms.Padding(2);
+            this.ifPimax.Name = "ifPimax";
+            this.ifPimax.Size = new System.Drawing.Size(110, 20);
+            this.ifPimax.TabIndex = 59;
+            this.ifPimax.ValueMember = "boltType";
+            this.ifPimax.SelectedIndexChanged += new System.EventHandler(this.ifPimax_SelectedIndexChanged);
             // 
             // ifDt
             // 
@@ -1177,7 +1409,7 @@
             this.ifDt.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.ifDt.Location = new System.Drawing.Point(171, 120);
+            this.ifDt.Location = new System.Drawing.Point(171, 203);
             this.ifDt.Margin = new System.Windows.Forms.Padding(2);
             this.ifDt.Name = "ifDt";
             this.ifDt.Size = new System.Drawing.Size(110, 20);
@@ -1185,10 +1417,19 @@
             this.ifDt.ValueMember = "boltType";
             this.ifDt.SelectedIndexChanged += new System.EventHandler(this.ifDt_SelectedIndexChanged);
             // 
+            // pimaxLabel
+            // 
+            this.pimaxLabel.AutoSize = true;
+            this.pimaxLabel.Location = new System.Drawing.Point(14, 142);
+            this.pimaxLabel.Name = "pimaxLabel";
+            this.pimaxLabel.Size = new System.Drawing.Size(47, 12);
+            this.pimaxLabel.TabIndex = 63;
+            this.pimaxLabel.Text = "pimax：";
+            // 
             // dtauLabel
             // 
             this.dtauLabel.AutoSize = true;
-            this.dtauLabel.Location = new System.Drawing.Point(11, 162);
+            this.dtauLabel.Location = new System.Drawing.Point(11, 238);
             this.dtauLabel.Name = "dtauLabel";
             this.dtauLabel.Size = new System.Drawing.Size(113, 12);
             this.dtauLabel.TabIndex = 63;
@@ -1221,6 +1462,13 @@
             this.DA.TabIndex = 66;
             this.DA.Text = "80";
             this.DA.Click += new System.EventHandler(this.DA_Click);
+            // 
+            // AD
+            // 
+            this.AD.Location = new System.Drawing.Point(171, 171);
+            this.AD.Name = "AD";
+            this.AD.Size = new System.Drawing.Size(110, 21);
+            this.AD.TabIndex = 66;
             // 
             // BoltGroup
             // 
@@ -1868,19 +2116,19 @@
             this.simulation1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simulation1.Location = new System.Drawing.Point(0, 0);
             this.simulation1.Name = "simulation1";
-            this.simulation1.ProgressBar = progressBar8;
+            this.simulation1.ProgressBar = progressBar1;
             this.simulation1.Size = new System.Drawing.Size(477, 388);
             this.simulation1.TabIndex = 1;
             this.simulation1.Text = "simulation1";
-            coordinateSystemIcon8.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            viewport8.CoordinateSystemIcon = coordinateSystemIcon8;
-            viewport8.Legends = new devDept.Eyeshot.Legend[0];
-            originSymbol8.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            viewport8.OriginSymbol = originSymbol8;
-            viewCubeIcon8.Font = null;
-            viewCubeIcon8.InitialRotation = new devDept.Geometry.Quaternion(0D, 0D, 0D, 1D);
-            viewport8.ViewCubeIcon = viewCubeIcon8;
-            this.simulation1.Viewports.Add(viewport8);
+            coordinateSystemIcon1.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            viewport1.CoordinateSystemIcon = coordinateSystemIcon1;
+            viewport1.Legends = new devDept.Eyeshot.Legend[0];
+            originSymbol1.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            viewport1.OriginSymbol = originSymbol1;
+            viewCubeIcon1.Font = null;
+            viewCubeIcon1.InitialRotation = new devDept.Geometry.Quaternion(0D, 0D, 0D, 1D);
+            viewport1.ViewCubeIcon = viewCubeIcon1;
+            this.simulation1.Viewports.Add(viewport1);
             // 
             // Mode3D
             // 
@@ -2253,7 +2501,7 @@
             this.splitRight.Panel2.AutoScroll = true;
             this.splitRight.Panel2.Controls.Add(this.splitLoadData);
             this.splitRight.Size = new System.Drawing.Size(818, 542);
-            this.splitRight.SplitterDistance = 399;
+            this.splitRight.SplitterDistance = 398;
             this.splitRight.TabIndex = 2;
             // 
             // splitGasketNut
@@ -2273,7 +2521,7 @@
             // 
             this.splitGasketNut.Panel2.Controls.Add(this.nutGroup);
             this.splitGasketNut.Panel2MinSize = 20;
-            this.splitGasketNut.Size = new System.Drawing.Size(397, 540);
+            this.splitGasketNut.Size = new System.Drawing.Size(396, 540);
             this.splitGasketNut.SplitterDistance = 364;
             this.splitGasketNut.TabIndex = 1;
             // 
@@ -2281,18 +2529,15 @@
             // 
             this.gasketGroup.Controls.Add(this.gasketChooseBtn);
             this.gasketGroup.Controls.Add(this.gasketMaterialGroup);
-            this.gasketGroup.Controls.Add(this.EmbeddedValueUnit);
             this.gasketGroup.Controls.Add(this.surfaceRoughnessUnit);
             this.gasketGroup.Controls.Add(this.CounterBoreDepthUnit);
             this.gasketGroup.Controls.Add(this.label3);
             this.gasketGroup.Controls.Add(this.hs2Unit);
             this.gasketGroup.Controls.Add(this.DAUUnit);
             this.gasketGroup.Controls.Add(this.dhasUnitLabel);
-            this.gasketGroup.Controls.Add(this.EmbeddedValue);
-            this.gasketGroup.Controls.Add(this.surfaceRoughness);
+            this.gasketGroup.Controls.Add(this.Rz);
             this.gasketGroup.Controls.Add(this.CounterBoreDepth);
             this.gasketGroup.Controls.Add(this.dha);
-            this.gasketGroup.Controls.Add(this.EmbeddedValueLabel);
             this.gasketGroup.Controls.Add(this.hs2);
             this.gasketGroup.Controls.Add(this.surfaceRoughnessLabel);
             this.gasketGroup.Controls.Add(this.CounterBoreDepthLabel);
@@ -2301,9 +2546,7 @@
             this.gasketGroup.Controls.Add(this.hs2Label);
             this.gasketGroup.Controls.Add(this.dhas);
             this.gasketGroup.Controls.Add(this.DAULabel);
-            this.gasketGroup.Controls.Add(this.pEmbeddedValue);
             this.gasketGroup.Controls.Add(this.isCounterBore);
-            this.gasketGroup.Controls.Add(this.pEmbeddedValueLabel);
             this.gasketGroup.Controls.Add(this.isAngle);
             this.gasketGroup.Controls.Add(this.isCounterBoreLabel);
             this.gasketGroup.Controls.Add(this.isAngleLabel);
@@ -2311,7 +2554,7 @@
             this.gasketGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.gasketGroup.Location = new System.Drawing.Point(0, 0);
             this.gasketGroup.Name = "gasketGroup";
-            this.gasketGroup.Size = new System.Drawing.Size(380, 520);
+            this.gasketGroup.Size = new System.Drawing.Size(379, 520);
             this.gasketGroup.TabIndex = 1;
             this.gasketGroup.TabStop = false;
             this.gasketGroup.Text = "垫圈";
@@ -2340,9 +2583,9 @@
             this.gasketMaterialGroup.Controls.Add(this.RmminSLabel);
             this.gasketMaterialGroup.Controls.Add(this.EPSLabel);
             this.gasketMaterialGroup.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gasketMaterialGroup.Location = new System.Drawing.Point(3, 378);
+            this.gasketMaterialGroup.Location = new System.Drawing.Point(3, 331);
             this.gasketMaterialGroup.Name = "gasketMaterialGroup";
-            this.gasketMaterialGroup.Size = new System.Drawing.Size(374, 139);
+            this.gasketMaterialGroup.Size = new System.Drawing.Size(373, 186);
             this.gasketMaterialGroup.TabIndex = 46;
             this.gasketMaterialGroup.TabStop = false;
             this.gasketMaterialGroup.Text = "垫圈材料";
@@ -2441,19 +2684,10 @@
             this.EPSLabel.TabIndex = 59;
             this.EPSLabel.Text = "杨氏模量Es：";
             // 
-            // EmbeddedValueUnit
-            // 
-            this.EmbeddedValueUnit.AutoSize = true;
-            this.EmbeddedValueUnit.Location = new System.Drawing.Point(237, 353);
-            this.EmbeddedValueUnit.Name = "EmbeddedValueUnit";
-            this.EmbeddedValueUnit.Size = new System.Drawing.Size(17, 12);
-            this.EmbeddedValueUnit.TabIndex = 45;
-            this.EmbeddedValueUnit.Text = "um";
-            // 
             // surfaceRoughnessUnit
             // 
             this.surfaceRoughnessUnit.AutoSize = true;
-            this.surfaceRoughnessUnit.Location = new System.Drawing.Point(237, 326);
+            this.surfaceRoughnessUnit.Location = new System.Drawing.Point(237, 293);
             this.surfaceRoughnessUnit.Name = "surfaceRoughnessUnit";
             this.surfaceRoughnessUnit.Size = new System.Drawing.Size(17, 12);
             this.surfaceRoughnessUnit.TabIndex = 45;
@@ -2504,20 +2738,13 @@
             this.dhasUnitLabel.TabIndex = 45;
             this.dhasUnitLabel.Text = "mm";
             // 
-            // EmbeddedValue
+            // Rz
             // 
-            this.EmbeddedValue.Location = new System.Drawing.Point(154, 347);
-            this.EmbeddedValue.Name = "EmbeddedValue";
-            this.EmbeddedValue.ReadOnly = true;
-            this.EmbeddedValue.Size = new System.Drawing.Size(76, 21);
-            this.EmbeddedValue.TabIndex = 44;
-            // 
-            // surfaceRoughness
-            // 
-            this.surfaceRoughness.Location = new System.Drawing.Point(154, 320);
-            this.surfaceRoughness.Name = "surfaceRoughness";
-            this.surfaceRoughness.Size = new System.Drawing.Size(76, 21);
-            this.surfaceRoughness.TabIndex = 44;
+            this.Rz.Location = new System.Drawing.Point(154, 287);
+            this.Rz.Name = "Rz";
+            this.Rz.Size = new System.Drawing.Size(76, 21);
+            this.Rz.TabIndex = 44;
+            this.Rz.Text = "16";
             // 
             // CounterBoreDepth
             // 
@@ -2535,15 +2762,6 @@
             this.dha.Size = new System.Drawing.Size(76, 21);
             this.dha.TabIndex = 44;
             // 
-            // EmbeddedValueLabel
-            // 
-            this.EmbeddedValueLabel.AutoSize = true;
-            this.EmbeddedValueLabel.Location = new System.Drawing.Point(60, 353);
-            this.EmbeddedValueLabel.Name = "EmbeddedValueLabel";
-            this.EmbeddedValueLabel.Size = new System.Drawing.Size(29, 12);
-            this.EmbeddedValueLabel.TabIndex = 0;
-            this.EmbeddedValueLabel.Text = "fz：";
-            // 
             // hs2
             // 
             this.hs2.Location = new System.Drawing.Point(154, 104);
@@ -2555,7 +2773,7 @@
             // surfaceRoughnessLabel
             // 
             this.surfaceRoughnessLabel.AutoSize = true;
-            this.surfaceRoughnessLabel.Location = new System.Drawing.Point(60, 326);
+            this.surfaceRoughnessLabel.Location = new System.Drawing.Point(60, 293);
             this.surfaceRoughnessLabel.Name = "surfaceRoughnessLabel";
             this.surfaceRoughnessLabel.Size = new System.Drawing.Size(29, 12);
             this.surfaceRoughnessLabel.TabIndex = 0;
@@ -2613,20 +2831,6 @@
             this.DAULabel.TabIndex = 0;
             this.DAULabel.Text = "外径DAU:";
             // 
-            // pEmbeddedValue
-            // 
-            this.pEmbeddedValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pEmbeddedValue.FormattingEnabled = true;
-            this.pEmbeddedValue.Items.AddRange(new object[] {
-            "不考虑",
-            "考虑"});
-            this.pEmbeddedValue.Location = new System.Drawing.Point(138, 286);
-            this.pEmbeddedValue.Margin = new System.Windows.Forms.Padding(2);
-            this.pEmbeddedValue.Name = "pEmbeddedValue";
-            this.pEmbeddedValue.Size = new System.Drawing.Size(92, 20);
-            this.pEmbeddedValue.TabIndex = 43;
-            this.pEmbeddedValue.SelectedIndexChanged += new System.EventHandler(this.pEmbeddedValue_SelectedIndexChanged);
-            // 
             // isCounterBore
             // 
             this.isCounterBore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -2640,15 +2844,6 @@
             this.isCounterBore.Size = new System.Drawing.Size(92, 20);
             this.isCounterBore.TabIndex = 43;
             this.isCounterBore.SelectedIndexChanged += new System.EventHandler(this.isCounterBore_SelectedIndexChanged);
-            // 
-            // pEmbeddedValueLabel
-            // 
-            this.pEmbeddedValueLabel.AutoSize = true;
-            this.pEmbeddedValueLabel.Location = new System.Drawing.Point(6, 289);
-            this.pEmbeddedValueLabel.Name = "pEmbeddedValueLabel";
-            this.pEmbeddedValueLabel.Size = new System.Drawing.Size(77, 12);
-            this.pEmbeddedValueLabel.TabIndex = 0;
-            this.pEmbeddedValueLabel.Text = "预定嵌入值：";
             // 
             // isAngle
             // 
@@ -2705,7 +2900,7 @@
             this.nutGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.nutGroup.Location = new System.Drawing.Point(0, 0);
             this.nutGroup.Name = "nutGroup";
-            this.nutGroup.Size = new System.Drawing.Size(397, 274);
+            this.nutGroup.Size = new System.Drawing.Size(396, 274);
             this.nutGroup.TabIndex = 46;
             this.nutGroup.TabStop = false;
             this.nutGroup.Text = "螺母";
@@ -2804,13 +2999,12 @@
             // splitLoadData.Panel2
             // 
             this.splitLoadData.Panel2.AutoScroll = true;
-            this.splitLoadData.Size = new System.Drawing.Size(413, 540);
-            this.splitLoadData.SplitterDistance = 511;
+            this.splitLoadData.Size = new System.Drawing.Size(414, 540);
+            this.splitLoadData.SplitterDistance = 438;
             this.splitLoadData.TabIndex = 0;
             // 
             // loadDataGroup
             // 
-            this.loadDataGroup.Controls.Add(this.FtauGroup);
             this.loadDataGroup.Controls.Add(this.fz);
             this.loadDataGroup.Controls.Add(this.fzlabel);
             this.loadDataGroup.Controls.Add(this.fzUnit);
@@ -2870,112 +3064,10 @@
             this.loadDataGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.loadDataGroup.Location = new System.Drawing.Point(0, 0);
             this.loadDataGroup.Name = "loadDataGroup";
-            this.loadDataGroup.Size = new System.Drawing.Size(396, 1021);
+            this.loadDataGroup.Size = new System.Drawing.Size(397, 1021);
             this.loadDataGroup.TabIndex = 1;
             this.loadDataGroup.TabStop = false;
             this.loadDataGroup.Text = "加载数据";
-            // 
-            // FtauGroup
-            // 
-            this.FtauGroup.Controls.Add(this.isSGsoll);
-            this.FtauGroup.Controls.Add(this.isSGsollLabel);
-            this.FtauGroup.Controls.Add(this.UTmin);
-            this.FtauGroup.Controls.Add(this.SGsoll);
-            this.FtauGroup.Controls.Add(this.label2);
-            this.FtauGroup.Controls.Add(this.UTminLabel);
-            this.FtauGroup.Controls.Add(this.FQ);
-            this.FtauGroup.Controls.Add(this.FQLabel);
-            this.FtauGroup.Controls.Add(this.FQUnit);
-            this.FtauGroup.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FtauGroup.Location = new System.Drawing.Point(3, 854);
-            this.FtauGroup.Name = "FtauGroup";
-            this.FtauGroup.Size = new System.Drawing.Size(390, 164);
-            this.FtauGroup.TabIndex = 61;
-            this.FtauGroup.TabStop = false;
-            this.FtauGroup.Text = "附加剪力系数";
-            this.FtauGroup.Visible = false;
-            // 
-            // isSGsoll
-            // 
-            this.isSGsoll.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.isSGsoll.FormattingEnabled = true;
-            this.isSGsoll.Items.AddRange(new object[] {
-            "是",
-            "否"});
-            this.isSGsoll.Location = new System.Drawing.Point(191, 79);
-            this.isSGsoll.Margin = new System.Windows.Forms.Padding(2);
-            this.isSGsoll.Name = "isSGsoll";
-            this.isSGsoll.Size = new System.Drawing.Size(76, 20);
-            this.isSGsoll.TabIndex = 70;
-            this.isSGsoll.SelectedIndexChanged += new System.EventHandler(this.isSGsoll_SelectedIndexChanged);
-            // 
-            // isSGsollLabel
-            // 
-            this.isSGsollLabel.AutoSize = true;
-            this.isSGsollLabel.Location = new System.Drawing.Point(4, 82);
-            this.isSGsollLabel.Name = "isSGsollLabel";
-            this.isSGsollLabel.Size = new System.Drawing.Size(161, 12);
-            this.isSGsollLabel.TabIndex = 69;
-            this.isSGsollLabel.Text = "预定所需的抗滑移安全系数：";
-            // 
-            // UTmin
-            // 
-            this.UTmin.Location = new System.Drawing.Point(189, 46);
-            this.UTmin.Name = "UTmin";
-            this.UTmin.Size = new System.Drawing.Size(76, 21);
-            this.UTmin.TabIndex = 66;
-            // 
-            // SGsoll
-            // 
-            this.SGsoll.Location = new System.Drawing.Point(191, 107);
-            this.SGsoll.Name = "SGsoll";
-            this.SGsoll.ReadOnly = true;
-            this.SGsoll.Size = new System.Drawing.Size(76, 21);
-            this.SGsoll.TabIndex = 67;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 12);
-            this.label2.TabIndex = 64;
-            this.label2.Text = "抗滑移安全系数SGsoll：";
-            // 
-            // UTminLabel
-            // 
-            this.UTminLabel.AutoSize = true;
-            this.UTminLabel.Location = new System.Drawing.Point(2, 43);
-            this.UTminLabel.Name = "UTminLabel";
-            this.UTminLabel.Size = new System.Drawing.Size(119, 24);
-            this.UTminLabel.TabIndex = 63;
-            this.UTminLabel.Text = "被连接件接合面间\r\n最小摩擦系数UTmin：";
-            // 
-            // FQ
-            // 
-            this.FQ.Location = new System.Drawing.Point(189, 15);
-            this.FQ.Name = "FQ";
-            this.FQ.Size = new System.Drawing.Size(76, 21);
-            this.FQ.TabIndex = 68;
-            this.FQ.Text = "0";
-            // 
-            // FQLabel
-            // 
-            this.FQLabel.AutoSize = true;
-            this.FQLabel.Location = new System.Drawing.Point(2, 19);
-            this.FQLabel.Name = "FQLabel";
-            this.FQLabel.Size = new System.Drawing.Size(77, 12);
-            this.FQLabel.TabIndex = 65;
-            this.FQLabel.Text = "横向载荷FQ：";
-            // 
-            // FQUnit
-            // 
-            this.FQUnit.AutoSize = true;
-            this.FQUnit.Location = new System.Drawing.Point(270, 16);
-            this.FQUnit.Name = "FQUnit";
-            this.FQUnit.Size = new System.Drawing.Size(17, 12);
-            this.FQUnit.TabIndex = 62;
-            this.FQUnit.Text = "mm";
             // 
             // fz
             // 
@@ -3518,7 +3610,7 @@
             // 
             this.splitContainer5.Panel2.Controls.Add(this.introTable2);
             this.splitContainer5.Size = new System.Drawing.Size(1166, 164);
-            this.splitContainer5.SplitterDistance = 489;
+            this.splitContainer5.SplitterDistance = 488;
             this.splitContainer5.TabIndex = 1;
             // 
             // introGroup2
@@ -3527,7 +3619,7 @@
             this.introGroup2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.introGroup2.Location = new System.Drawing.Point(0, 0);
             this.introGroup2.Name = "introGroup2";
-            this.introGroup2.Size = new System.Drawing.Size(489, 164);
+            this.introGroup2.Size = new System.Drawing.Size(488, 164);
             this.introGroup2.TabIndex = 3;
             this.introGroup2.TabStop = false;
             this.introGroup2.Text = "说明";
@@ -3552,7 +3644,7 @@
             this.introTable2.Location = new System.Drawing.Point(0, 0);
             this.introTable2.Name = "introTable2";
             this.introTable2.SelectedIndex = 0;
-            this.introTable2.Size = new System.Drawing.Size(673, 164);
+            this.introTable2.Size = new System.Drawing.Size(674, 164);
             this.introTable2.TabIndex = 3;
             // 
             // tabPage1
@@ -3563,7 +3655,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(665, 138);
+            this.tabPage1.Size = new System.Drawing.Size(666, 138);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "载荷传导系数";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3577,7 +3669,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(610, 138);
+            this.tabPage2.Size = new System.Drawing.Size(666, 138);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "sv样式";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3590,7 +3682,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(610, 138);
+            this.tabPage3.Size = new System.Drawing.Size(666, 138);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "相对啮合长度";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3636,58 +3728,6 @@
             // 
             this.dbo_materialClampedTableAdapter.ClearBeforeFill = true;
             // 
-            // IbtLabel
-            // 
-            this.IbtLabel.AutoSize = true;
-            this.IbtLabel.Location = new System.Drawing.Point(14, 273);
-            this.IbtLabel.Name = "IbtLabel";
-            this.IbtLabel.Size = new System.Drawing.Size(83, 12);
-            this.IbtLabel.TabIndex = 63;
-            this.IbtLabel.Text = "转动惯量Ibt：";
-            // 
-            // IbtUnit
-            // 
-            this.IbtUnit.AutoSize = true;
-            this.IbtUnit.Location = new System.Drawing.Point(293, 276);
-            this.IbtUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.IbtUnit.Name = "IbtUnit";
-            this.IbtUnit.Size = new System.Drawing.Size(23, 12);
-            this.IbtUnit.TabIndex = 60;
-            this.IbtUnit.Text = "mm4";
-            // 
-            // Ibt
-            // 
-            this.Ibt.Location = new System.Drawing.Point(178, 269);
-            this.Ibt.Name = "Ibt";
-            this.Ibt.Size = new System.Drawing.Size(110, 21);
-            this.Ibt.TabIndex = 65;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(11, 65);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(149, 12);
-            this.label10.TabIndex = 63;
-            this.label10.Text = "从0-0轴至开口处的距离u：";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(293, 70);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(17, 12);
-            this.label11.TabIndex = 60;
-            this.label11.Text = "mm";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(178, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(110, 21);
-            this.textBox1.TabIndex = 65;
-            // 
             // ValidateDesignForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3727,6 +3767,8 @@
             this.splitBasic.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitBasic)).EndInit();
             this.splitBasic.ResumeLayout(false);
+            this.FtauGroup.ResumeLayout(false);
+            this.FtauGroup.PerformLayout();
             this.basicGroup.ResumeLayout(false);
             this.basicGroup.PerformLayout();
             this.phiDimGroup.ResumeLayout(false);
@@ -3789,8 +3831,6 @@
             this.splitLoadData.ResumeLayout(false);
             this.loadDataGroup.ResumeLayout(false);
             this.loadDataGroup.PerformLayout();
-            this.FtauGroup.ResumeLayout(false);
-            this.FtauGroup.PerformLayout();
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
@@ -3923,18 +3963,15 @@
         private System.Windows.Forms.SplitContainer splitRight;
         private System.Windows.Forms.SplitContainer splitGasketNut;
         private System.Windows.Forms.GroupBox gasketGroup;
-        private System.Windows.Forms.Label EmbeddedValueUnit;
         private System.Windows.Forms.Label surfaceRoughnessUnit;
         private System.Windows.Forms.Label CounterBoreDepthUnit;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label hs2Unit;
         private System.Windows.Forms.Label DAUUnit;
         private System.Windows.Forms.Label dhasUnitLabel;
-        private System.Windows.Forms.TextBox EmbeddedValue;
-        private System.Windows.Forms.TextBox surfaceRoughness;
+        private System.Windows.Forms.TextBox Rz;
         private System.Windows.Forms.TextBox CounterBoreDepth;
         private System.Windows.Forms.TextBox dha;
-        private System.Windows.Forms.Label EmbeddedValueLabel;
         private System.Windows.Forms.TextBox hs2;
         private System.Windows.Forms.Label surfaceRoughnessLabel;
         private System.Windows.Forms.Label CounterBoreDepthLabel;
@@ -3943,9 +3980,7 @@
         private System.Windows.Forms.Label hs2Label;
         private System.Windows.Forms.TextBox dhas;
         private System.Windows.Forms.Label DAULabel;
-        private System.Windows.Forms.ComboBox pEmbeddedValue;
         private System.Windows.Forms.ComboBox isCounterBore;
-        private System.Windows.Forms.Label pEmbeddedValueLabel;
         private System.Windows.Forms.ComboBox isAngle;
         private System.Windows.Forms.Label isCounterBoreLabel;
         private System.Windows.Forms.Label isAngleLabel;
@@ -3962,16 +3997,6 @@
         private System.Windows.Forms.Label DaLabel;
         private System.Windows.Forms.SplitContainer splitLoadData;
         private System.Windows.Forms.GroupBox loadDataGroup;
-        private System.Windows.Forms.GroupBox FtauGroup;
-        private System.Windows.Forms.ComboBox isSGsoll;
-        private System.Windows.Forms.Label isSGsollLabel;
-        private System.Windows.Forms.TextBox UTmin;
-        private System.Windows.Forms.TextBox SGsoll;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label UTminLabel;
-        private System.Windows.Forms.TextBox FQ;
-        private System.Windows.Forms.Label FQLabel;
-        private System.Windows.Forms.Label FQUnit;
         private System.Windows.Forms.TextBox fz;
         private System.Windows.Forms.Label fzlabel;
         private System.Windows.Forms.Label fzUnit;
@@ -4104,5 +4129,23 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label ADLabel;
+        private System.Windows.Forms.Label ADUnit;
+        private System.Windows.Forms.TextBox AD;
+        private System.Windows.Forms.TextBox pimax;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label pimaxUnit;
+        private System.Windows.Forms.ComboBox ifPimax;
+        private System.Windows.Forms.Label pimaxLabel;
+        private System.Windows.Forms.GroupBox FtauGroup;
+        private System.Windows.Forms.ComboBox isSGsoll;
+        private System.Windows.Forms.Label isSGsollLabel;
+        private System.Windows.Forms.TextBox UTmin;
+        private System.Windows.Forms.TextBox SGsoll;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label UTminLabel;
+        private System.Windows.Forms.TextBox FQ;
+        private System.Windows.Forms.Label FQLabel;
+        private System.Windows.Forms.Label FQUnit;
     }
 }
