@@ -32,7 +32,7 @@
             devDept.Eyeshot.CancelToolBarButton cancelToolBarButton1 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ProgressBar progressBar1 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton1, false, 0.1D, true);
             devDept.Graphics.BackgroundSettings backgroundSettings1 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
-            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800005772593842D, false, 0.001D);
+            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800004663761762D, false, 0.001D);
             devDept.Eyeshot.HomeToolBarButton homeToolBarButton1 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
             devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton1 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton1 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
@@ -54,7 +54,7 @@
             devDept.Eyeshot.PanSettings panSettings1 = new devDept.Eyeshot.PanSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Ctrl), 25, true);
             devDept.Eyeshot.NavigationSettings navigationSettings1 = new devDept.Eyeshot.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Left, devDept.Eyeshot.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
             devDept.Eyeshot.Viewport.SavedViewsManager savedViewsManager1 = new devDept.Eyeshot.Viewport.SavedViewsManager(8);
-            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(477, 388), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
+            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(459, 388), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
             toolBar1}, devDept.Eyeshot.displayType.Rendered, true, false, false, false, new devDept.Eyeshot.Grid[] {
             grid1}, false, rotateSettings1, zoomSettings1, panSettings1, navigationSettings1, savedViewsManager1, devDept.Eyeshot.viewType.Trimetric);
             devDept.Eyeshot.CoordinateSystemIcon coordinateSystemIcon1 = new devDept.Eyeshot.CoordinateSystemIcon(System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.coordinateSystemPositionType.BottomLeft, 37, false);
@@ -75,6 +75,7 @@
             this.splitLeft = new System.Windows.Forms.SplitContainer();
             this.pianxinGroup = new System.Windows.Forms.GroupBox();
             this.isIbtLabel = new System.Windows.Forms.Label();
+            this.ifaLabel = new System.Windows.Forms.Label();
             this.jiaZaiQingKuangLabel = new System.Windows.Forms.Label();
             this.SsymLabel = new System.Windows.Forms.Label();
             this.cB = new System.Windows.Forms.TextBox();
@@ -83,13 +84,14 @@
             this.Ibt = new System.Windows.Forms.TextBox();
             this.bT = new System.Windows.Forms.TextBox();
             this.cT = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.u = new System.Windows.Forms.TextBox();
             this.cBUnit = new System.Windows.Forms.Label();
             this.bUnit = new System.Windows.Forms.Label();
             this.eUnit = new System.Windows.Forms.Label();
             this.IbtUnit = new System.Windows.Forms.Label();
             this.bTUnit = new System.Windows.Forms.Label();
             this.cTUnit = new System.Windows.Forms.Label();
+            this.ifa = new System.Windows.Forms.ComboBox();
             this.isIbt = new System.Windows.Forms.ComboBox();
             this.jiaZaiQingKuang = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -104,11 +106,13 @@
             this.Ssym = new System.Windows.Forms.TextBox();
             this.splitBasic = new System.Windows.Forms.SplitContainer();
             this.FtauGroup = new System.Windows.Forms.GroupBox();
+            this.qF = new System.Windows.Forms.ComboBox();
             this.isSGsoll = new System.Windows.Forms.ComboBox();
             this.isSGsollLabel = new System.Windows.Forms.Label();
             this.UTmin = new System.Windows.Forms.TextBox();
             this.SGsoll = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.qFLabel = new System.Windows.Forms.Label();
             this.UTminLabel = new System.Windows.Forms.Label();
             this.FQ = new System.Windows.Forms.TextBox();
             this.FQLabel = new System.Windows.Forms.Label();
@@ -121,6 +125,8 @@
             this.boltConnectLoad = new System.Windows.Forms.ComboBox();
             this.boltConnectLoadLabel = new System.Windows.Forms.Label();
             this.phiDimGroup = new System.Windows.Forms.GroupBox();
+            this.qM = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.Mt = new System.Windows.Forms.TextBox();
             this.MtLabel = new System.Windows.Forms.Label();
             this.MtUnit = new System.Windows.Forms.Label();
@@ -290,6 +296,7 @@
             this.DaLabel = new System.Windows.Forms.Label();
             this.splitLoadData = new System.Windows.Forms.SplitContainer();
             this.loadDataGroup = new System.Windows.Forms.GroupBox();
+            this.ifZhouqiN = new System.Windows.Forms.CheckBox();
             this.fz = new System.Windows.Forms.TextBox();
             this.fzlabel = new System.Windows.Forms.Label();
             this.fzUnit = new System.Windows.Forms.Label();
@@ -302,6 +309,7 @@
             this.FkerfUnit = new System.Windows.Forms.Label();
             this.fauUnit = new System.Windows.Forms.Label();
             this.FAOUnit = new System.Windows.Forms.Label();
+            this.zhouqiN = new System.Windows.Forms.TextBox();
             this.Fmzul = new System.Windows.Forms.TextBox();
             this.v = new System.Windows.Forms.TextBox();
             this.Tp = new System.Windows.Forms.TextBox();
@@ -319,13 +327,16 @@
             this.FAO = new System.Windows.Forms.TextBox();
             this.tighten = new System.Windows.Forms.ComboBox();
             this.isFkerf = new System.Windows.Forms.ComboBox();
+            this.zhazhi = new System.Windows.Forms.ComboBox();
             this.isFz = new System.Windows.Forms.ComboBox();
             this.isFORM = new System.Windows.Forms.ComboBox();
+            this.zhazhiLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.sv = new System.Windows.Forms.ComboBox();
             this.isN = new System.Windows.Forms.ComboBox();
             this.workingLoads = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.zhouqiNLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.vLabel = new System.Windows.Forms.Label();
             this.TpLabel = new System.Windows.Forms.Label();
@@ -457,7 +468,7 @@
             this.createReport});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1180, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1174, 25);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -511,7 +522,7 @@
             this.DataInputTable.Location = new System.Drawing.Point(0, 25);
             this.DataInputTable.Name = "DataInputTable";
             this.DataInputTable.SelectedIndex = 0;
-            this.DataInputTable.Size = new System.Drawing.Size(1180, 742);
+            this.DataInputTable.Size = new System.Drawing.Size(1174, 742);
             this.DataInputTable.TabIndex = 5;
             // 
             // basicData
@@ -520,7 +531,7 @@
             this.basicData.Location = new System.Drawing.Point(4, 22);
             this.basicData.Name = "basicData";
             this.basicData.Padding = new System.Windows.Forms.Padding(3);
-            this.basicData.Size = new System.Drawing.Size(1172, 716);
+            this.basicData.Size = new System.Drawing.Size(1166, 716);
             this.basicData.TabIndex = 0;
             this.basicData.Text = "基本数据";
             this.basicData.UseVisualStyleBackColor = true;
@@ -543,7 +554,7 @@
             // 
             this.splitUpDown.Panel2.AutoScroll = true;
             this.splitUpDown.Panel2.Controls.Add(this.splitContainer1);
-            this.splitUpDown.Size = new System.Drawing.Size(1166, 710);
+            this.splitUpDown.Size = new System.Drawing.Size(1160, 710);
             this.splitUpDown.SplitterDistance = 556;
             this.splitUpDown.SplitterWidth = 6;
             this.splitUpDown.TabIndex = 4;
@@ -565,8 +576,8 @@
             this.splitData.Panel2.AllowDrop = true;
             this.splitData.Panel2.Controls.Add(this.modeAndOpt);
             this.splitData.Panel2.Controls.Add(this.Mode3D);
-            this.splitData.Size = new System.Drawing.Size(1166, 556);
-            this.splitData.SplitterDistance = 684;
+            this.splitData.Size = new System.Drawing.Size(1160, 556);
+            this.splitData.SplitterDistance = 696;
             this.splitData.SplitterWidth = 3;
             this.splitData.TabIndex = 7;
             // 
@@ -587,14 +598,15 @@
             // 
             this.splitLeft.Panel2.AutoScroll = true;
             this.splitLeft.Panel2.Controls.Add(this.BoltGroup);
-            this.splitLeft.Size = new System.Drawing.Size(684, 556);
-            this.splitLeft.SplitterDistance = 376;
+            this.splitLeft.Size = new System.Drawing.Size(696, 556);
+            this.splitLeft.SplitterDistance = 382;
             this.splitLeft.TabIndex = 0;
             // 
             // pianxinGroup
             // 
             this.pianxinGroup.AutoSize = true;
             this.pianxinGroup.Controls.Add(this.isIbtLabel);
+            this.pianxinGroup.Controls.Add(this.ifaLabel);
             this.pianxinGroup.Controls.Add(this.jiaZaiQingKuangLabel);
             this.pianxinGroup.Controls.Add(this.SsymLabel);
             this.pianxinGroup.Controls.Add(this.cB);
@@ -603,13 +615,14 @@
             this.pianxinGroup.Controls.Add(this.Ibt);
             this.pianxinGroup.Controls.Add(this.bT);
             this.pianxinGroup.Controls.Add(this.cT);
-            this.pianxinGroup.Controls.Add(this.textBox1);
+            this.pianxinGroup.Controls.Add(this.u);
             this.pianxinGroup.Controls.Add(this.cBUnit);
             this.pianxinGroup.Controls.Add(this.bUnit);
             this.pianxinGroup.Controls.Add(this.eUnit);
             this.pianxinGroup.Controls.Add(this.IbtUnit);
             this.pianxinGroup.Controls.Add(this.bTUnit);
             this.pianxinGroup.Controls.Add(this.cTUnit);
+            this.pianxinGroup.Controls.Add(this.ifa);
             this.pianxinGroup.Controls.Add(this.isIbt);
             this.pianxinGroup.Controls.Add(this.jiaZaiQingKuang);
             this.pianxinGroup.Controls.Add(this.label11);
@@ -625,7 +638,7 @@
             this.pianxinGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pianxinGroup.Location = new System.Drawing.Point(0, 526);
             this.pianxinGroup.Name = "pianxinGroup";
-            this.pianxinGroup.Size = new System.Drawing.Size(357, 372);
+            this.pianxinGroup.Size = new System.Drawing.Size(363, 396);
             this.pianxinGroup.TabIndex = 71;
             this.pianxinGroup.TabStop = false;
             this.pianxinGroup.Text = "偏心参数";
@@ -640,10 +653,19 @@
             this.isIbtLabel.TabIndex = 64;
             this.isIbtLabel.Text = "被连接件接合面转动惯量输入：";
             // 
+            // ifaLabel
+            // 
+            this.ifaLabel.AutoSize = true;
+            this.ifaLabel.Location = new System.Drawing.Point(14, 335);
+            this.ifaLabel.Name = "ifaLabel";
+            this.ifaLabel.Size = new System.Drawing.Size(101, 12);
+            this.ifaLabel.TabIndex = 64;
+            this.ifaLabel.Text = "采用偏心轴向载荷";
+            // 
             // jiaZaiQingKuangLabel
             // 
             this.jiaZaiQingKuangLabel.AutoSize = true;
-            this.jiaZaiQingKuangLabel.Location = new System.Drawing.Point(14, 337);
+            this.jiaZaiQingKuangLabel.Location = new System.Drawing.Point(14, 361);
             this.jiaZaiQingKuangLabel.Name = "jiaZaiQingKuangLabel";
             this.jiaZaiQingKuangLabel.Size = new System.Drawing.Size(65, 12);
             this.jiaZaiQingKuangLabel.TabIndex = 64;
@@ -700,12 +722,12 @@
             this.cT.Size = new System.Drawing.Size(110, 21);
             this.cT.TabIndex = 65;
             // 
-            // textBox1
+            // u
             // 
-            this.textBox1.Location = new System.Drawing.Point(178, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(110, 21);
-            this.textBox1.TabIndex = 65;
+            this.u.Location = new System.Drawing.Point(178, 63);
+            this.u.Name = "u";
+            this.u.Size = new System.Drawing.Size(110, 21);
+            this.u.TabIndex = 65;
             // 
             // cBUnit
             // 
@@ -767,6 +789,22 @@
             this.cTUnit.TabIndex = 60;
             this.cTUnit.Text = "mm";
             // 
+            // ifa
+            // 
+            this.ifa.DisplayMember = "boltType";
+            this.ifa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ifa.FormattingEnabled = true;
+            this.ifa.Items.AddRange(new object[] {
+            "是",
+            "否"});
+            this.ifa.Location = new System.Drawing.Point(178, 331);
+            this.ifa.Margin = new System.Windows.Forms.Padding(2);
+            this.ifa.Name = "ifa";
+            this.ifa.Size = new System.Drawing.Size(110, 20);
+            this.ifa.TabIndex = 59;
+            this.ifa.ValueMember = "boltType";
+            this.ifa.SelectedIndexChanged += new System.EventHandler(this.ifa_SelectedIndexChanged);
+            // 
             // isIbt
             // 
             this.isIbt.DisplayMember = "boltType";
@@ -792,7 +830,7 @@
             "加载类型一",
             "加载类型二",
             "加载类型三"});
-            this.jiaZaiQingKuang.Location = new System.Drawing.Point(178, 333);
+            this.jiaZaiQingKuang.Location = new System.Drawing.Point(178, 357);
             this.jiaZaiQingKuang.Margin = new System.Windows.Forms.Padding(2);
             this.jiaZaiQingKuang.Name = "jiaZaiQingKuang";
             this.jiaZaiQingKuang.Size = new System.Drawing.Size(110, 20);
@@ -906,7 +944,7 @@
             // 
             this.splitBasic.Panel2.AutoScroll = true;
             this.splitBasic.Panel2.Controls.Add(this.phiDimGroup);
-            this.splitBasic.Size = new System.Drawing.Size(357, 526);
+            this.splitBasic.Size = new System.Drawing.Size(363, 526);
             this.splitBasic.SplitterDistance = 236;
             this.splitBasic.TabIndex = 0;
             this.splitBasic.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitBasic_SplitterMoved);
@@ -914,11 +952,13 @@
             // FtauGroup
             // 
             this.FtauGroup.AutoSize = true;
+            this.FtauGroup.Controls.Add(this.qF);
             this.FtauGroup.Controls.Add(this.isSGsoll);
             this.FtauGroup.Controls.Add(this.isSGsollLabel);
             this.FtauGroup.Controls.Add(this.UTmin);
             this.FtauGroup.Controls.Add(this.SGsoll);
             this.FtauGroup.Controls.Add(this.label2);
+            this.FtauGroup.Controls.Add(this.qFLabel);
             this.FtauGroup.Controls.Add(this.UTminLabel);
             this.FtauGroup.Controls.Add(this.FQ);
             this.FtauGroup.Controls.Add(this.FQLabel);
@@ -926,11 +966,25 @@
             this.FtauGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.FtauGroup.Location = new System.Drawing.Point(0, 162);
             this.FtauGroup.Name = "FtauGroup";
-            this.FtauGroup.Size = new System.Drawing.Size(340, 152);
+            this.FtauGroup.Size = new System.Drawing.Size(346, 179);
             this.FtauGroup.TabIndex = 74;
             this.FtauGroup.TabStop = false;
             this.FtauGroup.Text = "附加剪力系数";
             this.FtauGroup.Visible = false;
+            // 
+            // qF
+            // 
+            this.qF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.qF.FormattingEnabled = true;
+            this.qF.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.qF.Location = new System.Drawing.Point(189, 140);
+            this.qF.Margin = new System.Windows.Forms.Padding(2);
+            this.qF.Name = "qF";
+            this.qF.Size = new System.Drawing.Size(76, 20);
+            this.qF.TabIndex = 70;
+            this.qF.SelectedIndexChanged += new System.EventHandler(this.isSGsoll_SelectedIndexChanged);
             // 
             // isSGsoll
             // 
@@ -939,7 +993,7 @@
             this.isSGsoll.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.isSGsoll.Location = new System.Drawing.Point(191, 83);
+            this.isSGsoll.Location = new System.Drawing.Point(191, 79);
             this.isSGsoll.Margin = new System.Windows.Forms.Padding(2);
             this.isSGsoll.Name = "isSGsoll";
             this.isSGsoll.Size = new System.Drawing.Size(76, 20);
@@ -949,7 +1003,7 @@
             // isSGsollLabel
             // 
             this.isSGsollLabel.AutoSize = true;
-            this.isSGsollLabel.Location = new System.Drawing.Point(4, 86);
+            this.isSGsollLabel.Location = new System.Drawing.Point(4, 82);
             this.isSGsollLabel.Name = "isSGsollLabel";
             this.isSGsollLabel.Size = new System.Drawing.Size(161, 12);
             this.isSGsollLabel.TabIndex = 69;
@@ -957,14 +1011,14 @@
             // 
             // UTmin
             // 
-            this.UTmin.Location = new System.Drawing.Point(189, 50);
+            this.UTmin.Location = new System.Drawing.Point(189, 46);
             this.UTmin.Name = "UTmin";
             this.UTmin.Size = new System.Drawing.Size(76, 21);
             this.UTmin.TabIndex = 66;
             // 
             // SGsoll
             // 
-            this.SGsoll.Location = new System.Drawing.Point(191, 111);
+            this.SGsoll.Location = new System.Drawing.Point(191, 107);
             this.SGsoll.Name = "SGsoll";
             this.SGsoll.ReadOnly = true;
             this.SGsoll.Size = new System.Drawing.Size(76, 21);
@@ -973,16 +1027,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 115);
+            this.label2.Location = new System.Drawing.Point(4, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 12);
             this.label2.TabIndex = 64;
             this.label2.Text = "抗滑移安全系数SGsoll：";
             // 
+            // qFLabel
+            // 
+            this.qFLabel.AutoSize = true;
+            this.qFLabel.Location = new System.Drawing.Point(5, 143);
+            this.qFLabel.Name = "qFLabel";
+            this.qFLabel.Size = new System.Drawing.Size(185, 12);
+            this.qFLabel.TabIndex = 63;
+            this.qFLabel.Text = "载荷传递通过内部接合面数量qF：";
+            // 
             // UTminLabel
             // 
             this.UTminLabel.AutoSize = true;
-            this.UTminLabel.Location = new System.Drawing.Point(2, 47);
+            this.UTminLabel.Location = new System.Drawing.Point(2, 43);
             this.UTminLabel.Name = "UTminLabel";
             this.UTminLabel.Size = new System.Drawing.Size(119, 24);
             this.UTminLabel.TabIndex = 63;
@@ -995,6 +1058,7 @@
             this.FQ.Size = new System.Drawing.Size(76, 21);
             this.FQ.TabIndex = 68;
             this.FQ.Text = "0";
+            this.FQ.TextChanged += new System.EventHandler(this.FQ_TextChanged);
             // 
             // FQLabel
             // 
@@ -1008,11 +1072,11 @@
             // FQUnit
             // 
             this.FQUnit.AutoSize = true;
-            this.FQUnit.Location = new System.Drawing.Point(270, 16);
+            this.FQUnit.Location = new System.Drawing.Point(270, 18);
             this.FQUnit.Name = "FQUnit";
-            this.FQUnit.Size = new System.Drawing.Size(17, 12);
+            this.FQUnit.Size = new System.Drawing.Size(11, 12);
             this.FQUnit.TabIndex = 62;
-            this.FQUnit.Text = "mm";
+            this.FQUnit.Text = "N";
             // 
             // basicGroup
             // 
@@ -1026,7 +1090,7 @@
             this.basicGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.basicGroup.Location = new System.Drawing.Point(0, 0);
             this.basicGroup.Name = "basicGroup";
-            this.basicGroup.Size = new System.Drawing.Size(340, 162);
+            this.basicGroup.Size = new System.Drawing.Size(346, 162);
             this.basicGroup.TabIndex = 70;
             this.basicGroup.TabStop = false;
             this.basicGroup.Text = "基础";
@@ -1067,7 +1131,7 @@
             // 
             // BoltConnectType
             // 
-            this.BoltConnectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.BoltConnectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BoltConnectType.FormattingEnabled = true;
             this.BoltConnectType.Items.AddRange(new object[] {
             "通孔螺栓连接",
@@ -1110,6 +1174,8 @@
             // phiDimGroup
             // 
             this.phiDimGroup.AutoSize = true;
+            this.phiDimGroup.Controls.Add(this.qM);
+            this.phiDimGroup.Controls.Add(this.label13);
             this.phiDimGroup.Controls.Add(this.Mt);
             this.phiDimGroup.Controls.Add(this.MtLabel);
             this.phiDimGroup.Controls.Add(this.MtUnit);
@@ -1145,10 +1211,33 @@
             this.phiDimGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.phiDimGroup.Location = new System.Drawing.Point(0, 0);
             this.phiDimGroup.Name = "phiDimGroup";
-            this.phiDimGroup.Size = new System.Drawing.Size(340, 451);
+            this.phiDimGroup.Size = new System.Drawing.Size(346, 481);
             this.phiDimGroup.TabIndex = 70;
             this.phiDimGroup.TabStop = false;
             this.phiDimGroup.Text = "几何尺寸";
+            // 
+            // qM
+            // 
+            this.qM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.qM.Enabled = false;
+            this.qM.FormattingEnabled = true;
+            this.qM.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.qM.Location = new System.Drawing.Point(203, 442);
+            this.qM.Margin = new System.Windows.Forms.Padding(2);
+            this.qM.Name = "qM";
+            this.qM.Size = new System.Drawing.Size(76, 20);
+            this.qM.TabIndex = 72;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(14, 445);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(185, 12);
+            this.label13.TabIndex = 71;
+            this.label13.Text = "转矩传递通过内部接合面数量qM：";
             // 
             // Mt
             // 
@@ -1360,7 +1449,6 @@
             // isMt
             // 
             this.isMt.DisplayMember = "boltType";
-            this.isMt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.isMt.Enabled = false;
             this.isMt.FormattingEnabled = true;
             this.isMt.Items.AddRange(new object[] {
@@ -1511,7 +1599,7 @@
             this.BoltGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.BoltGroup.Location = new System.Drawing.Point(0, 0);
             this.BoltGroup.Name = "BoltGroup";
-            this.BoltGroup.Size = new System.Drawing.Size(302, 521);
+            this.BoltGroup.Size = new System.Drawing.Size(308, 521);
             this.BoltGroup.TabIndex = 51;
             this.BoltGroup.TabStop = false;
             this.BoltGroup.Text = "螺栓";
@@ -1881,7 +1969,7 @@
             // modeAndOpt.Panel2
             // 
             this.modeAndOpt.Panel2.Controls.Add(this.simulation1);
-            this.modeAndOpt.Size = new System.Drawing.Size(477, 554);
+            this.modeAndOpt.Size = new System.Drawing.Size(459, 554);
             this.modeAndOpt.SplitterDistance = 162;
             this.modeAndOpt.TabIndex = 4;
             // 
@@ -1909,7 +1997,7 @@
             this.modelControlBox.Margin = new System.Windows.Forms.Padding(2);
             this.modelControlBox.Name = "modelControlBox";
             this.modelControlBox.Padding = new System.Windows.Forms.Padding(2);
-            this.modelControlBox.Size = new System.Drawing.Size(477, 157);
+            this.modelControlBox.Size = new System.Drawing.Size(459, 157);
             this.modelControlBox.TabIndex = 189;
             this.modelControlBox.TabStop = false;
             this.modelControlBox.Text = "控制";
@@ -2117,7 +2205,7 @@
             this.simulation1.Location = new System.Drawing.Point(0, 0);
             this.simulation1.Name = "simulation1";
             this.simulation1.ProgressBar = progressBar1;
-            this.simulation1.Size = new System.Drawing.Size(477, 388);
+            this.simulation1.Size = new System.Drawing.Size(459, 388);
             this.simulation1.TabIndex = 1;
             this.simulation1.Text = "simulation1";
             coordinateSystemIcon1.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -2129,6 +2217,7 @@
             viewCubeIcon1.InitialRotation = new devDept.Geometry.Quaternion(0D, 0D, 0D, 1D);
             viewport1.ViewCubeIcon = viewCubeIcon1;
             this.simulation1.Viewports.Add(viewport1);
+            this.simulation1.Click += new System.EventHandler(this.simulation1_Click);
             // 
             // Mode3D
             // 
@@ -2153,8 +2242,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableTab);
-            this.splitContainer1.Size = new System.Drawing.Size(1164, 146);
-            this.splitContainer1.SplitterDistance = 496;
+            this.splitContainer1.Size = new System.Drawing.Size(1158, 146);
+            this.splitContainer1.SplitterDistance = 493;
             this.splitContainer1.TabIndex = 0;
             // 
             // introGroup
@@ -2163,7 +2252,7 @@
             this.introGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.introGroup.Location = new System.Drawing.Point(0, 0);
             this.introGroup.Name = "introGroup";
-            this.introGroup.Size = new System.Drawing.Size(496, 146);
+            this.introGroup.Size = new System.Drawing.Size(493, 146);
             this.introGroup.TabIndex = 3;
             this.introGroup.TabStop = false;
             this.introGroup.Text = "说明";
@@ -2188,7 +2277,7 @@
             this.tableTab.Location = new System.Drawing.Point(0, 0);
             this.tableTab.Name = "tableTab";
             this.tableTab.SelectedIndex = 0;
-            this.tableTab.Size = new System.Drawing.Size(664, 146);
+            this.tableTab.Size = new System.Drawing.Size(661, 146);
             this.tableTab.TabIndex = 3;
             // 
             // getNTable
@@ -2199,7 +2288,7 @@
             this.getNTable.Location = new System.Drawing.Point(4, 22);
             this.getNTable.Name = "getNTable";
             this.getNTable.Padding = new System.Windows.Forms.Padding(3);
-            this.getNTable.Size = new System.Drawing.Size(656, 120);
+            this.getNTable.Size = new System.Drawing.Size(653, 120);
             this.getNTable.TabIndex = 0;
             this.getNTable.Text = "载荷传导系数";
             this.getNTable.UseVisualStyleBackColor = true;
@@ -2213,7 +2302,7 @@
             this.svTable.Location = new System.Drawing.Point(4, 22);
             this.svTable.Name = "svTable";
             this.svTable.Padding = new System.Windows.Forms.Padding(3);
-            this.svTable.Size = new System.Drawing.Size(656, 120);
+            this.svTable.Size = new System.Drawing.Size(648, 120);
             this.svTable.TabIndex = 1;
             this.svTable.Text = "sv样式";
             this.svTable.UseVisualStyleBackColor = true;
@@ -2226,7 +2315,7 @@
             this.meffd.Location = new System.Drawing.Point(4, 22);
             this.meffd.Name = "meffd";
             this.meffd.Padding = new System.Windows.Forms.Padding(3);
-            this.meffd.Size = new System.Drawing.Size(656, 120);
+            this.meffd.Size = new System.Drawing.Size(648, 120);
             this.meffd.TabIndex = 2;
             this.meffd.Text = "相对啮合长度";
             this.meffd.UseVisualStyleBackColor = true;
@@ -2237,7 +2326,7 @@
             this.connAndLoadData.Location = new System.Drawing.Point(4, 22);
             this.connAndLoadData.Name = "connAndLoadData";
             this.connAndLoadData.Padding = new System.Windows.Forms.Padding(3);
-            this.connAndLoadData.Size = new System.Drawing.Size(1172, 716);
+            this.connAndLoadData.Size = new System.Drawing.Size(1166, 716);
             this.connAndLoadData.TabIndex = 1;
             this.connAndLoadData.Text = "连接件及加载数据";
             this.connAndLoadData.UseVisualStyleBackColor = true;
@@ -2256,7 +2345,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer2.Size = new System.Drawing.Size(1166, 710);
+            this.splitContainer2.Size = new System.Drawing.Size(1160, 710);
             this.splitContainer2.SplitterDistance = 542;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -2273,8 +2362,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitRight);
-            this.splitContainer3.Size = new System.Drawing.Size(1166, 542);
-            this.splitContainer3.SplitterDistance = 344;
+            this.splitContainer3.Size = new System.Drawing.Size(1160, 542);
+            this.splitContainer3.SplitterDistance = 341;
             this.splitContainer3.TabIndex = 1;
             // 
             // splitConn
@@ -2293,7 +2382,7 @@
             // 
             this.splitConn.Panel2.AutoScroll = true;
             this.splitConn.Panel2.Controls.Add(this.splitContainer4);
-            this.splitConn.Size = new System.Drawing.Size(344, 542);
+            this.splitConn.Size = new System.Drawing.Size(341, 542);
             this.splitConn.SplitterDistance = 63;
             this.splitConn.TabIndex = 0;
             // 
@@ -2305,7 +2394,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.Controls.Add(this.delButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.addButton, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(47, 20);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -2352,7 +2441,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dataClamped);
             this.splitContainer4.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer4.Size = new System.Drawing.Size(344, 475);
+            this.splitContainer4.Size = new System.Drawing.Size(341, 475);
             this.splitContainer4.SplitterDistance = 193;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -2372,7 +2461,7 @@
             this.dataClampedChoosed.Name = "dataClampedChoosed";
             this.dataClampedChoosed.RowTemplate.Height = 23;
             this.dataClampedChoosed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataClampedChoosed.Size = new System.Drawing.Size(344, 193);
+            this.dataClampedChoosed.Size = new System.Drawing.Size(341, 193);
             this.dataClampedChoosed.TabIndex = 2;
             this.dataClampedChoosed.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClampedChoosed_CellEndEdit);
             // 
@@ -2426,7 +2515,7 @@
             this.dataClamped.ReadOnly = true;
             this.dataClamped.RowTemplate.Height = 23;
             this.dataClamped.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataClamped.Size = new System.Drawing.Size(344, 278);
+            this.dataClamped.Size = new System.Drawing.Size(341, 278);
             this.dataClamped.TabIndex = 1;
             // 
             // clampedMaterialNameDataGridViewTextBoxColumn
@@ -2481,7 +2570,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(344, 278);
+            this.dataGridView2.Size = new System.Drawing.Size(341, 278);
             this.dataGridView2.TabIndex = 0;
             // 
             // splitRight
@@ -2500,8 +2589,8 @@
             // 
             this.splitRight.Panel2.AutoScroll = true;
             this.splitRight.Panel2.Controls.Add(this.splitLoadData);
-            this.splitRight.Size = new System.Drawing.Size(818, 542);
-            this.splitRight.SplitterDistance = 398;
+            this.splitRight.Size = new System.Drawing.Size(815, 542);
+            this.splitRight.SplitterDistance = 395;
             this.splitRight.TabIndex = 2;
             // 
             // splitGasketNut
@@ -2519,9 +2608,10 @@
             // 
             // splitGasketNut.Panel2
             // 
+            this.splitGasketNut.Panel2.AutoScroll = true;
             this.splitGasketNut.Panel2.Controls.Add(this.nutGroup);
             this.splitGasketNut.Panel2MinSize = 20;
-            this.splitGasketNut.Size = new System.Drawing.Size(396, 540);
+            this.splitGasketNut.Size = new System.Drawing.Size(393, 540);
             this.splitGasketNut.SplitterDistance = 364;
             this.splitGasketNut.TabIndex = 1;
             // 
@@ -2554,7 +2644,7 @@
             this.gasketGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.gasketGroup.Location = new System.Drawing.Point(0, 0);
             this.gasketGroup.Name = "gasketGroup";
-            this.gasketGroup.Size = new System.Drawing.Size(379, 520);
+            this.gasketGroup.Size = new System.Drawing.Size(376, 520);
             this.gasketGroup.TabIndex = 1;
             this.gasketGroup.TabStop = false;
             this.gasketGroup.Text = "垫圈";
@@ -2585,7 +2675,7 @@
             this.gasketMaterialGroup.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gasketMaterialGroup.Location = new System.Drawing.Point(3, 331);
             this.gasketMaterialGroup.Name = "gasketMaterialGroup";
-            this.gasketMaterialGroup.Size = new System.Drawing.Size(373, 186);
+            this.gasketMaterialGroup.Size = new System.Drawing.Size(370, 186);
             this.gasketMaterialGroup.TabIndex = 46;
             this.gasketMaterialGroup.TabStop = false;
             this.gasketMaterialGroup.Text = "垫圈材料";
@@ -2900,7 +2990,7 @@
             this.nutGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.nutGroup.Location = new System.Drawing.Point(0, 0);
             this.nutGroup.Name = "nutGroup";
-            this.nutGroup.Size = new System.Drawing.Size(396, 274);
+            this.nutGroup.Size = new System.Drawing.Size(393, 146);
             this.nutGroup.TabIndex = 46;
             this.nutGroup.TabStop = false;
             this.nutGroup.Text = "螺母";
@@ -3005,6 +3095,7 @@
             // 
             // loadDataGroup
             // 
+            this.loadDataGroup.Controls.Add(this.ifZhouqiN);
             this.loadDataGroup.Controls.Add(this.fz);
             this.loadDataGroup.Controls.Add(this.fzlabel);
             this.loadDataGroup.Controls.Add(this.fzUnit);
@@ -3017,6 +3108,7 @@
             this.loadDataGroup.Controls.Add(this.FkerfUnit);
             this.loadDataGroup.Controls.Add(this.fauUnit);
             this.loadDataGroup.Controls.Add(this.FAOUnit);
+            this.loadDataGroup.Controls.Add(this.zhouqiN);
             this.loadDataGroup.Controls.Add(this.Fmzul);
             this.loadDataGroup.Controls.Add(this.v);
             this.loadDataGroup.Controls.Add(this.Tp);
@@ -3034,13 +3126,16 @@
             this.loadDataGroup.Controls.Add(this.FAO);
             this.loadDataGroup.Controls.Add(this.tighten);
             this.loadDataGroup.Controls.Add(this.isFkerf);
+            this.loadDataGroup.Controls.Add(this.zhazhi);
             this.loadDataGroup.Controls.Add(this.isFz);
             this.loadDataGroup.Controls.Add(this.isFORM);
+            this.loadDataGroup.Controls.Add(this.zhazhiLabel);
             this.loadDataGroup.Controls.Add(this.label5);
             this.loadDataGroup.Controls.Add(this.sv);
             this.loadDataGroup.Controls.Add(this.isN);
             this.loadDataGroup.Controls.Add(this.workingLoads);
             this.loadDataGroup.Controls.Add(this.label4);
+            this.loadDataGroup.Controls.Add(this.zhouqiNLabel);
             this.loadDataGroup.Controls.Add(this.label6);
             this.loadDataGroup.Controls.Add(this.vLabel);
             this.loadDataGroup.Controls.Add(this.TpLabel);
@@ -3064,10 +3159,21 @@
             this.loadDataGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.loadDataGroup.Location = new System.Drawing.Point(0, 0);
             this.loadDataGroup.Name = "loadDataGroup";
-            this.loadDataGroup.Size = new System.Drawing.Size(397, 1021);
+            this.loadDataGroup.Size = new System.Drawing.Size(397, 989);
             this.loadDataGroup.TabIndex = 1;
             this.loadDataGroup.TabStop = false;
             this.loadDataGroup.Text = "加载数据";
+            // 
+            // ifZhouqiN
+            // 
+            this.ifZhouqiN.AutoSize = true;
+            this.ifZhouqiN.Location = new System.Drawing.Point(11, 856);
+            this.ifZhouqiN.Name = "ifZhouqiN";
+            this.ifZhouqiN.Size = new System.Drawing.Size(168, 16);
+            this.ifZhouqiN.TabIndex = 61;
+            this.ifZhouqiN.Text = "疲劳强度范围内交变应力：";
+            this.ifZhouqiN.UseVisualStyleBackColor = true;
+            this.ifZhouqiN.CheckedChanged += new System.EventHandler(this.ifZhouqiN_CheckedChanged);
             // 
             // fz
             // 
@@ -3153,7 +3259,7 @@
             // FkerfUnit
             // 
             this.FkerfUnit.AutoSize = true;
-            this.FkerfUnit.Location = new System.Drawing.Point(275, 220);
+            this.FkerfUnit.Location = new System.Drawing.Point(275, 208);
             this.FkerfUnit.Name = "FkerfUnit";
             this.FkerfUnit.Size = new System.Drawing.Size(11, 12);
             this.FkerfUnit.TabIndex = 58;
@@ -3176,6 +3282,14 @@
             this.FAOUnit.Size = new System.Drawing.Size(11, 12);
             this.FAOUnit.TabIndex = 58;
             this.FAOUnit.Text = "N";
+            // 
+            // zhouqiN
+            // 
+            this.zhouqiN.Enabled = false;
+            this.zhouqiN.Location = new System.Drawing.Point(194, 875);
+            this.zhouqiN.Name = "zhouqiN";
+            this.zhouqiN.Size = new System.Drawing.Size(76, 21);
+            this.zhouqiN.TabIndex = 57;
             // 
             // Fmzul
             // 
@@ -3265,7 +3379,7 @@
             // 
             // a
             // 
-            this.a.Location = new System.Drawing.Point(193, 127);
+            this.a.Location = new System.Drawing.Point(193, 128);
             this.a.Name = "a";
             this.a.ReadOnly = true;
             this.a.Size = new System.Drawing.Size(76, 21);
@@ -3301,11 +3415,21 @@
             this.tighten.FormattingEnabled = true;
             this.tighten.Items.AddRange(new object[] {
             "自定义输入",
-            "屈服控制拧紧"});
+            "伸长量控制或超声波监测拧紧",
+            "机械伸长量测量或监测拧紧",
+            "液压无摩擦和无扭转拧紧",
+            "液压脉冲发生器的脉冲驱动器、扭矩和或转角控制",
+            "屈服点控制拧紧，电动或手动",
+            "转角控制拧紧，电动或手动",
+            "使用液压工具扭矩控制拧紧",
+            "扭矩扳手、信号扳手或带动态扭矩测量的电动螺母扳手扭矩控制拧紧",
+            "扭矩扳手、信号扳手或带动态扭矩测量的电动螺母扳手扭矩控制拧紧B",
+            "扭矩扳手、信号扳手或带动态扭矩测量的电动螺母扳手扭矩控制拧紧A",
+            "冲击扳手或脉冲扳手拧紧；用手拧紧"});
             this.tighten.Location = new System.Drawing.Point(193, 284);
             this.tighten.Margin = new System.Windows.Forms.Padding(2);
             this.tighten.Name = "tighten";
-            this.tighten.Size = new System.Drawing.Size(76, 20);
+            this.tighten.Size = new System.Drawing.Size(152, 20);
             this.tighten.TabIndex = 45;
             this.tighten.SelectedIndexChanged += new System.EventHandler(this.tighten_SelectedIndexChanged);
             // 
@@ -3322,6 +3446,19 @@
             this.isFkerf.Size = new System.Drawing.Size(76, 20);
             this.isFkerf.TabIndex = 45;
             this.isFkerf.SelectedIndexChanged += new System.EventHandler(this.isFkerf_SelectedIndexChanged);
+            // 
+            // zhazhi
+            // 
+            this.zhazhi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.zhazhi.FormattingEnabled = true;
+            this.zhazhi.Items.AddRange(new object[] {
+            "热处理前轧制",
+            "热处理后轧制"});
+            this.zhazhi.Location = new System.Drawing.Point(194, 827);
+            this.zhazhi.Margin = new System.Windows.Forms.Padding(2);
+            this.zhazhi.Name = "zhazhi";
+            this.zhazhi.Size = new System.Drawing.Size(76, 20);
+            this.zhazhi.TabIndex = 45;
             // 
             // isFz
             // 
@@ -3350,6 +3487,15 @@
             this.isFORM.Size = new System.Drawing.Size(76, 20);
             this.isFORM.TabIndex = 45;
             this.isFORM.SelectedIndexChanged += new System.EventHandler(this.isFORM_SelectedIndexChanged);
+            // 
+            // zhazhiLabel
+            // 
+            this.zhazhiLabel.AutoSize = true;
+            this.zhazhiLabel.Location = new System.Drawing.Point(7, 823);
+            this.zhazhiLabel.Name = "zhazhiLabel";
+            this.zhazhiLabel.Size = new System.Drawing.Size(65, 12);
+            this.zhazhiLabel.TabIndex = 44;
+            this.zhazhiLabel.Text = "螺纹加工：";
             // 
             // label5
             // 
@@ -3414,6 +3560,15 @@
             this.label4.Size = new System.Drawing.Size(167, 24);
             this.label4.TabIndex = 44;
             this.label4.Text = "预定在室温下允许的\r\n装配预紧力/必要的拧紧力矩：";
+            // 
+            // zhouqiNLabel
+            // 
+            this.zhouqiNLabel.AutoSize = true;
+            this.zhouqiNLabel.Location = new System.Drawing.Point(12, 879);
+            this.zhouqiNLabel.Name = "zhouqiNLabel";
+            this.zhouqiNLabel.Size = new System.Drawing.Size(77, 12);
+            this.zhouqiNLabel.TabIndex = 44;
+            this.zhouqiNLabel.Text = "循环周期数N:";
             // 
             // label6
             // 
@@ -3609,8 +3764,8 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.introTable2);
-            this.splitContainer5.Size = new System.Drawing.Size(1166, 164);
-            this.splitContainer5.SplitterDistance = 488;
+            this.splitContainer5.Size = new System.Drawing.Size(1160, 164);
+            this.splitContainer5.SplitterDistance = 485;
             this.splitContainer5.TabIndex = 1;
             // 
             // introGroup2
@@ -3619,7 +3774,7 @@
             this.introGroup2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.introGroup2.Location = new System.Drawing.Point(0, 0);
             this.introGroup2.Name = "introGroup2";
-            this.introGroup2.Size = new System.Drawing.Size(488, 164);
+            this.introGroup2.Size = new System.Drawing.Size(485, 164);
             this.introGroup2.TabIndex = 3;
             this.introGroup2.TabStop = false;
             this.introGroup2.Text = "说明";
@@ -3644,7 +3799,7 @@
             this.introTable2.Location = new System.Drawing.Point(0, 0);
             this.introTable2.Name = "introTable2";
             this.introTable2.SelectedIndex = 0;
-            this.introTable2.Size = new System.Drawing.Size(674, 164);
+            this.introTable2.Size = new System.Drawing.Size(671, 164);
             this.introTable2.TabIndex = 3;
             // 
             // tabPage1
@@ -3655,7 +3810,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(666, 138);
+            this.tabPage1.Size = new System.Drawing.Size(663, 138);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "载荷传导系数";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3669,7 +3824,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(666, 138);
+            this.tabPage2.Size = new System.Drawing.Size(647, 138);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "sv样式";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3682,7 +3837,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(666, 138);
+            this.tabPage3.Size = new System.Drawing.Size(647, 138);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "相对啮合长度";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3693,7 +3848,7 @@
             this.resultData.Location = new System.Drawing.Point(4, 22);
             this.resultData.Name = "resultData";
             this.resultData.Padding = new System.Windows.Forms.Padding(3);
-            this.resultData.Size = new System.Drawing.Size(1172, 716);
+            this.resultData.Size = new System.Drawing.Size(1157, 716);
             this.resultData.TabIndex = 2;
             this.resultData.Text = "计算结果";
             this.resultData.UseVisualStyleBackColor = true;
@@ -3703,7 +3858,7 @@
             this.resGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resGrid.Location = new System.Drawing.Point(3, 3);
             this.resGrid.Name = "resGrid";
-            this.resGrid.Size = new System.Drawing.Size(1166, 710);
+            this.resGrid.Size = new System.Drawing.Size(1151, 710);
             this.resGrid.TabIndex = 0;
             // 
             // materialClampedBindingSource1
@@ -3732,7 +3887,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 767);
+            this.ClientSize = new System.Drawing.Size(1174, 767);
             this.Controls.Add(this.DataInputTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -4126,7 +4281,7 @@
         private System.Windows.Forms.TextBox Ibt;
         private System.Windows.Forms.Label IbtUnit;
         private System.Windows.Forms.Label IbtLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox u;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label ADLabel;
@@ -4147,5 +4302,16 @@
         private System.Windows.Forms.TextBox FQ;
         private System.Windows.Forms.Label FQLabel;
         private System.Windows.Forms.Label FQUnit;
+        private System.Windows.Forms.Label qFLabel;
+        private System.Windows.Forms.ComboBox qF;
+        private System.Windows.Forms.ComboBox qM;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label ifaLabel;
+        private System.Windows.Forms.ComboBox ifa;
+        private System.Windows.Forms.ComboBox zhazhi;
+        private System.Windows.Forms.Label zhazhiLabel;
+        private System.Windows.Forms.CheckBox ifZhouqiN;
+        private System.Windows.Forms.TextBox zhouqiN;
+        private System.Windows.Forms.Label zhouqiNLabel;
     }
 }

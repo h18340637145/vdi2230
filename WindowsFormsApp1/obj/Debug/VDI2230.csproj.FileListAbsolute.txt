@@ -496,7 +496,6 @@ H:\linux_windows\vdi\WindowsFormsApp1\bin\Debug\TD_TF_19.11_11.TX
 H:\linux_windows\vdi\WindowsFormsApp1\bin\Debug\TD_ZLIB.DLL
 H:\linux_windows\vdi\WindowsFormsApp1\bin\Debug\WINOPENGL_19.11_11.TXV
 H:\linux_windows\vdi\WindowsFormsApp1\bin\Debug\WIPEOUT_19.11_11.TX
-H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\VDI2230.csprojAssemblyReference.cache
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BoltChooseForm.resources
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.InitDesignChooseForm.resources
@@ -513,3 +512,4 @@ H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\VDI2230.csproj.CoreCompileInputs
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\VDI2230.csproj.CopyComplete
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\VDI2230.csprojAssemblyReference.cache

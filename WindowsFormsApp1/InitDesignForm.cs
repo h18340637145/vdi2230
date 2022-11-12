@@ -16,10 +16,79 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
         string[] type = new string[4];
+
         int getForce(double upperLimitAxialLoadString)
         {
             int num = Convert.ToInt32(upperLimitAxialLoadString);
+            
+            #region mdesign
+            
+            if (num <= 1000)
+            {
+                num = 1000;
+            }
+            else if (num <= 1600 && num > 1000)
+            {
+                num = 1600;
+            }
+            else if (num <= 2500 && num > 1600)
+            {
+                num = 2500;
+            }
+            else if (num <= 4000 && num > 2500)
+            {
+                num = 4000;
+            }
+            else if (num <= 6300 && num > 4000)
+            {
+                num = 6300;
+            }
+            else if (num <= 10000 && num > 6300)
+            {
+                num = 10000;
+            }
+            else if (num <= 16000 && num > 10000)
+            {
+                num = 16000;
+            }
+            else if (num <= 25000 && num > 16000)
+            {
+                num = 25000;
+            }
+            else if (num <= 40000 && num > 25000)
+            {
+                num = 40000;
+            }
+            else if (num <= 63000 && num > 40000)
+            {
+                num = 63000;
+            }
+            else if (num <= 100000 && num > 63000)
+            {
+                num = 100000;
+            }
+            else if (num <= 160000 && num > 100000)
+            {
+                num = 160000;
+            }
+            else if (num <= 250000 && num > 160000)
+            {
+                num = 250000;
+            }
+            else if (num <= 400000 && num > 250000)
+            {
+                num = 400000;
+            }
+            else if (num <= 630000 && num > 400000)
+            {
+                num = 630000;
+            }
+            #endregion
+            
+            /*
+            #region vdi
             if (num < 1000)
             {
                 num = 1000;
@@ -76,10 +145,12 @@ namespace WindowsFormsApp1
             {
                 num = 400000;
             }
-            else if (num < 630000 && num > 400000)
+            else if (num < 630000 && num >= 400000)
             {
                 num = 630000;
             }
+            #endregion
+            */
             return num;
         }
 
@@ -89,74 +160,144 @@ namespace WindowsFormsApp1
             dataGridView1.Rows.Clear();
             string sql = "";
             double fa = double.Parse(upperLimitAxialLoadString);
-            double fqmax = double.Parse(upperLimitAxialLoadString);
+            double fqmax = 0;
+            double u_tmin = 0;
             double fres = 0;
-
-            double fmmin = fa;
-            double fmmax = fa;
+            #region A
             double[] zaiheN = { 250,400,630,1000,1600,2500,4000,6300,10000,16000,25000,40000,63000,100000,160000,250000,400000,630000 };
             int idx = 0;
             for (int i = 0; i < zaiheN.Length - 1; i++)
             {
-                if (fa > zaiheN[i] && fa <= zaiheN[i + 1] )
+                // 》=   《 
+                if (fa >= zaiheN[i] && fa < zaiheN[i + 1] )
                 {
                     fa = zaiheN[i + 1];
                     idx = i + 1;
                     break;
                 }
             }
-
-            // B
-            if (boltConTypeString == "单螺栓连接")
+            int fq_idx = 0;
+            if (boltConTypeString == "受横向载荷的螺栓连接")
             {
-                // fa
-                // 动态偏心
-                if (workingLoads == "动态" && isEccentricString == "是")
+                fqmax = Convert.ToDouble(FQ.Text);
+                u_tmin = Convert.ToDouble(UTmin.Text);
+                for (int i = 0; i < zaiheN.Length - 1; i++)
                 {
-                    fmmin = zaiheN[idx + 2];
-                    idx = idx + 2;
+                    if (fqmax >= zaiheN[i] && fqmax < zaiheN[i + 1])
+                    {
+                        fqmax = zaiheN[i + 1];
+                        fq_idx = i + 1;
+                        break;
+                    }
                 }
-                // 静态偏心  || 动态同心
-                else if ((workingLoads == "静态" && isEccentricString == "是")
-                        ||(workingLoads == "动态" && isEccentricString == "否"))
+            }
+            Console.WriteLine("A:" + fa);
+            Console.WriteLine("A:" + fqmax);
+            #endregion
+
+            if (boltConTypeString == "受横向载荷的螺栓连接")
+            {
+                if (fa < fqmax / u_tmin)
                 {
-                    fmmin = zaiheN[idx + 1];
-                    idx = idx + 1;
+                    // 只使用fq
+                    // FQmax加四级  idx + 4
+                    fqmax = zaiheN[fq_idx + 4];
+                    fq_idx = fq_idx + 4;
+                    fres = fqmax;
+                    Console.WriteLine("FQmax加四级B:" + fres);
                 }
-                // 静态同心 不变
                 else
                 {
-                    fmmin = fmmin;
+                    //用A
+                    // 动态偏心
+                    if (workingLoads == "动态" && isEccentricString == "是")
+                    {
+                        fres = zaiheN[idx + 2];
+                        idx = idx + 2;
+                    }
+                    // 静态偏心  || 动态同心
+                    else if ((workingLoads == "静态" && isEccentricString == "是")
+                            || (workingLoads == "动态" && isEccentricString == "否"))
+                    {
+                        fres = zaiheN[idx + 1];
+                        idx = idx + 1;
+                    }
+                    // 静态同心 不变
+                    else
+                    {
+                        fres = fres;
+                    }
+                    Console.WriteLine("用FA B:" + fres);
                 }
 
+                // c
+                idx = fa < (fqmax / u_tmin) ? fq_idx : idx;
                 // 使用  动态
                 if (tightenTheProcessString == "复紧扭矩")
                 {
-                    fmmax = zaiheN[idx + 2];
+                    fres = zaiheN[idx + 2];
                     idx = idx + 2;
                 }
-                else if (tightenTheProcessString == "冲击扳手或扭矩控制的冲击扳手拧紧" || tightenTheProcessString == "实验室测定必须拧紧力矩的扭矩扳手" 
-                    ||  tightenTheProcessString == "A级预估摩擦系数的扭矩扳手" || tightenTheProcessString == "B级预估摩擦系数的扭矩扳手")
+                else if (tightenTheProcessString == "冲击扳手或扭矩控制的冲击扳手拧紧" || tightenTheProcessString == "实验室测定必须拧紧力矩的扭矩扳手"
+                    || tightenTheProcessString == "A级预估摩擦系数的扭矩扳手" || tightenTheProcessString == "B级预估摩擦系数的扭矩扳手")
                 {
-                    fmmax = zaiheN[idx + 1];
+                    fres = zaiheN[idx + 1];
                     idx = idx + 1;
                 }
                 // 角度控制 或者屈服控制不增加
                 else if (tightenTheProcessString == "屈服控制拧紧" || tightenTheProcessString == "转角控制拧紧")
                 {
-                    fmmax = fmmin;
+                    fres = fres;
                 }
-                fres = fmmax;
+                Console.WriteLine("C:" + fres);
             }
             else
             {
-                // FQmax加四级  idx + 4
-                fqmax = zaiheN[idx + 4];
-                fres = fqmax;
+                // B
+                // 单螺栓  用a 
+                // 动态偏心
+                if (workingLoads == "动态" && isEccentricString == "是")
+                {
+                    fres = zaiheN[idx + 2];
+                    idx = idx + 2;
+                }
+                // 静态偏心  || 动态同心
+                else if ((workingLoads == "静态" && isEccentricString == "是")
+                        || (workingLoads == "动态" && isEccentricString == "否"))
+                {
+                    fres = zaiheN[idx + 1];
+                    idx = idx + 1;
+                }
+                // 静态同心 不变
+                else
+                {
+                    fres = fres;
+                }
+                Console.WriteLine("单螺栓连接，使用FA B:" + fres);
+
+                // c
+                // 使用  动态
+                if (tightenTheProcessString == "复紧扭矩")
+                {
+                    fres = zaiheN[idx + 2];
+                    idx = idx + 2;
+                }
+                else if (tightenTheProcessString == "冲击扳手或扭矩控制的冲击扳手拧紧" || tightenTheProcessString == "实验室测定必须拧紧力矩的扭矩扳手"
+                    || tightenTheProcessString == "A级预估摩擦系数的扭矩扳手" || tightenTheProcessString == "B级预估摩擦系数的扭矩扳手")
+                {
+                    fres = zaiheN[idx + 1];
+                    idx = idx + 1;
+                }
+                // 角度控制 或者屈服控制不增加
+                else if (tightenTheProcessString == "屈服控制拧紧" || tightenTheProcessString == "转角控制拧紧")
+                {
+                    fres = fres;
+                }
+                Console.WriteLine("C:" + fres);
             }
-
-            int force = getForce(fres);
-
+            
+            // mdesign
+            int force = Convert.ToInt32(fres);
             MessageBox.Show(force.ToString());
             sql = "select * from dbo_strengthGradeAndDN where force=" + force;
             DaoAccess dao = new DaoAccess();
@@ -220,6 +361,24 @@ namespace WindowsFormsApp1
             this.dbo_boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet14.dbo_boltTypeTable);
             // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet1.boltTypeTable”中。您可以根据需要移动或删除它。
             //this.boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet1.boltTypeTable);
+        }
+
+        private void boltConType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (boltConType.Text == "单螺栓连接")
+            {
+                FQLabel.Visible = false;
+                FQ.Visible = false;
+                UTmin.Visible = false;
+                uTminLabel.Visible = false;
+            }
+            else if (boltConType.Text == "受横向载荷的螺栓连接")
+            {
+                FQLabel.Visible = true;
+                FQ.Visible = true;
+                uTminLabel.Visible = true;
+                UTmin.Visible = true;
+            }
         }
     }
 }

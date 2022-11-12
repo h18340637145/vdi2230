@@ -76,5 +76,24 @@ namespace WindowsFormsApp1
         public string UTmin { get; set; }
         public string isSGsoll { get; set; }
         public string SGsoll { get; set; }
+
+        // 偏心
+        public string Ssym { get; set; }
+        public string u { get; set; }
+        public string cB { get; set; }
+        public string cT { get; set; }
+        public string b { get; set; }
+        public string bT { get; set; }
+        public string isIbt { get; set; }
+        public string Ibt { get; set; }
+        public string e { get; set; }
+        public string jiaZaiQingKuang { get; set; }
+        public string ifa { get; set; }
+
+        public string qM { get; set; }
+        public string zhazhi { get; set; }
+        public string ifZhouqiN { get; set; }
+        public string zhouqiN { get; set; }
+        public string AD { get; set; }
     }
 }
