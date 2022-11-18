@@ -513,3 +513,9 @@ H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\VDI2230.csproj.CopyComplete
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\VDI2230.csprojAssemblyReference.cache
+H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.DetailsForm.resources
+H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutliBoltsDesginForm.resources
+H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CreateClampedForm.resources
+H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CreateBoltForm.resources
+H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BoltsClampedForm.resources
+H:\linux_windows\vdi\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CreateNutForm.resources

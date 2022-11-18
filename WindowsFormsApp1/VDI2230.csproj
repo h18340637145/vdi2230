@@ -167,10 +167,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BoltMaterialConn.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BoltsClampedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoltsClampedForm.Designer.cs">
+      <DependentUpon>BoltsClampedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClampedClass.cs" />
     <Compile Include="ComputeResult.cs" />
+    <Compile Include="CreateBoltForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateBoltForm.Designer.cs">
+      <DependentUpon>CreateBoltForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateClampedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateClampedForm.Designer.cs">
+      <DependentUpon>CreateClampedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNutForm.Designer.cs">
+      <DependentUpon>CreateNutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dao.cs" />
     <Compile Include="DaoAccess.cs" />
+    <Compile Include="DetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailsForm.Designer.cs">
+      <DependentUpon>DetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Draw.Fem.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -179,6 +209,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GasketClass.cs" />
+    <Compile Include="HKFDJClamped.cs" />
+    <Compile Include="HKFDJClampedGrouop.cs" />
     <Compile Include="IModelEntity.cs" />
     <Compile Include="InitDesignChooseForm.cs">
       <SubType>Form</SubType>
@@ -212,6 +244,12 @@
       <DependentUpon>MaterialBase.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialChooseClass.cs" />
+    <Compile Include="MutliBoltsDesginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MutliBoltsDesginForm.Designer.cs">
+      <DependentUpon>MutliBoltsDesginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NutClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +276,21 @@
     <EmbeddedResource Include="BoltChooseForm.resx">
       <DependentUpon>BoltChooseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BoltsClampedForm.resx">
+      <DependentUpon>BoltsClampedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateBoltForm.resx">
+      <DependentUpon>CreateBoltForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateClampedForm.resx">
+      <DependentUpon>CreateClampedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateNutForm.resx">
+      <DependentUpon>CreateNutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailsForm.resx">
+      <DependentUpon>DetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MaterialBase.resx">
       <DependentUpon>MaterialBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MutliBoltsDesginForm.resx">
+      <DependentUpon>MutliBoltsDesginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

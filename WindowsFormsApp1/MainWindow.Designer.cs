@@ -40,6 +40,7 @@
             this.设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.validateCompute = new System.Windows.Forms.ToolStripMenuItem();
+            this.multiBoltsDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -117,7 +118,8 @@
             // 
             this.设计ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.initDesign,
-            this.validateCompute});
+            this.validateCompute,
+            this.multiBoltsDesign});
             this.设计ToolStripMenuItem.Name = "设计ToolStripMenuItem";
             this.设计ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.设计ToolStripMenuItem.Text = "设计";
@@ -126,15 +128,22 @@
             // 
             this.initDesign.Name = "initDesign";
             this.initDesign.Size = new System.Drawing.Size(180, 22);
-            this.initDesign.Text = "初始设计";
+            this.initDesign.Text = "单螺栓初始设计";
             this.initDesign.Click += new System.EventHandler(this.initDesign_Click);
             // 
             // validateCompute
             // 
             this.validateCompute.Name = "validateCompute";
             this.validateCompute.Size = new System.Drawing.Size(180, 22);
-            this.validateCompute.Text = "验证计算";
+            this.validateCompute.Text = "单螺栓验证计算";
             this.validateCompute.Click += new System.EventHandler(this.validateCompute_Click);
+            // 
+            // multiBoltsDesign
+            // 
+            this.multiBoltsDesign.Name = "multiBoltsDesign";
+            this.multiBoltsDesign.Size = new System.Drawing.Size(180, 22);
+            this.multiBoltsDesign.Text = "多螺栓设计";
+            this.multiBoltsDesign.Click += new System.EventHandler(this.multiBoltsDesign_Click);
             // 
             // statusStrip1
             // 
@@ -251,7 +260,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainWindow";
             this.Text = "VDI2230螺栓连接设计系统";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
@@ -286,5 +295,6 @@
         private System.Windows.Forms.ToolStripMenuItem 设计ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initDesign;
         private System.Windows.Forms.ToolStripMenuItem validateCompute;
+        private System.Windows.Forms.ToolStripMenuItem multiBoltsDesign;
     }
 }

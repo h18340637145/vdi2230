@@ -94,5 +94,11 @@ namespace WindowsFormsApp1
             ValidateDesignForm validateDesignForm = new ValidateDesignForm();
             validateDesignForm.ShowDialog();
         }
+
+        private void multiBoltsDesign_Click(object sender, EventArgs e)
+        {
+            MutliBoltsDesginForm mutliBoltsDesginForm = new MutliBoltsDesginForm();
+            mutliBoltsDesginForm.ShowDialog();
+        }
     }
 }
