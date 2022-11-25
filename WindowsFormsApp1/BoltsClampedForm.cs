@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
 {
     public partial class BoltsClampedForm : Form
     {
-        public IModelBuildForm FlangeForm { set; get; }
+        public IModelBuildForm ClampedForm { set; get; }
         public IModelBuildForm BoltForm { set; get; }
         public IModelBuildForm NutForm { set; get; }
         public bool IsBuildModel { set; get; }
@@ -47,26 +47,34 @@ namespace WindowsFormsApp1
                 return;
             }
             IsBuildModel = true;
-            var flange = FlangeForm.GetModel() as HKFDJClamped;
+            var clamped = ClampedForm.GetModel() as HKFDJClamped;
+            double num = clamped.num;
             var bolt = BoltForm.GetModel() as Bolt;
             var nut = NutForm.GetModel() as NutClass;
 
-            dataGridView1.Rows.Add("n", flange.n, "螺栓个数");
+            dataGridView1.Rows.Add("n", clamped.n, "螺栓个数");
             dataGridView1.Rows.Add("d", bolt.d, "螺栓公称");
-            dataGridView1.Rows.Add("D", flange.d, "螺栓孔直径公称");
-            dataGridView1.Rows.Add("R", flange.C, "螺栓定位圆直径");
+            dataGridView1.Rows.Add("D", clamped.d, "螺栓孔直径公称");
+            dataGridView1.Rows.Add("R", clamped.C, "螺栓定位圆直径");
             dataGridView1.Rows.Add("Plane", "XY", "固定平面");
             dataGridView1.Rows.Add("Forces", "Vectot(0,0,-Z)", "等效螺栓压力");
 
             Entity boltEntity = BoltForm.GetModelEntity();
-            Entity flangeEntity = FlangeForm.GetModelEntity();
+            Entity clampedEntity = ClampedForm.GetModelEntity();
             Entity nutEntity = NutForm.GetModelEntity();
 
-            boltEntity.Translate(flange.C / 2, 0, flange.tf +  - (bolt.l));// flange.ddz
-            nutEntity.Translate(flange.C / 2, 0, -nut.NutHeight);// flange.ddz
-            double r = 2 * Math.PI / flange.n;
 
-            for (int i = 0; i < flange.n; i++)
+            for (int i = 0; i < num - 1; i++)
+            {
+                var cloneClamped = clampedEntity.Clone() as Entity;
+                cloneClamped.Translate(0, 0, (num - i - 1) * clamped.tf);
+                model1.Entities.Add(cloneClamped, Color.Blue);
+            }
+            boltEntity.Translate(clamped.C / 2, 0, clamped.tf * num +  - (bolt.l));// flange.ddz
+            nutEntity.Translate(clamped.C / 2, 0, -nut.NutHeight);// flange.ddz
+            double r = 2 * Math.PI / clamped.n;
+
+            for (int i = 0; i < clamped.n; i++)
             {
                 var cloneBolt = boltEntity.Clone() as Entity;
                 var cloneNut = nutEntity.Clone() as Entity;
@@ -75,7 +83,7 @@ namespace WindowsFormsApp1
                 boltEntity.Rotate(r, Vector3D.AxisZ);
                 nutEntity.Rotate(r, Vector3D.AxisZ);
             }
-            model1.Entities.Add(flangeEntity, Color.Blue);
+            model1.Entities.Add(clampedEntity, Color.Blue);
             model1.ZoomFit();
         }
 

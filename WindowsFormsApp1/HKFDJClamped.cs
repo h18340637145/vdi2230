@@ -9,7 +9,7 @@ using devDept.Geometry;
 
 namespace WindowsFormsApp1
 {
-    class HKFDJClamped : IModelEntity, IModelFemMesh
+    public class HKFDJClamped : IModelEntity, IModelFemMesh
     {
         #region PropeField
         //public double A { set; get; }
@@ -26,12 +26,16 @@ namespace WindowsFormsApp1
         //public double L { set; get; }
         //public double h { set; get; }
 
+        // 连接件个数
+        public double num { set; get; }
+
         public double outer_A { set; get; }
         public double inner_B { set; get; }
         public double C { set; get; } // 对称孔的距离
         public double d { set; get; } // 孔高度
         public double n { set; get; } // 孔个数
-        public double tf { set; get; } // 连接件高度
+        // 连接件高度
+        public double tf { set; get; } 
         public Model Mode { set; get; }
         //public double ddz = 1;  // 垫片厚
         public double ddx = 1;
@@ -110,7 +114,6 @@ namespace WindowsFormsApp1
             }
             return genus;
         }
-
 
         //private Point3D[] GetSectionPoints()
         //{

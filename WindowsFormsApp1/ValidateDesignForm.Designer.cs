@@ -32,7 +32,7 @@
             devDept.Eyeshot.CancelToolBarButton cancelToolBarButton1 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ProgressBar progressBar1 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton1, false, 0.1D, true);
             devDept.Graphics.BackgroundSettings backgroundSettings1 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
-            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800004663761762D, false, 0.001D);
+            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800004478956418D, false, 0.001D);
             devDept.Eyeshot.HomeToolBarButton homeToolBarButton1 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
             devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton1 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton1 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
@@ -2302,7 +2302,7 @@
             this.svTable.Location = new System.Drawing.Point(4, 22);
             this.svTable.Name = "svTable";
             this.svTable.Padding = new System.Windows.Forms.Padding(3);
-            this.svTable.Size = new System.Drawing.Size(648, 120);
+            this.svTable.Size = new System.Drawing.Size(653, 120);
             this.svTable.TabIndex = 1;
             this.svTable.Text = "sv样式";
             this.svTable.UseVisualStyleBackColor = true;
@@ -2315,7 +2315,7 @@
             this.meffd.Location = new System.Drawing.Point(4, 22);
             this.meffd.Name = "meffd";
             this.meffd.Padding = new System.Windows.Forms.Padding(3);
-            this.meffd.Size = new System.Drawing.Size(648, 120);
+            this.meffd.Size = new System.Drawing.Size(653, 120);
             this.meffd.TabIndex = 2;
             this.meffd.Text = "相对啮合长度";
             this.meffd.UseVisualStyleBackColor = true;
@@ -3295,6 +3295,7 @@
             // 
             this.Fmzul.Location = new System.Drawing.Point(194, 711);
             this.Fmzul.Name = "Fmzul";
+            this.Fmzul.ReadOnly = true;
             this.Fmzul.Size = new System.Drawing.Size(76, 21);
             this.Fmzul.TabIndex = 57;
             // 
@@ -3824,7 +3825,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(647, 138);
+            this.tabPage2.Size = new System.Drawing.Size(663, 138);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "sv样式";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3837,7 +3838,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(647, 138);
+            this.tabPage3.Size = new System.Drawing.Size(663, 138);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "相对啮合长度";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3848,7 +3849,7 @@
             this.resultData.Location = new System.Drawing.Point(4, 22);
             this.resultData.Name = "resultData";
             this.resultData.Padding = new System.Windows.Forms.Padding(3);
-            this.resultData.Size = new System.Drawing.Size(1157, 716);
+            this.resultData.Size = new System.Drawing.Size(1166, 716);
             this.resultData.TabIndex = 2;
             this.resultData.Text = "计算结果";
             this.resultData.UseVisualStyleBackColor = true;
@@ -3858,7 +3859,7 @@
             this.resGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resGrid.Location = new System.Drawing.Point(3, 3);
             this.resGrid.Name = "resGrid";
-            this.resGrid.Size = new System.Drawing.Size(1151, 710);
+            this.resGrid.Size = new System.Drawing.Size(1160, 710);
             this.resGrid.TabIndex = 0;
             // 
             // materialClampedBindingSource1

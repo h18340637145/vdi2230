@@ -27,25 +27,13 @@ namespace WindowsFormsApp1
 
             _okBtn.Enabled = false;
 
-            //dataGridView1.Rows.Add("d", 29);
-            //dataGridView1.Rows.Add("n", 8);
-            //dataGridView1.Rows.Add("A", 290);
-            //dataGridView1.Rows.Add("C", 235);
-            //dataGridView1.Rows.Add("B", 102);
-            //dataGridView1.Rows.Add("Ag", 149);
-            //dataGridView1.Rows.Add("Bg", 124);
-            //dataGridView1.Rows.Add("tf", 44.5);
-            //dataGridView1.Rows.Add("th", 25.4);
-            //dataGridView1.Rows.Add("tc", 6);
-            //dataGridView1.Rows.Add("h", 44.5);
-            //dataGridView1.Rows.Add("L", 30);
-
+            dataGridView1.Rows.Add("num", 2);
             dataGridView1.Rows.Add("d", 29);
             dataGridView1.Rows.Add("n", 8);
             dataGridView1.Rows.Add("outer_A", 290);
             dataGridView1.Rows.Add("C", 235);
             dataGridView1.Rows.Add("inner_B", 102);
-            dataGridView1.Rows.Add("tf", 44.5);
+            dataGridView1.Rows.Add("tf", 20);
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)

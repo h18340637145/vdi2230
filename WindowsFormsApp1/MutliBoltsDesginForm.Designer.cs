@@ -897,6 +897,7 @@
             this._resetBtn.TabIndex = 3;
             this._resetBtn.Text = "重置";
             this._resetBtn.UseVisualStyleBackColor = true;
+            this._resetBtn.Click += new System.EventHandler(this._resetBtn_Click);
             // 
             // _assemblyBtn
             // 

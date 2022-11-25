@@ -12,19 +12,19 @@ using devDept.Geometry;
 using devDept.Graphics;
 using devDept.Eyeshot.Fem;
 using devDept.Eyeshot.Translators;
-//using CreateBotSpring;
-
-//using devDept.Eyeshot.Triangulation;
 using Region = devDept.Eyeshot.Entities.Region;
 using CreateBotSpring;
 using WindowsFormsApp1;
-//using devDept.Eyeshot.Translators;
 
 namespace WindowsApplication1
 {
 
     partial class Draw
     {
+        public static FemMesh fm;
+        public static Color Color = Color.Black;
+
+
         public static void DrawBolt(Model model, BoltChooseClass dataBolt)
         {
             Bolt bolt = new Bolt(dataBolt);
@@ -84,6 +84,5 @@ namespace WindowsApplication1
             model.Entities.Add(mesh, "Default", Color.Brown);
         }
 
-        public static Color Color = Color.Black;
     }
 }

@@ -19,6 +19,7 @@ using devDept.Eyeshot.Translators;
 using System.Threading.Tasks;
 using WindowsApplication1;
 using CreateBotSpring;
+using WindowsFormsApp1.VDISolution;
 
 namespace WindowsFormsApp1
 {
@@ -112,7 +113,7 @@ namespace WindowsFormsApp1
             }
             else if (BoltType.Text == "外六角螺栓")
             {
-                dt.Text = boltChooseForm.GetBoltChooseClass().BoltLen_ls.ToString();
+                dt.Text = boltChooseForm.GetBoltChooseClass().NormalD_d.ToString();
             }
 
             if (BoltType == null)
@@ -1473,6 +1474,7 @@ namespace WindowsFormsApp1
                 FtauGroup.Visible = false;
                 ifRa.Enabled = false;
                 ifDt.SelectedIndex = 1; // 否
+                ifPimax.Enabled = false;
             }
             else if (boltConnectLoad.Text == "受横向载荷的单螺栓连接")
             {
@@ -1481,6 +1483,7 @@ namespace WindowsFormsApp1
                 FtauGroup.Visible = true;
                 ifRa.Enabled = true;
                 ifDt.SelectedIndex = 0;
+                ifPimax.Enabled = true;
             }
         }
 
@@ -1685,6 +1688,7 @@ namespace WindowsFormsApp1
                     }
                     dr2.Close();
                 }
+
                 if (isgasket.Equals("1") && gasketChooseBtn.Checked == true)
                 {
                     //有垫片的
@@ -1843,7 +1847,6 @@ namespace WindowsFormsApp1
 
             if (double.Parse(DA.Text) >= DAGr)
             {
-
                 deltaP = 2 * Math.Log(((dw + dh) * (dw + w * Lk * TanPhi - dh)) / ((dw - dh) * (dw + w * Lk * TanPhi + dh))) / (w * Ep * pi * dh * TanPhi);
             }
             else
@@ -1995,7 +1998,7 @@ namespace WindowsFormsApp1
             }
             // 显示结果
             resGrid.SelectedObject = rs;
-            if (rs.Sd >= 1 && rs.SpMk >= 1 && rs.SpBk >= 1)
+            if (rs.Sd >= 1 && rs.Sp >= 1 && rs.Sp_load >= 1)
             {
                 MessageBox.Show("安全");
             }
@@ -2597,6 +2600,15 @@ namespace WindowsFormsApp1
 
 
             #region R1_alpha_A
+            if (tighten.Text == null || tighten.Text == "")
+            {
+                MessageBox.Show("请选择拧紧工艺");
+                return null;
+            }
+            R1 r1 = new R1();
+            r1.getAlpha(tighten.Text, tightenCoef.Text);
+            double a_lpha_A = r1.alpha;
+#if false
             double a_lpha_A = 0;
             if (tighten.Text == "自定义输入")
             {
@@ -2646,10 +2658,493 @@ namespace WindowsFormsApp1
             {
                 a_lpha_A = (2.5 + 4) / 2;
             }
+#endif
 
             #endregion
 
             #region R2_Fkerf_DAGr
+
+            Console.WriteLine("R2:");
+            R2 r2 = new R2(bolt);
+            if (BoltConnectType.Text == null || BoltConnectType.Text == "")
+            {
+                MessageBox.Show("请选择螺栓连接类型");
+                return null;
+            }
+            if (DA.Text == "")
+            {
+                MessageBox.Show("请输入DA");
+                return null;
+            }
+            else
+            {
+                r2.setDA(DA.Text);
+            }
+
+            #region zaihe
+            if (FAO.Text == "")
+            {
+                MessageBox.Show("轴向载荷");
+                return null;
+            }
+            r2.setFao(FAO.Text);
+            if (fau.ReadOnly == true)
+            {
+
+            }
+            else if (fau.ReadOnly == false && fau.Text == "")
+            {
+                MessageBox.Show("轴向载荷");
+                return null;
+            }
+            else
+            {
+                r2.setFau(fau.Text);
+            }
+
+
+            if (clampingWay.Text == "同心")
+            {
+                r2.setA("0");
+            }
+            else
+            {
+                if (a.ReadOnly == true)
+                {
+
+                }
+                else if (a.ReadOnly == false && a.Text == "")
+                {
+                    MessageBox.Show("a");
+                    return null;
+                }
+                else
+                {
+                    r2.setA(a.Text);
+                }
+            }
+           
+
+            if (Fkerf.ReadOnly == true)
+            {
+
+            }
+            else if (Fkerf.ReadOnly == false && Fkerf.Text == "")
+            {
+                MessageBox.Show("Fkerf");
+                return null;
+            }
+            else
+            {
+                r2.setFkerf(Fkerf.Text);
+            }
+
+            if (MB.Text == "")
+            {
+                r2.setMB("0");
+            }
+            else
+            {
+                r2.setMB(MB.Text);
+            }
+
+            if (UGmin.Text == "")
+            {
+                MessageBox.Show("UGmin");
+                return null;
+            }
+            else
+            {
+                r2.setUTmin(UGmin.Text);
+            }
+
+            if (UKmin.Text == "")
+            {
+                MessageBox.Show("UKmin");
+                return null;
+            }
+            else
+            {
+                r2.setUKmin(UKmin.Text);
+            }
+            if (Ts.Text == "")
+            {
+                MessageBox.Show("Ts");
+                return null;
+            }
+            else
+            {
+                r2.setTs(Ts.Text);
+            }
+            if (Tp.Text == "")
+            {
+                MessageBox.Show("Tp");
+                return null;
+            }
+            else
+            {
+                r2.setTp(Tp.Text);
+            }
+
+            
+            if (v.ReadOnly == true)
+            {
+
+            }
+            else if (v.ReadOnly == false && v.Text == "")
+            {
+                MessageBox.Show("v");
+                return null;
+            }
+            else
+            {
+                r2.setV(v.Text);
+            }
+
+            if (Fmzul.ReadOnly == true)
+            {
+
+            }
+            else if (Fmzul.ReadOnly == false && Fmzul.Text == "")
+            {
+                MessageBox.Show("Fmzul");
+                return null;
+            }
+            else
+            {
+                r2.setFmzul(Fmzul.Text);
+            }
+            #endregion
+
+            #region jihe
+            if (DA.Text == "")
+            {
+                MessageBox.Show("请输入DA");
+                return null;
+            }
+            else
+            {
+                r2.setDA(DA.Text);
+            }
+
+            if (AD.Text == "")
+            {
+                MessageBox.Show("请输入AD");
+                return null;
+            }
+            r2.AD = Convert.ToDouble(AD.Text);
+            if (pimax.ReadOnly == true)
+            {
+
+            }
+            else if (pimax.ReadOnly == false && pimax.Text == "")
+            {
+                r2.setP_imax("0");
+            }
+            else
+            {
+                r2.setP_imax(pimax.Text);
+            }
+
+
+            #endregion
+
+            #region jianli
+            
+
+            if (boltConnectLoad.Text== "受横向载荷的单螺栓连接")
+            {
+                if (FQ.Text == "")
+                {
+                    r2.f_qmax = 0;
+                }
+                r2.f_qmax = Convert.ToDouble(FQ.Text);
+
+                if (UTmin.Text == "")
+                {
+                    MessageBox.Show("utmin");
+                    return null;
+                }
+                else
+                {
+                    r2.u_Tmin = Convert.ToDouble(UTmin.Text);
+                }
+
+                if (SGsoll.ReadOnly == true)
+                {
+                    r2.sgsoll = 1;
+                }
+                else if (SGsoll.ReadOnly == false && SGsoll.Text == "")
+                {
+                    r2.sgsoll = 1;
+                }
+                else
+                {
+                    r2.sgsoll = Convert.ToDouble(SGsoll.Text);
+                }
+
+                if (qF.Text == "")
+                {
+                    r2.q_f = 1;
+                }
+                else
+                {
+                    r2.q_f = Convert.ToDouble(qF.Text);
+                }
+
+                if (dtau.ReadOnly == true)
+                {
+                    r2.dtau = 0;
+                }
+                else if (dtau.ReadOnly == false && dtau.Text == "")
+                {
+                    MessageBox.Show("dtau");
+                    return null;
+                }
+                else
+                {
+                    r2.dtau = Convert.ToDouble(dtau.Text);
+                }
+
+                if (Mt.ReadOnly == true)
+                {
+                    r2.M_t = 0;
+                }
+                else if (Mt.ReadOnly == false && Mt.Text == "")
+                {
+                    MessageBox.Show("Mt");
+                    return null;
+                }
+                else
+                {
+                    r2.M_t = Convert.ToDouble(Mt.Text);
+                }
+
+                if (ra.ReadOnly == true)
+                {
+
+                }
+                else if (ra.ReadOnly == false && ra.Text == "")
+                {
+                    MessageBox.Show("ra");
+                    return null;
+                }
+                else
+                {
+                    r2.r_a = Convert.ToDouble(ra.Text);
+                }
+
+                if (Dhamax.ReadOnly == true)
+                {
+
+                }
+                else if (Dhamax.ReadOnly == false && Dhamax.Text == "")
+                {
+                    MessageBox.Show("Dhamax");
+                    return null;
+                }
+                else
+                {
+                    r2.Dhamax = Convert.ToDouble(Dhamax.Text);
+                }
+
+                if (qM.Text == "")
+                {
+                    r2.q_m = 1;
+                }
+                else
+                {
+                    r2.q_m = Convert.ToDouble(qM.Text);
+                }
+            }
+
+
+            #endregion
+
+            #region pianxin
+            if (clampingWay.Text == "偏心")
+            {
+                if (Ssym.Text == "" || cB.Text == "" || cT.Text == "" || b.Text == "" || bT.Text == "" || e.Text == "")
+                {
+                    MessageBox.Show("受弯体几何尺寸不能为空");
+                    return null;
+                }
+                r2.setSsym(Ssym.Text);
+                r2.setU(u.Text);
+                r2.setCb(cB.Text);
+                r2.setCt(cT.Text);
+                r2.setB(b.Text);
+                r2.setBt(bT.Text);
+                r2.setE(e.Text);
+
+                if (ifa.Text == "" || ifa.Text == "否")
+                {
+                    r2.setA("0");
+                }
+                else
+                {
+                    r2.setA(a.Text);
+                }
+
+                if (isIbt.Text == "否" || isIbt.Text == "")
+                {
+                    r2.ibt = r2.bt * Math.Pow(r2.ct, 3) / 12;
+                }
+                else
+                {
+                    r2.setIbt(Ibt.Text);
+                }
+            }
+            #endregion
+            double D_A = r2.D_A;
+            r2.setW(BoltConnectType.Text);
+            int w = r2.w;
+            double H = 0;
+            double hmin = int.MaxValue;
+            if (dataClampedChoosed.RowCount < 1)
+            {
+                MessageBox.Show("请输入连接件");
+                return null;
+            }
+            if (BoltConnectType.Text == "通孔螺栓连接")
+            {
+                int rows = dataClampedChoosed.RowCount - 1;
+                for (int i = 0; i < rows; i++)
+                {
+                    hmin = Math.Min(hmin, Convert.ToSingle(dataClampedChoosed.Rows[i].Cells[5].Value));
+                    H += Convert.ToSingle(dataClampedChoosed.Rows[i].Cells[5].Value);
+                }
+            }
+            else if (BoltConnectType.Text == "盲孔螺栓连接")
+            {
+                if (dataClampedChoosed.Rows[0].Cells[5].Value == null)
+                {
+                    MessageBox.Show("请输入连接件");
+                    return null;
+                }
+                H = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[5].Value);
+                hmin = Math.Min(hmin, Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[5].Value));
+            }
+            r2.hmin = hmin;
+            r2.setLk(H, dataClampedChoosed.Rows[1].Cells[5].Value.ToString());
+            double L_k = r2.Lk;
+            double dw = bolt.BoltHeadOutD_dw;
+            r2.setTanPhi_D();
+            double tanPhi_D = r2.tanPhi_D;
+            r2.setDAGr();
+            double DAGr = r2.DAGr;
+            double f_kerf = 0;
+            
+            if (clampingWay.Text == "偏心")
+            {
+                if (r2.ct < dw)
+                {
+                    MessageBox.Show("预期输入：cT > dw");
+                    return null;
+                }
+                if (r2.cb < dw)
+                {
+                    MessageBox.Show("预期输入：cb > dw");
+                    return null;
+                }
+                if (r2.bt < dw)
+                {
+                    MessageBox.Show("预期输入：bt > dw");
+                    return null;
+                }
+                if (r2.b < dw)
+                {
+                    MessageBox.Show("预期输入：b > dw");
+                    return null;
+                }
+            }
+            if (isFkerf.Enabled == true && isFkerf.Text == "选择")
+            {
+                r2.setF_kerf(Fkerf.Text);
+            }
+            else
+            {
+                double f_kq = 0;
+                if (boltConnectLoad.Text == "单螺栓连接")
+                {
+                    r2.setF_kerf(FAO.Text);
+                    f_kerf = r2.f_kerf;
+                }
+                else
+                {
+                    if (isMt.Text == "" || isMt.Text == "否")
+                    {
+                        // 受横向剪力  不加扭矩
+                        r2.setFkq(FQ.Text, qF.Text, UTmin.Text);
+                        f_kq = r2.f_kerf;
+                        if (f_kq == -1)
+                        {
+                            MessageBox.Show("剪力系数存在错误，请修改");
+                            return null;
+                        }
+                    }
+                    else
+                    {
+                        // 有扭矩 
+                        // 不加摩擦半径（与承载相反）
+                        if ((ifRa.Text == "" || ifRa.Text == "否") )
+                        {
+                            // 0 使用d  1使用ra
+                            if (FQ.Text == "" || qF.Text == "" || UTmin.Text == "" || Mt.Text == "" || qM.Text == "" || Dhamax.Text == "" )
+                            {
+                                MessageBox.Show("剪力系数存在错误，请修改");
+                                return null;
+                            }
+                            r2.setFkq(FQ.Text, qF.Text, UTmin.Text, Mt.Text, qM.Text, Dhamax.Text, 0);
+                        }
+                        else
+                        {
+                            // 加摩擦半径
+                            if (FQ.Text == "" || qF.Text == "" || UTmin.Text == "" || Mt.Text == "" || qM.Text == "" || ra.Text == "")
+                            {
+                                MessageBox.Show("剪力系数存在错误，请修改");
+                                return null;
+                            }
+                            r2.setFkq(FQ.Text, qF.Text, UTmin.Text, Mt.Text, qM.Text, ra.Text, 1);
+                        }
+                        f_kq = r2.f_kq;
+                    }
+                }
+                r2.setF_kp(pimax.Text);
+                double f_kp = r2.f_kp;
+                // 防止松开
+                double f_ka = 0;
+                if (ifa.Text == "是")
+                {
+                    r2.setFka();
+                    f_ka = r2.f_ka;
+                }
+                else
+                {
+                    f_ka = 0;
+                }
+                r2.setF_kerf();
+            }
+
+            bool checkFlag = r2.checkClampedLs(nut.NutHeight);
+            if (checkFlag == true)
+            {
+                // 满足
+            }
+            else
+            {
+                return null;
+            }
+
+            f_kerf = r2.f_kerf;
+            Console.WriteLine("DA:" + D_A);
+            Console.WriteLine("w:" + w);
+            Console.WriteLine("hmin:" + hmin);
+            Console.WriteLine("L_k:" + L_k);
+            Console.WriteLine("tanPhi_D:" + tanPhi_D);
+            Console.WriteLine("DAGr:" + DAGr);
+            Console.WriteLine("f_kerf:" + f_kerf);
+#if false
             // R2：计算DA DAGr = dw + w lk TanPhi
             // 确定最小夹紧载荷 Fkerf                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
             Console.WriteLine("R2:");
@@ -2680,6 +3175,7 @@ namespace WindowsFormsApp1
             {
                 Lk = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[5].Value);
             }
+
             Console.WriteLine("ls" + bolt.BoltLen_ls);
             Console.WriteLine("Lk" + Lk);
             Console.WriteLine("m" + nut.NutHeight); 
@@ -2700,6 +3196,7 @@ namespace WindowsFormsApp1
                     return null;
                 }
             }
+
             double f_kerf = 0;
             if (isFkerf.Enabled == true && isFkerf.Text == "选择")
             {
@@ -2736,9 +3233,17 @@ namespace WindowsFormsApp1
                     {
                         M_t = Convert.ToDouble(Mt.Text);
                     }
+                    else
+                    {
+                        // wu M_t
+                    }
                     if (ifRa.Text == "是")
                     {
                         r_a = Convert.ToDouble(ra.Text);
+                    }
+                    else
+                    {
+                        //  meiyou ra
                     }
                     double f_kq = f_qmax / (q_f * u_Tmin) + M_t / (q_m * r_a * u_Tmin);
 
@@ -2768,7 +3273,8 @@ namespace WindowsFormsApp1
                                 A_D = Convert.ToDouble(AD.Text);
                                 if (ifa.Text == "是")
                                 {
-                                    f_ka = Convert.ToDouble(FAO.Text) * A_D * (Convert.ToDouble(a.Text) * u_ - S_sym * u_) / ((Convert.ToDouble(bT) * Math.Pow(Convert.ToDouble(cT.Text) , 3) / 12) + S_sym * u_ * A_D) + 
+                                    f_ka = Convert.ToDouble(FAO.Text) * A_D * (Convert.ToDouble(a.Text) * u_ - S_sym * u_) 
+                                        / ((Convert.ToDouble(bT) * Math.Pow(Convert.ToDouble(cT.Text) , 3) / 12) + S_sym * u_ * A_D) + 
                                         Convert.ToDouble(MB.Text) * u_ * A_D / ((Convert.ToDouble(bT) * Math.Pow(Convert.ToDouble(cT.Text), 3) / 12) + S_sym * u_ * A_D);
                                 }
                                 else
@@ -2784,6 +3290,7 @@ namespace WindowsFormsApp1
             f_kerf = Math.Max(f_kerf, 0);
             double DAGr = computeDAGr(w, H);
             double D_A = Convert.ToDouble(DA.Text);
+#endif
             rs.Fkerf = f_kerf;
             #endregion
 
@@ -2791,7 +3298,120 @@ namespace WindowsFormsApp1
             // R3: 计算回弹及系数
             // R3.1: 计算回弹及系数
             Console.WriteLine("R3:");
+
+            R3 r3 = new R3(bolt, r2);
+            if (isN.Text == "")
+            {
+                MessageBox.Show("请输入系数");
+                return null;
+            }
+            double Nn = 0;
+            if (isN.Text == "自定义" || isN.Text == "")
+            {
+                if (n.Text == "")
+                {
+                    MessageBox.Show("请输入系数");
+                    return null;
+                }
+                r3.setN(n.Text);
+            }
+            else if (isN.Text == "默认")
+            {
+                if (sv.Text == null || sv.Text == "")
+                {
+                    MessageBox.Show("选择连接类型");
+                    return null;
+                }
+                if (lA.Text == null || lA.Text == "")
+                {
+                    MessageBox.Show("lA");
+                    return null;
+                }
+                if (ak.Text == null || ak.Text == "")
+                {
+                    MessageBox.Show("ak");
+                    return null;
+                }
+                double n = r3.getN(sv.Text, lA.Text, ak.Text, H);
+                r3.setN(n.ToString());
+            }
+            Nn = r3.Nn;
+            Console.WriteLine("Nn:" + Nn);
+
+            r3.AN = bolt.NormalD_d * bolt.NormalD_d * pi / 4;
+            r3.Ad3 = bolt.ScrewMinD_d3 * bolt.ScrewMinD_d3 * pi / 4;
+            r3.setLm();
+            // R3.2: compute deltaS
+            if (Es_yangshi.Text == "")
+            {
+                MessageBox.Show("请选择材料");
+                return null;
+            }
+
+            r3.setDeltaS(Es_yangshi.Text);
+            double deltaS = r3.deltaS;
+
+            r3.setBetaS(Es_yangshi.Text);
+            double betaS = r3.betaS;
+
+            // deltap
+            string ep = dataClampedChoosed.Rows[0].Cells[1].Value.ToString();
+            if (ep == null || ep == "")
+            {
+                MessageBox.Show("请输入连接件");
+                return null;
+            }
+            double deltaP = 0;
+            r3.setDeltaP(ep);
+            deltaP = r3.deltaP;
+
+            if (clampingWay.Text == "同心")
+            {
+            }
+            else
+            {
+                if (BoltConnectType.Text == "通孔螺栓连接")
+                {
+                    r3.G = bolt.BoltHeadOutD_dw + r2.hmin; // 通孔
+                }
+                else if (BoltConnectType.Text == "盲孔螺栓连接")
+                {
+                    r3.G = 1.5 * bolt.BoltHeadOutD_dw; // 盲孔估计值
+                }
+                if (r3.G < r2.ct)
+                {
+                    Console.WriteLine("G:" + r3.G);
+                    MessageBox.Show("G超过限制尺寸，vdi 不适用于计算此情况R1");
+                    return null;
+                }
+                // 计算deltap*
+                r3.setDeltaP_star(ep);
+            }
+            double deltaP_star = r3.deltaP_star;
+            double deltaP_star_star = r3.deltaP_star_star;
+
+            Console.WriteLine("an:" + r3.AN);
+            Console.WriteLine("deltaS1:" + r3.deltaS1);
+            Console.WriteLine("deltaS2:" + r3.deltaS2);
+            Console.WriteLine("deltaSk:" + r3.deltaSK);
+            Console.WriteLine("deltaGEW:" + r3.deltaGew);
+            Console.WriteLine("deltaGM:" + r3.deltaGM);
+            Console.WriteLine("deltaS:" + r3.deltaS);
+            Console.WriteLine("betas:" + r3.betaS);
+            Console.WriteLine("deltaP:" + deltaP);
+            Console.WriteLine("deltaP_star:" + deltaP_star);
+            Console.WriteLine("deltaP_star_star:" + deltaP_star_star);
+            r3.setMB(ep);
+            double phi_m_star = r3.phi_m_star;
+            double phi = r3.getPhi();
+
+            Console.WriteLine("phi:" + phi);
+#if false
+
+
+            #region r3
             double Nn = computeN(H);
+            double Lk = r2.Lk;
             // R3.2: compute deltaS
             double d = bolt.NormalD_d;
             double AN = d * d * pi / 4;
@@ -2855,6 +3475,7 @@ namespace WindowsFormsApp1
                 }
             }
 
+            
             #region delta_S
             // δM
             double deltaM = lM / double.Parse(Es_yangshi.Text) / AN;
@@ -2881,6 +3502,16 @@ namespace WindowsFormsApp1
             }
             Console.WriteLine("betaS:" + betaS);
             #endregion
+            #endregion
+            
+            if (clampingWay.Text == "同心")
+            {
+                if (D_A >= DAGr)
+                {
+                    deltaP = computeDeltaP(w, H, double.Parse(Es_yangshi.Text), DAGr, 0);
+                }
+            }
+
             #region delta_P
             // R3.3: compute deltaP
             double deltaP = 0;
@@ -3009,7 +3640,7 @@ namespace WindowsFormsApp1
                 {
                     if (a.Text != "0")
                     {
-                        // 偏心加载，偏心夹紧
+                        // 偏心加载，偏心夹紧 a
                         a_ = Convert.ToDouble(a.Text);
                         if (a_ < s_sym)
                         {
@@ -3069,7 +3700,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        //偏心夹紧
+                        //偏心夹紧 a = 0
                         if (DAGr > Convert.ToDouble(DA.Text))
                         {
                             // 变形体由锥和筒组成
@@ -3260,13 +3891,13 @@ namespace WindowsFormsApp1
             #endregion
             // 松开极限
             // 无案例
-
-            double f_sa_max = Convert.ToDouble(FAO.Text) * phi_;
-            double f_sa_min = Convert.ToDouble(fau.Text) * phi_;
+#endif
+            double f_sa_max = Convert.ToDouble(FAO.Text) * phi;
+            double f_sa_min = Convert.ToDouble(fau.Text) * phi;
 
             rs.deltas = deltaS;
             rs.deltap = deltaP;
-            rs.phi = phi_;
+            rs.phi = phi;
             #endregion
 
             #region R4_fz
@@ -3275,6 +3906,11 @@ namespace WindowsFormsApp1
             double ffz = 0;
             if (isFz.Text == "是")
             {
+                if (fz.Text == "")
+                {
+                    MessageBox.Show("fz");
+                    return null;
+                }
                 ffz = double.Parse(fz.Text);
             }
             else
@@ -3282,7 +3918,9 @@ namespace WindowsFormsApp1
                 // 根据p73表格5求fz
                 ffz = table5();
             }
-            double Fz = ffz / (deltaS + deltaP);
+            R4 r4 = new R4(r3, ffz);
+
+            double Fz = r4.FZ;
             rs.Fz = Fz;
             Console.WriteLine("ffz:" + ffz.ToString());
             Console.WriteLine("Fz:" + rs.Fz.ToString());
@@ -3292,18 +3930,12 @@ namespace WindowsFormsApp1
             #region R5_fmmin
             // R5:
             Console.WriteLine("R5:");
+            R5 r5 = new R5(r2.f_kerf, r3.phi, r2.Fao, r4.FZ);
+            double Fmmin = r5.Fmmin;
+            //double Famax = r2.Fao;
+            //double Famin = r2.Fau;
             
-            double Famax = double.Parse(FAO.Text);
-            double Famin = 0;
-            if (fau.Text == "" || fau.Text == null)
-            {
-                Famin = 0;
-            }
-            else
-            {
-                Famin = double.Parse(fau.Text);
-            }
-            double Fmmin = f_kerf + (1 - phi_) * Famax + Fz;
+            //double Fmmin = f_kerf + (1 - r3.phi) * Famax + Fz;
             rs.Fmmin = Fmmin;
             Console.WriteLine("Fmmin:" + rs.Fmmin.ToString());
 
@@ -3312,17 +3944,19 @@ namespace WindowsFormsApp1
             #region R6_fmmax
             // R6:
             Console.WriteLine("R6:");
-            double alpha = 0;
-            if (tighten.Text == "自定义输入")
-            {
-                alpha = double.Parse(tightenCoef.Text);
-            }
-            else if (tighten.Text == "屈服拧紧")
-            {
-                alpha = 1;
-            }
-            double Fmmax = alpha * Fmmin;
-            rs.Fmmax = Fmmax;
+            R6 r6 = new R6(r1.alpha, r5.Fmmin);
+            //double alpha = 0;
+            //if (tighten.Text == "自定义输入")
+            //{
+            //    alpha = double.Parse(tightenCoef.Text);
+            //}
+            //else if (tighten.Text == "屈服拧紧")
+            //{
+            //    alpha = 1;
+            //}
+            //double Fmmax = alpha * Fmmin;
+            rs.Fmmax = r6.Fmmax;
+            //rs.Fmmax = Fmmax;
             Console.WriteLine("Fmmax:" + rs.Fmmax.ToString());
 
             #endregion
@@ -3330,39 +3964,13 @@ namespace WindowsFormsApp1
             #region R7_fmzul
             // R7:
             Console.WriteLine("R7:");
-            double V = 1;
-            if (v.ReadOnly == false)
-            {
-                V = double.Parse(v.Text);
-            }
-            double d0 = (bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2;
-            double A0 = pi * d0 * d0 / 4;
-            double Rp = double.Parse(Rpmin_qufu.Text);
-            double Pp = (bolt.ScrewP_P);
-            double d2 = (bolt.ScrewMidD_d2);
-            double Ugmin = double.Parse(UGmin.Text);
-            double d2_3_2d0 = 3 * d2 / (2 * d0);
-            double p_pid_2 = Pp / pi / d2;
-            double square = (d2_3_2d0 * (p_pid_2 + 1.155 * Ugmin)) * (d2_3_2d0 * (p_pid_2 + 1.155 * Ugmin));
-            double Fmzul = A0 * V * Rp / Math.Sqrt(1 + 3 * square);
-            double f_mtb = table1() * 1000;
-            if (Fmzul >= Fmmax || f_mtb >= Fmmax)
-            {
-                // 合理
-                Console.WriteLine("合理");
-            }
-            else
-            {
-                // 不合理
-                Console.WriteLine("不合理");
-                MessageBox.Show("不满足Fmzul >= Fmmax || f_mtb >= Fmmax，请重新设计");
-                return null;
-            }
-            Fmzul = f_mtb;
-            rs.Fmzul = Fmzul;
-            Console.WriteLine("A0:" + A0.ToString());
-            Console.WriteLine("square:" + square.ToString());
-            Console.WriteLine("Fmzul:" + rs.Fmzul.ToString());
+            double V = r2.v;
+
+            R7 r7 = new R7(bolt, r2.UGmin, V);
+            double fmzul = r7.Fmzul;
+            double f_mtb = r7.f_mtb;
+            rs.Fmzul = fmzul;
+            Console.WriteLine("fmzul:" + fmzul);
 
             #endregion
 
@@ -3370,463 +3978,114 @@ namespace WindowsFormsApp1
             // R8: 工作应力
             // 温度影响
             Console.WriteLine("R8:");
-            double deltaFv = 0;
-            double FSmax = Fmzul + phi_ * Convert.ToDouble(FAO.Text) + deltaFv;
-            double delta_z_max = FSmax / A0;
-            double kt = 0.5;
-            double M_G = Fmzul * d2 * ((Pp / pi / d2) + 1.155 * Ugmin) / 2;
-            double W_P = ((pi * Math.Pow(d0, 3) / 16));
-            double tmax = M_G / W_P;
-            double delta_Red_B = Math.Sqrt(Math.Pow(delta_z_max, 2) + 3 * Math.Pow((kt * tmax), 2));
-            double sf = double.Parse(Rpmin_qufu.Text) / delta_Red_B;
-            if (sf >= 1)
-            {
-                // 安全
-                Console.WriteLine("安全");
-            }
-            else
-            {
-                // 不安全
-                Console.WriteLine("不安全");
-            }
-            rs.Sf = sf;
-            Console.WriteLine("Fmzul:" + Fmzul.ToString());
-            Console.WriteLine("FSmax:" + FSmax.ToString());
-            Console.WriteLine("M_G:" + M_G.ToString());
-            Console.WriteLine("delta_z_max:" + delta_z_max.ToString());
-            Console.WriteLine("W_P:" + W_P.ToString());
-            Console.WriteLine("tmax:" + tmax.ToString());
-            Console.WriteLine("delta_Red_B:" + delta_Red_B.ToString());
-            Console.WriteLine("sf:" + rs.Sf.ToString());
+            R8 r8 = new R8(bolt, r7.Fmzul, r2.Fao, phi, r7.Ugmin);
+            double sf = r8.sf;
+            //double deltaFv = 0;
+            //double FSmax = fmzul + r3.phi * Convert.ToDouble(FAO.Text) + deltaFv;
+            //double delta_z_max = FSmax / A0;
+            //double kt = 0.5;
+            //double M_G = fmzul * d2 * ((Pp / pi / d2) + 1.155 * Ugmin) / 2;
+            //double W_P = ((pi * Math.Pow(d0, 3) / 16));
+            //double tmax = M_G / W_P;
+            //double delta_Red_B = Math.Sqrt(Math.Pow(delta_z_max, 2) + 3 * Math.Pow((kt * tmax), 2));
+            //double sf = double.Parse(Rpmin_qufu.Text) / delta_Red_B;
+            //if (sf >= 1)
+            //{
+            //    // 安全
+            //    Console.WriteLine("安全");
+            //}
+            //else
+            //{
+            //    // 不安全
+            //    Console.WriteLine("不安全");
+            //}
+            //rs.Sf = sf;
+            //Console.WriteLine("Fmzul:" + fmzul.ToString());
+            //Console.WriteLine("FSmax:" + FSmax.ToString());
+            //Console.WriteLine("M_G:" + M_G.ToString());
+            //Console.WriteLine("delta_z_max:" + delta_z_max.ToString());
+            //Console.WriteLine("W_P:" + W_P.ToString());
+            //Console.WriteLine("tmax:" + tmax.ToString());
+            //Console.WriteLine("delta_Red_B:" + delta_Red_B.ToString()); 
+            Console.WriteLine("sf:" + sf);
 
             #endregion
 
             #region R9_jiaobian
-            double As = pi * d0 * d0 / 4;
-            if (workingLoads.Text == "静态")
+            Console.WriteLine("r2.Fao:" + r2.Fao);
+            Console.WriteLine("r2.Fau:" + r2.Fau);
+
+            R9 r9 = new R9(bolt, r2.a, r2.s_sym, phi, r7.Fmzul, Convert.ToDouble(Rpmin_qufu.Text), r2.Fao, r2.Fau);
+
+            if (ifZhouqiN.Checked == true)
             {
-                MessageBox.Show("静态载荷，无交变信息");
-                rs.Sd = 0;
+                // azsv   有点问题
+                if (zhouqiN.Text == "")
+                {
+                    MessageBox.Show("请输入N");
+                    r9.zhouqiN = 0;
+                    return null;
+                }
+                else
+                {
+                    r9.zhouqiN = Convert.ToDouble(zhouqiN.Text);
+                }
             }
             else
             {
-                #region R9_sd
-                // R9;交变应力
-                // 非偏心
-                Console.WriteLine("R9:");
-                double delta = 0;
-                double d3 = bolt.ScrewMinD_d3;
-                double deltaASV = 0;
-                double deltaASG = 0;
-                double sd = 0;
-                const double ND = 2000000;
-                const double one_three = 1.0 / 3.0;
-                const double one_six = 1.0 / 6.0;
-                delta = PhiN * (Famax - Famin) / 2 / As;
-
-                if (clampingWay.Text == "同心")
-                {
-                    Console.WriteLine("同心:");
-                    if (ifZhouqiN.Checked == true)
-                    {
-                        // azsv   有点问题
-                        if (zhouqiN.Text == "")
-                        {
-                            MessageBox.Show("请输入N");
-                            return null;
-                        }
-                        double NZ = Convert.ToDouble(zhouqiN.Text);
-                        Console.WriteLine("存在NZ:");
-
-                        if (NZ >= 2000000)
-                        {
-                            // 按照没有nz计算
-                            if (zhazhi.Text == "热处理前轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                sd = deltaASV / delta;
-                                Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                            else if (zhazhi.Text == "热处理后轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                double f_sa = phi_ * Convert.ToDouble(FAO.Text);
-                                double fsm = f_sa / 2 + rs.Fmzul;
-                                deltaASG = (2 - fsm / As / Convert.ToDouble(Rpmin_qufu.Text)) * deltaASV;
-                                sd = deltaASG / delta;
-                                Console.WriteLine("f_sa:" + f_sa.ToString());
-                                Console.WriteLine("fsm:" + fsm.ToString());
-                                Console.WriteLine("deltaASG:" + deltaASG.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                        }
-                        else
-                        {
-                            if (zhazhi.Text == "热处理前轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                double deltaAZSV = deltaASV * Math.Pow(ND / NZ, one_three);
-                                sd = deltaAZSV / delta;
-                                Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                                Console.WriteLine("Math.Pow(ND / NZ, 1 / 3):" + Math.Pow(ND / NZ, one_three).ToString());
-                                Console.WriteLine("deltaAZSV:" + deltaAZSV.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                            else if (zhazhi.Text == "热处理后轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                double f_sa = phi_ * Convert.ToDouble(FAO.Text);
-                                double fsm = f_sa / 2 + rs.Fmzul;
-                                deltaASG = (2 - fsm / As / Convert.ToDouble(Rpmin_qufu.Text)) * deltaASV;
-                                double deltaAZSG = deltaASG * Math.Pow(ND / NZ, one_six);
-                                sd = deltaAZSG / delta;
-                                Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                                Console.WriteLine("f_sa:" + f_sa.ToString());
-                                Console.WriteLine("fsm:" + fsm.ToString());
-                                Console.WriteLine("deltaASG:" + deltaASG.ToString());
-                                Console.WriteLine("deltaAZSG:" + deltaAZSG.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                        }
-                    }
-                    else if (ifZhouqiN.Checked == false)
-                    {
-                        // 
-                        Console.WriteLine("同心-不存在nz");
-
-                        if (zhazhi.Text == "热处理前轧制")
-                        {
-                            deltaASV = 0.85 * (150 / d + 45);
-                            sd = deltaASV / delta;
-                            Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                            Console.WriteLine("sd:" + sd.ToString());
-                        }
-                        else if (zhazhi.Text == "热处理后轧制")
-                        {
-                            deltaASV = 0.85 * (150 / d + 45);
-                            double f_sa = phi_ * Convert.ToDouble(FAO.Text);
-                            double fsm = f_sa / 2 + rs.Fmzul;
-                            deltaASG = (2 - fsm / As / Convert.ToDouble(Rpmin_qufu.Text)) * deltaASV;
-                            sd = deltaASG / delta;
-                            Console.WriteLine("f_sa:" + f_sa.ToString());
-                            Console.WriteLine("fsm:" + fsm.ToString());
-                            Console.WriteLine("deltaASG:" + deltaASG.ToString());
-                            Console.WriteLine("sd:" + sd.ToString());
-
-                        }
-                    }
-
-                    if (sd > 1)
-                    {
-                        // 安全
-                        Console.WriteLine("安全");
-                    }
-                    else
-                    {
-                        // 不安全
-                        Console.WriteLine("不安全");
-                    }
-                    rs.Sd = sd;
-                    Console.WriteLine("sd:" + rs.Sd.ToString());
-                }
-                else if (clampingWay.Text == "偏心")
-                {
-                    if (ifZhouqiN.Checked == true)
-                    {
-                        //有nz
-                        // azsv   有点问题
-                        if (zhouqiN.Text == "")
-                        {
-                            MessageBox.Show("请输入N");
-                            return null;
-                        }
-                        double NZ = Convert.ToDouble(zhouqiN.Text);
-                        Console.WriteLine("同心-存在nz");
-
-                        // 偏心交变计算
-                        if (M_B == 0)
-                        {
-                            double delta_sabo = f_sa_max / As;
-                            double delta_sabu = f_sa_min / As;
-                            double delta_ab = (delta_sabo - delta_sabu) / 2;
-                            double f_sm = (f_sa_max + f_sa_min) / 2 + rs.Fmzul;
-
-                            Console.WriteLine("f_sa_max:" + f_sa_max.ToString());
-                            Console.WriteLine("f_sa_min:" + f_sa_min.ToString());
-                            Console.WriteLine("delta_sabo:" + delta_sabo.ToString());
-                            Console.WriteLine("delta_sabu:" + delta_sabu.ToString());
-                            Console.WriteLine("delta_ab:" + delta_ab.ToString());
-                            Console.WriteLine("f_sm:" + f_sm.ToString());
-                            if (zhazhi.Text == "热处理前轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                sd = deltaASV / delta_ab;
-
-                                Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                            else if (zhazhi.Text == "热处理后轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                deltaASG = (2 - f_sm / Convert.ToDouble(Rpmin_qufu.Text) / As) * deltaASV;
-                                sd = deltaASG / delta_ab;
-                                Console.WriteLine("deltaASG:" + deltaASG.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                        }
-                        else
-                        {
-                            // mb != 0
-                            double delta_sabo = 0; // max
-                            double delta_sabu = 0; // min
-                            if (a_ == 0)
-                            {
-                                delta_sabo = phi_ * Convert.ToDouble(FAO.Text) / As;
-                                delta_sabu = phi_ * Convert.ToDouble(fau.Text) / As;
-                            }
-                            else
-                            {
-                                //a != 0
-                                double l_ers = compute_lers(Lk);
-                                double up = Lk * Convert.ToDouble(Es_yangshi.Text) * Math.PI * a_ * Math.Pow(d0, 3);
-                                double down = (l_ers * Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[1].Value) * 8 * I_bers);
-                                double x = up / down;
-                                double param = (1 + (1 / phi_ - s_sym / a_) * x);
-                                delta_sabo = param * phi_ * Convert.ToDouble(FAO.Text) / As;
-                                double famin = 0;
-                                if (fau.Text == "")
-                                {
-                                    famin = 0;
-                                }
-                                delta_sabu = param * phi_ * famin / As;
-                            }
-
-                            double delta_ab = (delta_sabo - delta_sabu) / 2;
-                            double f_sm = (f_sa_max + f_sa_min) / 2 + rs.Fmzul;
-
-                            Console.WriteLine("f_sa_max:" + f_sa_max.ToString());
-                            Console.WriteLine("f_sa_min:" + f_sa_min.ToString());
-                            Console.WriteLine("delta_sabo:" + delta_sabo.ToString());
-                            Console.WriteLine("delta_sabu:" + delta_sabu.ToString());
-                            Console.WriteLine("delta_ab:" + delta_ab.ToString());
-                            Console.WriteLine("f_sm:" + f_sm.ToString());
-                            if (zhazhi.Text == "热处理前轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                sd = deltaASV / delta_ab;
-
-                                Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                            else if (zhazhi.Text == "热处理后轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                deltaASG = (2 - f_sm / Convert.ToDouble(Rpmin_qufu.Text) / As) * deltaASV;
-                                sd = deltaASG / delta_ab;
-                                Console.WriteLine("deltaASG:" + deltaASG.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                        }
-                        if (NZ < 2000000)
-                        {
-                            // 偏心交变计算
-                            if (M_B == 0)
-                            {
-                                double delta_sabo = f_sa_max / As;
-                                double delta_sabu = f_sa_min / As;
-                                double delta_ab = (delta_sabo - delta_sabu) / 2;
-                                double f_sm = (f_sa_max + f_sa_min) / 2 + rs.Fmzul;
-
-                                Console.WriteLine("f_sa_max:" + f_sa_max.ToString());
-                                Console.WriteLine("f_sa_min:" + f_sa_min.ToString());
-                                Console.WriteLine("delta_sabo:" + delta_sabo.ToString());
-                                Console.WriteLine("delta_sabu:" + delta_sabu.ToString());
-                                Console.WriteLine("delta_ab:" + delta_ab.ToString());
-                                Console.WriteLine("f_sm:" + f_sm.ToString());
-                                if (zhazhi.Text == "热处理前轧制")
-                                {
-                                    deltaASV = 0.85 * (150 / d + 45);
-                                    double deltaAZSV = deltaASV * Math.Pow(ND / NZ, one_three);
-                                    sd = deltaAZSV / delta_ab;
-
-                                    Console.WriteLine("deltaAZSV:" + deltaAZSV.ToString());
-                                    Console.WriteLine("sd:" + sd.ToString());
-                                }
-                                else if (zhazhi.Text == "热处理后轧制")
-                                {
-                                    deltaASV = 0.85 * (150 / d + 45);
-                                    double f_sa = phi_ * Convert.ToDouble(FAO.Text);
-                                    double fsm = f_sa / 2 + rs.Fmzul;
-                                    deltaASG = (2 - fsm / As / Convert.ToDouble(Rpmin_qufu.Text)) * deltaASV;
-                                    double deltaAZSG = deltaASG * Math.Pow(ND / NZ, one_six);
-                                    sd = deltaAZSG / delta_ab;
-                                    Console.WriteLine("deltaAZSG:" + deltaAZSG.ToString());
-                                    Console.WriteLine("sd:" + sd.ToString());
-                                }
-                            }
-                            else
-                            {
-                                // mb != 0
-                                double delta_sabo = 0; // max
-                                double delta_sabu = 0; // min
-                                if (a_ == 0)
-                                {
-                                    delta_sabo = phi_ * Convert.ToDouble(FAO.Text) / As;
-                                    delta_sabu = phi_ * Convert.ToDouble(fau.Text) / As;
-                                }
-                                else
-                                {
-                                    //a != 0
-                                    double l_ers = compute_lers(Lk);
-                                    double up = Lk * Convert.ToDouble(Es_yangshi.Text) * Math.PI * a_ * Math.Pow(d0, 3);
-                                    double down = (l_ers * Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[1].Value) * 8 * I_bers);
-                                    double x = up / down;
-                                    double param = (1 + (1 / phi_ - s_sym / a_) * x);
-                                    delta_sabo = param * phi_ * Convert.ToDouble(FAO.Text) / As;
-                                    double famin = 0;
-                                    if (fau.Text == "")
-                                    {
-                                        famin = 0;
-                                    }
-                                    delta_sabu = param * phi_ * famin / As;
-                                }
-
-                                double delta_ab = (delta_sabo - delta_sabu) / 2;
-                                double f_sm = (f_sa_max + f_sa_min) / 2 + rs.Fmzul;
-
-                                Console.WriteLine("f_sa_max:" + f_sa_max.ToString());
-                                Console.WriteLine("f_sa_min:" + f_sa_min.ToString());
-                                Console.WriteLine("delta_sabo:" + delta_sabo.ToString());
-                                Console.WriteLine("delta_sabu:" + delta_sabu.ToString());
-                                Console.WriteLine("delta_ab:" + delta_ab.ToString());
-                                Console.WriteLine("f_sm:" + f_sm.ToString());
-                                if (zhazhi.Text == "热处理前轧制")
-                                {
-                                    deltaASV = 0.85 * (150 / d + 45);
-                                    double deltaAZSV = deltaASV * Math.Pow(ND / NZ, one_three);
-
-                                    sd = deltaAZSV / delta_ab;
-
-                                    Console.WriteLine("deltaAZSV:" + deltaAZSV.ToString());
-                                    Console.WriteLine("sd:" + sd.ToString());
-                                }
-                                else if (zhazhi.Text == "热处理后轧制")
-                                {
-                                    deltaASV = 0.85 * (150 / d + 45);
-                                    double f_sa = phi_ * Convert.ToDouble(FAO.Text);
-                                    double fsm = f_sa / 2 + rs.Fmzul;
-                                    deltaASG = (2 - fsm / As / Convert.ToDouble(Rpmin_qufu.Text)) * deltaASV;
-                                    double deltaAZSG = deltaASG * Math.Pow(ND / NZ, one_six);
-                                    sd = deltaAZSG / delta_ab;
-                                    Console.WriteLine("deltaAZSG:" + deltaAZSG.ToString());
-                                    Console.WriteLine("sd:" + sd.ToString());
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        // 没有NZ 
-                        // 偏心交变计算
-                        Console.WriteLine("同心-不存在nz");
-                        if (M_B == 0)
-                        {
-                            Console.WriteLine("同心-不存在nz mb=0");
-
-                            double delta_sabo = f_sa_max / As;
-                            double delta_sabu = f_sa_min / As;
-                            double delta_ab = (delta_sabo - delta_sabu) / 2;
-                            double f_sm = (f_sa_max + f_sa_min) / 2 + rs.Fmzul;
-
-                            Console.WriteLine("f_sa_max:" + f_sa_max.ToString());
-                            Console.WriteLine("f_sa_min:" + f_sa_min.ToString());
-                            Console.WriteLine("delta_sabo:" + delta_sabo.ToString());
-                            Console.WriteLine("delta_sabu:" + delta_sabu.ToString());
-                            Console.WriteLine("delta_ab:" + delta_ab.ToString());
-                            Console.WriteLine("f_sm:" + f_sm.ToString());
-                            if (zhazhi.Text == "热处理前轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                sd = deltaASV / delta_ab;
-
-                                Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                            else if (zhazhi.Text == "热处理后轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                deltaASG = (2 - f_sm / Convert.ToDouble(Rpmin_qufu.Text) / As) * deltaASV;
-                                sd = deltaASG / delta_ab;
-                                Console.WriteLine("deltaASG:" + deltaASG.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                        }
-                        else
-                        {
-                            // mb != 0
-                            Console.WriteLine("同心-不存在nz mb！=0");
-
-                            double delta_sabo = 0; // max
-                            double delta_sabu = 0; // min
-                            if (a_ == 0)
-                            {
-                                delta_sabo = phi_ * Convert.ToDouble(FAO.Text) / As;
-                                delta_sabu = phi_ * Convert.ToDouble(fau.Text) / As;
-                            }
-                            else
-                            {
-                                //a != 0
-                                double l_ers = compute_lers(Lk);
-                                double up = Lk * Convert.ToDouble(Es_yangshi.Text) * Math.PI * a_ * Math.Pow(d0, 3);
-                                double down = (l_ers * Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[1].Value) * 8 * I_bers);
-                                double x = up / down;
-                                double param = (1 + (1 / phi_ - s_sym / a_) * x);
-                                delta_sabo = param * phi_ * Convert.ToDouble(FAO.Text) / As;
-                                double famin = 0;
-                                if (fau.Text == "")
-                                {
-                                    famin = 0;
-                                }
-                                delta_sabu = param * phi_ * famin / As;
-                            }
-
-                            double delta_ab = (delta_sabo - delta_sabu) / 2;
-                            double f_sm = (f_sa_max + f_sa_min) / 2 + rs.Fmzul;
-
-                            Console.WriteLine("f_sa_max:" + f_sa_max.ToString());
-                            Console.WriteLine("f_sa_min:" + f_sa_min.ToString());
-                            Console.WriteLine("delta_sabo:" + delta_sabo.ToString());
-                            Console.WriteLine("delta_sabu:" + delta_sabu.ToString());
-                            Console.WriteLine("delta_ab:" + delta_ab.ToString());
-                            Console.WriteLine("f_sm:" + f_sm.ToString());
-                            if (zhazhi.Text == "热处理前轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                sd = deltaASV / delta_ab;
-
-                                Console.WriteLine("deltaASV:" + deltaASV.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                            else if (zhazhi.Text == "热处理后轧制")
-                            {
-                                deltaASV = 0.85 * (150 / d + 45);
-                                deltaASG = (2 - f_sm / Convert.ToDouble(Rpmin_qufu.Text) / As) * deltaASV;
-                                sd = deltaASG / delta_ab;
-                                Console.WriteLine("deltaASG:" + deltaASG.ToString());
-                                Console.WriteLine("sd:" + sd.ToString());
-                            }
-                        }
-                    }
-                }
-                #endregion
+                r9.zhouqiN = 0;
             }
 
+            if (clampingWay.Text == "同心")
+            {
+                rs.Sd = r9.getSd(zhazhi.Text);
+            }
+            else
+            {
+                double es = Convert.ToDouble(Es_yangshi.Text);
+                rs.Sd = r9.getSd(zhazhi.Text,r3.phi, r2.Mb, r2.Lk, es, Convert.ToDouble(ep), (bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2, r3.I_bers);
+            }
+
+            Console.WriteLine("sd:" + rs.Sd);
             #endregion
 
             #region R_10_sp
             // R10
             Console.WriteLine("R10:");
+            // pG = fG*Rm  行数有问题，待定
+            double Rm = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[2].Value);
+            double fg = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[3].Value);
+            double pG = fg * Rm; // 连接件pg
+            R10 r10 = new R10(bolt, r7.Fmzul, pG, r1.alpha, r4.FZ, f_sa_max);
+            if (r2.w == 1)
+            {
+                // 螺母
+                double hs = 0;
+                if (gasketChooseBtn.Checked == true)
+                {
+                    hs = Convert.ToDouble(hs2.Text);
+                }
+
+                r10.getSp(hs, nut);
+                rs.Sp = r10.sp;
+                rs.Sp_load = r10.sp_load;
+                rs.Spn = r10.spn;
+                rs.Spn_load = r10.spn_load;
+                Console.WriteLine("Sp:"+ rs.Sp);
+                Console.WriteLine("Sp_load:"+ rs.Sp_load);
+                Console.WriteLine("Spn:"+ rs.Spn);
+                Console.WriteLine("Spn_load:"+ rs.Spn_load);
+            }
+            else
+            {
+                r10.getSp();
+                rs.Sp = r10.sp;
+                rs.Sp_load = r10.sp_load;
+                Console.WriteLine("Sp:"+ rs.Sp);
+                Console.WriteLine("Sp_load:"+ rs.Sp_load);
+            }
+
+#if false
             if (BoltConnectType.Text == "通孔螺栓连接")
             {
                 // 通孔考虑螺母承载面
@@ -3834,7 +4093,7 @@ namespace WindowsFormsApp1
                 // 螺栓
                 double dh = bolt.BoreD_dh;
                 double Apkmin = pi * (dw * dw - dh * dh) / 4;
-                double pMKmax = Fmzul / Apkmin;
+                double pMKmax = fmzul / Apkmin;
 
                 // 螺母
                 double hs = 0;
@@ -3845,21 +4104,18 @@ namespace WindowsFormsApp1
                 double outR = dw + 1.6 * hs;
                 double innerR = Math.Max(bolt.BoreD_dh, nut.NutBearMinD);
                 double Apmmin = pi * (outR * outR - innerR * innerR) / 4;
-                double pMMumax = Fmzul / Apmmin;
+                double pMMumax = fmzul / Apmmin;
                 Console.WriteLine("螺栓承载面面积:" + Apkmin.ToString());
                 Console.WriteLine("螺母承载面面积:" + Apmmin.ToString());
 
-                // pG = fG*Rm  行数有问题，待定
-                double Rm = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[2].Value);
-                double fg = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[3].Value);
-                double pG = fg * Rm; // 连接件pg
+                
                 double spK = pG / pMKmax;
                 double spM = pG / pMMumax;
                 rs.SpMk = spK;
                 rs.SpMMu = spM;
 
                 // 工作
-                double Fv = Fmzul / a_lpha_A - Fz;
+                double Fv = fmzul / a_lpha_A - Fz;
                 if (f_sa_max <= 0)
                 {
                     f_sa_max = 0;
@@ -3892,16 +4148,13 @@ namespace WindowsFormsApp1
                 // 螺栓
                 double dh = bolt.BoreD_dh;
                 double Apkmin = pi * (dw * dw - dh * dh) / 4;
-                double pMKmax = Fmzul / Apkmin;
-                // pG = fG*Rm  行数有问题，待定
-                double Rm = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[2].Value);
-                double fg = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[3].Value);
-                double pG = fg * Rm; // 连接件pg
+                double pMKmax = fmzul / Apkmin;
+                
                 double spK = pG / pMKmax;
                 rs.SpMk = spK;
 
                 // 工作
-                double Fv = Fmzul / a_lpha_A - Fz;
+                double Fv = fmzul / a_lpha_A - Fz;
                 if (f_sa_max <= 0)
                 {
                     f_sa_max = 0;
@@ -3921,15 +4174,33 @@ namespace WindowsFormsApp1
                 Console.WriteLine("螺栓spbolt:" + spbolt.ToString());
             }
 
+#endif
             #endregion
 
             #region R_11_meff
             // R11 最小旋合长度  涉及螺母材料的剪切强度，未考虑螺母材料
             // mdesign做法是：螺母螺栓同样强度等级的标准螺母
             Console.WriteLine("R11");
+            double tbm_ = Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[4].Value) * Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[2].Value);
+            R11 r11;
+            if (BoltConnectType.Text == "通孔螺栓连接")
+            {
+                // 不用计算
+                MessageBox.Show("螺栓螺母使用相同强度等级，不计算啮合长度");
+            }
+            else
+            {
+                double s = nut.NutNutSideWid;
+                r11 = new R11(bolt, r2.Lk);
+                r11.getMeff(Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[2].Value), Convert.ToDouble(Rm_kangla.Text), tbm_, s);
+                Console.WriteLine("meff:"+ r11.meff);
+            }
+
+
+#if false
             double meff = 0;
             double mges = 0;
-            if (BoltConnectType.SelectedText == "通孔螺栓连接")
+            if (BoltConnectType.Text == "通孔螺栓连接")
             {
                 // 不用计算
                 MessageBox.Show("螺栓螺母使用相同强度等级，不计算啮合长度");
@@ -3937,13 +4208,12 @@ namespace WindowsFormsApp1
             else
             {
                 // 盲孔拧入
-                #region meff
+            #region meff
                 double d_ = bolt.NormalD_d;
                 double p_ = bolt.ScrewP_P;
                 double d2_ = bolt.ScrewMidD_d2;
                 double d1_ = bolt.BoltNutScrewMinD_D1;
                 double tan30_ = Math.Tan(Math.PI * 30 / 180);
-                double s_ = nut.NutNutSideWid;
                 double Rmm_Rms = Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[2].Value) / Convert.ToDouble(Rm_kangla.Text);
                 double Rs_ = Rmm_Rms * d_ * (p_ / 2 + (d_ - d1_) * tan30_) / (d1_ * (p_ / 2) + (d2_ - d1_) * tan30_);
                 double tbm_ = Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[4].Value) * Convert.ToDouble(dataClampedChoosed.Rows[0].Cells[2].Value);
@@ -3967,7 +4237,7 @@ namespace WindowsFormsApp1
                 Console.WriteLine("meff_d:" + tbm_);
 
                 meff = meff_d * d_;
-                double mges_vorh = bolt.BoltLen_ls - Lk;
+                double mges_vorh = bolt.BoltLen_ls - r2.Lk;
                 mges_vorh -= 2 * bolt.ScrewP_P;
                 if (mges_vorh <= meff)
                 {
@@ -3976,7 +4246,7 @@ namespace WindowsFormsApp1
                 rs.Meff = meff;
                 Console.WriteLine("meff:" + meff);
 
-                #endregion
+            #endregion
                 //    // 计算啮合长度meff
                 //    // 螺栓的剪切应力
                 //    double t_bolt = boltChooseClass.boltMaterial.BoltMaterialRatio_fB * double.Parse(Rm_kangla.Text);
@@ -4112,13 +4382,62 @@ namespace WindowsFormsApp1
                 //}
                 //Console.WriteLine("mges:" + mges.ToString());
             }
+#endif
+
             #endregion
 
             #region R_12_sg
+
+            R12 r12 = new R12(bolt, r7.Fmzul, r1.alpha, r3.phi, r2.Fao, r4.FZ);
             if (boltConnectLoad.Text == "单螺栓连接")
             {
                 MessageBox.Show("无需验证剪切");
-                double FKRmin = Fmzul / alpha - (1 - phi_) * Famax - Fz - deltaFv;
+                double fkrmin = r12.getFKRmin();
+                if (fkrmin > 0)
+                {
+                    Console.WriteLine("R12: 安全");
+                }
+            }
+            else
+            {
+                double fkrmin = r12.getFKRmin();
+                double sg = r12.getSg(r2.f_qmax, r2.q_f, r2.u_Tmin, r2.M_t, r2.q_m);
+
+                if (sg >= r2.sgsoll)
+                {
+                    if (r2.dtau != 0)
+                    {
+                        Console.WriteLine("dtt" + r2.dtau);
+                        rs.Sa = r12.getSa(double.Parse(Rm_kangla.Text), r2.f_qmax, r2.dtau);
+                    }
+                    else
+                    {
+                        rs.Sa = r12.getSa(double.Parse(Rm_kangla.Text), r2.f_qmax);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("应满足sg>=SGoll");
+                }
+                if (rs.Sa >= 1.1)
+                {
+                    Console.WriteLine("安全");
+                }
+                else
+                {
+                    Console.WriteLine("不安全");
+                }
+            }
+
+
+
+#if false
+
+            double deltaFv = 0;
+            if (boltConnectLoad.Text == "单螺栓连接")
+            {
+                MessageBox.Show("无需验证剪切");
+                double FKRmin = fmzul / r1.alpha - (1 - phi) * r2.Fao - Fz - deltaFv;
                 double f_kqerf = 0;
                 if (FKRmin > f_kqerf)
                 {
@@ -4128,7 +4447,7 @@ namespace WindowsFormsApp1
             else if (boltConnectLoad.Text == "受横向载荷的单螺栓连接")
             {
                 // R12 滑动安全余量和剪切应力     无剪力跳过
-                double FKRmin = Fmzul / alpha - (1 - phi_) * Famax - Fz - deltaFv;
+                double FKRmin = fmzul / r1.alpha - (1 - phi) * r2.Fao - Fz - deltaFv;
                 double qf = 1;
                 double qm = 1;
                 if (FQ.Text == "" || qF.Text == "")
@@ -4157,7 +4476,7 @@ namespace WindowsFormsApp1
                 if (Mt.Text != "")
                 {
                     m_ymax = Convert.ToDouble(Mt.Text) ;
-                    Convert.ToDouble(qM.Text);
+                    double xx = Convert.ToDouble(qM.Text);
                 }
 
                 double f_kqerf = f_kq_max / qf / utmin + m_ymax / qm / r_a / utmin;
@@ -4216,19 +4535,19 @@ namespace WindowsFormsApp1
                 }
             }
 
-            #endregion
+#endif
+#endregion
 
-            #region R_13_M
+#region R_13_M
             // R13 拧紧力矩
-            double da = nut.NutBearMaxD;
-            double dkm = (Math.Max(bolt.BoreD_dh, da) + dw) / 2;
-            double Ukmin = double.Parse(UKmin.Text);
-            double MA = rs.Fmzul * (0.16 * Pp + 0.58 * d2 * Ugmin + dkm / 2 * Ukmin);
+            double da = Math.Max(0, nut.NutBearMaxD);
+            R13 r13 = new R13(bolt);
+            double MA  = r13.getMA(da, r2.UKmin, r2.UGmin, r7.Fmzul);
+            
             rs.Ma = MA;
             Console.WriteLine("R13:");
-            Console.WriteLine("Ukmin:" + Ukmin.ToString());
             Console.WriteLine("MA:" + rs.Ma.ToString());
-            #endregion
+#endregion
             return rs;
         }
 
@@ -4251,7 +4570,7 @@ namespace WindowsFormsApp1
         {
             double d_3 = bolt.ScrewMinD_d3;
             double d = bolt.NormalD_d;
-            double d_T = Convert.ToDouble(dt.Text);
+            double d_T = d;
             double l1 = bolt.PolishRodLen_l1;
             double l2 = bolt.PolishRodLen_l2;
             double lGew = lk - bolt.PolishRodLen_l1 - bolt.PolishRodLen_l2;
@@ -4539,11 +4858,11 @@ namespace WindowsFormsApp1
         {
             if (ifPimax.Text == "是")
             {
-                pimax.Enabled = true;
+                pimax.ReadOnly = false;
             }
             else
             {
-                pimax.Enabled = false;
+                pimax.ReadOnly = true;
             }
         }
 

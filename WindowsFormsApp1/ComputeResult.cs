@@ -9,22 +9,6 @@ namespace WindowsFormsApp1
 {
     public class ComputeResult
     {
-
-        //private double fz;      // 预紧力缺失R4
-        //private double fmmin;   // 最小预紧力R5
-        //private double fmmax;   // 最大预紧力R6
-        //private double fmzul;   // 装配应力大小R7
-
-        //private double sf;      // 抗屈服安全系数R8
-        //private double sd;      // 抗疲劳安全系数R9
-        //private double sp;      // 装配状态表面压力安全系数R10
-        //private double sg;      // 滑动安全系数R12
-        //private double sa;      // 滑动安全系数R12
-
-        //// R11 不用计算。螺母螺栓使用同样的材料计算`
-        //private double meff;    // 最小啮合长度R11
-        //private double ma;      // 必要拧紧力矩R13
-
         [Category("计算结果")]
         [DisplayName("R2Fkerf")]
         [Description("")]
@@ -88,25 +72,29 @@ namespace WindowsFormsApp1
         [Description("静态加载无需验证疲劳安全性")]
         public double Sd { get; set; }
 
+
+        // 一般就是装配和工作，螺栓头的两个即可
         [Category("安全系数")]
         [DisplayName("R10螺栓头承载面表面压力安全系数")]
         [Description("装配状态螺栓头承载面表面压力安全系数R10")]
-        public double SpMk { get; set; }
-
-        [Category("安全系数")]
-        [DisplayName("R10表面压力安全系数")]
-        [Description("装配状态表面压力安全系数R10")]
-        public double SpMMu { get; set; }
+        public double Sp { get; set; }
 
         [Category("安全系数")]
         [DisplayName("R10螺栓头承载面压力安全系数")]
         [Description("螺栓头承载面工作状态表面压力安全系数R10")]
-        public double SpBk { get; set; }
+        public double Sp_load { get; set; }
+
+        // 通孔螺栓的时候，在上述两个螺栓头之外，还有两个螺母的
+        [Category("安全系数")]
+        [DisplayName("R10表螺母面压力安全系数")]
+        [Description("装配状态螺母表面压力安全系数R10")]
+        public double Spn { get; set; }
+
 
         [Category("安全系数")]
         [DisplayName("R10螺母接触面表面压力安全系数")]
         [Description("螺母接触面工作状态表面压力安全系数R10")]
-        public double SpBMu { get; set; }
+        public double Spn_load { get; set; }
 
         //[Category("安全系数")]
         //[DisplayName("R12滑动安全系数")]

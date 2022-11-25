@@ -11,14 +11,292 @@ using System.Windows.Forms;
 using devDept.Geometry;
 using devDept.Eyeshot.Entities;
 using CreateBotSpring;
+using devDept.Eyeshot.Translators;
+using devDept.Eyeshot.Fem;
+using WindowsApplication1;
 
 namespace WindowsFormsApp1
 {
     public partial class MutliBoltsDesginForm : Form
     {
+        public enum FemElementsType
+        {
+            None,
+            Beam2D,
+            Beam3D,
+            Element2D,
+            Element3D
+        }
         public MutliBoltsDesginForm()
         {
             InitializeComponent();
+            simulation1.Viewports[0].LabelSelectionChanged += viewportZero_LabelSelectionChanged;
+            simulation1.SelectionChanged += simulation1_SelectionChanged;
+            simulation1.WorkCompleted += simulation1_WorkCompleted;
+            simulation1.WorkCancelled += simulation1_WorkCancelled;
+            simulation1.WorkFailed += simulation1_WorkFailed;
+            simulation1.OriginSymbol.Visible = false;
+            simulation1.ToolBar.Visible = false;
+            simulation1.Grid.AutoSize = true;
+            simulation1.Grid.AutoStep = true;
+            simulation1.Grid.FillColor = Color.FromArgb(150, 123, 123, 123);
+            simulation1.ViewCubeIcon.Visible = false;
+
+            simulation1.CoordinateSystemIcon.Visible = false;
+            simulation1.Grid.Visible = false;
+        }
+        #region Event handlers                
+
+        private void simulation1_SelectionChanged(object sender, EventArgs e)
+        {
+
+            int count = 0;
+
+            // counts selected entities
+            foreach (Entity ent in simulation1.Entities)
+
+                if (ent.Selected)
+
+                    count++;
+
+            object[] selected = new object[count];
+
+            count = 0;
+
+            // fills selected array
+            foreach (Entity ent in simulation1.Entities)
+
+                if (ent.Selected)
+
+                    selected[count++] = ent;
+
+            //// updates count on the status bar
+            //selectedCountStatusLabel.Text = count.ToString();
+
+            // updates the propertyGrid control
+            propertyGrid1.SelectedObjects = selected;
+
+        }
+
+        private void viewportZero_LabelSelectionChanged(object sender, EventArgs e)
+        {
+
+            int count = 0;
+
+            // counts selected entities
+            foreach (devDept.Eyeshot.Labels.Label lbl in simulation1.Viewports[0].Labels)
+
+                if (lbl.Selected)
+
+                    count++;
+
+            object[] selected = new object[count];
+
+            count = 0;
+
+            // fills selected array
+            foreach (devDept.Eyeshot.Labels.Label lbl in simulation1.Viewports[0].Labels)
+
+                if (lbl.Selected)
+
+                    selected[count++] = lbl;
+
+            // updates count on the status bar
+            //selectedCountStatusLabel.Text = count.ToString();
+
+            // updates the propertyGrid control
+            propertyGrid1.SelectedObjects = selected;
+        }
+
+        private void simulation1_WorkCancelled(object sender, EventArgs e)
+        {
+
+            numericResultsButton.Enabled = false;
+            plotTypeComboBox.Enabled = false;
+        }
+
+        private void simulation1_WorkCompleted(object sender, devDept.Eyeshot.WorkCompletedEventArgs e)
+        {
+            if (e.WorkUnit is ReadFileAsync)
+            {
+                ReadFileAsync rfa = (ReadFileAsync)e.WorkUnit;
+
+                rfa.AddToScene(simulation1);
+                simulation1.ZoomFit();
+            }
+            else if (e.WorkUnit is SolverBase)
+            {
+
+                SolverBase solver = (SolverBase)e.WorkUnit;
+
+                FemMesh fm = solver.Mesh;
+
+                // computes the selected plot
+                fm.PlotMode = FemMesh.plotType.Tresca;
+
+                fm.NodalAverages = true;
+
+                fm.ComputePlot(simulation1, simulation1.Legends[0]);
+
+                simulation1.ZoomFit();
+
+            }
+
+
+            numericResultsButton.Enabled = true;
+            plotTypeComboBox.Enabled = true;
+            FillPlotTypeComboBox();
+            UpdateDisplayModeButtons();
+        }
+
+        private void FillPlotTypeComboBox()
+        {
+            plotTypeComboBox.Items.Clear();
+            plotTypeComboBox.Items.Add("Mesh");
+
+
+            var elementType = GetFemElementsType(Draw.fm);
+            plotTypeComboBox.Items.Add("Ux");
+            plotTypeComboBox.Items.Add("Uy");
+
+            if (elementType == FemElementsType.Beam3D || elementType == FemElementsType.Element3D)
+                plotTypeComboBox.Items.Add("Uz");
+
+            plotTypeComboBox.Items.Add("U");
+
+            if (elementType == FemElementsType.Beam3D)
+            {
+                plotTypeComboBox.Items.Add("Rx");
+                plotTypeComboBox.Items.Add("Ry");
+            }
+
+            if (elementType == FemElementsType.Beam2D || elementType == FemElementsType.Beam3D)
+            {
+                plotTypeComboBox.Items.Add("Rz");
+                plotTypeComboBox.Items.Add("Axial Force");
+                plotTypeComboBox.Items.Add("Shear Force V");
+            }
+
+            if (elementType == FemElementsType.Beam3D)
+            {
+                plotTypeComboBox.Items.Add("Shear Force W");
+                plotTypeComboBox.Items.Add("Torsion Moment");
+                plotTypeComboBox.Items.Add("Bending Moment V");
+            }
+
+            if (elementType == FemElementsType.Beam2D || elementType == FemElementsType.Beam3D)
+            {
+                plotTypeComboBox.Items.Add("Bending Moment W");
+            }
+
+            if (elementType == FemElementsType.Beam3D)
+            {
+                plotTypeComboBox.Items.Add("Twist Angle");
+            }
+
+            if (elementType == FemElementsType.Element2D || elementType == FemElementsType.Element3D)
+            {
+                plotTypeComboBox.Items.Add("X stress");
+                plotTypeComboBox.Items.Add("Y stress");
+                if (elementType == FemElementsType.Element3D)
+                    plotTypeComboBox.Items.Add("Z stress");
+                plotTypeComboBox.Items.Add("XY shear");
+                if (elementType == FemElementsType.Element3D)
+                {
+                    plotTypeComboBox.Items.Add("YZ shear");
+                    plotTypeComboBox.Items.Add("XZ shear");
+                }
+                plotTypeComboBox.Items.Add("Maximum Principal");
+                plotTypeComboBox.Items.Add("Intermediate Principal");
+                if (elementType == FemElementsType.Element3D)
+                    plotTypeComboBox.Items.Add("Minimum Principal");
+                plotTypeComboBox.Items.Add("Von Mises");
+                plotTypeComboBox.Items.Add("Tresca");
+            }
+
+            //plotTypeComboBox.SelectedIndex = plotTypeComboBox.Items.Count - 2;
+
+
+            // here we set the PlotType to displacement magnitude, a quantity shared by all elements
+            if (elementType == FemElementsType.Beam3D || elementType == FemElementsType.Element3D)
+                plotTypeComboBox.SelectedIndex = 4;
+            else
+                plotTypeComboBox.SelectedIndex = 3;
+        }
+
+        internal static FemElementsType GetFemElementsType(FemMesh femMesh)
+        {
+            if (femMesh == null)
+                return FemElementsType.None;
+
+            if (femMesh.Elements[0] is Beam2D)
+                return FemElementsType.Beam2D;
+
+            if (femMesh.Elements[0] is Beam)
+                return FemElementsType.Beam3D;
+
+            if (femMesh.Elements[0] is Element2D)
+                return FemElementsType.Element2D;
+
+            if (femMesh.Elements[0] is Element3D)
+                return FemElementsType.Element3D;
+
+            return FemElementsType.None;
+        }
+
+
+        private void simulation1_WorkFailed(object sender, WorkFailedEventArgs e)
+        {
+            numericResultsButton.Enabled = false;
+            plotTypeComboBox.Enabled = false;
+        }
+
+        #endregion
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // every time the selected tab changes ...
+            simulation1.ActionMode = actionType.None; // reset all actions
+            simulation1.Focus();
+
+            perspectiveButton.Checked = true;                   // set default projection to perspective
+            selectionComboBox.SelectedIndex = 5;                // set default selection to VisibleByPick            
+
+            simulation1.ShowVertices = false;
+
+            simulation1.StopAnimation();              // stop any animation
+
+            simulation1.Clear();                      // clear model (entities, blocks, layers, materials, etc.)
+
+            propertyGrid1.SelectedObjects = null;               // clear propertyGrid contents
+
+            simulation1.Legends[0].Visible = false;
+            simulation1.Grid.Visible = true;
+            simulation1.Grid.Step = 10;
+
+
+            simulation1.HiddenLines.Lighting = false;
+            simulation1.HiddenLines.ColorMethod = hiddenLinesColorMethodType.SingleColor;
+            simulation1.HiddenLines.DashedHiddenLines = false;
+
+            simulation1.AutoHideLabels = true;
+            simulation1.DisplayMode = displayType.Rendered;
+            if (simulation1.IsBusy)
+            {
+                plotTypeComboBox.Enabled = false;
+                numericResultsButton.Enabled = false;
+            }
+            else
+            {
+                plotTypeComboBox.Enabled = true;
+                numericResultsButton.Enabled = true;
+            }
+            // Sets trimetric view and fits the model in the main viewport
+            simulation1.SetView(viewType.Trimetric, true, simulation1.AnimateCamera);
+
+            // Refresh the model
+            simulation1.Invalidate();
+
+            UpdateDisplayModeButtons();
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
@@ -60,7 +338,6 @@ namespace WindowsFormsApp1
                 simulation1.ActionMode = actionType.None;
             }
         }
-
 
         private void Selection()
         {
@@ -108,7 +385,6 @@ namespace WindowsFormsApp1
             }
         }
 
-
         private void clearSelectionButton_Click(object sender, EventArgs e)
         {
             if (simulation1.ActionMode == actionType.SelectVisibleByPickLabel)
@@ -141,12 +417,34 @@ namespace WindowsFormsApp1
         }
         #endregion
 
+        #region DisplayMode
+        private void UpdateDisplayModeButtons()
+        {
+            // syncs the shading buttons with the current display mode.
+            switch (simulation1.DisplayMode)
+            {
+                case displayType.Wireframe:
+                    wireframeButton.Checked = true;
+                    break;
+                case displayType.Shaded:
+                    shadedButton.Checked = true;
+                    break;
+                case displayType.Rendered:
+                    renderedButton.Checked = true;
+                    break;
+                case displayType.Flat:
+                    flatButton.Checked = true;
+                    break;
+                case displayType.HiddenLines:
+                    hiddenLinesButton.Checked = true;
+                    break;
+            }
+        }
 
         private void wireframeButton_CheckedChanged(object sender, EventArgs e)
         {
             SetDisplayMode(simulation1, displayType.Wireframe);
         }
-
 
         private static void SetDisplayMode(Simulation simulation, displayType displayType)
         {
@@ -192,6 +490,8 @@ namespace WindowsFormsApp1
         {
             SetDisplayMode(simulation1, displayType.Flat);
         }
+        #endregion
+       
         #region Inspection
         // 几何属性
         bool inspectVertex = false;
@@ -315,6 +615,7 @@ namespace WindowsFormsApp1
 
             rf.Show();
         }
+
         private void volumeButton_Click(object sender, EventArgs e)
         {
             VolumeProperties vp = new VolumeProperties();
@@ -376,9 +677,7 @@ namespace WindowsFormsApp1
             simulation1.Invalidate();
         }
 
-
         #endregion
-
 
         #region Hide/Show
 
@@ -424,9 +723,7 @@ namespace WindowsFormsApp1
             simulation1.Invalidate();
         }
 
-
         #endregion
-
 
         #region view
         // 多视图
@@ -461,7 +758,7 @@ namespace WindowsFormsApp1
 
         #endregion
 
-
+        #region createModel
         #region clamped
         private CreateBoltForm _createBoltForm;
         private CreateClampedForm _createFlangeForm;
@@ -497,7 +794,6 @@ namespace WindowsFormsApp1
 
             createFlangeBtn.Enabled = false;
         }
-
 
         private void createNutBtn_Click(object sender, EventArgs e)
         {
@@ -539,7 +835,7 @@ namespace WindowsFormsApp1
                 boltsClampedForm = new BoltsClampedForm();
 
             boltsClampedForm.BoltForm = _createBoltForm;
-            boltsClampedForm.FlangeForm = _createFlangeForm;
+            boltsClampedForm.ClampedForm = _createFlangeForm;
             boltsClampedForm.NutForm = _createNutForm;
 
             var fmod = _createFlangeForm.GetModel() as HKFDJClamped;
@@ -571,6 +867,19 @@ namespace WindowsFormsApp1
                 _modelingParamOkBtn.Enabled = true;
             }
         }
+        
+        private void _resetBtn_Click(object sender, EventArgs e)
+        {
+            boltsClampedForm = new BoltsClampedForm();
+            boltsClampedForm.ResetModel();
+            createBoltBtn.Enabled = true;
+            createFlangeBtn.Enabled = true;
+            createNutBtn.Enabled = true;
+            _modelingParamOkBtn.Enabled = false;
+        }
+
+        #endregion
+
         #endregion
 
     }
