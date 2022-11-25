@@ -176,7 +176,7 @@
             this.optBtn.TabIndex = 47;
             this.optBtn.Text = "选择";
             this.optBtn.UseVisualStyleBackColor = true;
-            this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
+            this.optBtn.Click += new System.EventHandler(this.optBtn_Clickx);
             // 
             // materialBoltBindingSource
             // 

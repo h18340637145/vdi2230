@@ -8,22 +8,21 @@ namespace WindowsFormsApp1.VDISolution
 {
     public class R7
     {
+        public R7() { }
         public R7(BoltClass bolt, double uGmin, double v)
         {
             this.bolt = bolt;
             this.Ugmin = uGmin;
             this.v = v;
-            setFmzul();
-            setF_mtb();
+            //setFmzul();
+            //setF_mtb();
         }
 
-        public double v { get; set; }
-        public double Fmzul { get; set; }
-        public BoltClass bolt { get; set; }
         public double Ugmin { get; set; }
-        public double f_mtb { get; set; }
+        public double v { get; set; }
+        public BoltClass bolt { get; set; }
 
-        private void setFmzul()
+        public double getFmzul()
         {
             double d0 = (bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2;
             double A0 = Math.PI * d0 * d0 / 4;
@@ -33,15 +32,18 @@ namespace WindowsFormsApp1.VDISolution
             double d2_3_2d0 = 3 * d2 / (2 * d0);
             double p_pid_2 = Pp / Math.PI / d2;
             double square = (d2_3_2d0 * (p_pid_2 + 1.155 * Ugmin)) * (d2_3_2d0 * (p_pid_2 + 1.155 * Ugmin));
-            Fmzul = A0 * v * Rp / Math.Sqrt(1 + 3 * square);
             Console.WriteLine("A0:" + A0.ToString());
             Console.WriteLine("square:" + square.ToString());
+            double Fmzul = A0 * v * Rp / Math.Sqrt(1 + 3 * square);
+            return Fmzul;
         }
-       
 
-        private void setF_mtb()
+        //public double Fmzul { get; set; }
+        //public double f_mtb { get; set; }
+
+        public double getF_mtb()
         {
-            f_mtb = 1000 * table1();
+            return 1000 * table1();
         }
 
         private double table1()

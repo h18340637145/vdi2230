@@ -12,22 +12,20 @@ namespace WindowsFormsApp1.VDISolution
         public double phi { set; get; }
         public double fao { set; get; }
         public double fZ { set; get; }
-        public double Fmmin { set; get; }
-
+        //public double Fmmin { set; get; }
+        public R5()
+        { }
         public R5(double f_kerf, double phi, double fao, double fZ)
         {
             this.f_kerf = f_kerf;
             this.phi = phi;
             this.fao = fao;
             this.fZ = fZ;
-            setFmmin();
         }
 
-        
-
-        private void setFmmin()
+        public double getFmmin()
         {
-            Fmmin = f_kerf + (1 - phi) * fao + fZ;
+            return  f_kerf + (1 - phi) * fao + fZ;
         }
     }
 }

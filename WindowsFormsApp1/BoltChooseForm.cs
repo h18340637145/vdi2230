@@ -19,8 +19,23 @@ namespace WindowsFormsApp1
         {
             this.validateDesignForm = validateDesignForm;
             InitializeComponent();
+            optBtn.Click += optBtn_Click;
+
             Table(1); // 显示基础内容
         }
+
+        public BoltChooseForm()
+        {
+            InitializeComponent();
+            optBtn.Click += OptBtn_Clickx;
+            Table(1); // 显示基础内容
+        }
+
+        private void OptBtn_Clickx(object sender, EventArgs e)
+        {
+            this.boltChooseClass = GetBolt();
+        }
+
         public BoltChooseClass GetBoltChooseClass()
         {
             return this.boltChooseClass;
@@ -54,6 +69,11 @@ namespace WindowsFormsApp1
             dr.Close(); // 关闭连接
 
             //选择螺栓之后要将对应的螺纹也一并赋值
+        }
+
+        internal BoltClass getBolt()
+        {
+            return boltChooseClass;
         }
 
         private void optBtn_Click(object sender, EventArgs e)

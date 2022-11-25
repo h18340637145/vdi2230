@@ -13,8 +13,8 @@ namespace WindowsFormsApp1.VDISolution
         public double phi { get; set; }
         public double fao { get; set; }
         public double fZ { get; set; }
-        public double sg { get; set; }
-        public double sa { get; set; }
+        //public double sg { get; set; }
+        //public double sa { get; set; }
         public BoltClass bolt { get; set; }
 
         public R12(BoltClass bolt, double fmzul, double alpha, double phi, double fao, double fZ)
@@ -25,7 +25,10 @@ namespace WindowsFormsApp1.VDISolution
             this.phi = phi;
             this.fao = fao;
             this.fZ = fZ;
+        }
 
+        public R12()
+        {
         }
 
         public double getFKRmin()
@@ -35,11 +38,12 @@ namespace WindowsFormsApp1.VDISolution
             return FKRmin;
         }
 
-        internal double getSg(double f_qmax, double q_f, double u_Tmin, double m_t, double q_m)
+        internal double getSg(double f_qmax, double q_f, double u_Tmin, double m_t, double q_m, double ra)
         {
-            double fkqerf =  f_qmax / q_f / u_Tmin + m_t  / q_m / u_Tmin;
+            
+            double fkqerf =  f_qmax / q_f / u_Tmin + m_t  / q_m / u_Tmin / ra;
             double FKRmin = getFKRmin();
-            sg = FKRmin / fkqerf;
+            double sg = FKRmin / fkqerf;
             return sg;
         }
 
@@ -47,14 +51,14 @@ namespace WindowsFormsApp1.VDISolution
         {
             double At = Math.PI * bolt.NormalD_d * bolt.NormalD_d / 4;
             double T_bs = bolt.boltMaterial.BoltMaterialRatio_fB * rm;
-            sa = At * T_bs / FQmax;
+            double sa = At * T_bs / FQmax;
             return sa;
         }
         public double getSa(double rm, double FQmax, double dt)
         {
             double At = Math.PI * dt * dt / 4;
             double T_bs = bolt.boltMaterial.BoltMaterialRatio_fB * rm;
-            sa = At * T_bs / FQmax;
+            double sa = At * T_bs / FQmax;
             return sa;
         }
     }

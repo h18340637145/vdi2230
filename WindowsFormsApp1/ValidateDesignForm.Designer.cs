@@ -32,7 +32,7 @@
             devDept.Eyeshot.CancelToolBarButton cancelToolBarButton1 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ProgressBar progressBar1 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton1, false, 0.1D, true);
             devDept.Graphics.BackgroundSettings backgroundSettings1 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
-            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800004478956418D, false, 0.001D);
+            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800003739735054D, false, 0.001D);
             devDept.Eyeshot.HomeToolBarButton homeToolBarButton1 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
             devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton1 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton1 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
@@ -67,6 +67,16 @@
             this.computeBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.clearBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.createReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.stepCalBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalFMmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalFMmax = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalFMzul = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalFSmax = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalJiaoBianYingLi = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalSp = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalMeff = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalSg = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalMa = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.DataInputTable = new System.Windows.Forms.TabControl();
             this.basicData = new System.Windows.Forms.TabPage();
@@ -220,9 +230,6 @@
             this.introGroup = new System.Windows.Forms.GroupBox();
             this.introLabel = new System.Windows.Forms.Label();
             this.tableTab = new System.Windows.Forms.TabControl();
-            this.getNTable = new System.Windows.Forms.TabPage();
-            this.svTable = new System.Windows.Forms.TabPage();
-            this.meffd = new System.Windows.Forms.TabPage();
             this.connAndLoadData = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -361,16 +368,19 @@
             this.introGroup2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.introTable2 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.resultData = new System.Windows.Forms.TabPage();
             this.resGrid = new System.Windows.Forms.PropertyGrid();
             this.materialClampedBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.boltConnectionSystemDataSet9 = new WindowsFormsApp1.BoltConnectionSystemDataSet9();
             this.materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet9TableAdapters.materialClampedTableAdapter();
-            this.materialClampedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbo_materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet18TableAdapters.dbo_materialClampedTableAdapter();
+            this.getNTable = new System.Windows.Forms.TabPage();
+            this.svTable = new System.Windows.Forms.TabPage();
+            this.meffd = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.materialClampedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.DataInputTable.SuspendLayout();
             this.basicData.SuspendLayout();
@@ -465,7 +475,8 @@
             this.readTempData,
             this.computeBtn,
             this.clearBtn,
-            this.createReport});
+            this.createReport,
+            this.stepCalBtn});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1174, 25);
@@ -505,6 +516,85 @@
             this.createReport.Name = "createReport";
             this.createReport.Size = new System.Drawing.Size(68, 21);
             this.createReport.Text = "创建报告";
+            // 
+            // stepCalBtn
+            // 
+            this.stepCalBtn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CalFMmin,
+            this.CalFMmax,
+            this.CalFMzul,
+            this.CalFSmax,
+            this.CalJiaoBianYingLi,
+            this.CalSp,
+            this.CalMeff,
+            this.CalSg,
+            this.CalMa});
+            this.stepCalBtn.Name = "stepCalBtn";
+            this.stepCalBtn.Size = new System.Drawing.Size(68, 21);
+            this.stepCalBtn.Text = "单步计算";
+            // 
+            // CalFMmin
+            // 
+            this.CalFMmin.Name = "CalFMmin";
+            this.CalFMmin.Size = new System.Drawing.Size(266, 22);
+            this.CalFMmin.Text = "计算最小装配预加载荷FMmin";
+            this.CalFMmin.Click += new System.EventHandler(this.CalFMmin_Click);
+            // 
+            // CalFMmax
+            // 
+            this.CalFMmax.Name = "CalFMmax";
+            this.CalFMmax.Size = new System.Drawing.Size(266, 22);
+            this.CalFMmax.Text = "计算最大装配预加载荷FMmax";
+            this.CalFMmax.Click += new System.EventHandler(this.CalFMmax_Click);
+            // 
+            // CalFMzul
+            // 
+            this.CalFMzul.Name = "CalFMzul";
+            this.CalFMzul.Size = new System.Drawing.Size(266, 22);
+            this.CalFMzul.Text = "计算装配应力FMzul及校核螺栓尺寸";
+            this.CalFMzul.Click += new System.EventHandler(this.CalFMzul_Click);
+            // 
+            // CalFSmax
+            // 
+            this.CalFSmax.Name = "CalFSmax";
+            this.CalFSmax.Size = new System.Drawing.Size(266, 22);
+            this.CalFSmax.Text = "计算工作应力FSmax及校核";
+            this.CalFSmax.Click += new System.EventHandler(this.CalFSmax_Click);
+            // 
+            // CalJiaoBianYingLi
+            // 
+            this.CalJiaoBianYingLi.Name = "CalJiaoBianYingLi";
+            this.CalJiaoBianYingLi.Size = new System.Drawing.Size(266, 22);
+            this.CalJiaoBianYingLi.Text = "校核交变应力SD";
+            this.CalJiaoBianYingLi.Click += new System.EventHandler(this.CalJiaoBianYingLi_Click);
+            // 
+            // CalSp
+            // 
+            this.CalSp.Name = "CalSp";
+            this.CalSp.Size = new System.Drawing.Size(266, 22);
+            this.CalSp.Text = "校核表面压力Sp";
+            this.CalSp.Click += new System.EventHandler(this.CalSp_Click);
+            // 
+            // CalMeff
+            // 
+            this.CalMeff.Name = "CalMeff";
+            this.CalMeff.Size = new System.Drawing.Size(266, 22);
+            this.CalMeff.Text = "确定最小旋合长度meff";
+            this.CalMeff.Click += new System.EventHandler(this.CalMeff_Click);
+            // 
+            // CalSg
+            // 
+            this.CalSg.Name = "CalSg";
+            this.CalSg.Size = new System.Drawing.Size(266, 22);
+            this.CalSg.Text = "校核剪切应力Sg";
+            this.CalSg.Click += new System.EventHandler(this.CalSg_Click);
+            // 
+            // CalMa
+            // 
+            this.CalMa.Name = "CalMa";
+            this.CalMa.Size = new System.Drawing.Size(266, 22);
+            this.CalMa.Text = "计算拧紧扭矩MA";
+            this.CalMa.Click += new System.EventHandler(this.CalMa_Click);
             // 
             // imageList1
             // 
@@ -2280,46 +2370,6 @@
             this.tableTab.Size = new System.Drawing.Size(661, 146);
             this.tableTab.TabIndex = 3;
             // 
-            // getNTable
-            // 
-            this.getNTable.AutoScroll = true;
-            this.getNTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("getNTable.BackgroundImage")));
-            this.getNTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.getNTable.Location = new System.Drawing.Point(4, 22);
-            this.getNTable.Name = "getNTable";
-            this.getNTable.Padding = new System.Windows.Forms.Padding(3);
-            this.getNTable.Size = new System.Drawing.Size(653, 120);
-            this.getNTable.TabIndex = 0;
-            this.getNTable.Text = "载荷传导系数";
-            this.getNTable.UseVisualStyleBackColor = true;
-            // 
-            // svTable
-            // 
-            this.svTable.AutoScroll = true;
-            this.svTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("svTable.BackgroundImage")));
-            this.svTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.svTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.svTable.Location = new System.Drawing.Point(4, 22);
-            this.svTable.Name = "svTable";
-            this.svTable.Padding = new System.Windows.Forms.Padding(3);
-            this.svTable.Size = new System.Drawing.Size(653, 120);
-            this.svTable.TabIndex = 1;
-            this.svTable.Text = "sv样式";
-            this.svTable.UseVisualStyleBackColor = true;
-            // 
-            // meffd
-            // 
-            this.meffd.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.meffd;
-            this.meffd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.meffd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.meffd.Location = new System.Drawing.Point(4, 22);
-            this.meffd.Name = "meffd";
-            this.meffd.Padding = new System.Windows.Forms.Padding(3);
-            this.meffd.Size = new System.Drawing.Size(653, 120);
-            this.meffd.TabIndex = 2;
-            this.meffd.Text = "相对啮合长度";
-            this.meffd.UseVisualStyleBackColor = true;
-            // 
             // connAndLoadData
             // 
             this.connAndLoadData.Controls.Add(this.splitContainer2);
@@ -3803,6 +3853,83 @@
             this.introTable2.Size = new System.Drawing.Size(671, 164);
             this.introTable2.TabIndex = 3;
             // 
+            // resultData
+            // 
+            this.resultData.Controls.Add(this.resGrid);
+            this.resultData.Location = new System.Drawing.Point(4, 22);
+            this.resultData.Name = "resultData";
+            this.resultData.Padding = new System.Windows.Forms.Padding(3);
+            this.resultData.Size = new System.Drawing.Size(1166, 716);
+            this.resultData.TabIndex = 2;
+            this.resultData.Text = "计算结果";
+            this.resultData.UseVisualStyleBackColor = true;
+            // 
+            // resGrid
+            // 
+            this.resGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resGrid.Location = new System.Drawing.Point(3, 3);
+            this.resGrid.Name = "resGrid";
+            this.resGrid.Size = new System.Drawing.Size(1160, 710);
+            this.resGrid.TabIndex = 0;
+            // 
+            // materialClampedBindingSource1
+            // 
+            this.materialClampedBindingSource1.DataMember = "materialClamped";
+            this.materialClampedBindingSource1.DataSource = this.boltConnectionSystemDataSet9;
+            // 
+            // boltConnectionSystemDataSet9
+            // 
+            this.boltConnectionSystemDataSet9.DataSetName = "BoltConnectionSystemDataSet9";
+            this.boltConnectionSystemDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // materialClampedTableAdapter
+            // 
+            this.materialClampedTableAdapter.ClearBeforeFill = true;
+            // 
+            // dbo_materialClampedTableAdapter
+            // 
+            this.dbo_materialClampedTableAdapter.ClearBeforeFill = true;
+            // 
+            // getNTable
+            // 
+            this.getNTable.AutoScroll = true;
+            this.getNTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("getNTable.BackgroundImage")));
+            this.getNTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.getNTable.Location = new System.Drawing.Point(4, 22);
+            this.getNTable.Name = "getNTable";
+            this.getNTable.Padding = new System.Windows.Forms.Padding(3);
+            this.getNTable.Size = new System.Drawing.Size(653, 120);
+            this.getNTable.TabIndex = 0;
+            this.getNTable.Text = "载荷传导系数";
+            this.getNTable.UseVisualStyleBackColor = true;
+            // 
+            // svTable
+            // 
+            this.svTable.AutoScroll = true;
+            this.svTable.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("svTable.BackgroundImage")));
+            this.svTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.svTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.svTable.Location = new System.Drawing.Point(4, 22);
+            this.svTable.Name = "svTable";
+            this.svTable.Padding = new System.Windows.Forms.Padding(3);
+            this.svTable.Size = new System.Drawing.Size(653, 120);
+            this.svTable.TabIndex = 1;
+            this.svTable.Text = "sv样式";
+            this.svTable.UseVisualStyleBackColor = true;
+            // 
+            // meffd
+            // 
+            this.meffd.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.meffd;
+            this.meffd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.meffd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.meffd.Location = new System.Drawing.Point(4, 22);
+            this.meffd.Name = "meffd";
+            this.meffd.Padding = new System.Windows.Forms.Padding(3);
+            this.meffd.Size = new System.Drawing.Size(653, 120);
+            this.meffd.TabIndex = 2;
+            this.meffd.Text = "相对啮合长度";
+            this.meffd.UseVisualStyleBackColor = true;
+            // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
@@ -3843,46 +3970,9 @@
             this.tabPage3.Text = "相对啮合长度";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // resultData
-            // 
-            this.resultData.Controls.Add(this.resGrid);
-            this.resultData.Location = new System.Drawing.Point(4, 22);
-            this.resultData.Name = "resultData";
-            this.resultData.Padding = new System.Windows.Forms.Padding(3);
-            this.resultData.Size = new System.Drawing.Size(1166, 716);
-            this.resultData.TabIndex = 2;
-            this.resultData.Text = "计算结果";
-            this.resultData.UseVisualStyleBackColor = true;
-            // 
-            // resGrid
-            // 
-            this.resGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resGrid.Location = new System.Drawing.Point(3, 3);
-            this.resGrid.Name = "resGrid";
-            this.resGrid.Size = new System.Drawing.Size(1160, 710);
-            this.resGrid.TabIndex = 0;
-            // 
-            // materialClampedBindingSource1
-            // 
-            this.materialClampedBindingSource1.DataMember = "materialClamped";
-            this.materialClampedBindingSource1.DataSource = this.boltConnectionSystemDataSet9;
-            // 
-            // boltConnectionSystemDataSet9
-            // 
-            this.boltConnectionSystemDataSet9.DataSetName = "BoltConnectionSystemDataSet9";
-            this.boltConnectionSystemDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // materialClampedTableAdapter
-            // 
-            this.materialClampedTableAdapter.ClearBeforeFill = true;
-            // 
             // materialClampedBindingSource
             // 
             this.materialClampedBindingSource.DataMember = "materialClamped";
-            // 
-            // dbo_materialClampedTableAdapter
-            // 
-            this.dbo_materialClampedTableAdapter.ClearBeforeFill = true;
             // 
             // ValidateDesignForm
             // 
@@ -4314,5 +4404,15 @@
         private System.Windows.Forms.CheckBox ifZhouqiN;
         private System.Windows.Forms.TextBox zhouqiN;
         private System.Windows.Forms.Label zhouqiNLabel;
+        private System.Windows.Forms.ToolStripMenuItem stepCalBtn;
+        private System.Windows.Forms.ToolStripMenuItem CalFMmin;
+        private System.Windows.Forms.ToolStripMenuItem CalFMmax;
+        private System.Windows.Forms.ToolStripMenuItem CalFMzul;
+        private System.Windows.Forms.ToolStripMenuItem CalFSmax;
+        private System.Windows.Forms.ToolStripMenuItem CalJiaoBianYingLi;
+        private System.Windows.Forms.ToolStripMenuItem CalSp;
+        private System.Windows.Forms.ToolStripMenuItem CalMeff;
+        private System.Windows.Forms.ToolStripMenuItem CalSg;
+        private System.Windows.Forms.ToolStripMenuItem CalMa;
     }
 }

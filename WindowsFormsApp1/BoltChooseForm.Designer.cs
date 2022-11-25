@@ -134,15 +134,14 @@
             this.optBtn.TabIndex = 47;
             this.optBtn.Text = "选择";
             this.optBtn.UseVisualStyleBackColor = true;
-            this.optBtn.Click += new System.EventHandler(this.optBtn_Click);
             // 
-            // BoltChoose
+            // BoltChooseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 332);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "BoltChoose";
+            this.Name = "BoltChooseForm";
             this.Text = "BoltChoose";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -13,10 +13,35 @@ namespace WindowsFormsApp1
     public partial class StrengthGradeForm : Form
     {
         private ValidateDesignForm validateDesignForm;
+        BoltMaterialClass material;
         public StrengthGradeForm(ValidateDesignForm validateDesignForm)
         {
             this.validateDesignForm = validateDesignForm;
             InitializeComponent();
+            optBtn.Click += optBtn_Click;
+        }
+
+        public StrengthGradeForm()
+        {
+            InitializeComponent();
+            optBtn.Click += optBtn_Clickx;
+        }
+
+        private void optBtn_Clickx(object sender, EventArgs e)
+        {
+            material = new BoltMaterialClass();
+            material.BoltMaterialLevel = dataGridView1.SelectedCells[0].Value.ToString();
+            material.BoltMaterialEs = double.Parse(dataGridView1.SelectedCells[1].Value.ToString());
+            material.BoltMaterialRpmin = double.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+            material.BoltMaterialRm = double.Parse(dataGridView1.SelectedCells[3].Value.ToString());
+            material.BoltMaterialRatio_fB = double.Parse(dataGridView1.SelectedCells[4].Value.ToString());
+            material.BoltMaterialTmax = double.Parse(dataGridView1.SelectedCells[5].Value.ToString());
+            material.BoltMaterialA = double.Parse(dataGridView1.SelectedCells[6].Value.ToString());
+        }
+
+        public BoltMaterialClass getMaterial()
+        {
+            return material;
         }
 
         private void StrengthGradeForm_Load(object sender, EventArgs e)
