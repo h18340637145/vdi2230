@@ -78,7 +78,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
 
         // 类成员必须写成 public double A{get;set;} 形式
         private void _setEveryPropFieldFromDataGridViewN()
-        {
+        { 
             if (gongYiParameters.jiaoBian == null)
             {
                 gongYiParameters.jiaoBian = new JiaoBian();
