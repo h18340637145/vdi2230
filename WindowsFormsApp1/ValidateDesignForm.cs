@@ -982,6 +982,11 @@ namespace WindowsFormsApp1
 
         private void strengthGradeChooseBtn_Click(object sender, EventArgs e)
         {
+            if (boltChooseClass == null)
+            {
+                MessageBox.Show("请先选择螺栓");
+                return;
+            }
             strengthGradeForm = new StrengthGradeForm(this);
             strengthGradeForm.ShowDialog();
         }

@@ -772,7 +772,9 @@ namespace WindowsFormsApp1
             _createBoltForm.StartPosition = FormStartPosition.CenterParent;
             _createBoltForm.ShowDialog();
             var bolt = _createBoltForm.GetModelEntity();
-            if (bolt == null) return;
+            var boltData = _createBoltForm.getBoltData();
+            this.boltData = boltData;
+            if (bolt == null || boltData == null) return;
 
             createBoltBtn.Enabled = false;
         }
@@ -813,6 +815,8 @@ namespace WindowsFormsApp1
         #region flange
         private BoltsClampedForm boltsClampedForm;
 
+        public BoltClass boltData { get; private set; }
+
         private void _assemblyBtn_Click(object sender, EventArgs e)
         {
             if (_createBoltForm == null)
@@ -837,6 +841,7 @@ namespace WindowsFormsApp1
             boltsClampedForm.BoltForm = _createBoltForm;
             boltsClampedForm.ClampedForm = _createFlangeForm;
             boltsClampedForm.NutForm = _createNutForm;
+            boltsClampedForm.boltData = boltData;
 
             var fmod = _createFlangeForm.GetModel() as HKFDJClamped;
             var bmod = _createBoltForm.GetModel() as Bolt;

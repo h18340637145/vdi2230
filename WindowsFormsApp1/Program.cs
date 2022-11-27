@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.MutiBoltsConnVdiCal;
 
 namespace WindowsFormsApp1
 {
@@ -16,8 +17,9 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            Application.Run(new MainWindow());
+            //Application.Run(new GongYiParamFrm());
+            Application.Run(new MutliBoltsDesginForm());
+            //Application.Run(new MainWindow());
 
         }
     }

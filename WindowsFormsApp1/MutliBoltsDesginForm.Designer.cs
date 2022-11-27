@@ -772,7 +772,7 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 216F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(489, 569);
@@ -782,9 +782,9 @@
             // 
             this.groupBox8.Controls.Add(this.tableLayoutPanel5);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(3, 193);
+            this.groupBox8.Location = new System.Drawing.Point(3, 219);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(483, 183);
+            this.groupBox8.Size = new System.Drawing.Size(483, 170);
             this.groupBox8.TabIndex = 130;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "参数";
@@ -803,13 +803,13 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(477, 163);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(477, 150);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // _moddelingParamResetBtn
             // 
             this._moddelingParamResetBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._moddelingParamResetBtn.Location = new System.Drawing.Point(241, 136);
+            this._moddelingParamResetBtn.Location = new System.Drawing.Point(241, 123);
             this._moddelingParamResetBtn.Name = "_moddelingParamResetBtn";
             this._moddelingParamResetBtn.Size = new System.Drawing.Size(233, 24);
             this._moddelingParamResetBtn.TabIndex = 4;
@@ -823,7 +823,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(471, 127);
+            this.panel1.Size = new System.Drawing.Size(471, 114);
             this.panel1.TabIndex = 2;
             // 
             // _twoStepsOpParamDataGridView
@@ -842,7 +842,7 @@
             this._twoStepsOpParamDataGridView.Location = new System.Drawing.Point(0, 0);
             this._twoStepsOpParamDataGridView.Name = "_twoStepsOpParamDataGridView";
             this._twoStepsOpParamDataGridView.RowTemplate.Height = 23;
-            this._twoStepsOpParamDataGridView.Size = new System.Drawing.Size(471, 127);
+            this._twoStepsOpParamDataGridView.Size = new System.Drawing.Size(471, 114);
             this._twoStepsOpParamDataGridView.TabIndex = 0;
             // 
             // PropeField
@@ -865,7 +865,7 @@
             this._modelingParamOkBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this._modelingParamOkBtn.Enabled = false;
             this._modelingParamOkBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._modelingParamOkBtn.Location = new System.Drawing.Point(3, 136);
+            this._modelingParamOkBtn.Location = new System.Drawing.Point(3, 123);
             this._modelingParamOkBtn.Name = "_modelingParamOkBtn";
             this._modelingParamOkBtn.Size = new System.Drawing.Size(232, 24);
             this._modelingParamOkBtn.TabIndex = 3;
@@ -879,10 +879,10 @@
             this.groupBox2.Controls.Add(this.createFlangeBtn);
             this.groupBox2.Controls.Add(this.createNutBtn);
             this.groupBox2.Controls.Add(this.createBoltBtn);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(483, 184);
+            this.groupBox2.Size = new System.Drawing.Size(483, 202);
             this.groupBox2.TabIndex = 129;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "模型";
@@ -891,7 +891,7 @@
             // 
             this._resetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._resetBtn.Location = new System.Drawing.Point(20, 149);
+            this._resetBtn.Location = new System.Drawing.Point(20, 161);
             this._resetBtn.Name = "_resetBtn";
             this._resetBtn.Size = new System.Drawing.Size(457, 35);
             this._resetBtn.TabIndex = 3;
@@ -903,7 +903,7 @@
             // 
             this._assemblyBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._assemblyBtn.Location = new System.Drawing.Point(20, 120);
+            this._assemblyBtn.Location = new System.Drawing.Point(20, 124);
             this._assemblyBtn.Name = "_assemblyBtn";
             this._assemblyBtn.Size = new System.Drawing.Size(457, 35);
             this._assemblyBtn.TabIndex = 2;
@@ -927,7 +927,7 @@
             // 
             this.createNutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.createNutBtn.Location = new System.Drawing.Point(20, 85);
+            this.createNutBtn.Location = new System.Drawing.Point(20, 86);
             this.createNutBtn.Name = "createNutBtn";
             this.createNutBtn.Size = new System.Drawing.Size(457, 35);
             this.createNutBtn.TabIndex = 0;

@@ -509,10 +509,13 @@ H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\VDI2230.csproj.Core
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\VDI2230.csproj.CopyComplete
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\VDI2230.csprojAssemblyReference.cache
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R5FMminForm.resources
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.BaseForm.resources
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R7FMzulForm.resources
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R10SpForm.resources
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R12SgForm.resources
-H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.ChooseClampedFrm.resources
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.ClampedChooseFrm.resources
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.ParamBaseFrm.resources
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\VDI2230.csprojAssemblyReference.cache
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.JiHeParamFrm.resources
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.GongYiParamFrm.resources

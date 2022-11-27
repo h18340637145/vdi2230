@@ -163,6 +163,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BoltConnectionSystemDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BoltConnectionSystemDataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet20.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BoltConnectionSystemDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +213,11 @@
     </Compile>
     <Compile Include="BoltsClampedForm.Designer.cs">
       <DependentUpon>BoltsClampedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseClampedFrm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChooseClampedFrm.xsd</DependentUpon>
     </Compile>
     <Compile Include="ClampedClass.cs" />
     <Compile Include="ComputeResult.cs" />
@@ -279,11 +289,29 @@
       <DependentUpon>MaterialBase.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialChooseClass.cs" />
-    <Compile Include="MutiBoltsConnVdiCal\ChooseClampedFrm.cs">
+    <Compile Include="MutiBoltsConnVdiCal\ClampedChooseFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MutiBoltsConnVdiCal\ChooseClampedFrm.Designer.cs">
-      <DependentUpon>ChooseClampedFrm.cs</DependentUpon>
+    <Compile Include="MutiBoltsConnVdiCal\ClampedChooseFrm.Designer.cs">
+      <DependentUpon>ClampedChooseFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\GongYiParamFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\GongYiParamFrm.Designer.cs">
+      <DependentUpon>GongYiParamFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\JiHeParamFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\JiHeParamFrm.Designer.cs">
+      <DependentUpon>JiHeParamFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\ParamBaseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\ParamBaseFrm.Designer.cs">
+      <DependentUpon>ParamBaseFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="MutliBoltsDesginForm.cs">
       <SubType>Form</SubType>
@@ -420,8 +448,17 @@
     <EmbeddedResource Include="MaterialBase.resx">
       <DependentUpon>MaterialBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MutiBoltsConnVdiCal\ChooseClampedFrm.resx">
-      <DependentUpon>ChooseClampedFrm.cs</DependentUpon>
+    <EmbeddedResource Include="MutiBoltsConnVdiCal\ClampedChooseFrm.resx">
+      <DependentUpon>ClampedChooseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MutiBoltsConnVdiCal\GongYiParamFrm.resx">
+      <DependentUpon>GongYiParamFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MutiBoltsConnVdiCal\JiHeParamFrm.resx">
+      <DependentUpon>JiHeParamFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MutiBoltsConnVdiCal\ParamBaseFrm.resx">
+      <DependentUpon>ParamBaseFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MutliBoltsDesginForm.resx">
       <DependentUpon>MutliBoltsDesginForm.cs</DependentUpon>
@@ -603,6 +640,17 @@
     <None Include="BoltConnectionSystemDataSet2.xss">
       <DependentUpon>BoltConnectionSystemDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="BoltConnectionSystemDataSet20.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet20.xss">
+      <DependentUpon>BoltConnectionSystemDataSet20.xsd</DependentUpon>
+    </None>
     <None Include="BoltConnectionSystemDataSet3.xsc">
       <DependentUpon>BoltConnectionSystemDataSet3.xsd</DependentUpon>
     </None>
@@ -690,6 +738,17 @@
     </None>
     <None Include="BoltMaterialConn.xss">
       <DependentUpon>BoltMaterialConn.xsd</DependentUpon>
+    </None>
+    <None Include="ChooseClampedFrm.xsc">
+      <DependentUpon>ChooseClampedFrm.xsd</DependentUpon>
+    </None>
+    <None Include="ChooseClampedFrm.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChooseClampedFrm.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ChooseClampedFrm.xss">
+      <DependentUpon>ChooseClampedFrm.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

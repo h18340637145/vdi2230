@@ -27,11 +27,11 @@ namespace WindowsFormsApp1
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             _okBtn.Enabled = false;
 
-            dataGridView1.Rows.Add("NutNutSideWid", "46", "螺母对边宽度");
-            dataGridView1.Rows.Add("NutBearMinD", "25.835", "最小内径");
-            dataGridView1.Rows.Add("NutBearMaxD", "29", "最大内径");
-            dataGridView1.Rows.Add("NutBearOutD", "29", "外径");
-            dataGridView1.Rows.Add("NutHeight", "18.7", "高度");
+            dataGridView1.Rows.Add("NutNutSideWid", "18", "螺母对边宽度");
+            dataGridView1.Rows.Add("NutBearMinD", "12", "最小内径");
+            dataGridView1.Rows.Add("NutBearMaxD", "16.6", "最大内径");
+            dataGridView1.Rows.Add("NutBearOutD", "16.6", "外径");
+            dataGridView1.Rows.Add("NutHeight", "10.8", "高度");
         }
 
         private void _renderBtn_Click(object sender, EventArgs e)

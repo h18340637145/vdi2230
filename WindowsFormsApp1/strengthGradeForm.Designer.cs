@@ -212,7 +212,7 @@
             // 
             // BoltMaterialA_alpha
             // 
-            this.BoltMaterialA_alpha.DataPropertyName = "alpha";
+            this.BoltMaterialA_alpha.DataPropertyName = "BoltMaterialA_alpha";
             this.BoltMaterialA_alpha.HeaderText = "alpha";
             this.BoltMaterialA_alpha.Name = "BoltMaterialA_alpha";
             // 

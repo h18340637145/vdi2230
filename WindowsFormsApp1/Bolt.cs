@@ -70,7 +70,7 @@ namespace CreateBotSpring
 
         }
 
-        public Bolt(BoltChooseClass dataBolt)
+        public Bolt(BoltClass dataBolt)
         {
             this.d = dataBolt.NormalD_d;
             this.d1 = dataBolt.ScrewMinD_d3;
