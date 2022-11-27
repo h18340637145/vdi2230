@@ -153,6 +153,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BoltConnectionSystemDataSet18.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BoltConnectionSystemDataSet19.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet19.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BoltConnectionSystemDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -274,6 +279,12 @@
       <DependentUpon>MaterialBase.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialChooseClass.cs" />
+    <Compile Include="MutiBoltsConnVdiCal\ChooseClampedFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\ChooseClampedFrm.Designer.cs">
+      <DependentUpon>ChooseClampedFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MutliBoltsDesginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +294,7 @@
     <Compile Include="NutClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report\ReportOperation.cs" />
     <Compile Include="StepCalForm\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,12 +350,6 @@
     <Compile Include="StepCalForm\R8FSmaxForm.Designer.cs">
       <DependentUpon>R8FSmaxForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StepCalForm\R9SDForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StepCalForm\R9SDForm.Designer.cs">
-      <DependentUpon>R9SDForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="VDISolution\R1.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="SqlComman.cs" />
@@ -377,6 +383,7 @@
     <Compile Include="VDISolution\R7.cs" />
     <Compile Include="VDISolution\R8.cs" />
     <Compile Include="VDISolution\R9.cs" />
+    <Compile Include="VDISolution\Solution.cs" />
     <EmbeddedResource Include="BoltChooseForm.resx">
       <DependentUpon>BoltChooseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MaterialBase.resx">
       <DependentUpon>MaterialBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MutiBoltsConnVdiCal\ChooseClampedFrm.resx">
+      <DependentUpon>ChooseClampedFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MutliBoltsDesginForm.resx">
       <DependentUpon>MutliBoltsDesginForm.cs</DependentUpon>
@@ -570,6 +580,17 @@
     </None>
     <None Include="BoltConnectionSystemDataSet18.xss">
       <DependentUpon>BoltConnectionSystemDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet19.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet19.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet19.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet19.xss">
+      <DependentUpon>BoltConnectionSystemDataSet19.xsd</DependentUpon>
     </None>
     <None Include="BoltConnectionSystemDataSet2.xsc">
       <DependentUpon>BoltConnectionSystemDataSet2.xsd</DependentUpon>

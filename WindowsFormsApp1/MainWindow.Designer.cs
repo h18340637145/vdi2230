@@ -40,7 +40,6 @@
             this.设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.validateCompute = new System.Windows.Forms.ToolStripMenuItem();
-            this.multiBoltsDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,6 +49,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ilIcon = new System.Windows.Forms.ImageList(this.components);
+            this.multiDesignBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +61,8 @@
             this.SystemToolStripMenuItem,
             this.MatLibToolStripMenuItem,
             this.VDI2230BoltConGeo,
-            this.设计ToolStripMenuItem});
+            this.设计ToolStripMenuItem,
+            this.multiDesignBtn});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -118,11 +119,10 @@
             // 
             this.设计ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.initDesign,
-            this.validateCompute,
-            this.multiBoltsDesign});
+            this.validateCompute});
             this.设计ToolStripMenuItem.Name = "设计ToolStripMenuItem";
-            this.设计ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.设计ToolStripMenuItem.Text = "设计";
+            this.设计ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.设计ToolStripMenuItem.Text = "单螺栓设计";
             // 
             // initDesign
             // 
@@ -137,13 +137,6 @@
             this.validateCompute.Size = new System.Drawing.Size(180, 22);
             this.validateCompute.Text = "单螺栓验证计算";
             this.validateCompute.Click += new System.EventHandler(this.validateCompute_Click);
-            // 
-            // multiBoltsDesign
-            // 
-            this.multiBoltsDesign.Name = "multiBoltsDesign";
-            this.multiBoltsDesign.Size = new System.Drawing.Size(180, 22);
-            this.multiBoltsDesign.Text = "多螺栓设计";
-            this.multiBoltsDesign.Click += new System.EventHandler(this.multiBoltsDesign_Click);
             // 
             // statusStrip1
             // 
@@ -249,6 +242,13 @@
             this.ilIcon.Images.SetKeyName(44, "user.png");
             this.ilIcon.Images.SetKeyName(45, "yewujianmogongcheng.png");
             // 
+            // multiDesignBtn
+            // 
+            this.multiDesignBtn.Name = "multiDesignBtn";
+            this.multiDesignBtn.Size = new System.Drawing.Size(80, 21);
+            this.multiDesignBtn.Text = "多螺栓设计";
+            this.multiDesignBtn.Click += new System.EventHandler(this.multiDesignBtn_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -295,6 +295,6 @@
         private System.Windows.Forms.ToolStripMenuItem 设计ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initDesign;
         private System.Windows.Forms.ToolStripMenuItem validateCompute;
-        private System.Windows.Forms.ToolStripMenuItem multiBoltsDesign;
+        private System.Windows.Forms.ToolStripMenuItem multiDesignBtn;
     }
 }

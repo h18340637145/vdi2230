@@ -11,15 +11,10 @@ namespace WindowsFormsApp1.VDISolution
         //public string zhazhi { get; set; }
         public double zhouqiN { get; set; }
 
-        public double deltaASV { get; set; }
-        public double deltaASG { get; set; }
-
         public double f_sa { get; set; }
         public double fsm { get; set; }
 
         public double delta { get; set; }
-        public double deltaAZSV { get; set; }
-        public double deltaAZSG { get; set; }
 
         public double sd { get; set; }
 
@@ -40,6 +35,10 @@ namespace WindowsFormsApp1.VDISolution
         public double fao { get; set; }
         public double As { get; set; }
 
+        public double deltaAZSV { get; set; }
+        public double deltaAZSG { get; set; }
+        public double deltaASV { get; set; }
+        public double deltaASG { get; set; }
 
         const double ND = 2000000;
         const double one_three = 1.0 / 3.0;
@@ -178,7 +177,7 @@ namespace WindowsFormsApp1.VDISolution
                     //a != 0
                     double l_ers = compute_lers(Lk);
                     double up = Lk * es * Math.PI * a * Math.Pow(d0, 3);
-                    double down = (l_ers * ep * 8 *I_bers);
+                    double down = (l_ers * ep * 8 * I_bers);
                     double x = up / down;
                     double param = (1 + (1 / phi - ssym / a) * x);
                     delta_sabo = param * phi * fao / As;

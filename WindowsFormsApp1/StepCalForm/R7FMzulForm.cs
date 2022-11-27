@@ -67,6 +67,7 @@ namespace WindowsFormsApp1.StepCalForm
                 }
             }
         }
+
         private class Result
         {
             [Category("计算结果")]

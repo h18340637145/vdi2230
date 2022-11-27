@@ -515,3 +515,4 @@ H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.St
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R7FMzulForm.resources
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R10SpForm.resources
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R12SgForm.resources
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.ChooseClampedFrm.resources

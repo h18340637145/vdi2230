@@ -21,6 +21,8 @@ using WindowsApplication1;
 using CreateBotSpring;
 using WindowsFormsApp1.VDISolution;
 using WindowsFormsApp1.StepCalForm;
+using WindowsFormsApp1.report;
+using System.Linq;
 
 namespace WindowsFormsApp1
 {
@@ -41,7 +43,8 @@ namespace WindowsFormsApp1
         // 垫片数据
         public GasketClass gasket;
         public GasketClass gasket2;
-
+        public ComputeResult rs = new ComputeResult();
+        public Solution solution;
         List<GasketClass> gasketList = new List<GasketClass>();
 
 
@@ -50,7 +53,7 @@ namespace WindowsFormsApp1
 
         BoltChooseForm boltChooseForm;
         StrengthGradeForm strengthGradeForm;
-        ComputeResult rs;
+        //ComputeResult rs;
 
         //ClampedClass _clamped;
         private Entity _boltEntity;
@@ -157,6 +160,8 @@ namespace WindowsFormsApp1
 
         private void ValidateDesignForm_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet19.dbo_materialClamped”中。您可以根据需要移动或删除它。
+            //this.dbo_materialClampedTableAdapter1.Fill(this.boltConnectionSystemDataSet19.dbo_materialClamped);
             // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet18.dbo_materialClamped”中。您可以根据需要移动或删除它。
             this.dbo_materialClampedTableAdapter.Fill(this.boltConnectionSystemDataSet18.dbo_materialClamped);
             //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet9.materialClamped”中。您可以根据需要移动或删除它。
@@ -1985,6 +1990,7 @@ namespace WindowsFormsApp1
             }
 
             #endregion
+            genWordBtn.Visible = true;
             // 防呆组合问题
             ComputeResult rs = new ComputeResult();
             // 获取参数
@@ -2596,10 +2602,10 @@ namespace WindowsFormsApp1
 
         public ComputeResult Solve()
         {
-            ComputeResult rs = new ComputeResult();
+            //ComputeResult rs = new ComputeResult();
 
 
-
+            solution = new Solution();
             #region R1_alpha_A
             if (tighten.Text == null || tighten.Text == "")
             {
@@ -2609,7 +2615,8 @@ namespace WindowsFormsApp1
             R1 r1 = new R1();
             r1.getAlpha(tighten.Text, tightenCoef.Text);
             double a_lpha_A = r1.alpha;
-
+            rs.alphaA = a_lpha_A;
+            solution.r1 = r1;
             #endregion
 
             #region R2_Fkerf_DAGr
@@ -3096,6 +3103,8 @@ namespace WindowsFormsApp1
             Console.WriteLine("f_kerf:" + f_kerf);
 
             rs.Fkerf = f_kerf;
+            solution.r2 = r2;
+
             #endregion
 
             #region R3_delta_phi
@@ -3217,6 +3226,8 @@ namespace WindowsFormsApp1
             rs.deltas = deltaS;
             rs.deltap = deltaP;
             rs.phi = phi;
+            solution.r3 = r3;
+
             #endregion
 
             #region R4_fz
@@ -3243,6 +3254,7 @@ namespace WindowsFormsApp1
             rs.Fz = Fz;
             Console.WriteLine("ffz:" + ffz.ToString());
             Console.WriteLine("Fz:" + rs.Fz.ToString());
+            solution.r4 = r4;
 
             #endregion
 
@@ -3257,6 +3269,7 @@ namespace WindowsFormsApp1
             //double Fmmin = f_kerf + (1 - r3.phi) * Famax + Fz;
             rs.Fmmin = Fmmin;
             Console.WriteLine("Fmmin:" + rs.Fmmin.ToString());
+            solution.r5 = r5;
 
             #endregion
 
@@ -3267,6 +3280,7 @@ namespace WindowsFormsApp1
             rs.Fmmax = r6.getFmmax();
             //rs.Fmmax = Fmmax;
             Console.WriteLine("Fmmax:" + rs.Fmmax.ToString());
+            solution.r6 = r6;
 
             #endregion
 
@@ -3280,6 +3294,7 @@ namespace WindowsFormsApp1
             double f_mtb = r7.getF_mtb();
             rs.Fmzul = fmzul;
             Console.WriteLine("fmzul:" + fmzul);
+            solution.r7 = r7;
 
             #endregion
 
@@ -3290,6 +3305,7 @@ namespace WindowsFormsApp1
             R8 r8 = new R8(bolt, r7.getFmzul(), r2.Fao, phi, r7.Ugmin);
             double sf = r8.getSf();
             Console.WriteLine("sf:" + sf);
+            solution.r8 = r8;
 
             #endregion
 
@@ -3327,6 +3343,7 @@ namespace WindowsFormsApp1
                 double es = Convert.ToDouble(Es_yangshi.Text);
                 rs.Sd = r9.getSd(zhazhi.Text,r3.phi, r2.Mb, r2.Lk, es, Convert.ToDouble(ep), (bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2, r3.I_bers);
             }
+            solution.r9 = r9;
 
             Console.WriteLine("sd:" + rs.Sd);
             #endregion
@@ -3339,7 +3356,7 @@ namespace WindowsFormsApp1
             double fg = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[3].Value);
             double pG = fg * Rm; // 连接件pg
             // f_sa_max = Convert.ToDouble(FAO.Text) * phi;
-            R10 r10 = new R10(bolt, r7.getFmzul(), pG, r1.alpha, r4.FZ, Convert.ToDouble(FAO.Text));
+            R10 r10 = new R10(bolt, r7.getFmzul(), pG, r1.alpha, r4.FZ, r2.Fao);
             if (r2.w == 1)
             {
                 // 螺母
@@ -3353,6 +3370,7 @@ namespace WindowsFormsApp1
                 rs.Sp_load = r10.getSp_load(hs, nut);
                 rs.Spn = r10.getSpn(hs, nut);
                 rs.Spn_load = r10.getSpn_load(hs, nut);
+                Console.WriteLine("fao:"+ r10.f_sa_max);
                 Console.WriteLine("Sp:"+ rs.Sp);
                 Console.WriteLine("Sp_load:"+ rs.Sp_load);
                 Console.WriteLine("Spn:"+ rs.Spn);
@@ -3365,6 +3383,7 @@ namespace WindowsFormsApp1
                 Console.WriteLine("Sp:"+ rs.Sp);
                 Console.WriteLine("Sp_load:"+ rs.Sp_load);
             }
+            solution.r10 = r10;
 
             #endregion
 
@@ -3386,6 +3405,7 @@ namespace WindowsFormsApp1
                 r11 = new R11(bolt, r2.Lk, fbm, rm);
                 double meff = r11.getMeff();
                 Console.WriteLine("meff:"+ meff);
+                solution.r11 = r11;
             }
             #endregion
 
@@ -3416,7 +3436,7 @@ namespace WindowsFormsApp1
                 {
                     if (r2.dtau != 0)
                     {
-                        Console.WriteLine("dtt" + r2.dtau);
+                        Console.WriteLine("dtau" + r2.dtau);
                         rs.Sa = r12.getSa(double.Parse(Rm_kangla.Text), r2.f_qmax, r2.dtau);
                     }
                     else
@@ -3437,10 +3457,14 @@ namespace WindowsFormsApp1
                     Console.WriteLine("不安全");
                 }
             }
+            Console.WriteLine("sg" + rs.sgoll);
+            Console.WriteLine("sa" + rs.Sa);
 
-#endregion
+            solution.r12 = r12;
 
-#region R_13_M
+            #endregion
+
+            #region R_13_M
             // R13 拧紧力矩
             double da = Math.Max(0, nut.NutBearMaxD);
             R13 r13 = new R13(bolt, da, r2.UKmin, r2.UGmin, r7.getFmzul());
@@ -3449,7 +3473,9 @@ namespace WindowsFormsApp1
             rs.Ma = MA;
             Console.WriteLine("R13:");
             Console.WriteLine("MA:" + rs.Ma.ToString());
-#endregion
+            solution.r13 = r13;
+
+            #endregion
             return rs;
         }
 
@@ -3826,12 +3852,6 @@ namespace WindowsFormsApp1
             form.Show();
         }
 
-        private void CalJiaoBianYingLi_Click(object sender, EventArgs e)
-        {
-            R9SDForm form = new R9SDForm();
-            form.Show();
-        }
-
         private void CalSp_Click(object sender, EventArgs e)
         {
             R10SpForm form = new R10SpForm();
@@ -3855,5 +3875,58 @@ namespace WindowsFormsApp1
             R13MAForm form = new R13MAForm();
             form.Show();
         }
+
+        private void genWordBtn_Click(object sender, EventArgs e)
+        {
+            exportReport();
+        }
+
+        public SaveFileDialog saveFileDialog;
+        private void exportReport()
+        {
+            //if (machine.RotorList.Count < 2)
+            //{
+            //    MessageBox.Show("请先添加主轴");
+            //    return;
+            //}
+            //else
+            //{
+            //int segmentCount = 0;
+            //foreach (var rotor in machine.RotorList)
+            //    segmentCount += rotor.Shafts.Count;
+            //if (segmentCount == 0)
+            //{
+            //    MessageBox.Show("请先设置主轴");
+            //    return;
+            //}
+            //}
+            //if (machine.RotorList[1].Beams == null || (machine.RotorList[1].Beams != null && (machine.RotorList[1].Beams.Count == 0)))
+            //{
+            //    eMeshDensity meshDensity = eMeshDensity.标准;
+            //    machine.DoMachineAutoMesh(this, meshDensity);
+            //}
+            saveFileDialog = new SaveFileDialog();
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.Filter = "单个网页文件(*.html)|所有文件(*)";
+            saveFileDialog.FileName = "报告.html";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string mhtPath = saveFileDialog.FileName;
+                //try
+                {
+                    ReportOperation.generateReport(mhtPath, this);
+                    string directoryPath = mhtPath.Replace(".html", "");
+                    string fileName = mhtPath.Split('\\').Last();
+                    this.webBrowser1.Url = new Uri(directoryPath + "\\" + fileName);
+                    //barMain.SelectedDockContainerItem = dockContainerItemReport;
+                }
+                //catch (Exception)
+                {
+                    //MessageBox.Show("生成报告出错");
+                }
+            }
+        }
+
+
     }
 }

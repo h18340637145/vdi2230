@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.VDISolution
         public double ugmin { get; set; }
         public double fmzul { get; set; }
         public BoltClass bolt { get; set; }
+
         public R13(BoltClass bolt, double da, double ukmin, double ugmin, double fmzul)
         {
             this.bolt = bolt;
@@ -29,8 +30,7 @@ namespace WindowsFormsApp1.VDISolution
         public double getMA()
         {
             double dkm = (Math.Max(bolt.BoreD_dh, da) + bolt.BoltHeadOutD_dw) / 2;
-            double MA = fmzul * (0.16 * bolt.ScrewP_P + 0.58 * bolt.ScrewMidD_d2 * ugmin + dkm / 2 * ukmin);
-            return MA;
+            return fmzul * (0.16 * bolt.ScrewP_P + 0.58 * bolt.ScrewMidD_d2 * ugmin + dkm / 2 * ukmin);
         }
     }
 }

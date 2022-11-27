@@ -93,5 +93,35 @@ namespace WindowsFormsApp1
             }
             dr.Close(); // 关闭连接
         }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dbomaterialBoltBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void materialBoltBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialBoltBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

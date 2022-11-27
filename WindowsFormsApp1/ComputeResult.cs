@@ -10,6 +10,11 @@ namespace WindowsFormsApp1
     public class ComputeResult
     {
         [Category("计算结果")]
+        [DisplayName("R1alpha")]
+        [Description("根据拧紧工艺确定拧紧系数")]
+        public double alphaA { get; set; }
+
+        [Category("计算结果")]
         [DisplayName("R2Fkerf")]
         [Description("")]
         public double Fkerf { get; set; }

@@ -100,5 +100,11 @@ namespace WindowsFormsApp1
             MutliBoltsDesginForm mutliBoltsDesginForm = new MutliBoltsDesginForm();
             mutliBoltsDesginForm.ShowDialog();
         }
+
+        private void multiDesignBtn_Click(object sender, EventArgs e)
+        {
+            MutliBoltsDesginForm mutliBoltsDesginForm = new MutliBoltsDesginForm();
+            mutliBoltsDesginForm.ShowDialog();
+        }
     }
 }

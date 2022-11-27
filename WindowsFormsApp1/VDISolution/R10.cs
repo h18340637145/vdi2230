@@ -77,8 +77,9 @@ namespace WindowsFormsApp1.VDISolution
             double pKBmax = (Fv + f_sa_max) / Apkmin;
             // 螺母
             double pMmmax = (Fv + f_sa_max) / Apmmin;
-
-            return  pG / pKBmax;
+            Console.WriteLine("f_samax:" + f_sa_max);
+            double res = pG / pMKmax;
+            return res;
         }
 
         public double getSpn_load(double hs, NutClass nut)
