@@ -70,6 +70,10 @@
             this.okBtn.Size = new System.Drawing.Size(268, 41);
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
+            // zhazhiBtn
+            // 
+            this.zhazhiBtn.CheckedChanged += new System.EventHandler(this.zhazhiBtn_CheckedChanged);
+            // 
             // N
             // 
             this.N.Location = new System.Drawing.Point(145, 165);

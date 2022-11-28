@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
             dataGridView1.Rows.Add("outer_A", 200);
             dataGridView1.Rows.Add("C", 160);
             dataGridView1.Rows.Add("inner_B", 100);
-            dataGridView1.Rows.Add("tf", 20);
+            dataGridView1.Rows.Add("tf", 22);
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)

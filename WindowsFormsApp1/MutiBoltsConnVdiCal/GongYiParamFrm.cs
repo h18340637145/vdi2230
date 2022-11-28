@@ -13,6 +13,8 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
     public partial class GongYiParamFrm : ParamBaseFrm
     {
         GongYiParameters gongYiParameters;
+        public string zhazhi;
+
         public GongYiParamFrm()
         {
             InitializeComponent();
@@ -141,6 +143,18 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
             else
             {
                 dataGridView1.Rows.Add("N", Convert.ToDouble(N.Text), "循环周期数");
+            }
+        }
+
+        private void zhazhiBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (zhazhiBtn.Checked == true)
+            {
+                zhazhi = "热处理前轧制";
+            }
+            else
+            {
+                zhazhi = "热处理后轧制";
             }
         }
     }

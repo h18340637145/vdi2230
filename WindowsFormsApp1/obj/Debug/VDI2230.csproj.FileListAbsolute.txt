@@ -519,3 +519,5 @@ H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Mu
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\VDI2230.csprojAssemblyReference.cache
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.JiHeParamFrm.resources
 H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.GongYiParamFrm.resources
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.ZaiHeParamFrm.resources
+H:\linux_windows\vsVdi_restructor\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MutiBoltsConnVdiCal.DisplayResultFrm.resources

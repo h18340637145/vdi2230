@@ -3239,6 +3239,7 @@ namespace WindowsFormsApp1
             // R4:
             Console.WriteLine("R4:");
             double ffz = 0;
+            R4 r4 = new R4(r3);
             if (isFz.Text == "是")
             {
                 if (fz.Text == "")
@@ -3252,9 +3253,28 @@ namespace WindowsFormsApp1
             {
                 // 根据p73表格5求fz
                 ffz = table5();
+                double rz = 0;
+                if (Rz.Text == "")
+                {
+                    MessageBox.Show("请输入Rz");
+                    return null;
+                }
+                else
+                {
+                     rz = Convert.ToDouble(Rz.Text);
+                }
+                double fq = 0;
+                if (FQ.Text == "")
+                {
+                    fq = 0;
+                }
+                else
+                {
+                    fq = Convert.ToDouble(FQ.Text);
+                }
+                ffz = r4.table5(rz, r2.w, fq);
             }
-            R4 r4 = new R4(r3, ffz);
-
+            r4.setFz();
             double Fz = r4.FZ;
             rs.Fz = Fz;
             Console.WriteLine("ffz:" + ffz.ToString());
@@ -3346,7 +3366,8 @@ namespace WindowsFormsApp1
             else
             {
                 double es = Convert.ToDouble(Es_yangshi.Text);
-                rs.Sd = r9.getSd(zhazhi.Text,r3.phi, r2.Mb, r2.Lk, es, Convert.ToDouble(ep), (bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2, r3.I_bers);
+                rs.Sd = r9.getSd(zhazhi.Text,r3.phi, r2.Mb, r2.Lk, 
+                    es, Convert.ToDouble(ep), (bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2, r3.I_bers);
             }
             solution.r9 = r9;
 

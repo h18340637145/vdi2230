@@ -295,6 +295,12 @@
     <Compile Include="MutiBoltsConnVdiCal\ClampedChooseFrm.Designer.cs">
       <DependentUpon>ClampedChooseFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\DisplayResultFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\DisplayResultFrm.Designer.cs">
+      <DependentUpon>DisplayResultFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MutiBoltsConnVdiCal\GongYiParamFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,12 @@
     </Compile>
     <Compile Include="MutiBoltsConnVdiCal\ParamBaseFrm.Designer.cs">
       <DependentUpon>ParamBaseFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\ZaiHeParamFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MutiBoltsConnVdiCal\ZaiHeParamFrm.Designer.cs">
+      <DependentUpon>ZaiHeParamFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="MutliBoltsDesginForm.cs">
       <SubType>Form</SubType>
@@ -451,6 +463,9 @@
     <EmbeddedResource Include="MutiBoltsConnVdiCal\ClampedChooseFrm.resx">
       <DependentUpon>ClampedChooseFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MutiBoltsConnVdiCal\DisplayResultFrm.resx">
+      <DependentUpon>DisplayResultFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MutiBoltsConnVdiCal\GongYiParamFrm.resx">
       <DependentUpon>GongYiParamFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -459,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MutiBoltsConnVdiCal\ParamBaseFrm.resx">
       <DependentUpon>ParamBaseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MutiBoltsConnVdiCal\ZaiHeParamFrm.resx">
+      <DependentUpon>ZaiHeParamFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MutliBoltsDesginForm.resx">
       <DependentUpon>MutliBoltsDesginForm.cs</DependentUpon>

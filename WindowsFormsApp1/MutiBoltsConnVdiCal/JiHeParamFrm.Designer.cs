@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.neiyaBtn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -46,7 +47,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.neiyaBtn);
             this.groupBox2.Size = new System.Drawing.Size(274, 450);
+            this.groupBox2.Controls.SetChildIndex(this.okBtn, 0);
+            this.groupBox2.Controls.SetChildIndex(this.cancelBtn, 0);
+            this.groupBox2.Controls.SetChildIndex(this.pianxinBtn, 0);
+            this.groupBox2.Controls.SetChildIndex(this.zhazhiBtn, 0);
+            this.groupBox2.Controls.SetChildIndex(this.neiyaBtn, 0);
             // 
             // cancelBtn
             // 
@@ -56,6 +63,17 @@
             // 
             this.okBtn.Size = new System.Drawing.Size(268, 41);
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
+            // 
+            // neiyaBtn
+            // 
+            this.neiyaBtn.AutoSize = true;
+            this.neiyaBtn.Location = new System.Drawing.Point(64, 150);
+            this.neiyaBtn.Name = "neiyaBtn";
+            this.neiyaBtn.Size = new System.Drawing.Size(72, 16);
+            this.neiyaBtn.TabIndex = 2;
+            this.neiyaBtn.Text = "考虑内压";
+            this.neiyaBtn.UseVisualStyleBackColor = true;
+            this.neiyaBtn.CheckedChanged += new System.EventHandler(this.neiyaBtn_CheckedChanged);
             // 
             // JiHeParamFrm
             // 
@@ -75,5 +93,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.CheckBox neiyaBtn;
     }
 }

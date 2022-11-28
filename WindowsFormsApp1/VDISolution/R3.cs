@@ -818,6 +818,10 @@ namespace WindowsFormsApp1.VDISolution
             {
                 I_ve_bers = I_V_Bers + Math.Pow(r2.s_sym, 2) * Math.PI * Math.Pow(r2.D_A, 2) / 4;
             }
+            else
+            {
+                I_ve_bers = I_V_Bers;
+            }
         }
         #endregion
 
