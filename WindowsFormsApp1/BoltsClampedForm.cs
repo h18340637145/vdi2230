@@ -300,6 +300,24 @@ namespace WindowsFormsApp1
             {
                 solution = new Solution();
             }
+            // 法兰盘是否偏心
+            double falanPianxin = 0;
+            if (FQPianxinBtn.Checked == true)
+            {
+                // 偏心
+                if (pianxin.Text == "")
+                {
+                    MessageBox.Show("请输入偏心距");
+                    return;
+                }
+                else
+                {
+                    falanPianxin = Convert.ToDouble(pianxin.Text);
+                    double mt = falanPianxin * zaiHeParameters.Fq;
+                    zaiHeParameters.Fq = mt / falanPianxin;
+                }
+            }
+
             // r1
             if (solution.r1 == null)
             {
@@ -696,6 +714,22 @@ namespace WindowsFormsApp1
             rs.Ma = solution.r13.getMA();
 
             #endregion
+        }
+
+        private void FQPianxinBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FQPianxinBtn.Checked == true)
+            {
+                // 偏心
+                PianXinLabel.Visible = true;
+                pianxin.Visible = true;
+            }
+            else
+            {
+                //同心，不用动
+                PianXinLabel.Visible = false;
+                pianxin.Visible = false;
+            }
         }
     }
 }
