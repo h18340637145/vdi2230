@@ -37,6 +37,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
             material.ClampedMaterialRatio_fG = double.Parse(dataGridView1.SelectedCells[2].Value.ToString());
             material.ClampedMaterialEp = double.Parse(dataGridView1.SelectedCells[3].Value.ToString());
             material.ClampedMaterialRmmin = double.Parse(dataGridView1.SelectedCells[4].Value.ToString());
+            Hide();
         }
     }
 }

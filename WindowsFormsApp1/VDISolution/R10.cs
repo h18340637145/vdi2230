@@ -30,7 +30,7 @@ namespace WindowsFormsApp1.VDISolution
             this.pG = pG;
             this.alpha = alpha;
             this.FZ = FZ;
-            this.f_sa_max = f_sa_max;
+            this.f_sa_max = f_sa_max; // 标准的意思是FA*phi
         }
 
         public R10()
@@ -50,7 +50,7 @@ namespace WindowsFormsApp1.VDISolution
 
         public double getSpn(double hs, NutClass nut)
         {
-            double outR = bolt.BoltHeadOutD_dw + 1.6 * hs;
+            double outR = nut.NutBearOutD + 1.6 * hs;
             double innerR = Math.Max(bolt.BoreD_dh, nut.NutBearMinD);
             double Apmmin = Math.PI * (outR * outR - innerR * innerR) / 4;
             double pMMumax = fmzul / Apmmin;
@@ -68,40 +68,26 @@ namespace WindowsFormsApp1.VDISolution
             double Apkmin = Math.PI * (bolt.BoltHeadOutD_dw * bolt.BoltHeadOutD_dw - bolt.BoreD_dh * bolt.BoreD_dh) / 4;
             double pMKmax = fmzul / Apkmin;
 
-            double Fv = fmzul / alpha - FZ;
-            if (f_sa_max <= 0)
-            {
-                f_sa_max = 0;
-            }
-            // bolt
-            double pKBmax = (Fv + f_sa_max) / Apkmin;
-            // 螺母
-            double pMmmax = (Fv + f_sa_max) / Apmmin;
-            Console.WriteLine("f_samax:" + f_sa_max);
             double res = pG / pMKmax;
             return res;
         }
 
         public double getSpn_load(double hs, NutClass nut)
         {
-            double outR = bolt.BoltHeadOutD_dw + 1.6 * hs;
+            double outR = nut.NutBearOutD + 1.6 * hs;
             double innerR = Math.Max(bolt.BoreD_dh, nut.NutBearMinD);
             double Apmmin = Math.PI * (outR * outR - innerR * innerR) / 4;
-            double pMMumax = fmzul / Apmmin;
-            double Apkmin = Math.PI * (bolt.BoltHeadOutD_dw * bolt.BoltHeadOutD_dw - bolt.BoreD_dh * bolt.BoreD_dh) / 4;
-            double pMKmax = fmzul / Apkmin;
 
             double Fv = fmzul / alpha - FZ;
             if (f_sa_max <= 0)
             {
                 f_sa_max = 0;
             }
-            // bolt
-            double pKBmax = (Fv + f_sa_max) / Apkmin;
             // 螺母
-            double pMmmax = (Fv + f_sa_max) / Apmmin;
+            double pMmmax = (Fv + f_sa_max ) / Apmmin;
 
-            return pG / pMmmax;
+            double res  =  pG / pMmmax;
+            return res;
         }
 
         // no nut

@@ -37,6 +37,7 @@ namespace WindowsFormsApp1
             material.BoltMaterialRatio_fB = double.Parse(dataGridView1.SelectedCells[4].Value.ToString());
             material.BoltMaterialTmax = double.Parse(dataGridView1.SelectedCells[5].Value.ToString());
             material.BoltMaterialA = double.Parse(dataGridView1.SelectedCells[6].Value.ToString());
+            Hide();
         }
 
         public BoltMaterialClass getMaterial()

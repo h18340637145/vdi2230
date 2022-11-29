@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         public IModelBuildForm NutForm { set; get; }
         public bool IsBuildModel { set; get; }
 
-
+        double num; // 螺栓个数
         public BoltClass boltData;
         public HKFDJClamped clamped;
         public NutClass nut;
@@ -30,8 +30,8 @@ namespace WindowsFormsApp1
         public JiHeParameters jiHeParameters;
         public GongYiParameters gongYiParameters;
         public ZaiHeParameters zaiHeParameters;
-        public string zhazhi;
-        public string dynamic_load;
+        public static string zhazhi;
+        public static string dynamic_load;
 
         public BoltsClampedForm()
         {
@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
             }
             IsBuildModel = true;
             var clamped = ClampedForm.GetModel() as HKFDJClamped;
-            double num = clamped.num;
+            num = clamped.num;
             var bolt = BoltForm.GetModel() as Bolt;
             var nut = NutForm.GetModel() as NutClass;
             //boltData = new BoltClass(bolt);
@@ -70,9 +70,9 @@ namespace WindowsFormsApp1
                 this.nut = nut;
             }
             dataGridView1.Rows.Add("n", clamped.n, "螺栓个数");
-            dataGridView1.Rows.Add("d", boltData.NormalD_d, "螺栓公称");
-            dataGridView1.Rows.Add("D", clamped.d, "螺栓孔直径公称");
-            dataGridView1.Rows.Add("R", clamped.C, "节圆直径");
+            dataGridView1.Rows.Add("d", boltData.NormalD_d, "mm螺栓公称");
+            dataGridView1.Rows.Add("D", clamped.d, "mm螺栓孔直径公称");
+            dataGridView1.Rows.Add("R", clamped.C, "mm节圆直径");
             dataGridView1.Rows.Add("Plane", "XY", "固定平面");
             dataGridView1.Rows.Add("Forces", "Vectot(0,0,-Z)", "等效螺栓压力");
 
@@ -167,19 +167,19 @@ namespace WindowsFormsApp1
         private void updateParamDataGrids()
         {
             dataGridView2.Rows.Clear();
-            dataGridView2.Rows.Add("NormalD_d", boltData.NormalD_d, "螺栓公称直径");
-            dataGridView2.Rows.Add("ScrewP_P", boltData.ScrewP_P, "螺距");
-            dataGridView2.Rows.Add("BoltLen_ls", boltData.BoltLen_ls, "螺杆长度");
-            dataGridView2.Rows.Add("BoreD_dh", boltData.BoreD_dh, "镗孔直径");
-            dataGridView2.Rows.Add("BoreD_dT", boltData.BoreD_dT, "");
-            dataGridView2.Rows.Add("BoltHeadOutD_dw", boltData.BoltHeadOutD_dw, "螺栓头承载面外径");
-            dataGridView2.Rows.Add("BoltHeadInnerD_da", boltData.BoltHeadInnerD_da, "螺栓头承载面内径");
-            dataGridView2.Rows.Add("ScrewMidD_d2", boltData.ScrewMidD_d2, "螺纹中径");
-            dataGridView2.Rows.Add("ScrewMinD_d3", boltData.ScrewMinD_d3, "螺纹小径");
-            dataGridView2.Rows.Add("PolishRodLen_l1", boltData.PolishRodLen_l1, "光杆1长度");
-            dataGridView2.Rows.Add("PolishRodLen_l2", boltData.PolishRodLen_l2, "光杆2长度");
-            dataGridView2.Rows.Add("BoltNutSideWid_s", boltData.BoltNutSideWid_s, "螺母对边宽度");
-            dataGridView2.Rows.Add("BoltNutScrewMinD_D1", boltData.BoltNutScrewMinD_D1, "螺母螺纹小径");
+            dataGridView2.Rows.Add("NormalD_d", boltData.NormalD_d, "mm螺栓公称直径");
+            dataGridView2.Rows.Add("ScrewP_P", boltData.ScrewP_P, "mm螺距");
+            dataGridView2.Rows.Add("BoltLen_ls", boltData.BoltLen_ls, "mm螺杆长度");
+            dataGridView2.Rows.Add("BoreD_dh", boltData.BoreD_dh, "mm镗孔直径");
+            dataGridView2.Rows.Add("BoreD_dT", boltData.BoreD_dT, "mm");
+            dataGridView2.Rows.Add("BoltHeadOutD_dw", boltData.BoltHeadOutD_dw, "mm螺栓头承载面外径");
+            dataGridView2.Rows.Add("BoltHeadInnerD_da", boltData.BoltHeadInnerD_da, "mm螺栓头承载面内径");
+            dataGridView2.Rows.Add("ScrewMidD_d2", boltData.ScrewMidD_d2, "mm螺纹中径");
+            dataGridView2.Rows.Add("ScrewMinD_d3", boltData.ScrewMinD_d3, "mm螺纹小径");
+            dataGridView2.Rows.Add("PolishRodLen_l1", boltData.PolishRodLen_l1, "mm光杆1长度");
+            dataGridView2.Rows.Add("PolishRodLen_l2", boltData.PolishRodLen_l2, "mm光杆2长度");
+            dataGridView2.Rows.Add("BoltNutSideWid_s", boltData.BoltNutSideWid_s, "mm螺母对边宽度");
+            dataGridView2.Rows.Add("BoltNutScrewMinD_D1", boltData.BoltNutScrewMinD_D1, "mm螺母螺纹小径");
 
             if (boltData.boltMaterial != null)
             {
@@ -201,28 +201,28 @@ namespace WindowsFormsApp1
             
             if (jiHeParameters != null)
             {
-                dataGridView2.Rows.Add("DA", jiHeParameters.DA, "接合面等效外径");
-                dataGridView2.Rows.Add("DA_", jiHeParameters.DA_, "接合面上的面的等效外径");
-                dataGridView2.Rows.Add("fz", jiHeParameters.fz, "嵌入深度");
+                dataGridView2.Rows.Add("DA", jiHeParameters.DA, "mm接合面等效外径");
+                dataGridView2.Rows.Add("DA_", jiHeParameters.DA_, "mm接合面上的面的等效外径");
+                dataGridView2.Rows.Add("fz", jiHeParameters.fz, "um嵌入深度");
                 dataGridView2.Rows.Add("n", jiHeParameters.n, "载荷系数");
 
                 if (jiHeParameters.PianXin != null)
                 {
-                    dataGridView2.Rows.Add("ssym", jiHeParameters.PianXin.ssym, "从0-0轴至螺栓轴的距离Ssym");
-                    dataGridView2.Rows.Add("u", jiHeParameters.PianXin.u, "从0-0轴至开口处的距离u");
-                    dataGridView2.Rows.Add("cB", jiHeParameters.PianXin.cB, "受弯体长度cB");
-                    dataGridView2.Rows.Add("cT", jiHeParameters.PianXin.cT, "被连接件接合面长度cT");
-                    dataGridView2.Rows.Add("b", jiHeParameters.PianXin.b, "受弯体宽度b");
-                    dataGridView2.Rows.Add("bT", jiHeParameters.PianXin.bT, "被连接件接合面宽度bT");
-                    dataGridView2.Rows.Add("e", jiHeParameters.PianXin.e, "从接合面带有张开风险的边缘至螺栓轴的距离e");
-                    dataGridView2.Rows.Add("a", jiHeParameters.PianXin.a, "偏心距a");
+                    dataGridView2.Rows.Add("ssym", jiHeParameters.PianXin.ssym, "mm从0-0轴至螺栓轴的距离Ssym");
+                    dataGridView2.Rows.Add("u", jiHeParameters.PianXin.u, "mm从0-0轴至开口处的距离u");
+                    dataGridView2.Rows.Add("cB", jiHeParameters.PianXin.cB, "mm受弯体长度cB");
+                    dataGridView2.Rows.Add("cT", jiHeParameters.PianXin.cT, "mm被连接件接合面长度cT");
+                    dataGridView2.Rows.Add("b", jiHeParameters.PianXin.b, "mm受弯体宽度b");
+                    dataGridView2.Rows.Add("bT", jiHeParameters.PianXin.bT, "mm被连接件接合面宽度bT");
+                    dataGridView2.Rows.Add("e", jiHeParameters.PianXin.e, "mm从接合面带有张开风险的边缘至螺栓轴的距离e");
+                    dataGridView2.Rows.Add("a", jiHeParameters.PianXin.a, "mm偏心距a");
                 }
             }
             
 
             if (gongYiParameters != null)
             {
-                dataGridView2.Rows.Add("Rz", gongYiParameters.Rz, "平均表面粗糙度");
+                dataGridView2.Rows.Add("Rz", gongYiParameters.Rz, "um平均表面粗糙度");
                 dataGridView2.Rows.Add("alphaA", gongYiParameters.alphaA, "拧紧系数");
                 dataGridView2.Rows.Add("Ugmin", gongYiParameters.Ugmin, "螺纹接触面最小摩擦系数Ugmin");
                 dataGridView2.Rows.Add("UTmin", gongYiParameters.UTmin, "被连接件接合面间最小摩擦系数UTmin");
@@ -236,13 +236,15 @@ namespace WindowsFormsApp1
 
             if (zaiHeParameters != null)
             {
-                dataGridView2.Rows.Add("Fao", zaiHeParameters.Fao, "轴向载荷的上限值");
-                dataGridView2.Rows.Add("Fau", zaiHeParameters.Fau, "轴向载荷的下限值");
-                dataGridView2.Rows.Add("Mt", zaiHeParameters.Mt, "绕螺栓轴的扭矩");
-                dataGridView2.Rows.Add("Fq", zaiHeParameters.Fq, "横向载荷");
+                dataGridView2.Rows.Add("Fao", zaiHeParameters.Fao, "N轴向载荷的上限值");
+                dataGridView2.Rows.Add("Fau", zaiHeParameters.Fau, "N轴向载荷的下限值");
+                dataGridView2.Rows.Add("Mt", zaiHeParameters.Mt, "N/mm2绕螺栓轴的扭矩");
+                dataGridView2.Rows.Add("Fq", zaiHeParameters.Fq, "N横向载荷");
                 dataGridView2.Rows.Add("qf", zaiHeParameters.qf, "载荷传递通过内部接合面数量");
-                dataGridView2.Rows.Add("Mb", zaiHeParameters.Mb, "工作弯矩");
+                dataGridView2.Rows.Add("Mb", zaiHeParameters.Mb, "N/mm2工作弯矩");
                 dataGridView2.Rows.Add("v", zaiHeParameters.v, "拧紧时材料的屈服点利用率");
+                dataGridView2.Rows.Add("Dhamx", zaiHeParameters.Dhamx, "mm承载面最大内径");
+                dataGridView2.Rows.Add("ra", zaiHeParameters.ra, "mm摩擦半径");
             }
         }
 
@@ -251,7 +253,7 @@ namespace WindowsFormsApp1
             GongYiParamFrm form = new GongYiParamFrm();
             form.ShowDialog();
             GongYiParameters param = form.GetGongYiParams();
-            zhazhi = form.zhazhi;
+            zhazhi = GongYiParamFrm.zhazhi;
             if (param == null)
             {
                 return;
@@ -267,7 +269,7 @@ namespace WindowsFormsApp1
             ZaiHeParamFrm form = new ZaiHeParamFrm();
             form.ShowDialog();
             ZaiHeParameters param = form.GetZaiHeParams();
-            dynamic_load = form.dynamic_load;
+            dynamic_load = ZaiHeParamFrm.dynamic_load;
             if (param == null)
             {
                 return;
@@ -305,13 +307,43 @@ namespace WindowsFormsApp1
             }
             solution.r1.alpha = gongYiParameters.alphaA;
             rs.alphaA = solution.r1.alpha;
-
+            double Rz = gongYiParameters.Rz;
+            
             #region R2
             // r2
             if (solution.r2 == null)
             {
                 solution.r2 = new R2(boltData);
             }
+            solution.r2.UGmin = gongYiParameters.Ugmin;
+            solution.r2.u_Tmin = gongYiParameters.UTmin;
+            solution.r2.UKmin = gongYiParameters.Ukmin;
+
+
+            solution.r2.Fao = zaiHeParameters.Fao;
+            solution.r2.Fau = zaiHeParameters.Fau;
+            solution.r2.Mb = zaiHeParameters.Mb;
+
+            // 剪力和扭矩直接 / num
+            solution.r2.M_t = (zaiHeParameters.Mt / (this.clamped.n * (this.clamped.C/2)));
+            solution.r2.f_qmax = (zaiHeParameters.Fq / this.clamped.n);
+            MessageBox.Show("M_t:" + solution.r2.M_t + "----f_qmax:" + solution.r2.f_qmax);
+            if (solution.r2.dtau == 0)
+            {
+                // d来算  最大拉力
+                solution.r2.Fao = solution.r2.Fao / this.clamped.n + 4 * solution.r2.Mb / this.clamped.n / boltData.NormalD_d;
+                // 最大压力
+                solution.r2.Fau = solution.r2.Fau / this.clamped.n - 4 * solution.r2.Mb / this.clamped.n / boltData.NormalD_d;
+            }
+            else
+            {
+                solution.r2.Fao = solution.r2.Fao / this.clamped.n + 4 * solution.r2.Mb / this.clamped.n / solution.r2.dtau;
+                solution.r2.Fau = solution.r2.Fau / this.clamped.n - 4 * solution.r2.Mb / this.clamped.n / solution.r2.dtau;
+            }
+            solution.r2.q_f = zaiHeParameters.qf;
+            solution.r2.v = zaiHeParameters.v;
+
+
             solution.r2.w = 1; // 通孔
             solution.r2.D_A = jiHeParameters.DA;
             solution.r2.Lk = clamped.tf * 2;
@@ -360,7 +392,7 @@ namespace WindowsFormsApp1
             if (zaiHeParameters.Fq == 0)
             {
                 // 无横向剪力  单螺栓
-                solution.r2.setF_kerf(zaiHeParameters.Fao.ToString());
+                solution.r2.setF_kerf("0");
             }
             else
             {
@@ -379,8 +411,12 @@ namespace WindowsFormsApp1
             }
             // 内压 
             //空着
-
-
+            if (jiHeParameters.neiya != null)
+            {
+                solution.r2.AD = jiHeParameters.neiya.AD;
+                solution.r2.setF_kp(jiHeParameters.neiya.pimax.ToString());
+            }
+            double fkp = solution.r2.f_kp;
             if (jiHeParameters.PianXin == null)
             {
                 // 同心不算
@@ -391,6 +427,7 @@ namespace WindowsFormsApp1
                 if (jiHeParameters.PianXin.a == 0)
                 {
                     // 无
+                    solution.r2.f_ka = 0;
                 }
                 else
                 {
@@ -398,7 +435,8 @@ namespace WindowsFormsApp1
                     // 必须设置内压面积AD
                     solution.r2.setFka();
                 }
-                solution.r2.setF_kerf();
+                double fka = solution.r2.f_ka;
+                solution.r2.setF_kerf((int)clamped.n);
                 // check
                 if (solution.r2.checkClampedLs(nut.NutHeight))
                 {
@@ -409,7 +447,6 @@ namespace WindowsFormsApp1
                     return ;
                 }
             }
-            
 
             rs.Fkerf = solution.r2.f_kerf;
 
@@ -424,10 +461,11 @@ namespace WindowsFormsApp1
             }
 
             solution.r3.Nn = jiHeParameters.n;
+            //MessageBox.Show(solution.r3.Nn.ToString());
             solution.r3.AN = boltData.NormalD_d * boltData.NormalD_d * Math.PI / 4;
             solution.r3.Ad3 = boltData.ScrewMinD_d3 * boltData.ScrewMinD_d3 * Math.PI / 4;
             solution.r3.setLm();
-            solution.r3.setBetaS(boltData.boltMaterial.BoltMaterialEs.ToString());
+            solution.r3.setDeltaS(boltData.boltMaterial.BoltMaterialEs.ToString());
             solution.r3.setBetaS(boltData.boltMaterial.BoltMaterialEs.ToString());
 
             solution.r3.setDeltaP(clampedMaterial.ClampedMaterialEp.ToString());
@@ -451,7 +489,8 @@ namespace WindowsFormsApp1
 
                 }
             }
-            solution.r3.setMB(clampedMaterial.ClampedMaterialEp.ToString());
+            //solution.r3.setMB(clampedMaterial.ClampedMaterialEp.ToString());
+            solution.r2.Mb = zaiHeParameters.Mb;
             //solution.r3.setI_V_Bers();
             double phi = solution.r3.getPhi();
             rs.deltas = solution.r3.deltaS;
@@ -461,6 +500,10 @@ namespace WindowsFormsApp1
 
 
             #region R4
+            if (solution.r4 == null)
+            {
+                solution.r4 = new R4(solution.r3);
+            }
             if (jiHeParameters.fz == 0)
             {
                 solution.r4.ffz = solution.r4.table5(gongYiParameters.Rz, solution.r2.w, zaiHeParameters.Fq);
@@ -479,7 +522,8 @@ namespace WindowsFormsApp1
             {
                 solution.r5 = new R5(solution.r2.f_kerf, solution.r3.phi, solution.r2.Fao, solution.r4.FZ);
             }
-
+            //solution.r2.Fao = zaiHeParameters.Fao / num;
+            //solution.r2.Fau = zaiHeParameters.Fau / num;
             rs.Fmmin = solution.r5.getFmmin();
 
             #endregion
@@ -503,6 +547,16 @@ namespace WindowsFormsApp1
             double fmzul = solution.r7.getFmzul();
             double f_mtb = solution.r7.getF_mtb();
             rs.Fmzul = fmzul;
+            if (fmzul > rs.Fmmax || f_mtb > rs.Fmmax)
+            {
+                // 可以使用
+            }
+            else
+            {
+                // 不可以使用该螺栓
+                MessageBox.Show("不能使用该螺栓");
+                return;
+            }
             #endregion
 
 
@@ -511,6 +565,7 @@ namespace WindowsFormsApp1
             {
                 solution.r8 = new R8(boltData, solution.r7.getFmzul(), solution.r2.Fao, phi, solution.r7.Ugmin);
             }
+            solution.r7.getFmzul();
             rs.Sf = solution.r8.getSf();
 
             #endregion
@@ -518,9 +573,10 @@ namespace WindowsFormsApp1
             #region R9交变
             if (solution.r9 == null)
             {
-                solution.r9 = new R9(boltData, solution.r2.s_sym, solution.r3.phi, solution.r7.getFmzul(), boltData.boltMaterial.BoltMaterialRpmin, solution.r2.Fao, solution.r2.Fau);
+                solution.r9 = new R9(boltData, solution.r2.a, solution.r2.s_sym, solution.r3.phi, solution.r7.getFmzul(), boltData.boltMaterial.BoltMaterialRpmin, solution.r2.Fao, solution.r2.Fau);
             }
 
+            // 这个字符串没有传递？
             if (dynamic_load == "静态加载")
             {
                 MessageBox.Show("静态加载不计算交变");
@@ -528,6 +584,7 @@ namespace WindowsFormsApp1
             }
             else
             {
+                // error string  = null
                 if (solution.r2.s_sym == 0)
                 {
                     // 同心
@@ -547,7 +604,7 @@ namespace WindowsFormsApp1
 
             if (solution.r10 == null)
             {
-                solution.r10 = new R10(boltData, solution.r7.getFmzul(), clampedMaterial.ClampedMaterialRatio_fG * clampedMaterial.ClampedMaterialRmmin, solution.r1.alpha, solution.r4.FZ, solution.r2.Fao);
+                solution.r10 = new R10(boltData, solution.r7.getFmzul(), clampedMaterial.ClampedMaterialRatio_fG * clampedMaterial.ClampedMaterialRmmin, solution.r1.alpha, solution.r4.FZ, solution.r2.Fao * phi);
             }
             // 螺母
             double hs = 0;
@@ -555,6 +612,7 @@ namespace WindowsFormsApp1
             rs.Sp = solution.r10.getSp(hs, nut);
             rs.Sp_load = solution.r10.getSp_load(hs, nut);
             rs.Spn = solution.r10.getSpn(hs, nut);
+            // spnload 0.9？
             rs.Spn_load = solution.r10.getSpn_load(hs, nut);
 
             #endregion
@@ -573,46 +631,58 @@ namespace WindowsFormsApp1
                 solution.r12 = new R12(boltData, solution.r7.getFmzul(), solution.r1.alpha, solution.r3.phi, solution.r2.Fao, solution.r4.FZ);
             }
 
-            if (solution.r2.f_qmax == 0)
+            if (solution.r2.f_qmax == 0 && solution.r2.M_t == 0)
             {
                 MessageBox.Show("无剪力，无需验证剪切");
                 double fkrmin = solution.r12.getFKRmin();
-                
             }
             else
             {
                 double fkrmin = solution.r12.getFKRmin();
                 // ra = (DA + Dhamax) / 2
-                double ra = solution.r2.r_a;
-                if (ra == 0)
+                solution.r2.Dhamax =  zaiHeParameters.Dhamx;
+                solution.r2.r_a = zaiHeParameters.ra;
+                solution.r2.q_m = 1;
+                if (solution.r2.r_a == 0)
                 {
-                    ra = (solution.r2.D_A + solution.r2.Dhamax) / 2;
+                    solution.r2.r_a = (solution.r2.D_A + solution.r2.Dhamax) / 2;
                 }
-                double sg = solution.r12.getSg(solution.r2.f_qmax, solution.r2.q_f, solution.r2.u_Tmin, solution.r2.M_t, solution.r2.q_m, ra);
+                //......
+                double fqmax = (zaiHeParameters.Fq / this.clamped.n);
+                double mt = (zaiHeParameters.Mt / (this.clamped.n * (this.clamped.C / 2)));
+                double sg = solution.r12.getSg(fqmax, solution.r2.q_f, solution.r2.u_Tmin, mt, solution.r2.q_m, solution.r2.r_a);
 
                 if (sg >= solution.r2.sgsoll)
                 {
-                    if (solution.r2.dtau != 0)
+                    if (solution.r2.dtau != 0 && solution.r2.f_qmax != 0)
                     {
                         Console.WriteLine("dtau" + solution.r2.dtau);
-                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, solution.r2.f_qmax, solution.r2.dtau);
+                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, fqmax, solution.r2.dtau);
+                        if (rs.Sa >= 1.1)
+                        {
+                            Console.WriteLine("安全");
+                        }
+                        else
+                        {
+                            Console.WriteLine("不安全");
+                        }
                     }
-                    else
+                    else if (solution.r2.f_qmax != 0)
                     {
-                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, solution.r2.f_qmax);
+                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, fqmax);
+                        if (rs.Sa >= 1.1)
+                        {
+                            Console.WriteLine("安全");
+                        }
+                        else
+                        {
+                            Console.WriteLine("不安全");
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show("应满足sg>=SGoll");
-                }
-                if (rs.Sa >= 1.1)
-                {
-                    Console.WriteLine("安全");
-                }
-                else
-                {
-                    Console.WriteLine("不安全");
                 }
             }
 

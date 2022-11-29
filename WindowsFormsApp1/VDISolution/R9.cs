@@ -131,11 +131,27 @@ namespace WindowsFormsApp1.VDISolution
             // 偏心用
             if (mb == 0)
             {
-                double f_sa_max = phi * fau;
-                double f_sa_min = phi * fao;
+                double f_sa_max = (phi) * fao;
+                double f_sa_min = (phi) * fau;
+                if (a == 0)
+                {
+                    delta_sabo = f_sa_max / As;
+                    delta_sabu = f_sa_min / As;
+                }
+                else
+                {
+                    //a != 0
+                    double l_ers = compute_lers(Lk);
+                    double up = Lk * es * Math.PI * a * Math.Pow(d0, 3);
+                    double down = (l_ers * ep * 8 * I_bers);
+                    double x = up / down;
+                    double param = (1 + (1 / phi - ssym / a) * x);
+                    delta_sabo = param * phi * fao / As;
+                    double famin = fau;
 
-                delta_sabo = f_sa_max / As;
-                delta_sabu = f_sa_min / As;
+                    delta_sabu = param * phi * famin / As;
+                }
+                
                 delta_ab = (delta_sabo - delta_sabu) / 2;
                 fsm = (f_sa_max + f_sa_min) / 2 + fmzul;
 

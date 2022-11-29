@@ -13,15 +13,15 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
     public partial class GongYiParamFrm : ParamBaseFrm
     {
         GongYiParameters gongYiParameters;
-        public string zhazhi;
+        public static string zhazhi;
 
         public GongYiParamFrm()
         {
             InitializeComponent();
             pianxinBtn.Visible = false;
-            zhazhiBtn.Visible = false;
+            zhazhiBtn.Visible = true;
 
-            dataGridView1.Rows.Add("Rz", 16, "平均表面粗糙度");
+            dataGridView1.Rows.Add("Rz", 16, "um平均表面粗糙度");
             dataGridView1.Rows.Add("alphaA", 1, "拧紧系数");
             dataGridView1.Rows.Add("Ugmin", 0.1, "螺纹接触面最小摩擦系数Ugmin");
             dataGridView1.Rows.Add("UTmin", 0.1, "被连接件接合面间最小摩擦系数UTmin");
@@ -49,7 +49,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                 N.Clear();
                 N.Visible = false;
                 dataGridView1.Rows.Clear();
-                dataGridView1.Rows.Add("Rz", 16, "平均表面粗糙度");
+                dataGridView1.Rows.Add("Rz", 16, "um平均表面粗糙度");
                 dataGridView1.Rows.Add("alphaA", 1, "拧紧系数");
                 dataGridView1.Rows.Add("Ugmin", 0.1, "螺纹接触面最小摩擦系数Ugmin");
                 dataGridView1.Rows.Add("UTmin", 0.1, "被连接件接合面间最小摩擦系数UTmin");
@@ -129,7 +129,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                 return;
             }
             dataGridView1.Rows.Clear();
-            dataGridView1.Rows.Add("Rz", 16, "平均表面粗糙度");
+            dataGridView1.Rows.Add("Rz", 16, "um平均表面粗糙度");
             dataGridView1.Rows.Add("alphaA", 1, "拧紧系数");
             dataGridView1.Rows.Add("Ugmin", 0.1, "螺纹接触面最小摩擦系数Ugmin");
             dataGridView1.Rows.Add("UTmin", 0.1, "被连接件接合面间最小摩擦系数UTmin");

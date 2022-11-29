@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.VDISolution
                 if (fq == 0)
                 {
                     ffz = 7;
-                    if (w == 2)
+                    if (w == 1)
                     {
                         ffz = ffz + 2.5;
                     }
@@ -37,7 +37,7 @@ namespace WindowsFormsApp1.VDISolution
                 else if (fq != 0)
                 {
                     ffz = 8;
-                    if (w == 2)
+                    if (w == 1)
                     {
                         ffz = ffz + 3;
                     }
@@ -48,7 +48,7 @@ namespace WindowsFormsApp1.VDISolution
                 if (fq == 0)
                 {
                     ffz = 8;
-                    if (w == 2)
+                    if (w == 1)
                     {
                         ffz = ffz + 3;
                     }
@@ -56,7 +56,7 @@ namespace WindowsFormsApp1.VDISolution
                 else if (fq != 0)
                 {
                     ffz = 10;
-                    if (w == 2)
+                    if (w == 1)
                     {
                         ffz = ffz + 4.5;
                     }
@@ -67,7 +67,7 @@ namespace WindowsFormsApp1.VDISolution
                 if (fq == 0)
                 {
                     ffz = 10;
-                    if (w == 2)
+                    if (w == 1)
                     {
                         ffz = ffz + 4;
                     }
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1.VDISolution
                 else if (fq != 0)
                 {
                     ffz = 13;
-                    if (w == 2)
+                    if (w == 1)
                     {
                         ffz = ffz + 6.5;
                     }

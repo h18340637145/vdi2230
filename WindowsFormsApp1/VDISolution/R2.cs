@@ -355,7 +355,11 @@ namespace WindowsFormsApp1.VDISolution
         {
             f_kerf = Math.Max(f_kq, f_kp + f_ka);
         }
-
+        // 重载多螺栓输入螺栓个数
+        public void setF_kerf(int num)
+        {
+            f_kerf = Math.Max(f_kq  / num, f_kp + f_ka);
+        }
         internal void setFao(string fao)
         {
             if (fao == "")

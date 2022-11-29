@@ -3382,7 +3382,7 @@ namespace WindowsFormsApp1
             double fg = Convert.ToSingle(dataClampedChoosed.Rows[0].Cells[3].Value);
             double pG = fg * Rm; // 连接件pg
             // f_sa_max = Convert.ToDouble(FAO.Text) * phi;
-            R10 r10 = new R10(bolt, r7.getFmzul(), pG, r1.alpha, r4.FZ, r2.Fao);
+            R10 r10 = new R10(bolt, r7.getFmzul(), pG, r1.alpha, r4.FZ, r2.Fao * phi);
             if (r2.w == 1)
             {
                 // 螺母
