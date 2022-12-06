@@ -88,7 +88,12 @@ namespace WindowsFormsApp1
             assFem.bolt = bolt;
             assFem.clamped = clamped;
             assFem.nut = nut;
-            model1.Entities.Add(assFem.GetEntity(), Color.Blue);
+            var list = assFem.GetEntitys();
+            for (int i = 0; i < list.Count; i++)
+            {
+                model1.Entities.Add(list[i], Color.Blue);
+            }
+            //model1.Entities.Add(assFem.GetEntitys(), Color.Blue);
             model1.ZoomFit();
         }
         //private void BoltsClampedForm_Load(object sender, EventArgs e)

@@ -9,7 +9,7 @@ using devDept.Geometry;
 
 namespace WindowsFormsApp1
 {
-    public class HKFDJClamped : IModelEntity, IModelFemMesh
+    public class HKFDJClamped : IModelEntityClampeds, IModelFemMesh
     {
         #region PropeField
         
@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
                 baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
                 boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
             }
-            var mesh = baseReg.Triangulate(10);
+            var mesh = baseReg.Triangulate(5);
             _flangeFMCache = mesh.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
             _flangeFMCache.Extrude(new Vector3D(0, 0, tf ));//  + ddz  高度上扩展
 
@@ -112,6 +112,21 @@ namespace WindowsFormsApp1
             p[3] = new Point3D(inner_B / 2, 0, 0);
             p[4] = new Point3D(inner_B / 2, 0, tf);
             return p;
+        }
+
+        List<Entity> entities = new List<Entity>();
+        public List<Entity> GetEntitys()
+        {
+            var clamped1 = GetEntity();
+            entities.Add(clamped1);
+
+            for (int i = 1; i < 2; i++)
+            {
+                var temp = clamped1.Clone() as Solid;
+                temp.Translate(0, 0, tf * i);
+                entities.Add(temp);
+            }
+            return entities;
         }
     }
 

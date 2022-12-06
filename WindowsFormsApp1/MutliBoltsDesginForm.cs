@@ -1069,13 +1069,11 @@ namespace WindowsFormsApp1
 
         private void _modelingParamOkBtn_Click(object sender, EventArgs e)
         {
-            boltnet(simulation1);
+            //boltnet(simulation1);
             simulation1.Entities.Clear();
 
             var fmod = _createClamedForm.GetModel() as HKFDJClamped;
-            var bmod = _createBoltForm.GetModel() as Bolt;
-            var nmod = _createNutForm.GetModel() as NutClass;
-            if (fmod == null || bmod == null || nmod == null) return;
+            if (fmod == null ) return;
             double[,] opResults = new double[2, (int)fmod.n];
             for (int i = 0; i < (int)fmod.n; i++)
             {
@@ -1089,8 +1087,7 @@ namespace WindowsFormsApp1
             simulation1.Legends[0].Visible = true;
             simulation1.Legends[0].Title = "FEM";
 
-            Draw.Clamped = fmod;
-            Draw.bolt = bmod;
+            Draw.Clamped = fmod; 
             Draw.InitFlangeFem(simulation1);
             _drawFlangeFemFrameParam = new MulForcesStepsDrawParam()
             {
@@ -1106,10 +1103,9 @@ namespace WindowsFormsApp1
         {
             simulation1.Entities.Clear();
 
-            var fmod = _createClamedForm.GetModel() as HKFDJClamped;
             var bmod = _createBoltForm.GetModel() as Bolt;
             var nmod = _createNutForm.GetModel() as NutClass;
-            if (fmod == null || bmod == null || nmod == null) return;
+            if ( bmod == null || nmod == null) return;
             double opResults = rs.Fmmax;
 
             SetDisplayMode(simulation1, displayType.Shaded);
@@ -1119,7 +1115,6 @@ namespace WindowsFormsApp1
             simulation1.Legends[0].Visible = true;
             simulation1.Legends[0].Title = "FEM";
 
-            Draw.Clamped = fmod;
             Draw.bolt = bmod;
             Draw.InitBoltFem(simulation1);
             boltDram = new BoltDram()

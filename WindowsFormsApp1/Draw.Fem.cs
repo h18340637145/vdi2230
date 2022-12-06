@@ -123,7 +123,7 @@ namespace WindowsApplication1
         internal static void InitFlangeFem(Simulation simulation1)
         {
             fm = Clamped.GetFemMesh();
-            boltfm = bolt.GetFemMesh();
+            //boltfm = bolt.GetFemMesh();
             //double angle = Math.PI * 2 / Clamped.n;
             //for (int i = 0; i < Clamped.n; i++)
             //{
@@ -132,13 +132,13 @@ namespace WindowsApplication1
             //    fm.MergeWith(tempFem, true);
             //    fm.Rotate(angle, Vector3D.AxisZ);
             //}
-            double r = (Clamped.inner_B + Clamped.outer_A) / 4;
-            if (assfm==null)
-            {
-                assfm = new AssFem();
-            }
-            assfm.SetBoltAndClampedMesh(boltfm, fm, (int)Clamped.n, r);
-            fm = assfm.GetFemMesh();
+            //double r = (Clamped.inner_B + Clamped.outer_A) / 4;
+            //if (assfm==null)
+            //{
+            //    assfm = new AssFem();
+            //}
+            //assfm.SetBoltAndClampedMesh(boltfm, fm, (int)Clamped.n, r);
+            fm = Clamped.GetFemMesh();
             fm.SymbolSize = 0.3;
             fm.AmplificationFactor = 0;
             simulation1.Entities.Add(fm);

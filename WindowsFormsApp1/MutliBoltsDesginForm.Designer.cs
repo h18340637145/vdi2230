@@ -847,7 +847,7 @@
             this._moddelingParamResetBtn.Name = "_moddelingParamResetBtn";
             this._moddelingParamResetBtn.Size = new System.Drawing.Size(261, 24);
             this._moddelingParamResetBtn.TabIndex = 4;
-            this._moddelingParamResetBtn.Text = "螺栓划分";
+            this._moddelingParamResetBtn.Text = "取消";
             this._moddelingParamResetBtn.UseVisualStyleBackColor = true;
             // 
             // panel1
