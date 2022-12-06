@@ -12,20 +12,7 @@ namespace WindowsFormsApp1
     public class HKFDJClamped : IModelEntity, IModelFemMesh
     {
         #region PropeField
-        //public double A { set; get; }
-        //public double B { set; get; }
-        //public double C { set; get; }
-        //public double d { set; get; }
-        //public double n { set; get; }
-        //public double tg { set; get; }
-        //public double tc { set; get; }
-        //public double th { set; get; }
-        //public double tf { set; get; }
-        //public double Ag { set; get; } // 垫片外径
-        //public double Bg { set; get; } // 垫片内径
-        //public double L { set; get; }
-        //public double h { set; get; }
-
+        
         // 连接件个数
         public double num { set; get; }
 
@@ -71,7 +58,7 @@ namespace WindowsFormsApp1
             // 底部
             ICurve baseCircle = new Circle(Plane.XY, outer_A / 2);
             ICurve slotCircle = new Circle(Plane.XY, inner_B / 2);
-            var baseReg = new devDept.Eyeshot.Entities.Region(new List<ICurve>() { baseCircle, slotCircle });
+            var baseReg = new Region(new List<ICurve>() { baseCircle, slotCircle });
 
             _boundingBoxOfBoltHole.Clear();
 
@@ -86,12 +73,13 @@ namespace WindowsFormsApp1
                 box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, .5 * tf);
                 _boundingBoxOfBoltHole.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
 
-                baseReg = devDept.Eyeshot.Entities.Region.Difference(baseReg, new devDept.Eyeshot.Entities.Region(boltCircle))[0];
+                baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
                 boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
             }
             var mesh = baseReg.Triangulate(10);
             _flangeFMCache = mesh.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
-            _flangeFMCache.Extrude(new Vector3D(0, 0, tf ));//  + ddz
+            _flangeFMCache.Extrude(new Vector3D(0, 0, tf ));//  + ddz  高度上扩展
+
             _flangeFMCache.FixAll(Plane.XY, 0.1);
             return _flangeFMCache;
         }
@@ -115,21 +103,6 @@ namespace WindowsFormsApp1
             return genus;
         }
 
-        //private Point3D[] GetSectionPoints()
-        //{
-        //    Point3D[] p = new Point3D[10];
-        //    p[0] = new Point3D(B / 2, 0, L + h + tf + ddz);
-        //    p[1] = new Point3D(B / 2 + tc, 0, L + h + tf + ddz);
-        //    p[2] = new Point3D(B / 2 + tc, 0, h + tf + ddz);
-        //    p[3] = new Point3D(B / 2 + th, 0, tf + ddz);
-        //    p[4] = new Point3D(A / 2, 0, tf + ddz);
-        //    p[5] = new Point3D(A / 2, 0, ddz);
-        //    p[6] = new Point3D(Ag / 2 + ddx, 0, ddz);
-        //    p[7] = new Point3D(Ag / 2 + ddx, 0, 0);
-        //    p[8] = new Point3D(B / 2, 0, 0);
-        //    p[9] = new Point3D(B / 2, 0, L + h + tf + ddz);
-        //    return p;
-        //}
         private Point3D[] GetSectionPoints()
         {
             Point3D[] p = new Point3D[5];

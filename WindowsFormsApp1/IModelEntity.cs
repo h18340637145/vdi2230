@@ -16,4 +16,14 @@ namespace WindowsFormsApp1
         Entity GetEntity();
         //Entity GetEntity(double height);
     }
+
+    public interface IModelEntityClampeds : IModelEntity
+    {
+        /// <summary>
+        /// 获取该模型的实体对象
+        /// </summary>
+        /// <returns>可用于在Model.Entities中添加的实体对象</returns>
+        Entity[] GetEntitys();
+        //Entity GetEntity(double height);
+    }
 }

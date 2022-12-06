@@ -41,10 +41,11 @@ namespace WindowsFormsApp1
             simulation1.Grid.AutoStep = true;
             simulation1.Grid.FillColor = Color.FromArgb(150, 123, 123, 123);
             simulation1.ViewCubeIcon.Visible = false;
-
             simulation1.CoordinateSystemIcon.Visible = false;
             simulation1.Grid.Visible = false;
+
         }
+
         #region Event handlers                
 
         private void simulation1_SelectionChanged(object sender, EventArgs e)
@@ -111,9 +112,10 @@ namespace WindowsFormsApp1
         private void simulation1_WorkCancelled(object sender, EventArgs e)
         {
 
-            numericResultsButton.Enabled = false;
+            //numericResultsButton.Enabled = false;
             plotTypeComboBox.Enabled = false;
         }
+
 
         private void simulation1_WorkCompleted(object sender, devDept.Eyeshot.WorkCompletedEventArgs e)
         {
@@ -141,12 +143,10 @@ namespace WindowsFormsApp1
                 simulation1.ZoomFit();
 
             }
-
-
-            numericResultsButton.Enabled = true;
-            plotTypeComboBox.Enabled = true;
+            //numericResultsButton.Enabled = true;
             FillPlotTypeComboBox();
             UpdateDisplayModeButtons();
+            plotTypeComboBox.Enabled = true;
         }
 
         private void FillPlotTypeComboBox()
@@ -244,10 +244,9 @@ namespace WindowsFormsApp1
             return FemElementsType.None;
         }
 
-
         private void simulation1_WorkFailed(object sender, WorkFailedEventArgs e)
         {
-            numericResultsButton.Enabled = false;
+            //numericResultsButton.Enabled = false;
             plotTypeComboBox.Enabled = false;
         }
 
@@ -283,12 +282,12 @@ namespace WindowsFormsApp1
             if (simulation1.IsBusy)
             {
                 plotTypeComboBox.Enabled = false;
-                numericResultsButton.Enabled = false;
+                //numericResultsButton.Enabled = false;
             }
             else
             {
                 plotTypeComboBox.Enabled = true;
-                numericResultsButton.Enabled = true;
+                //numericResultsButton.Enabled = true;
             }
             // Sets trimetric view and fits the model in the main viewport
             simulation1.SetView(viewType.Trimetric, true, simulation1.AnimateCamera);
@@ -310,11 +309,15 @@ namespace WindowsFormsApp1
             // update the entities
             simulation1.Entities.Regen();
 
+            // Redraw
+            simulation1.Invalidate();
+
+            // update the entities
+
             // if mass properties were changed, updates the proterty grid values
             propertyGrid1.Refresh();
 
             // Redraw
-            simulation1.Invalidate();
         }
 
         private void selectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -335,7 +338,18 @@ namespace WindowsFormsApp1
             }
             else
             {
-                simulation1.ActionMode = actionType.None;
+                //if (simulation1 == null && simulation2 == null)
+                //{
+                //    return;
+                //}
+                if (simulation1 != null)
+                {
+                    simulation1.ActionMode = actionType.None;
+                }
+                //if (simulation2 != null)
+                //{
+                //    simulation2.ActionMode = actionType.None;
+                //}
             }
         }
 
@@ -344,106 +358,207 @@ namespace WindowsFormsApp1
             switch (selectionComboBox.SelectedIndex)
             {
                 case 0:
-                    simulation1.ActionMode = actionType.SelectByPick;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if(simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectByPick;
+                    //if (simulation2 != null)
+                    //    simulation2.ActionMode = actionType.SelectByPick;
                     break;
 
                 case 1:
-                    simulation1.ActionMode = actionType.SelectByBox;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectByBox;
+                    //else
+                    //    simulation2.ActionMode = actionType.SelectByBox;
                     break;
 
                 case 2:
-                    simulation1.ActionMode = actionType.SelectByPolygon;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectByPolygon;
+                    //simulation2.ActionMode = actionType.SelectByPolygon;
                     break;
 
                 case 3:
-                    simulation1.ActionMode = actionType.SelectByBoxEnclosed;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectByBoxEnclosed;
+                    //else
+                    //    simulation2.ActionMode = actionType.SelectByBoxEnclosed;
                     break;
 
                 case 4:
-                    simulation1.ActionMode = actionType.SelectByPolygonEnclosed;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectByPolygonEnclosed;
+                    //else
+                    //    simulation2.ActionMode = actionType.SelectByPolygonEnclosed;
                     break;
 
                 case 5:
-                    simulation1.ActionMode = actionType.SelectByPick;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectByPick;
+                    //else
+                    //    simulation2.ActionMode = actionType.SelectByPick;
                     break;
 
                 case 6:
-                    simulation1.ActionMode = actionType.SelectVisibleByBox;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectVisibleByBox;
+                    //else
+                    //    simulation2.ActionMode = actionType.SelectVisibleByBox;
                     break;
 
                 case 7:
-                    simulation1.ActionMode = actionType.SelectVisibleByPolygon;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectVisibleByPolygon;
+                    //else
+                    //    simulation2.ActionMode = actionType.SelectVisibleByPolygon;
                     break;
                 case 8:
-                    simulation1.ActionMode = actionType.SelectVisibleByPickLabel;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.SelectVisibleByPickLabel;
+                    //else
+                    //    simulation2.ActionMode = actionType.SelectVisibleByPickLabel;
                     groupButton.Enabled = false;
                     break;
 
                 default:
-                    simulation1.ActionMode = actionType.None;
+                    //if (simulation1 == null && simulation2 == null)
+                    //    return;
+                    if (simulation1 != null)
+                        simulation1.ActionMode = actionType.None;
+                    //else
+                    //    simulation2.ActionMode = actionType.None;
                     break;
             }
         }
 
         private void clearSelectionButton_Click(object sender, EventArgs e)
         {
-            if (simulation1.ActionMode == actionType.SelectVisibleByPickLabel)
+            //if (simulation1 == null && simulation2 == null)
+            //    return;
+            if (simulation1 != null)
             {
-                simulation1.Viewports[0].Labels.ClearSelection();
+                if (simulation1.ActionMode == actionType.SelectVisibleByPickLabel)
+                {
+                    simulation1.Viewports[0].Labels.ClearSelection();
+                }
+                else
+                {
+                    simulation1.Entities.ClearSelection();
+                }
+                simulation1.Invalidate(); // redraw
             }
-            else
-            {
-                simulation1.Entities.ClearSelection();
-            }
-            simulation1.Invalidate(); // redraw
+
+
+            //if (simulation2 != null)
+            //{
+            //    if (simulation2.ActionMode == actionType.SelectVisibleByPickLabel)
+            //    {
+            //        simulation2.Viewports[0].Labels.ClearSelection();
+            //    }
+            //    else
+            //    {
+            //        simulation2.Entities.ClearSelection();
+            //    }
+            //    simulation2.Invalidate(); // redraw
+            //}
         }
 
         private void groupButton_Click(object sender, EventArgs e)
         {
-            simulation1.GroupSelection();
+            //if (simulation1 == null && simulation2 == null)
+            //    return;
+            if (simulation1 != null)
+                simulation1.GroupSelection();
+            //if (simulation2 != null)
+            //   simulation2.GroupSelection();
         }
 
         private void invertSelectionButton_Click(object sender, EventArgs e)
         {
-            if (simulation1.ActionMode == actionType.SelectVisibleByPickLabel)
+            //if (simulation1 == null && simulation2 == null)
+            //    return;
+            if (simulation1 != null)
             {
-                simulation1.Viewports[0].Labels.InvertSelection();
+                if (simulation1.ActionMode == actionType.SelectVisibleByPickLabel)
+                {
+                    simulation1.Viewports[0].Labels.InvertSelection();
+                }
+                else
+                {
+                    simulation1.Entities.InvertSelection();
+                }
+                simulation1.Invalidate();
             }
-            else
-            {
-                simulation1.Entities.InvertSelection();
-            }
-            simulation1.Invalidate();
+
+            //if (simulation2 != null)
+            //{
+            //    if (simulation2.ActionMode == actionType.SelectVisibleByPickLabel)
+            //    {
+            //        simulation2.Viewports[0].Labels.InvertSelection();
+            //    }
+            //    else
+            //    {
+            //        simulation2.Entities.InvertSelection();
+            //    }
+            //    simulation2.Invalidate();
+            //}
         }
         #endregion
 
         #region DisplayMode
         private void UpdateDisplayModeButtons()
         {
-            // syncs the shading buttons with the current display mode.
-            switch (simulation1.DisplayMode)
+            if (simulation1 == null )
             {
-                case displayType.Wireframe:
-                    wireframeButton.Checked = true;
-                    break;
-                case displayType.Shaded:
-                    shadedButton.Checked = true;
-                    break;
-                case displayType.Rendered:
-                    renderedButton.Checked = true;
-                    break;
-                case displayType.Flat:
-                    flatButton.Checked = true;
-                    break;
-                case displayType.HiddenLines:
-                    hiddenLinesButton.Checked = true;
-                    break;
+                return;
+            }
+            if (simulation1 != null)
+            {
+                // syncs the shading buttons with the current display mode.
+                switch (simulation1.DisplayMode)
+                {
+                    case displayType.Wireframe:
+                        wireframeButton.Checked = true;
+                        break;
+                    case displayType.Shaded:
+                        shadedButton.Checked = true;
+                        break;
+                    case displayType.Rendered:
+                        renderedButton.Checked = true;
+                        break;
+                    case displayType.Flat:
+                        flatButton.Checked = true;
+                        break;
+                    case displayType.HiddenLines:
+                        hiddenLinesButton.Checked = true;
+                        break;
+                }
             }
         }
 
         private void wireframeButton_CheckedChanged(object sender, EventArgs e)
         {
-            SetDisplayMode(simulation1, displayType.Wireframe);
+            if (simulation1 != null)
+            {
+                SetDisplayMode(simulation1, displayType.Wireframe);
+            }
         }
 
         private static void SetDisplayMode(Simulation simulation, displayType displayType)
@@ -473,22 +588,32 @@ namespace WindowsFormsApp1
 
         private void shadedButton_CheckedChanged(object sender, EventArgs e)
         {
-            SetDisplayMode(simulation1, displayType.Shaded);
+            
+            if (simulation1 != null)
+                SetDisplayMode(simulation1, displayType.Shaded);
         }
 
         private void renderedButton_CheckedChanged(object sender, EventArgs e)
         {
-            SetDisplayMode(simulation1, displayType.Rendered);
+            
+            if (simulation1 != null)
+                SetDisplayMode(simulation1, displayType.Rendered);
         }
 
         private void hiddenLinesButton_CheckedChanged(object sender, EventArgs e)
         {
-            SetDisplayMode(simulation1, displayType.HiddenLines);
+            
+            if (simulation1 != null)
+                SetDisplayMode(simulation1, displayType.HiddenLines);
+            
         }
 
         private void flatButton_CheckedChanged(object sender, EventArgs e)
         {
-            SetDisplayMode(simulation1, displayType.Flat);
+           
+            if (simulation1 != null)
+                SetDisplayMode(simulation1, displayType.Flat);
+            
         }
         #endregion
        
@@ -512,6 +637,7 @@ namespace WindowsFormsApp1
             {
             }
             pickVertexButton.Checked = false;
+
         }
 
         private void pickFaceButton_Click(object sender, EventArgs e)
@@ -526,6 +652,8 @@ namespace WindowsFormsApp1
                 inspectMesh = true;
             }
             pickVertexButton.Checked = false;
+
+
         }
 
         private void areaButton_Click(object sender, EventArgs e)
@@ -659,7 +787,7 @@ namespace WindowsFormsApp1
         }
 
         private void showCurveDirectionButton_CheckedChanged(object sender, EventArgs e)
-        {
+        { 
             simulation1.ShowCurveDirection = showCurveDirectionButton.Checked;
             simulation1.Invalidate();
         }
@@ -675,6 +803,7 @@ namespace WindowsFormsApp1
                 simulation1.Backface.ColorMethod = devDept.Graphics.backfaceColorMethodType.EntityColor;
             }
             simulation1.Invalidate();
+
         }
 
         #endregion
@@ -683,26 +812,41 @@ namespace WindowsFormsApp1
 
         private void showOriginButton_CheckedChanged(object sender, EventArgs e)
         {
-            simulation1.OriginSymbol.Visible = showOriginButton.Checked;
-            simulation1.Invalidate();
+            if (simulation1 != null)
+            {
+                simulation1.OriginSymbol.Visible = showOriginButton.Checked;
+                simulation1.Invalidate();
+            }
+
         }
 
         private void showExtentsButton_CheckedChanged(object sender, EventArgs e)
         {
-            simulation1.OriginSymbol.Visible = showExtentsButton.Checked;
-            simulation1.Invalidate();
+            if (simulation1 != null)
+            {
+                simulation1.OriginSymbol.Visible = showExtentsButton.Checked;
+                simulation1.Invalidate();
+            }
+
         }
 
         private void showVerticesButton_CheckedChanged(object sender, EventArgs e)
         {
-            simulation1.OriginSymbol.Visible = showVerticesButton.Enabled;
-            simulation1.Invalidate();
+            if (simulation1 != null )
+            {
+                simulation1.OriginSymbol.Visible = showVerticesButton.Enabled;
+                simulation1.Invalidate();
+            }
+
         }
 
         private void showGridButton_CheckedChanged(object sender, EventArgs e)
         {
-            simulation1.OriginSymbol.Visible = showGridButton.Enabled;
-            simulation1.Invalidate();
+            if (simulation1!= null)
+            {
+                simulation1.OriginSymbol.Visible = showGridButton.Enabled;
+                simulation1.Invalidate();
+            }
         }
 
         #endregion
@@ -711,16 +855,23 @@ namespace WindowsFormsApp1
 
         private void parallelButton_CheckedChanged(object sender, EventArgs e)
         {
-            simulation1.Camera.ProjectionMode = devDept.Graphics.projectionType.Orthographic;
-            simulation1.AdjustNearAndFarPlanes();
-            simulation1.Invalidate();
+            if (simulation1!= null)
+            {
+                simulation1.Camera.ProjectionMode = devDept.Graphics.projectionType.Orthographic;
+                simulation1.AdjustNearAndFarPlanes();
+                simulation1.Invalidate();
+            }
         }
 
         private void perspectiveButton_CheckedChanged(object sender, EventArgs e)
         {
-            simulation1.Camera.ProjectionMode = devDept.Graphics.projectionType.Perspective;
-            simulation1.AdjustNearAndFarPlanes();
-            simulation1.Invalidate();
+            if (simulation1 != null)
+            {
+
+                simulation1.Camera.ProjectionMode = devDept.Graphics.projectionType.Perspective;
+                simulation1.AdjustNearAndFarPlanes();
+                simulation1.Invalidate();
+            }
         }
 
         #endregion
@@ -729,31 +880,52 @@ namespace WindowsFormsApp1
         // 多视图
         private void frontViewButton_Click(object sender, EventArgs e)
         {
-            simulation1.SetView(viewType.Front, true, simulation1.AnimateCamera);
-            simulation1.Invalidate();
+            if (simulation1 != null)
+            {
+                simulation1.SetView(viewType.Front, true, simulation1.AnimateCamera);
+                simulation1.Invalidate();
+            }
         }
 
         private void sideViewButton_Click(object sender, EventArgs e)
         {
-            simulation1.SetView(viewType.Right, true, simulation1.AnimateCamera);
-            simulation1.Invalidate();
+            if (simulation1 != null)
+            {
+                simulation1.SetView(viewType.Right, true, simulation1.AnimateCamera);
+                simulation1.Invalidate();
+            }
         }
 
         private void topViewButton_Click(object sender, EventArgs e)
         {
-            simulation1.SetView(viewType.Top, true, simulation1.AnimateCamera);
-            simulation1.Invalidate();
+            if (simulation1 != null)
+            {
+                simulation1.SetView(viewType.Top, true, simulation1.AnimateCamera);
+                simulation1.Invalidate();
+            }
+
         }
 
         private void isoViewButton_Click(object sender, EventArgs e)
         {
-            simulation1.SetView(viewType.Isometric, true, simulation1.AnimateCamera);
-            simulation1.Invalidate();
+            
+            if (simulation1!= null)
+            {
+
+                simulation1.SetView(viewType.Isometric, true, simulation1.AnimateCamera);
+                simulation1.Invalidate();
+            }
+
         }
+
 
         private void animateCameraCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            simulation1.AnimateCamera = animateCameraCheckBox.Checked;
+            if (simulation1 != null)
+            {
+                simulation1.AnimateCamera = animateCameraCheckBox.Checked;
+            }
+           
         }
 
         #endregion
@@ -761,7 +933,7 @@ namespace WindowsFormsApp1
         #region createModel
         #region clamped
         private CreateBoltForm _createBoltForm;
-        private CreateClampedForm _createFlangeForm;
+        private CreateClampedForm _createClamedForm;
         private CreateNutForm _createNutForm;
 
         private void createBoltBtn_Click(object sender, EventArgs e)
@@ -781,14 +953,14 @@ namespace WindowsFormsApp1
 
         private void createFlangeBtn_Click_1(object sender, EventArgs e)
         {
-            if (_createFlangeForm == null)
+            if (_createClamedForm == null)
             {
-                _createFlangeForm = new CreateClampedForm();
+                _createClamedForm = new CreateClampedForm();
             }
-            _createFlangeForm.StartPosition = FormStartPosition.CenterParent;
-            _createFlangeForm.ShowDialog();
+            _createClamedForm.StartPosition = FormStartPosition.CenterParent;
+            _createClamedForm.ShowDialog();
 
-            var flange = _createFlangeForm.GetModelEntity();
+            var flange = _createClamedForm.GetModelEntity();
             if (flange == null)
             {
                 return ;
@@ -816,6 +988,7 @@ namespace WindowsFormsApp1
         private BoltsClampedForm boltsClampedForm;
 
         public BoltClass boltData { get; private set; }
+        public ComputeResult rs { get; private set; }
 
         private void _assemblyBtn_Click(object sender, EventArgs e)
         {
@@ -824,7 +997,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("请先创建螺栓");
                 return;
             }
-            if (_createFlangeForm == null)
+            if (_createClamedForm == null)
             {
                 MessageBox.Show("请先创建连接件");
                 return;
@@ -839,11 +1012,11 @@ namespace WindowsFormsApp1
                 boltsClampedForm = new BoltsClampedForm();
 
             boltsClampedForm.BoltForm = _createBoltForm;
-            boltsClampedForm.ClampedForm = _createFlangeForm;
+            boltsClampedForm.ClampedForm = _createClamedForm;
             boltsClampedForm.NutForm = _createNutForm;
             boltsClampedForm.boltData = boltData;
 
-            var fmod = _createFlangeForm.GetModel() as HKFDJClamped;
+            var fmod = _createClamedForm.GetModel() as HKFDJClamped;
             var bmod = _createBoltForm.GetModel() as Bolt;
             var nmod = _createNutForm.GetModel() as NutClass;
             if (fmod == null || bmod == null || nmod == null) return;
@@ -851,6 +1024,11 @@ namespace WindowsFormsApp1
 
             if (result == DialogResult.Yes)
             {
+                if (rs == null)
+                {
+                    rs = new ComputeResult();
+                }
+                rs = boltsClampedForm.rs;
                 _twoStepsOpParamDataGridView.Rows.Clear();
                 _twoStepsOpParamDataGridView.Rows.Add("twisWay", 1, "拧紧方式，1顺序，2交叉");
                 _twoStepsOpParamDataGridView.Rows.Add("n", fmod.n, "螺栓个数");
@@ -887,5 +1065,323 @@ namespace WindowsFormsApp1
 
         #endregion
 
+
+
+        private void _modelingParamOkBtn_Click(object sender, EventArgs e)
+        {
+            boltnet(simulation1);
+            simulation1.Entities.Clear();
+
+            var fmod = _createClamedForm.GetModel() as HKFDJClamped;
+            var bmod = _createBoltForm.GetModel() as Bolt;
+            var nmod = _createNutForm.GetModel() as NutClass;
+            if (fmod == null || bmod == null || nmod == null) return;
+            double[,] opResults = new double[2, (int)fmod.n];
+            for (int i = 0; i < (int)fmod.n; i++)
+            {
+                opResults[0,i] = rs.Fmmax;
+            }
+            
+            SetDisplayMode(simulation1, displayType.Shaded);
+            simulation1.Legends[0].ColorTable = Legend.RedToBlue9;
+            simulation1.Legends[0].IsSlave = true;
+            simulation1.Legends[0].ItemSize = new Size(10, 24);
+            simulation1.Legends[0].Visible = true;
+            simulation1.Legends[0].Title = "FEM";
+
+            Draw.Clamped = fmod;
+            Draw.bolt = bmod;
+            Draw.InitFlangeFem(simulation1);
+            _drawFlangeFemFrameParam = new MulForcesStepsDrawParam()
+            {
+                Forces = opResults,
+                IsOverlay = false
+            };
+
+            tabControl2.SelectedIndex = 2;
+            _firstBatchRenderBtn.Enabled = true;
+        }
+
+        private void boltnet(Simulation simulation1)
+        {
+            simulation1.Entities.Clear();
+
+            var fmod = _createClamedForm.GetModel() as HKFDJClamped;
+            var bmod = _createBoltForm.GetModel() as Bolt;
+            var nmod = _createNutForm.GetModel() as NutClass;
+            if (fmod == null || bmod == null || nmod == null) return;
+            double opResults = rs.Fmmax;
+
+            SetDisplayMode(simulation1, displayType.Shaded);
+            simulation1.Legends[0].ColorTable = Legend.RedToBlue9;
+            simulation1.Legends[0].IsSlave = true;
+            simulation1.Legends[0].ItemSize = new Size(10, 24);
+            simulation1.Legends[0].Visible = true;
+            simulation1.Legends[0].Title = "FEM";
+
+            Draw.Clamped = fmod;
+            Draw.bolt = bmod;
+            Draw.InitBoltFem(simulation1);
+            boltDram = new BoltDram()
+            {
+                Forces = opResults
+            };
+        }
+
+        private MulForcesStepsDrawParam _drawFlangeFemFrameParam;
+        private BoltDram boltDram;
+        private void _firstBatchRenderBtn_Click(object sender, EventArgs e)
+        {
+            _drawFlangeFemFrameParam.Batch = 0;
+            Draw.DrawFlangeFemFrame(simulation1, _drawFlangeFemFrameParam);
+        }
+        
+        private void plotTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Draw.fm == null)
+                return;
+
+            simulation1.Legends[0].Visible = true;
+            Draw.fm.ContourPlot = true;
+            simulation1.Legends[0].ColorTable = Legend.RedToBlue17;
+
+            switch (plotTypeComboBox.Text)
+            {
+
+                case "Mesh":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Mesh;
+                    simulation1.Legends[0].Visible = false;
+
+                    break;
+
+                case "Ux":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Ux;
+                    Draw.fm.ContourPlot = false;
+
+                    break;
+
+                case "Uy":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Uy;
+                    Draw.fm.ContourPlot = false;
+
+                    break;
+
+                case "Uz":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Uz;
+                    Draw.fm.ContourPlot = false;
+
+                    break;
+
+                case "U":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.U;
+                    Draw.fm.ContourPlot = false;
+
+                    break;
+
+                case "Rx":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Rx;
+
+                    break;
+
+                case "Ry":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Ry;
+
+                    break;
+
+                case "Rz":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Rz;
+
+                    break;
+
+                case "Axial Force":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.AxialForce;
+
+                    break;
+
+                case "Shear Force V":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.ShearForceV;
+
+                    break;
+
+                case "Shear Force W":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.ShearForceW;
+
+                    break;
+
+                case "Torsion Moment":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.TorsionMoment;
+
+                    break;
+
+                case "Bending Moment V":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.BeamBendingMomentV;
+
+                    break;
+
+                case "Bending Moment W":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.BeamBendingMomentW;
+
+                    break;
+
+                case "Twist Angle":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.TwistAngle;
+
+                    break;
+
+                case "X stress":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Sx;
+
+                    break;
+
+                case "Y stress":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Sy;
+
+                    break;
+
+                case "Z stress":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Sz;
+
+                    break;
+
+                case "XY shear":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Txy;
+
+                    break;
+
+                case "YZ shear":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Tyz;
+
+                    break;
+
+                case "XZ shear":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Txz;
+
+                    break;
+
+                case "Maximum Principal":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.P1;
+
+                    break;
+
+                case "Intermediate Principal":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.P2;
+
+                    break;
+
+                case "Minimum Principal":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.P3;
+
+                    break;
+
+                case "Von Mises":
+
+
+                    Draw.fm.PlotMode = FemMesh.plotType.VonMises;
+
+                    break;
+
+                case "Tresca":
+
+                    Draw.fm.PlotMode = FemMesh.plotType.Tresca;
+
+                    break;
+            }
+
+            // re-computes the plot and redraw
+            if (Draw.fm != null)
+            {
+                Draw.fm.ComputePlot(simulation1, simulation1.Legends[0]);
+                simulation1.Entities.UpdateBoundingBox();
+            }
+            simulation1.Invalidate();
+
+            contourPlotCheckBox.Checked = Draw.fm.ContourPlot;
+            nodalAveragesCheckBox.Checked = Draw.fm.NodalAverages;
+        }
+
+
+        void showRestraintsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (simulation1 != null)
+            {
+                simulation1.ShowRestraint = showRestraintsCheckBox.Checked;
+                simulation1.Invalidate();
+            }
+
+        }
+        private void showJointCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (simulation1 != null)
+            {
+                simulation1.ShowJoint = showJointCheckBox.Checked;
+                simulation1.Invalidate();
+            }
+
+        }
+
+        private void showLoadCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (simulation1 != null)
+            {
+                simulation1.ShowLoad = showLoadCheckBox.Checked;
+                simulation1.Invalidate();
+            }
+        }
+
+        private void showVertexIndicesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (simulation1 != null)
+            {
+                simulation1.ShowVertexIndices = showVertexIndicesCheckBox.Checked;
+                simulation1.Invalidate();
+            }
+        }
+
+        private void contourPlotCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // re-computes the plot and redraw
+            if (Draw.fm != null)
+            {
+                Draw.fm.ContourPlot = contourPlotCheckBox.Checked;
+                Draw.fm.ComputePlot(simulation1, simulation1.Legends[0]);
+                simulation1.Invalidate();
+            }
+        }
+
+        private void nodalAveragesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // re-computes the plot and redraw
+            if (Draw.fm != null)
+            {
+                Draw.fm.NodalAverages = nodalAveragesCheckBox.Checked;
+                Draw.fm.ComputePlot(simulation1, simulation1.Legends[0]);
+                simulation1.Invalidate();
+            }
+        }
     }
 }

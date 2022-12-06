@@ -3274,11 +3274,12 @@ namespace WindowsFormsApp1
                 }
                 ffz = r4.table5(rz, r2.w, fq);
             }
+            r4.ffz = ffz;
             r4.setFz();
             double Fz = r4.FZ;
             rs.Fz = Fz;
             Console.WriteLine("ffz:" + ffz.ToString());
-            Console.WriteLine("Fz:" + rs.Fz.ToString());
+            Console.WriteLine("Fz:" + Fz);
             solution.r4 = r4;
 
             #endregion
@@ -3331,7 +3332,7 @@ namespace WindowsFormsApp1
             double sf = r8.getSf();
             Console.WriteLine("sf:" + sf);
             solution.r8 = r8;
-
+            rs.Sf = sf;
             #endregion
 
             #region R9_jiaobian

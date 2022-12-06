@@ -104,7 +104,6 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("fz", 0.008, "um嵌入深度");
                     dataGridView1.Rows.Add("n", 0.07, "mm载荷系数");
                     dataGridView1.Rows.Add("pimax", 0, "内压强度");
-                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
 
                     dataGridView1.Rows.Add("ssym", 5, "mm偏心距");
                     dataGridView1.Rows.Add("u", 2, "mm0-0轴到开口处的距离");
@@ -114,6 +113,8 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("bT", 20, "mm被连接件接合面宽度");
                     dataGridView1.Rows.Add("e", 2, "mm从接合面带有张开风险的边缘至螺栓轴的距离");
                     dataGridView1.Rows.Add("a", 5, "mm偏心轴向载荷");
+                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
+
                 }
                 else
                 {
@@ -124,7 +125,6 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("fz", 0.008, "um嵌入深度");
                     dataGridView1.Rows.Add("n", 0.07, "载荷系数");
                     dataGridView1.Rows.Add("pimax", 0, "内压强度");
-                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
                 }
             }
             else
@@ -147,6 +147,8 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("bT", 20, "mm被连接件接合面宽度");
                     dataGridView1.Rows.Add("e", 2, "mm从接合面带有张开风险的边缘至螺栓轴的距离");
                     dataGridView1.Rows.Add("a", 5, "mm偏心轴向载荷");
+                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
+
                 }
                 else
                 {
@@ -156,6 +158,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("DA_", 80, "mm接合面上的面的等效外径");
                     dataGridView1.Rows.Add("fz", 0.008, "um嵌入深度");
                     dataGridView1.Rows.Add("n", 0.07, "载荷系数");
+
                 }
             }
         }
@@ -199,7 +202,6 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("fz", 0.008, "um嵌入深度");
                     dataGridView1.Rows.Add("n", 0.07, "载荷系数");
                     dataGridView1.Rows.Add("pimax", 0, "N/mm2内压强度");
-                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
 
                     dataGridView1.Rows.Add("ssym", 5, "mm偏心距");
                     dataGridView1.Rows.Add("u", 2, "mm0-0轴到开口处的距离");
@@ -209,6 +211,8 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("bT", 20, "mm被连接件接合面宽度");
                     dataGridView1.Rows.Add("e", 2, "mm从接合面带有张开风险的边缘至螺栓轴的距离");
                     dataGridView1.Rows.Add("a", 5, "mm偏心轴向载荷");
+                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
+
                 }
                 else
                 {
@@ -219,7 +223,6 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("fz", 0.008, "um嵌入深度");
                     dataGridView1.Rows.Add("n", 0.07, "载荷系数");
                     dataGridView1.Rows.Add("pimax", 0, "N/mm2内压强度");
-                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
                 }
             }
             else
@@ -242,6 +245,8 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("bT", 20, "mm被连接件接合面宽度");
                     dataGridView1.Rows.Add("e", 2, "mm从接合面带有张开风险的边缘至螺栓轴的距离");
                     dataGridView1.Rows.Add("a", 5, "mm偏心轴向载荷");
+                    dataGridView1.Rows.Add("AD", 70, "mm2内压面积");
+
                 }
                 else
                 {
@@ -251,6 +256,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                     dataGridView1.Rows.Add("DA_", 80, "mm接合面上的面的等效外径");
                     dataGridView1.Rows.Add("fz", 0.008, "um嵌入深度");
                     dataGridView1.Rows.Add("n", 0.07, "载荷系数");
+
                 }
             }
         }
@@ -268,7 +274,6 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
     public class NeiYa
     {
         public double pimax { get; set; }
-        public double AD { get; set; }
     }
 
     public class PianXin
@@ -281,5 +286,6 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
         public double bT { get; set; }
         public double e { get; set; }
         public double a { get; set; }
+        public double AD { get; set; }
     }
 }

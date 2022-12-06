@@ -40,6 +40,7 @@
             this.设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.validateCompute = new System.Windows.Forms.ToolStripMenuItem();
+            this.multiDesignBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -49,7 +50,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ilIcon = new System.Windows.Forms.ImageList(this.components);
-            this.multiDesignBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -127,16 +127,23 @@
             // initDesign
             // 
             this.initDesign.Name = "initDesign";
-            this.initDesign.Size = new System.Drawing.Size(180, 22);
+            this.initDesign.Size = new System.Drawing.Size(160, 22);
             this.initDesign.Text = "单螺栓初始设计";
             this.initDesign.Click += new System.EventHandler(this.initDesign_Click);
             // 
             // validateCompute
             // 
             this.validateCompute.Name = "validateCompute";
-            this.validateCompute.Size = new System.Drawing.Size(180, 22);
+            this.validateCompute.Size = new System.Drawing.Size(160, 22);
             this.validateCompute.Text = "单螺栓验证计算";
             this.validateCompute.Click += new System.EventHandler(this.validateCompute_Click);
+            // 
+            // multiDesignBtn
+            // 
+            this.multiDesignBtn.Name = "multiDesignBtn";
+            this.multiDesignBtn.Size = new System.Drawing.Size(80, 21);
+            this.multiDesignBtn.Text = "多螺栓设计";
+            this.multiDesignBtn.Click += new System.EventHandler(this.multiDesignBtn_Click);
             // 
             // statusStrip1
             // 
@@ -242,13 +249,6 @@
             this.ilIcon.Images.SetKeyName(44, "user.png");
             this.ilIcon.Images.SetKeyName(45, "yewujianmogongcheng.png");
             // 
-            // multiDesignBtn
-            // 
-            this.multiDesignBtn.Name = "multiDesignBtn";
-            this.multiDesignBtn.Size = new System.Drawing.Size(80, 21);
-            this.multiDesignBtn.Text = "多螺栓设计";
-            this.multiDesignBtn.Click += new System.EventHandler(this.multiDesignBtn_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -262,7 +262,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainWindow";
-            this.Text = "VDI2230螺栓连接设计系统";
+            this.Text = "VDIBoltStudio";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.menuStrip1.ResumeLayout(false);

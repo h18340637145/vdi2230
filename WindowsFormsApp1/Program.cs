@@ -18,8 +18,8 @@ namespace WindowsFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new JiHeParamFrm());
-            Application.Run(new MutliBoltsDesginForm());
-            //Application.Run(new MainWindow());
+            //Application.Run(new MutliBoltsDesginForm());
+            Application.Run(new MainWindow());
 
         }
     }

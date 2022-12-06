@@ -738,11 +738,11 @@ namespace WindowsFormsApp1.VDISolution
             if (r2.s_sym != 0)
             {
                 I_ve_bers = I_V_Bers + Math.Pow(r2.s_sym, 2) * Math.PI * Math.Pow(r2.D_A, 2) / 4;
-                if (r2.Fau == 0 || r2.a == 0)
-                {
-                    r2.a = 0;
-                    Nn = 1;
-                }
+                //if (r2.Fau == 0 || r2.a == 0)
+                //{
+                //    r2.a = 0;
+                //    Nn = 1;
+                //}
 
                 if (r2.a != 0)
                 {

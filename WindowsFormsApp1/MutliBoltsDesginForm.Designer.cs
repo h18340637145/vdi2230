@@ -32,7 +32,7 @@
             devDept.Eyeshot.ProgressBar progressBar1 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Red, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton1, false, 0.1D, true);
             devDept.Eyeshot.DisplayModeSettingsRendered displayModeSettingsRendered1 = new devDept.Eyeshot.DisplayModeSettingsRendered(true, devDept.Eyeshot.edgeColorMethodType.EntityColor, System.Drawing.Color.Black, 1F, 2F, devDept.Eyeshot.silhouettesDrawingType.LastFrame, false, devDept.Graphics.shadowType.Realistic, null, false, true, 0.3F, devDept.Graphics.realisticShadowQualityType.High);
             devDept.Graphics.BackgroundSettings backgroundSettings1 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.Solid, System.Drawing.Color.DeepSkyBlue, System.Drawing.Color.DodgerBlue, System.Drawing.Color.WhiteSmoke, 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.3D);
-            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 0D), 617.10100716628347D, new devDept.Geometry.Quaternion(0.12940952255126034D, 0.22414386804201339D, 0.4829629131445341D, 0.83651630373780794D), devDept.Graphics.projectionType.Perspective, 50D, 2.0197531198719241D, false, 0.001D);
+            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 0D), 617.10100716628347D, new devDept.Geometry.Quaternion(0.12940952255126034D, 0.22414386804201339D, 0.4829629131445341D, 0.83651630373780794D), devDept.Graphics.projectionType.Perspective, 50D, 2.0938273509698786D, false, 0.001D);
             devDept.Eyeshot.HomeToolBarButton homeToolBarButton1 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
             devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton1 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton1 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
@@ -54,7 +54,7 @@
             devDept.Eyeshot.PanSettings panSettings1 = new devDept.Eyeshot.PanSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Ctrl), 25, true);
             devDept.Eyeshot.NavigationSettings navigationSettings1 = new devDept.Eyeshot.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Left, devDept.Eyeshot.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
             devDept.Eyeshot.Viewport.SavedViewsManager savedViewsManager1 = new devDept.Eyeshot.Viewport.SavedViewsManager(8);
-            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(727, 409), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
+            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(794, 424), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
             toolBar1}, devDept.Eyeshot.displayType.Rendered, true, false, false, false, new devDept.Eyeshot.Grid[] {
             grid1}, false, rotateSettings1, zoomSettings1, panSettings1, navigationSettings1, savedViewsManager1, devDept.Eyeshot.viewType.Trimetric);
             devDept.Eyeshot.CoordinateSystemIcon coordinateSystemIcon1 = new devDept.Eyeshot.CoordinateSystemIcon(System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.coordinateSystemPositionType.BottomLeft, 37, false);
@@ -80,7 +80,10 @@
             devDept.Eyeshot.ViewCubeIcon viewCubeIcon1 = new devDept.Eyeshot.ViewCubeIcon(devDept.Eyeshot.coordinateSystemPositionType.TopRight, true, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(20)))), ((int)(((byte)(147))))), true, "FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM", System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), 'S', 'N', 'W', 'E', true, System.Drawing.Color.White, System.Drawing.Color.Black, 120, true, true, null, null, null, null, null, null, false);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.simulation1 = new devDept.Eyeshot.Simulation();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
@@ -139,7 +142,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.femPlotGroupBox = new System.Windows.Forms.GroupBox();
-            this.numericResultsButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this._firstBatchRenderBtn = new System.Windows.Forms.Button();
             this.plotTypeComboBox = new System.Windows.Forms.ComboBox();
             this.contourPlotCheckBox = new System.Windows.Forms.CheckBox();
             this.nodalAveragesCheckBox = new System.Windows.Forms.CheckBox();
@@ -150,15 +154,12 @@
             this.FirstBatchField = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.femScalingGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.amplificationFactorTrackBar = new System.Windows.Forms.TrackBar();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.showRestraintsCheckBox = new System.Windows.Forms.CheckBox();
-            this.showVertexIndicesCheckBox = new System.Windows.Forms.CheckBox();
-            this.showLoadCheckBox = new System.Windows.Forms.CheckBox();
             this.showJointCheckBox = new System.Windows.Forms.CheckBox();
+            this.showVertexIndicesCheckBox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this._firstBatchRenderBtn = new System.Windows.Forms.Button();
-            this._secondBatchRenderBtn = new System.Windows.Forms.Button();
+            this.showLoadCheckBox = new System.Windows.Forms.CheckBox();
+            this.showRestraintsCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -167,6 +168,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.simulation1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -191,7 +194,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._stepsForceOpDataGridView)).BeginInit();
             this.femScalingGroupBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.amplificationFactorTrackBar)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
@@ -210,8 +212,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(1234, 601);
-            this.splitContainer1.SplitterDistance = 727;
+            this.splitContainer1.Size = new System.Drawing.Size(1372, 671);
+            this.splitContainer1.SplitterDistance = 808;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -223,26 +225,48 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.simulation1);
+            this.splitContainer2.Panel1.Controls.Add(this.tabControl3);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(727, 601);
-            this.splitContainer2.SplitterDistance = 409;
+            this.splitContainer2.Size = new System.Drawing.Size(808, 671);
+            this.splitContainer2.SplitterDistance = 456;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl3.Location = new System.Drawing.Point(0, 0);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(808, 456);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.simulation1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(800, 430);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // simulation1
             // 
             this.simulation1.Cursor = System.Windows.Forms.Cursors.Default;
             this.simulation1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simulation1.Location = new System.Drawing.Point(0, 0);
+            this.simulation1.Location = new System.Drawing.Point(3, 3);
             this.simulation1.MinimumSize = new System.Drawing.Size(8, 8);
             this.simulation1.Name = "simulation1";
             this.simulation1.ProgressBar = progressBar1;
             this.simulation1.Rendered = displayModeSettingsRendered1;
-            this.simulation1.Size = new System.Drawing.Size(727, 409);
-            this.simulation1.TabIndex = 1;
+            this.simulation1.Size = new System.Drawing.Size(794, 424);
+            this.simulation1.TabIndex = 2;
             coordinateSystemIcon1.LabelFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             viewport1.CoordinateSystemIcon = coordinateSystemIcon1;
             legend1.TextFont = null;
@@ -256,6 +280,16 @@
             viewport1.ViewCubeIcon = viewCubeIcon1;
             this.simulation1.Viewports.Add(viewport1);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(800, 430);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -263,7 +297,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(727, 188);
+            this.tabControl1.Size = new System.Drawing.Size(808, 211);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -272,7 +306,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(719, 162);
+            this.tabPage1.Size = new System.Drawing.Size(800, 185);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "对象属性";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -284,7 +318,7 @@
             this.propertyGrid1.HelpVisible = false;
             this.propertyGrid1.Location = new System.Drawing.Point(3, 3);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(713, 156);
+            this.propertyGrid1.Size = new System.Drawing.Size(794, 179);
             this.propertyGrid1.TabIndex = 63;
             this.propertyGrid1.ToolbarVisible = false;
             this.propertyGrid1.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGrid1_PropertyValueChanged);
@@ -298,7 +332,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(503, 601);
+            this.tabControl2.Size = new System.Drawing.Size(560, 671);
             this.tabControl2.TabIndex = 131;
             // 
             // tabPage2
@@ -311,7 +345,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(495, 575);
+            this.tabPage2.Size = new System.Drawing.Size(552, 645);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "视图";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -757,7 +791,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(495, 575);
+            this.tabPage3.Size = new System.Drawing.Size(552, 645);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "模型";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -773,9 +807,9 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 216F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(489, 569);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.49882F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.50118F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(546, 639);
             this.tableLayoutPanel4.TabIndex = 130;
             // 
             // groupBox8
@@ -784,7 +818,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(3, 219);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(483, 170);
+            this.groupBox8.Size = new System.Drawing.Size(540, 178);
             this.groupBox8.TabIndex = 130;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "参数";
@@ -803,17 +837,17 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(477, 150);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(534, 158);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // _moddelingParamResetBtn
             // 
             this._moddelingParamResetBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._moddelingParamResetBtn.Location = new System.Drawing.Point(241, 123);
+            this._moddelingParamResetBtn.Location = new System.Drawing.Point(270, 131);
             this._moddelingParamResetBtn.Name = "_moddelingParamResetBtn";
-            this._moddelingParamResetBtn.Size = new System.Drawing.Size(233, 24);
+            this._moddelingParamResetBtn.Size = new System.Drawing.Size(261, 24);
             this._moddelingParamResetBtn.TabIndex = 4;
-            this._moddelingParamResetBtn.Text = "重置";
+            this._moddelingParamResetBtn.Text = "螺栓划分";
             this._moddelingParamResetBtn.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -823,7 +857,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(471, 114);
+            this.panel1.Size = new System.Drawing.Size(528, 122);
             this.panel1.TabIndex = 2;
             // 
             // _twoStepsOpParamDataGridView
@@ -842,7 +876,7 @@
             this._twoStepsOpParamDataGridView.Location = new System.Drawing.Point(0, 0);
             this._twoStepsOpParamDataGridView.Name = "_twoStepsOpParamDataGridView";
             this._twoStepsOpParamDataGridView.RowTemplate.Height = 23;
-            this._twoStepsOpParamDataGridView.Size = new System.Drawing.Size(471, 114);
+            this._twoStepsOpParamDataGridView.Size = new System.Drawing.Size(528, 122);
             this._twoStepsOpParamDataGridView.TabIndex = 0;
             // 
             // PropeField
@@ -865,12 +899,13 @@
             this._modelingParamOkBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this._modelingParamOkBtn.Enabled = false;
             this._modelingParamOkBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._modelingParamOkBtn.Location = new System.Drawing.Point(3, 123);
+            this._modelingParamOkBtn.Location = new System.Drawing.Point(3, 131);
             this._modelingParamOkBtn.Name = "_modelingParamOkBtn";
-            this._modelingParamOkBtn.Size = new System.Drawing.Size(232, 24);
+            this._modelingParamOkBtn.Size = new System.Drawing.Size(261, 24);
             this._modelingParamOkBtn.TabIndex = 3;
-            this._modelingParamOkBtn.Text = "确认";
+            this._modelingParamOkBtn.Text = "连接件划分";
             this._modelingParamOkBtn.UseVisualStyleBackColor = true;
+            this._modelingParamOkBtn.Click += new System.EventHandler(this._modelingParamOkBtn_Click);
             // 
             // groupBox2
             // 
@@ -882,7 +917,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(483, 202);
+            this.groupBox2.Size = new System.Drawing.Size(540, 202);
             this.groupBox2.TabIndex = 129;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "模型";
@@ -893,7 +928,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._resetBtn.Location = new System.Drawing.Point(20, 161);
             this._resetBtn.Name = "_resetBtn";
-            this._resetBtn.Size = new System.Drawing.Size(457, 35);
+            this._resetBtn.Size = new System.Drawing.Size(514, 35);
             this._resetBtn.TabIndex = 3;
             this._resetBtn.Text = "重置";
             this._resetBtn.UseVisualStyleBackColor = true;
@@ -905,7 +940,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._assemblyBtn.Location = new System.Drawing.Point(20, 124);
             this._assemblyBtn.Name = "_assemblyBtn";
-            this._assemblyBtn.Size = new System.Drawing.Size(457, 35);
+            this._assemblyBtn.Size = new System.Drawing.Size(514, 35);
             this._assemblyBtn.TabIndex = 2;
             this._assemblyBtn.Text = "装配";
             this._assemblyBtn.UseVisualStyleBackColor = true;
@@ -917,7 +952,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.createFlangeBtn.Location = new System.Drawing.Point(20, 13);
             this.createFlangeBtn.Name = "createFlangeBtn";
-            this.createFlangeBtn.Size = new System.Drawing.Size(457, 35);
+            this.createFlangeBtn.Size = new System.Drawing.Size(514, 35);
             this.createFlangeBtn.TabIndex = 1;
             this.createFlangeBtn.Text = "创建连接件";
             this.createFlangeBtn.UseVisualStyleBackColor = true;
@@ -929,7 +964,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.createNutBtn.Location = new System.Drawing.Point(20, 86);
             this.createNutBtn.Name = "createNutBtn";
-            this.createNutBtn.Size = new System.Drawing.Size(457, 35);
+            this.createNutBtn.Size = new System.Drawing.Size(514, 35);
             this.createNutBtn.TabIndex = 0;
             this.createNutBtn.Text = "创建螺母";
             this.createNutBtn.UseVisualStyleBackColor = true;
@@ -941,7 +976,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.createBoltBtn.Location = new System.Drawing.Point(20, 50);
             this.createBoltBtn.Name = "createBoltBtn";
-            this.createBoltBtn.Size = new System.Drawing.Size(457, 35);
+            this.createBoltBtn.Size = new System.Drawing.Size(514, 35);
             this.createBoltBtn.TabIndex = 0;
             this.createBoltBtn.Text = "创建螺栓";
             this.createBoltBtn.UseVisualStyleBackColor = true;
@@ -953,7 +988,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(495, 575);
+            this.tabPage4.Size = new System.Drawing.Size(552, 645);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "分析";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -971,36 +1006,46 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(489, 569);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(546, 639);
             this.tableLayoutPanel1.TabIndex = 93;
             // 
             // femPlotGroupBox
             // 
-            this.femPlotGroupBox.Controls.Add(this.numericResultsButton);
+            this.femPlotGroupBox.Controls.Add(this.button1);
+            this.femPlotGroupBox.Controls.Add(this._firstBatchRenderBtn);
             this.femPlotGroupBox.Controls.Add(this.plotTypeComboBox);
             this.femPlotGroupBox.Controls.Add(this.contourPlotCheckBox);
             this.femPlotGroupBox.Controls.Add(this.nodalAveragesCheckBox);
             this.femPlotGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.femPlotGroupBox.Location = new System.Drawing.Point(3, 3);
             this.femPlotGroupBox.Name = "femPlotGroupBox";
-            this.femPlotGroupBox.Size = new System.Drawing.Size(483, 94);
+            this.femPlotGroupBox.Size = new System.Drawing.Size(540, 94);
             this.femPlotGroupBox.TabIndex = 90;
             this.femPlotGroupBox.TabStop = false;
             this.femPlotGroupBox.Text = "有限元绘图形式";
             // 
-            // numericResultsButton
+            // button1
             // 
-            this.numericResultsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numericResultsButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.numericResultsButton.Location = new System.Drawing.Point(-86, 66);
-            this.numericResultsButton.Name = "numericResultsButton";
-            this.numericResultsButton.Size = new System.Drawing.Size(272, 22);
-            this.numericResultsButton.TabIndex = 123;
-            this.numericResultsButton.Text = "Numeric results";
-            this.numericResultsButton.UseVisualStyleBackColor = true;
-            this.numericResultsButton.Visible = false;
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(221, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(229, 28);
+            this.button1.TabIndex = 124;
+            this.button1.Text = "螺栓计算";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // _firstBatchRenderBtn
+            // 
+            this._firstBatchRenderBtn.Enabled = false;
+            this._firstBatchRenderBtn.Location = new System.Drawing.Point(221, 20);
+            this._firstBatchRenderBtn.Name = "_firstBatchRenderBtn";
+            this._firstBatchRenderBtn.Size = new System.Drawing.Size(229, 28);
+            this._firstBatchRenderBtn.TabIndex = 124;
+            this._firstBatchRenderBtn.Text = "应力计算";
+            this._firstBatchRenderBtn.UseVisualStyleBackColor = true;
+            this._firstBatchRenderBtn.Click += new System.EventHandler(this._firstBatchRenderBtn_Click);
             // 
             // plotTypeComboBox
             // 
@@ -1027,6 +1072,7 @@
             this.plotTypeComboBox.Name = "plotTypeComboBox";
             this.plotTypeComboBox.Size = new System.Drawing.Size(170, 20);
             this.plotTypeComboBox.TabIndex = 86;
+            this.plotTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.plotTypeComboBox_SelectedIndexChanged);
             // 
             // contourPlotCheckBox
             // 
@@ -1038,6 +1084,7 @@
             this.contourPlotCheckBox.TabIndex = 89;
             this.contourPlotCheckBox.Text = "轮廓线";
             this.contourPlotCheckBox.UseVisualStyleBackColor = true;
+            this.contourPlotCheckBox.CheckedChanged += new System.EventHandler(this.contourPlotCheckBox_CheckedChanged);
             // 
             // nodalAveragesCheckBox
             // 
@@ -1049,14 +1096,15 @@
             this.nodalAveragesCheckBox.TabIndex = 88;
             this.nodalAveragesCheckBox.Text = "平均";
             this.nodalAveragesCheckBox.UseVisualStyleBackColor = true;
+            this.nodalAveragesCheckBox.CheckedChanged += new System.EventHandler(this.nodalAveragesCheckBox_CheckedChanged);
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this._stepsForceOpDataGridView);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(3, 263);
+            this.groupBox7.Location = new System.Drawing.Point(3, 276);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(483, 303);
+            this.groupBox7.Size = new System.Drawing.Size(540, 360);
             this.groupBox7.TabIndex = 92;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "数据";
@@ -1068,18 +1116,17 @@
             this._stepsForceOpDataGridView.AllowUserToOrderColumns = true;
             this._stepsForceOpDataGridView.AllowUserToResizeColumns = false;
             this._stepsForceOpDataGridView.AllowUserToResizeRows = false;
-            this._stepsForceOpDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._stepsForceOpDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._stepsForceOpDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._stepsForceOpDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BoltIdField,
             this.SecondBatchField,
             this.FirstBatchField});
-            this._stepsForceOpDataGridView.Location = new System.Drawing.Point(4, 20);
+            this._stepsForceOpDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._stepsForceOpDataGridView.Location = new System.Drawing.Point(3, 17);
             this._stepsForceOpDataGridView.Name = "_stepsForceOpDataGridView";
             this._stepsForceOpDataGridView.RowTemplate.Height = 23;
-            this._stepsForceOpDataGridView.Size = new System.Drawing.Size(479, 206);
+            this._stepsForceOpDataGridView.Size = new System.Drawing.Size(534, 340);
             this._stepsForceOpDataGridView.TabIndex = 0;
             // 
             // BoltIdField
@@ -1103,7 +1150,7 @@
             this.femScalingGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.femScalingGroupBox.Location = new System.Drawing.Point(3, 103);
             this.femScalingGroupBox.Name = "femScalingGroupBox";
-            this.femScalingGroupBox.Size = new System.Drawing.Size(483, 154);
+            this.femScalingGroupBox.Size = new System.Drawing.Size(540, 167);
             this.femScalingGroupBox.TabIndex = 91;
             this.femScalingGroupBox.TabStop = false;
             this.femScalingGroupBox.Text = "有限元控制";
@@ -1112,49 +1159,91 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.amplificationFactorTrackBar, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(477, 134);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(534, 147);
             this.tableLayoutPanel2.TabIndex = 95;
-            // 
-            // amplificationFactorTrackBar
-            // 
-            this.amplificationFactorTrackBar.AutoSize = false;
-            this.amplificationFactorTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.amplificationFactorTrackBar.Location = new System.Drawing.Point(3, 3);
-            this.amplificationFactorTrackBar.Maximum = 1;
-            this.amplificationFactorTrackBar.Minimum = -1;
-            this.amplificationFactorTrackBar.Name = "amplificationFactorTrackBar";
-            this.amplificationFactorTrackBar.Size = new System.Drawing.Size(471, 34);
-            this.amplificationFactorTrackBar.TabIndex = 76;
-            this.amplificationFactorTrackBar.Value = -1;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Controls.Add(this.showRestraintsCheckBox, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.showJointCheckBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.showVertexIndicesCheckBox, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.showLoadCheckBox, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.showJointCheckBox, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 83);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 62);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(471, 48);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(528, 82);
             this.tableLayoutPanel3.TabIndex = 77;
+            // 
+            // showJointCheckBox
+            // 
+            this.showJointCheckBox.AutoSize = true;
+            this.showJointCheckBox.Checked = true;
+            this.showJointCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showJointCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showJointCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.showJointCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.showJointCheckBox.Name = "showJointCheckBox";
+            this.showJointCheckBox.Size = new System.Drawing.Size(258, 76);
+            this.showJointCheckBox.TabIndex = 95;
+            this.showJointCheckBox.Text = "Show joints";
+            this.showJointCheckBox.UseVisualStyleBackColor = true;
+            this.showJointCheckBox.CheckedChanged += new System.EventHandler(this.showJointCheckBox_CheckedChanged);
+            // 
+            // showVertexIndicesCheckBox
+            // 
+            this.showVertexIndicesCheckBox.AutoSize = true;
+            this.showVertexIndicesCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showVertexIndicesCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.showVertexIndicesCheckBox.Location = new System.Drawing.Point(267, 3);
+            this.showVertexIndicesCheckBox.Name = "showVertexIndicesCheckBox";
+            this.showVertexIndicesCheckBox.Size = new System.Drawing.Size(258, 76);
+            this.showVertexIndicesCheckBox.TabIndex = 94;
+            this.showVertexIndicesCheckBox.Text = "Show vertex indices";
+            this.showVertexIndicesCheckBox.UseVisualStyleBackColor = true;
+            this.showVertexIndicesCheckBox.CheckedChanged += new System.EventHandler(this.showVertexIndicesCheckBox_CheckedChanged);
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.showLoadCheckBox, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.showRestraintsCheckBox, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(528, 53);
+            this.tableLayoutPanel6.TabIndex = 78;
+            // 
+            // showLoadCheckBox
+            // 
+            this.showLoadCheckBox.AutoSize = true;
+            this.showLoadCheckBox.Checked = true;
+            this.showLoadCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showLoadCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showLoadCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.showLoadCheckBox.Location = new System.Drawing.Point(267, 3);
+            this.showLoadCheckBox.Name = "showLoadCheckBox";
+            this.showLoadCheckBox.Size = new System.Drawing.Size(258, 47);
+            this.showLoadCheckBox.TabIndex = 94;
+            this.showLoadCheckBox.Text = "Show loads";
+            this.showLoadCheckBox.UseVisualStyleBackColor = true;
+            this.showLoadCheckBox.CheckedChanged += new System.EventHandler(this.showLoadCheckBox_CheckedChanged);
             // 
             // showRestraintsCheckBox
             // 
@@ -1165,91 +1254,17 @@
             this.showRestraintsCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.showRestraintsCheckBox.Location = new System.Drawing.Point(3, 3);
             this.showRestraintsCheckBox.Name = "showRestraintsCheckBox";
-            this.showRestraintsCheckBox.Size = new System.Drawing.Size(111, 42);
-            this.showRestraintsCheckBox.TabIndex = 77;
+            this.showRestraintsCheckBox.Size = new System.Drawing.Size(258, 47);
+            this.showRestraintsCheckBox.TabIndex = 78;
             this.showRestraintsCheckBox.Text = "Show restraints";
             this.showRestraintsCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // showVertexIndicesCheckBox
-            // 
-            this.showVertexIndicesCheckBox.AutoSize = true;
-            this.showVertexIndicesCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.showVertexIndicesCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.showVertexIndicesCheckBox.Location = new System.Drawing.Point(354, 3);
-            this.showVertexIndicesCheckBox.Name = "showVertexIndicesCheckBox";
-            this.showVertexIndicesCheckBox.Size = new System.Drawing.Size(114, 42);
-            this.showVertexIndicesCheckBox.TabIndex = 94;
-            this.showVertexIndicesCheckBox.Text = "Show vertex indices";
-            this.showVertexIndicesCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // showLoadCheckBox
-            // 
-            this.showLoadCheckBox.AutoSize = true;
-            this.showLoadCheckBox.Checked = true;
-            this.showLoadCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showLoadCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.showLoadCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.showLoadCheckBox.Location = new System.Drawing.Point(120, 3);
-            this.showLoadCheckBox.Name = "showLoadCheckBox";
-            this.showLoadCheckBox.Size = new System.Drawing.Size(111, 42);
-            this.showLoadCheckBox.TabIndex = 93;
-            this.showLoadCheckBox.Text = "Show loads";
-            this.showLoadCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // showJointCheckBox
-            // 
-            this.showJointCheckBox.AutoSize = true;
-            this.showJointCheckBox.Checked = true;
-            this.showJointCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showJointCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.showJointCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.showJointCheckBox.Location = new System.Drawing.Point(237, 3);
-            this.showJointCheckBox.Name = "showJointCheckBox";
-            this.showJointCheckBox.Size = new System.Drawing.Size(111, 42);
-            this.showJointCheckBox.TabIndex = 78;
-            this.showJointCheckBox.Text = "Show joints";
-            this.showJointCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this._firstBatchRenderBtn, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this._secondBatchRenderBtn, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 43);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(471, 34);
-            this.tableLayoutPanel6.TabIndex = 78;
-            // 
-            // _firstBatchRenderBtn
-            // 
-            this._firstBatchRenderBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._firstBatchRenderBtn.Location = new System.Drawing.Point(3, 3);
-            this._firstBatchRenderBtn.Name = "_firstBatchRenderBtn";
-            this._firstBatchRenderBtn.Size = new System.Drawing.Size(229, 28);
-            this._firstBatchRenderBtn.TabIndex = 0;
-            this._firstBatchRenderBtn.Text = "第一批次";
-            this._firstBatchRenderBtn.UseVisualStyleBackColor = true;
-            // 
-            // _secondBatchRenderBtn
-            // 
-            this._secondBatchRenderBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._secondBatchRenderBtn.Location = new System.Drawing.Point(238, 3);
-            this._secondBatchRenderBtn.Name = "_secondBatchRenderBtn";
-            this._secondBatchRenderBtn.Size = new System.Drawing.Size(230, 28);
-            this._secondBatchRenderBtn.TabIndex = 1;
-            this._secondBatchRenderBtn.Text = "第二批次";
-            this._secondBatchRenderBtn.UseVisualStyleBackColor = true;
+            this.showRestraintsCheckBox.CheckedChanged += new System.EventHandler(this.showRestraintsCheckBox_CheckedChanged);
             // 
             // MutliBoltsDesginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 601);
+            this.ClientSize = new System.Drawing.Size(1372, 671);
             this.Controls.Add(this.splitContainer1);
             this.Name = "MutliBoltsDesginForm";
             this.Text = "MutliBoltsDesginForm";
@@ -1261,6 +1276,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.simulation1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1286,10 +1303,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._stepsForceOpDataGridView)).EndInit();
             this.femScalingGroupBox.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.amplificationFactorTrackBar)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1351,7 +1368,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox femPlotGroupBox;
-        private System.Windows.Forms.Button numericResultsButton;
         private System.Windows.Forms.ComboBox plotTypeComboBox;
         private System.Windows.Forms.CheckBox contourPlotCheckBox;
         private System.Windows.Forms.CheckBox nodalAveragesCheckBox;
@@ -1361,21 +1377,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SecondBatchField;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstBatchField;
         private System.Windows.Forms.GroupBox femScalingGroupBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TrackBar amplificationFactorTrackBar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.CheckBox showRestraintsCheckBox;
-        private System.Windows.Forms.CheckBox showVertexIndicesCheckBox;
-        private System.Windows.Forms.CheckBox showLoadCheckBox;
-        private System.Windows.Forms.CheckBox showJointCheckBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Button _firstBatchRenderBtn;
-        private System.Windows.Forms.Button _secondBatchRenderBtn;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private devDept.Eyeshot.Simulation simulation1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Button createNutBtn;
+        private System.Windows.Forms.Button _firstBatchRenderBtn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.CheckBox showJointCheckBox;
+        private System.Windows.Forms.CheckBox showVertexIndicesCheckBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.CheckBox showLoadCheckBox;
+        private System.Windows.Forms.CheckBox showRestraintsCheckBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private devDept.Eyeshot.Simulation simulation1;
+        private System.Windows.Forms.TabPage tabPage6;
     }
 }

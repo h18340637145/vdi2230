@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
     public partial class GongYiParamFrm : ParamBaseFrm
     {
         GongYiParameters gongYiParameters;
-        public static string zhazhi;
+        public static string zhazhi = "热处理前轧制";
 
         public GongYiParamFrm()
         {

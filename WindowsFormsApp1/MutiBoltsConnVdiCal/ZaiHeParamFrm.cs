@@ -13,7 +13,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
     public partial class ZaiHeParamFrm : ParamBaseFrm
     {
         ZaiHeParameters zaiHeParameters;
-        public static string dynamic_load;
+        public static string dynamic_load = "静态加载";
 
         public ZaiHeParamFrm()
         {

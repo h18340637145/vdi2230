@@ -45,24 +45,23 @@ namespace WindowsFormsApp1.VDISolution
         const double one_six = 1.0 / 6.0;
 
         // famax = fao
-        public R9(BoltClass bolt, double a, double ssym, double phi, double fmzul, double rpmin, double famax, double famin = 0)
+        public R9(BoltClass bolt, double a, double ssym, double phi, double fmzul, double rpmin, double fao, double fau = 0)
         {
             this.bolt = bolt;
             this.ssym = ssym;
             this.fmzul = fmzul;
             this.rpmin = rpmin;
-            this.fao = famax;
-            this.fau = famin;
+            this.fao = fao;
+            this.fau = fau;
             this.a = a;
 
             As = Math.PI * ((bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2) * ((bolt.ScrewMidD_d2 + bolt.ScrewMinD_d3) / 2) / 4;
-            delta = phi * (famax - famin) / 2 / As;
+            delta = phi * (fao - fau) / 2 / As;
             deltaASV = 0.85 * (150 / bolt.NormalD_d + 45);
-            f_sa = phi * famax;
+            f_sa = phi * fao;
             fsm = f_sa / 2 + fmzul;
             deltaASG = (2 - fsm / As / rpmin) * deltaASV;
         }
-
 
         public double getSd(string zhazhi)
         {

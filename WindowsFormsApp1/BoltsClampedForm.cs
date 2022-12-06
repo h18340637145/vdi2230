@@ -25,6 +25,7 @@ namespace WindowsFormsApp1
         double num; // 螺栓个数
         public BoltClass boltData;
         public HKFDJClamped clamped;
+        AssFem assFem;
         public NutClass nut;
         public ClampedMaterial clampedMaterial;
         public JiHeParameters jiHeParameters;
@@ -80,29 +81,66 @@ namespace WindowsFormsApp1
             Entity clampedEntity = ClampedForm.GetModelEntity();
             Entity nutEntity = NutForm.GetModelEntity();
 
-
-            for (int i = 0; i < num - 1; i++)
+            if (assFem == null)
             {
-                var cloneClamped = clampedEntity.Clone() as Entity;
-                cloneClamped.Translate(0, 0, (num - i - 1) * clamped.tf);
-                model1.Entities.Add(cloneClamped, Color.Blue);
+                assFem = new AssFem();
             }
-            boltEntity.Translate(clamped.C / 2, 0, clamped.tf * num +  - (bolt.l));// flange.ddz
-            nutEntity.Translate(clamped.C / 2, 0, -nut.NutHeight);// flange.ddz
-            double r = 2 * Math.PI / clamped.n;
-
-            for (int i = 0; i < clamped.n; i++)
-            {
-                var cloneBolt = boltEntity.Clone() as Entity;
-                var cloneNut = nutEntity.Clone() as Entity;
-                model1.Entities.Add(cloneBolt, Color.Red);
-                model1.Entities.Add(cloneNut, Color.Cyan);
-                boltEntity.Rotate(r, Vector3D.AxisZ);
-                nutEntity.Rotate(r, Vector3D.AxisZ);
-            }
-            model1.Entities.Add(clampedEntity, Color.Blue);
+            assFem.bolt = bolt;
+            assFem.clamped = clamped;
+            assFem.nut = nut;
+            model1.Entities.Add(assFem.GetEntity(), Color.Blue);
             model1.ZoomFit();
         }
+        //private void BoltsClampedForm_Load(object sender, EventArgs e)
+        //{
+        //    if (IsBuildModel)
+        //    {
+        //        return;
+        //    }
+        //    IsBuildModel = true;
+        //    var clamped = ClampedForm.GetModel() as HKFDJClamped;
+        //    num = clamped.num;
+        //    var bolt = BoltForm.GetModel() as Bolt;
+        //    var nut = NutForm.GetModel() as NutClass;
+        //    //boltData = new BoltClass(bolt);
+        //    {
+        //        this.clamped = clamped;
+        //        this.nut = nut;
+        //    }
+        //    dataGridView1.Rows.Add("n", clamped.n, "螺栓个数");
+        //    dataGridView1.Rows.Add("d", boltData.NormalD_d, "mm螺栓公称");
+        //    dataGridView1.Rows.Add("D", clamped.d, "mm螺栓孔直径公称");
+        //    dataGridView1.Rows.Add("R", clamped.C, "mm节圆直径");
+        //    dataGridView1.Rows.Add("Plane", "XY", "固定平面");
+        //    dataGridView1.Rows.Add("Forces", "Vectot(0,0,-Z)", "等效螺栓压力");
+
+        //    Entity boltEntity = BoltForm.GetModelEntity();
+        //    Entity clampedEntity = ClampedForm.GetModelEntity();
+        //    Entity nutEntity = NutForm.GetModelEntity();
+
+
+        //    for (int i = 0; i < num - 1; i++)
+        //    {
+        //        var cloneClamped = clampedEntity.Clone() as Entity;
+        //        cloneClamped.Translate(0, 0, (num - i - 1) * clamped.tf);
+        //        model1.Entities.Add(cloneClamped, Color.Blue);
+        //    }
+        //    boltEntity.Translate(clamped.C / 2, 0, clamped.tf * num +  - (bolt.l));// flange.ddz
+        //    nutEntity.Translate(clamped.C / 2, 0, -nut.NutHeight);// flange.ddz
+        //    double r = 2 * Math.PI / clamped.n;
+
+        //    for (int i = 0; i < clamped.n; i++)
+        //    {
+        //        var cloneBolt = boltEntity.Clone() as Entity;
+        //        var cloneNut = nutEntity.Clone() as Entity;
+        //        model1.Entities.Add(cloneBolt, Color.Red);
+        //        model1.Entities.Add(cloneNut, Color.Cyan);
+        //        boltEntity.Rotate(r, Vector3D.AxisZ);
+        //        nutEntity.Rotate(r, Vector3D.AxisZ);
+        //    }
+        //    model1.Entities.Add(clampedEntity, Color.Blue);
+        //    model1.ZoomFit();
+        //}
 
         private void _okBtn_Click(object sender, EventArgs e)
         {
@@ -216,9 +254,16 @@ namespace WindowsFormsApp1
                     dataGridView2.Rows.Add("bT", jiHeParameters.PianXin.bT, "mm被连接件接合面宽度bT");
                     dataGridView2.Rows.Add("e", jiHeParameters.PianXin.e, "mm从接合面带有张开风险的边缘至螺栓轴的距离e");
                     dataGridView2.Rows.Add("a", jiHeParameters.PianXin.a, "mm偏心距a");
+                    dataGridView2.Rows.Add("AD", jiHeParameters.PianXin.AD, "内压面积");
                 }
+                if (jiHeParameters.neiya != null)
+                {
+                    dataGridView2.Rows.Add("pimax", jiHeParameters.neiya.pimax, "N/mm2 内压");
+
+                }
+
             }
-            
+
 
             if (gongYiParameters != null)
             {
@@ -274,14 +319,15 @@ namespace WindowsFormsApp1
             {
                 return;
             }
+
             zaiHeParameters = param;
             updateParamDataGrids();
             form.Hide();
             ZaiHeBtn.Enabled = false;
         }
 
-        Solution solution;
-        ComputeResult rs;
+        public Solution solution { get; set; }
+        public ComputeResult rs { get; set; }
         private void VDICalBtn_Click(object sender, EventArgs e)
         {
             calculate();
@@ -313,8 +359,8 @@ namespace WindowsFormsApp1
                 else
                 {
                     falanPianxin = Convert.ToDouble(pianxin.Text);
-                    double mt = falanPianxin * zaiHeParameters.Fq;
-                    zaiHeParameters.Fq = mt / falanPianxin;
+                    double mt = falanPianxin * zaiHeParameters.Fq; // 距 + fq 同心了
+                    zaiHeParameters.Fq = mt / clamped.C; // 全部换成剪力  对法兰的剪力
                 }
             }
 
@@ -342,22 +388,50 @@ namespace WindowsFormsApp1
             solution.r2.Fau = zaiHeParameters.Fau;
             solution.r2.Mb = zaiHeParameters.Mb;
 
+
+            // 剪力是否偏心
+            // 剪力偏心，要先进行转化
+            // 将扭矩全部转化成剪力
+            // 扭矩不再存在
+
+            double pianxinjuli = 0;
+            if (FQPianxinBtn.Checked == true)
+            {
+                if (pianxin.Text != "")
+                {
+                    pianxinjuli = Convert.ToDouble(pianxin.Text);
+                }
+            }
+
+            // 法兰盘扭矩+偏心剪力附加扭矩
+            double falanniuju = pianxinjuli * zaiHeParameters.Fq + zaiHeParameters.Mt;
+            // 将扭矩转换成剪力
+            double falanjianli = falanniuju / (clamped.C / 2);
+
+            double bolt_fq = falanjianli / clamped.n;
+
+
+
             // 剪力和扭矩直接 / num
-            solution.r2.M_t = (zaiHeParameters.Mt / (this.clamped.n * (this.clamped.C/2)));
-            solution.r2.f_qmax = (zaiHeParameters.Fq / this.clamped.n);
+            //double fq = zaiHeParameters.Mt / clamped.C; // 扭矩轉化成剪力
+            //solution.r2.M_t = (zaiHeParameters.Mt / (this.clamped.n * (this.clamped.C/2)));
+            solution.r2.M_t = 0;
+            solution.r2.f_qmax = bolt_fq;
+            //solution.r2.f_qmax = ((zaiHeParameters.Fq + fq) / this.clamped.n);
             MessageBox.Show("M_t:" + solution.r2.M_t + "----f_qmax:" + solution.r2.f_qmax);
-            if (solution.r2.dtau == 0)
-            {
-                // d来算  最大拉力
-                solution.r2.Fao = solution.r2.Fao / this.clamped.n + 4 * solution.r2.Mb / this.clamped.n / boltData.NormalD_d;
-                // 最大压力
-                solution.r2.Fau = solution.r2.Fau / this.clamped.n - 4 * solution.r2.Mb / this.clamped.n / boltData.NormalD_d;
-            }
-            else
-            {
-                solution.r2.Fao = solution.r2.Fao / this.clamped.n + 4 * solution.r2.Mb / this.clamped.n / solution.r2.dtau;
-                solution.r2.Fau = solution.r2.Fau / this.clamped.n - 4 * solution.r2.Mb / this.clamped.n / solution.r2.dtau;
-            }
+
+
+
+
+            double fao = solution.r2.Fao / this.clamped.n;
+            double fau = solution.r2.Fau / this.clamped.n;
+
+            double mfa = solution.r2.Mb / ((clamped.C / 2) * (clamped.n / 2));
+
+            solution.r2.Mb = 0;
+            solution.r2.Fao = fao + mfa;
+            solution.r2.Fau = fau - mfa;
+           
             solution.r2.q_f = zaiHeParameters.qf;
             solution.r2.v = zaiHeParameters.v;
 
@@ -385,6 +459,9 @@ namespace WindowsFormsApp1
                 solution.r2.e = jiHeParameters.PianXin.e;
                 solution.r2.a = jiHeParameters.PianXin.a;
                 solution.r2.ibt = solution.r2.bt * Math.Pow(solution.r2.ct, 3) / 12;
+                solution.r2.AD = jiHeParameters.PianXin.AD;
+
+
                 if (solution.r2.ct < boltData.BoltHeadOutD_dw)
                 {
                     MessageBox.Show("预期输入：cT > dw");
@@ -409,8 +486,8 @@ namespace WindowsFormsApp1
 
             if (zaiHeParameters.Fq == 0)
             {
-                // 无横向剪力  单螺栓
-                solution.r2.setF_kerf("0");
+                // 无横向剪力  单螺栓  将扭矩当剪力用
+                solution.r2.setF_kerf((solution.r2.M_t / clamped.n / clamped.C / solution.r2.q_f / solution.r2.u_Tmin).ToString());
             }
             else
             {
@@ -429,9 +506,9 @@ namespace WindowsFormsApp1
             }
             // 内压 
             //空着
-            if (jiHeParameters.neiya != null)
+            if (jiHeParameters.neiya != null && jiHeParameters.PianXin != null)
             {
-                solution.r2.AD = jiHeParameters.neiya.AD;
+                solution.r2.AD = jiHeParameters.PianXin.AD;
                 solution.r2.setF_kp(jiHeParameters.neiya.pimax.ToString());
             }
             double fkp = solution.r2.f_kp;
@@ -451,6 +528,7 @@ namespace WindowsFormsApp1
                 {
                     // 有
                     // 必须设置内压面积AD
+                    solution.r2.AD = jiHeParameters.PianXin.AD;
                     solution.r2.setFka();
                 }
                 double fka = solution.r2.f_ka;
@@ -480,6 +558,8 @@ namespace WindowsFormsApp1
 
             solution.r3.Nn = jiHeParameters.n;
             //MessageBox.Show(solution.r3.Nn.ToString());
+            Console.WriteLine("jihe"+jiHeParameters.n.ToString());
+            Console.WriteLine("r3"+solution.r3.Nn.ToString());
             solution.r3.AN = boltData.NormalD_d * boltData.NormalD_d * Math.PI / 4;
             solution.r3.Ad3 = boltData.ScrewMinD_d3 * boltData.ScrewMinD_d3 * Math.PI / 4;
             solution.r3.setLm();
@@ -508,7 +588,6 @@ namespace WindowsFormsApp1
                 }
             }
             //solution.r3.setMB(clampedMaterial.ClampedMaterialEp.ToString());
-            solution.r2.Mb = zaiHeParameters.Mb;
             //solution.r3.setI_V_Bers();
             double phi = solution.r3.getPhi();
             rs.deltas = solution.r3.deltaS;
@@ -666,16 +745,16 @@ namespace WindowsFormsApp1
                     solution.r2.r_a = (solution.r2.D_A + solution.r2.Dhamax) / 2;
                 }
                 //......
-                double fqmax = (zaiHeParameters.Fq / this.clamped.n);
-                double mt = (zaiHeParameters.Mt / (this.clamped.n * (this.clamped.C / 2)));
-                double sg = solution.r12.getSg(fqmax, solution.r2.q_f, solution.r2.u_Tmin, mt, solution.r2.q_m, solution.r2.r_a);
-
+                //double fqmax = (zaiHeParameters.Fq / this.clamped.n);
+                //double mt = (zaiHeParameters.Mt / (this.clamped.n * (this.clamped.C / 2)));
+                double sg = solution.r12.getSg(solution.r2.f_qmax, solution.r2.q_f, solution.r2.u_Tmin, solution.r2.M_t, solution.r2.q_m, solution.r2.r_a);
+                rs.sgoll = sg;
                 if (sg >= solution.r2.sgsoll)
                 {
-                    if (solution.r2.dtau != 0 && solution.r2.f_qmax != 0)
+                    if (solution.r2.r_a != 0 && solution.r2.f_qmax != 0)
                     {
-                        Console.WriteLine("dtau" + solution.r2.dtau);
-                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, fqmax, solution.r2.dtau);
+                        Console.WriteLine("r_a" + solution.r2.r_a);
+                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, solution.r2.f_qmax, solution.r2.r_a);
                         if (rs.Sa >= 1.1)
                         {
                             Console.WriteLine("安全");
@@ -687,7 +766,7 @@ namespace WindowsFormsApp1
                     }
                     else if (solution.r2.f_qmax != 0)
                     {
-                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, fqmax);
+                        rs.Sa = solution.r12.getSa(boltData.boltMaterial.BoltMaterialRm, solution.r2.f_qmax);
                         if (rs.Sa >= 1.1)
                         {
                             Console.WriteLine("安全");
@@ -730,6 +809,17 @@ namespace WindowsFormsApp1
                 PianXinLabel.Visible = false;
                 pianxin.Visible = false;
             }
+        }
+
+        private void _okBtn_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            DialogResult = DialogResult.Cancel;
+        }
+
+        private void _importFEMBtn_Click_1(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Yes;
         }
     }
 }
