@@ -43,6 +43,8 @@ namespace WindowsFormsApp1
             simulation1.ViewCubeIcon.Visible = false;
             simulation1.CoordinateSystemIcon.Visible = false;
             simulation1.Grid.Visible = false;
+            simulation1.ShowLoad = true;
+            simulation1.ShowRestraint = true;
 
         }
 

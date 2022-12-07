@@ -77,9 +77,9 @@ namespace WindowsFormsApp1
             dataGridView1.Rows.Add("Plane", "XY", "固定平面");
             dataGridView1.Rows.Add("Forces", "Vectot(0,0,-Z)", "等效螺栓压力");
 
-            Entity boltEntity = BoltForm.GetModelEntity();
-            Entity clampedEntity = ClampedForm.GetModelEntity();
-            Entity nutEntity = NutForm.GetModelEntity();
+            //Entity boltEntity = BoltForm.GetModelEntity();
+            //Entity clampedEntity = ClampedForm.GetModelEntity();
+            //Entity nutEntity = NutForm.GetModelEntity();
 
             if (assFem == null)
             {

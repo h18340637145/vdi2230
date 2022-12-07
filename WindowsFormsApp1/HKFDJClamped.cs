@@ -35,6 +35,7 @@ namespace WindowsFormsApp1
 
         // 孔个数？
         private List<Tuple<Point3D, Point3D>> _boundingBoxOfBoltHole = new List<Tuple<Point3D, Point3D>>();
+        private List<Tuple<Point3D, Point3D>> _lastHole = new List<Tuple<Point3D, Point3D>>();
         private FemMesh _flangeFMCache; // 有限元连接件
 
         public Entity GetEntity()
@@ -49,10 +50,77 @@ namespace WindowsFormsApp1
                 GetFemMesh();
             }
             var box = _boundingBoxOfBoltHole[index];
+            _flangeFMCache.SetForce(box.Item1, box.Item2, .1, new Vector3D(fx, fy, fz));
+        }
+
+        public void SetForceForSub(int index, double fz, double fx = 0, double fy = 0)
+        {
+            if (_flangeFMCache == null)
+            {
+                GetFemMesh();
+            }
+            var box = _lastHole[index];
             _flangeFMCache.SetForce(box.Item1, box.Item2, .1, new Vector3D(fx, fy, -fz));
         }
 
-        // 画图  有限元盘
+        //public FemMesh GetFemMesh()
+        //{
+        //    //if (_flangeFMCache == null)
+        //    //{
+        //    //    _flangeFMCache = new FemMesh();
+        //    //}
+        //    for (int i = 0; i < num; i++)
+        //    {
+        //        // 底部
+        //        ICurve baseCircle = new Circle(Plane.XY, outer_A / 2);
+        //        ICurve slotCircle = new Circle(Plane.XY, inner_B / 2);
+        //        var baseReg = new Region(new List<ICurve>() { baseCircle, slotCircle });
+
+        //        if (i == 0)
+        //        {
+        //            _boundingBoxOfBoltHole.Clear();
+
+        //            Circle boltCircle = new Circle(new Point3D(C / 2, 0, 0), d / 2);
+        //            double deltAngle = Math.PI * 2 / n;
+        //            // 螺栓孔
+        //            for (int j = 0; j < n; j++)
+        //            {
+        //                // 单元体选择区间
+        //                double kd = 1.3 * d;
+        //                var box = Solid.CreateBox(kd, kd, tf);
+        //                box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, .5 * tf);
+        //                _boundingBoxOfBoltHole.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
+
+        //                baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
+        //                boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
+        //            }
+        //            var meshTemp = baseReg.Triangulate(5);
+        //            _flangeFMCache = meshTemp.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
+        //            _flangeFMCache.Extrude(new Vector3D(0, 0, tf));//  + ddz  高度上扩展
+        //        }
+        //        else
+        //        {
+        //            Circle boltCircle = new Circle(new Point3D(C / 2, 0, 0), d / 2);
+        //            double deltAngle = Math.PI * 2 / n;
+        //            // 螺栓孔
+        //            for (int j = 0; j < n; j++)
+        //            {
+        //                baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
+        //                boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
+        //            }
+        //            var mesh = baseReg.Triangulate(5);
+        //            var femMesh = mesh.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
+        //            femMesh.Extrude(new Vector3D(0, 0, tf));//  + ddz  高度上扩展
+        //            var temp = femMesh.Clone() as FemMesh;
+        //            temp.Translate(0, 0, -tf * i);
+        //            _flangeFMCache.MergeWith(temp, true);
+        //        }
+        //    }
+        //    _flangeFMCache.FixAll(Plane.XY, 0.1);
+        //    return _flangeFMCache;
+        //}
+
+        //画图 有限元盘
         public FemMesh GetFemMesh()
         {
             // 底部
@@ -70,7 +138,7 @@ namespace WindowsFormsApp1
                 // 单元体选择区间
                 double kd = 1.3 * d;
                 var box = Solid.CreateBox(kd, kd, tf);
-                box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, .5 * tf);
+                box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2,  .5 * tf);
                 _boundingBoxOfBoltHole.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
 
                 baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
@@ -78,21 +146,61 @@ namespace WindowsFormsApp1
             }
             var mesh = baseReg.Triangulate(5);
             _flangeFMCache = mesh.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
-            _flangeFMCache.Extrude(new Vector3D(0, 0, tf ));//  + ddz  高度上扩展
+            _flangeFMCache.Extrude(new Vector3D(0, 0, tf));//  + ddz  高度上扩展
+            _flangeFMCache.Translate(0, 0, tf);//  + ddz  高度上扩展
+            for (int i = 1; i < num - 1; i++)
+            {
+                var meshtemp = baseReg.Triangulate(5);
+                var femmeshtemp = meshtemp.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
+                femmeshtemp.Extrude(new Vector3D(0, 0, tf));//  + ddz  高度上扩展
+                femmeshtemp.Translate(0, 0, tf * (i + 1));
+                _flangeFMCache.MergeWith(femmeshtemp, true);
+            }
+            _flangeFMCache.MergeWith(GetFemTemp(), true);
 
             _flangeFMCache.FixAll(Plane.XY, 0.1);
             return _flangeFMCache;
         }
 
+        FemMesh GetFemTemp()
+        {
+            // 底部
+            ICurve baseCircle = new Circle(Plane.XY, outer_A / 2);
+            ICurve slotCircle = new Circle(Plane.XY, inner_B / 2);
+            var baseReg = new Region(new List<ICurve>() { baseCircle, slotCircle });
+
+            _lastHole.Clear();
+
+            Circle boltCircle = new Circle(new Point3D(C / 2, 0, 0), d / 2);
+            double deltAngle = Math.PI * 2 / n;
+            // 螺栓孔
+            for (int i = 0; i < n; i++)
+            {
+                // 单元体选择区间
+                double kd = 1.3 * d;
+                var box = Solid.CreateBox(kd, kd, tf);
+                box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, (num ) * tf + 0.5 * tf);
+                _lastHole.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
+
+                baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
+                boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
+            }
+            var mesh = baseReg.Triangulate(5);
+            var res = mesh.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
+            res.Extrude(new Vector3D(0, 0, tf));//  + ddz  高度上扩展
+            res.Translate(0, 0, tf * (num ));
+            return res;
+        }
+
         private Solid GetFlange()
         {
             var section = new LinearPath(GetSectionPoints());
-            var r = new devDept.Eyeshot.Entities.Region(section);
+            var r = new Region(section);
 
             var genus = r.RevolveAsSolid(0, Math.PI * 2, Vector3D.AxisZ, Point3D.Origin, _slice, _tol);
             var pl = Plane.XY;
             pl.Translate(0, 0, 0);//ddz
-            var boltHole = devDept.Eyeshot.Entities.Region.CreateCircle(pl, d / 2);
+            var boltHole = Region.CreateCircle(pl, d / 2);
             boltHole.Translate(C / 2, 0, 0);
             double deltAngle = Math.PI * 2 / n;
             for (int i = 0; i < n; i++)
@@ -120,7 +228,7 @@ namespace WindowsFormsApp1
             var clamped1 = GetEntity();
             entities.Add(clamped1);
 
-            for (int i = 1; i < 2; i++)
+            for (int i = 1; i < num; i++)
             {
                 var temp = clamped1.Clone() as Solid;
                 temp.Translate(0, 0, tf * i);
@@ -132,7 +240,6 @@ namespace WindowsFormsApp1
 
     internal interface IModelFemMesh
     {
-
         FemMesh GetFemMesh();
     }
 }

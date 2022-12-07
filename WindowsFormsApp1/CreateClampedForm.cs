@@ -27,13 +27,13 @@ namespace WindowsFormsApp1
 
             _okBtn.Enabled = false;
 
-            dataGridView1.Rows.Add("num", 2);
+            dataGridView1.Rows.Add("num", 3);
             dataGridView1.Rows.Add("d", 12);
-            dataGridView1.Rows.Add("n", 8);
+            dataGridView1.Rows.Add("n", 12);
             dataGridView1.Rows.Add("outer_A", 200);
             dataGridView1.Rows.Add("C", 160);
             dataGridView1.Rows.Add("inner_B", 100);
-            dataGridView1.Rows.Add("tf", 22);
+            dataGridView1.Rows.Add("tf", 15);
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)

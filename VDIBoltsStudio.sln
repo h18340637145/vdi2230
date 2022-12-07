@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1585
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDI2230", "WindowsFormsApp1\VDI2230.csproj", "{0A11875B-8853-40BA-AD9A-B33578F9200E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VDIBoltStudio", "..\VDIBoltStudio\VDIBoltStudio.vdproj", "{67C27F43-3809-48F6-BBEA-E19EAD4E109D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A11875B-8853-40BA-AD9A-B33578F9200E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A11875B-8853-40BA-AD9A-B33578F9200E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A11875B-8853-40BA-AD9A-B33578F9200E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A11875B-8853-40BA-AD9A-B33578F9200E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C27F43-3809-48F6-BBEA-E19EAD4E109D}.Debug|Any CPU.ActiveCfg = Debug
+		{67C27F43-3809-48F6-BBEA-E19EAD4E109D}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE70BDDB-953A-474E-B079-1E743C028680}
+	EndGlobalSection
+EndGlobal
