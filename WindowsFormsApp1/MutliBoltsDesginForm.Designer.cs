@@ -142,7 +142,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.femPlotGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this._firstBatchRenderBtn = new System.Windows.Forms.Button();
             this.plotTypeComboBox = new System.Windows.Forms.ComboBox();
             this.contourPlotCheckBox = new System.Windows.Forms.CheckBox();
@@ -847,8 +846,9 @@
             this._moddelingParamResetBtn.Name = "_moddelingParamResetBtn";
             this._moddelingParamResetBtn.Size = new System.Drawing.Size(261, 24);
             this._moddelingParamResetBtn.TabIndex = 4;
-            this._moddelingParamResetBtn.Text = "取消";
+            this._moddelingParamResetBtn.Text = "整体网格划分及力的分布";
             this._moddelingParamResetBtn.UseVisualStyleBackColor = true;
+            this._moddelingParamResetBtn.Click += new System.EventHandler(this._moddelingParamResetBtn_Click);
             // 
             // panel1
             // 
@@ -1013,7 +1013,6 @@
             // 
             // femPlotGroupBox
             // 
-            this.femPlotGroupBox.Controls.Add(this.button1);
             this.femPlotGroupBox.Controls.Add(this._firstBatchRenderBtn);
             this.femPlotGroupBox.Controls.Add(this.plotTypeComboBox);
             this.femPlotGroupBox.Controls.Add(this.contourPlotCheckBox);
@@ -1025,16 +1024,6 @@
             this.femPlotGroupBox.TabIndex = 90;
             this.femPlotGroupBox.TabStop = false;
             this.femPlotGroupBox.Text = "有限元绘图形式";
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(221, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(229, 28);
-            this.button1.TabIndex = 124;
-            this.button1.Text = "螺栓计算";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // _firstBatchRenderBtn
             // 
@@ -1390,7 +1379,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.CheckBox showLoadCheckBox;
         private System.Windows.Forms.CheckBox showRestraintsCheckBox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage5;
         private devDept.Eyeshot.Simulation simulation1;

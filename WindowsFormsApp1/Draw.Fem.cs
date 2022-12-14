@@ -54,10 +54,13 @@ namespace WindowsApplication1
     {
         public static FemMesh fm;
         public static FemMesh boltfm;
+        public static FemMesh connfm;
         public static AssFem assfm;
         public static Color Color = Color.Black;
         public static HKFDJClamped Clamped { set; get; }
         public static Bolt bolt { set; get; }
+        public static NutClass nut { set; get; }
+        //public static List<Entity> assEntityList { set; get; }
 
         public static void DrawBolt(Model model, BoltChooseClass dataBolt)
         {
@@ -119,7 +122,21 @@ namespace WindowsApplication1
             //mesh.Translate(offsetX - 10, offsetY - 8, 0);
             model.Entities.Add(mesh, "Default", Color.Brown);
         }
-
+        public static void InitConnFem(Simulation simulation)
+        {
+            if (assfm == null)
+            {
+                assfm = new AssFem();
+            }
+            assfm.nut = nut;
+            assfm.bolt = bolt;
+            assfm.clamped = Clamped;
+            //assfm.assEntities = assEntityList;
+            connfm = assfm.GetFemMesh();
+            connfm.SymbolSize = 0.3;
+            connfm.AmplificationFactor = 0;
+            simulation.Entities.Add(connfm);
+        }
         internal static void InitFlangeFem(Simulation simulation1)
         {
             fm = Clamped.GetFemMesh();
@@ -144,10 +161,10 @@ namespace WindowsApplication1
             {
                 Clamped.SetForceFor(i, param.Forces[param.Batch, i]);
             }
-            for (int i = 0; i < Clamped.n; i++)
-            {
-                Clamped.SetForceForSub(i, param.Forces[param.Batch, i]);
-            }
+            //for (int i = 0; i < Clamped.n; i++)
+            //{
+            //    Clamped.SetForceForSub(i, param.Forces[param.Batch, i]);
+            //}
             simulation.Entities.Add(fm);
             Solver solver = new Solver(fm);
             simulation.StartWork(solver);
@@ -167,31 +184,21 @@ namespace WindowsApplication1
         {
             simulation.Entities.Clear();
             InitBoltFem(simulation);
-            //for (int i = 0; i < 36; i++)
+
+            //var temp = Plane.XY;
+            //temp.Translate(0, 0, bolt.k + bolt.l);
+            //boltfm.SetPressure(temp, 1, new Vector3D(0, 0, -1000));
+            for (int i = 0; i < 1; i++)
+            {
+                bolt.SetForceFor(i, 1000);
+            }
+            //for (int i = 0; i < 6; i++)
             //{
-            //    //Clamped.SetForceFor(i, param.Forces);
-            //    bolt.SetForceFor(i, param.Forces);
-            //}
-            var temp = Plane.XY;
-            temp.Translate(0, 0, bolt.k + bolt.l);
-            boltfm.SetPressure(temp, 1, new Vector3D(0, 0, -1000));
-            //double p = bolt.p;
-            //double b = bolt.b;
-            //for (int i = 0; i < b / p ; i++)
-            //{
-            //    for (int j = 0; j < 6; j++)
-            //    {
-            //        bolt.SetForceForLuoWen(i, j, param.Forces / (i + 2));
-            //    }
-            //    ////boltfm.SetForce(Plane.XY, 0, new Vector3D(0, 0 ,-100000));
-            //    //Plane plane = Plane.XY;
-            //    //plane.Translate(0, 0, p * i);
-            //    ////plane.Rotate(Math.PI / 2 / 3 / 5, new Vector3D(0, 0, 1));
-            //    //boltfm.SetPressure(plane, 1, new Vector3D(0, 0, param.Forces / (i + 2)));
+            //    bolt.SetForceForLuoGan(i, 100);
             //}
 
-
-
+            //boltfm.SetForce()
+            //boltfm.SetPressure(new Point3D(1, -1, bolt.l + bolt.k), new Point3D(2, -2, bolt.l + bolt.k), .1, -1100);
             simulation.Entities.Add(boltfm);
             Solver solver = new Solver(boltfm);
             simulation.StartWork(solver);
@@ -206,5 +213,30 @@ namespace WindowsApplication1
 
             simulation.Invalidate();
         }
+
+        internal static void DrawConnFemFrame(Simulation simulation, MulForcesStepsDrawParam param)
+        {
+            simulation.Entities.Clear();
+            InitConnFem(simulation);
+            for (int i = 0; i < Clamped.n; i++)
+            {
+                assfm.SetForceFor(i, param.Forces[param.Batch, i]);
+            }
+            simulation.Entities.Add(connfm);
+            Solver solver = new Solver(connfm);
+            simulation.StartWork(solver);
+
+            connfm.AmplificationFactor = connfm.OptimalAmplificationFactor * .1;
+
+            simulation.Entities.UpdateBoundingBox();
+            connfm.Compile(new CompileParams(simulation)
+            {
+                Legend = simulation.Legends[0]
+            });
+
+            simulation.Invalidate();
+        }
+
+       
     }
 }

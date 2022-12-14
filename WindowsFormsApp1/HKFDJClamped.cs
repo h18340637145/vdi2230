@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using devDept.Eyeshot;
 using devDept.Eyeshot.Entities;
 using devDept.Geometry;
+using devDept.Graphics;
 
 namespace WindowsFormsApp1
 {
@@ -50,7 +51,7 @@ namespace WindowsFormsApp1
                 GetFemMesh();
             }
             var box = _boundingBoxOfBoltHole[index];
-            _flangeFMCache.SetForce(box.Item1, box.Item2, .1, new Vector3D(fx, fy, fz));
+            _flangeFMCache.SetForce(box.Item1, box.Item2, .1, new Vector3D(fx, fy, -fz));
         }
 
         public void SetForceForSub(int index, double fz, double fx = 0, double fy = 0)
@@ -62,64 +63,36 @@ namespace WindowsFormsApp1
             var box = _lastHole[index];
             _flangeFMCache.SetForce(box.Item1, box.Item2, .1, new Vector3D(fx, fy, -fz));
         }
+        public FemMesh GetFemMesh()
+        {
+            // 底部
+            ICurve baseCircle = new Circle(Plane.XY, outer_A/ 2);
+            ICurve slotCircle = new Circle(Plane.XY, inner_B / 2);
+            var baseReg = new devDept.Eyeshot.Entities.Region(new List<ICurve>() { baseCircle, slotCircle });
 
-        //public FemMesh GetFemMesh()
-        //{
-        //    //if (_flangeFMCache == null)
-        //    //{
-        //    //    _flangeFMCache = new FemMesh();
-        //    //}
-        //    for (int i = 0; i < num; i++)
-        //    {
-        //        // 底部
-        //        ICurve baseCircle = new Circle(Plane.XY, outer_A / 2);
-        //        ICurve slotCircle = new Circle(Plane.XY, inner_B / 2);
-        //        var baseReg = new Region(new List<ICurve>() { baseCircle, slotCircle });
+            _boundingBoxOfBoltHole.Clear();
+            Circle boltCircle = new Circle(new Point3D(C / 2, 0, 0), d / 2);
+            double deltAngle = Math.PI * 2 / n;
+            // 螺栓孔
+            for (int i = 0; i < n; i++)
+            {
+                // 单元体选择区间
+                double kd = 1.3 * d;
+                var box = Solid.CreateBox(kd, kd, tf);
+                box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, .5 * tf);
+                _boundingBoxOfBoltHole.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
 
-        //        if (i == 0)
-        //        {
-        //            _boundingBoxOfBoltHole.Clear();
+                baseReg = devDept.Eyeshot.Entities.Region.Difference(baseReg, new devDept.Eyeshot.Entities.Region(boltCircle))[0];
+                boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
+            }
+            var mesh = baseReg.Triangulate(5);
+            _flangeFMCache = mesh.ConvertToFemMesh(Material.StainlessSteel, false);
+            _flangeFMCache.Extrude(new Vector3D(0, 0, tf));
+            _flangeFMCache.FixAll(Plane.XY, 0.1);
+            return _flangeFMCache;
+        }
 
-        //            Circle boltCircle = new Circle(new Point3D(C / 2, 0, 0), d / 2);
-        //            double deltAngle = Math.PI * 2 / n;
-        //            // 螺栓孔
-        //            for (int j = 0; j < n; j++)
-        //            {
-        //                // 单元体选择区间
-        //                double kd = 1.3 * d;
-        //                var box = Solid.CreateBox(kd, kd, tf);
-        //                box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, .5 * tf);
-        //                _boundingBoxOfBoltHole.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
-
-        //                baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
-        //                boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
-        //            }
-        //            var meshTemp = baseReg.Triangulate(5);
-        //            _flangeFMCache = meshTemp.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
-        //            _flangeFMCache.Extrude(new Vector3D(0, 0, tf));//  + ddz  高度上扩展
-        //        }
-        //        else
-        //        {
-        //            Circle boltCircle = new Circle(new Point3D(C / 2, 0, 0), d / 2);
-        //            double deltAngle = Math.PI * 2 / n;
-        //            // 螺栓孔
-        //            for (int j = 0; j < n; j++)
-        //            {
-        //                baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
-        //                boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
-        //            }
-        //            var mesh = baseReg.Triangulate(5);
-        //            var femMesh = mesh.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
-        //            femMesh.Extrude(new Vector3D(0, 0, tf));//  + ddz  高度上扩展
-        //            var temp = femMesh.Clone() as FemMesh;
-        //            temp.Translate(0, 0, -tf * i);
-        //            _flangeFMCache.MergeWith(temp, true);
-        //        }
-        //    }
-        //    _flangeFMCache.FixAll(Plane.XY, 0.1);
-        //    return _flangeFMCache;
-        //}
-
+        /*
         //画图 有限元盘
         public FemMesh GetFemMesh()
         {
@@ -156,13 +129,13 @@ namespace WindowsFormsApp1
                 femmeshtemp.Translate(0, 0, tf * (i + 1));
                 _flangeFMCache.MergeWith(femmeshtemp, true);
             }
-            _flangeFMCache.MergeWith(GetFemTemp(), true);
+            _flangeFMCache.MergeWith(GetFemLastClamped(), true);
 
             _flangeFMCache.FixAll(Plane.XY, 0.1);
             return _flangeFMCache;
         }
-
-        FemMesh GetFemTemp()
+        */
+        private FemMesh GetFemLastClamped()
         {
             // 底部
             ICurve baseCircle = new Circle(Plane.XY, outer_A / 2);
@@ -225,6 +198,7 @@ namespace WindowsFormsApp1
         List<Entity> entities = new List<Entity>();
         public List<Entity> GetEntitys()
         {
+            entities.Clear();
             var clamped1 = GetEntity();
             entities.Add(clamped1);
 

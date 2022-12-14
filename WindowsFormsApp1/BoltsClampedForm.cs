@@ -15,16 +15,19 @@ using WindowsFormsApp1.VDISolution;
 
 namespace WindowsFormsApp1
 {
+
     public partial class BoltsClampedForm : Form
     {
         public IModelBuildForm ClampedForm { set; get; }
         public IModelBuildForm BoltForm { set; get; }
         public IModelBuildForm NutForm { set; get; }
+        public IModelBuildForm AssmForm { set; get; }
         public bool IsBuildModel { set; get; }
 
         double num; // 螺栓个数
         public BoltClass boltData;
         public HKFDJClamped clamped;
+        public List<Entity> assList = new List<Entity>();
         AssFem assFem;
         public NutClass nut;
         public ClampedMaterial clampedMaterial;
@@ -88,13 +91,18 @@ namespace WindowsFormsApp1
             assFem.bolt = bolt;
             assFem.clamped = clamped;
             assFem.nut = nut;
-            var list = assFem.GetEntitys();
-            for (int i = 0; i < list.Count; i++)
+            assList = assFem.GetEntitys();
+            for (int i = 0; i < assList.Count; i++)
             {
-                model1.Entities.Add(list[i], Color.Blue);
+                model1.Entities.Add(assList[i], Color.Blue);
             }
             //model1.Entities.Add(assFem.GetEntitys(), Color.Blue);
             model1.ZoomFit();
+        }
+
+        public List<Entity> GetAssEntityList()
+        {
+            return assList;
         }
         //private void BoltsClampedForm_Load(object sender, EventArgs e)
         //{

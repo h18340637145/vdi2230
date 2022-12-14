@@ -937,6 +937,7 @@ namespace WindowsFormsApp1
         private CreateBoltForm _createBoltForm;
         private CreateClampedForm _createClamedForm;
         private CreateNutForm _createNutForm;
+        private BoltsClampedForm boltsClampedForm;
 
         private void createBoltBtn_Click(object sender, EventArgs e)
         {
@@ -987,8 +988,6 @@ namespace WindowsFormsApp1
         #endregion
 
         #region flange
-        private BoltsClampedForm boltsClampedForm;
-
         public BoltClass boltData { get; private set; }
         public ComputeResult rs { get; private set; }
 
@@ -1068,7 +1067,40 @@ namespace WindowsFormsApp1
         #endregion
 
 
+        private void _moddelingParamResetBtn_Click(object sender, EventArgs e)
+        {
+            simulation1.Entities.Clear();
 
+            var fmod = _createClamedForm.GetModel() as HKFDJClamped;
+            var bmod = _createBoltForm.GetModel() as Bolt;
+            var nmod = _createNutForm.GetModel() as NutClass;
+            if (fmod == null || nmod == null || bmod == null) return;
+            if (rs == null) return;
+            double[,] opResults = new double[2, (int)fmod.n];
+            for (int i = 0; i < (int)fmod.n; i++)
+            {
+                opResults[0, i] = rs.Fmmax;
+            }
+
+            SetDisplayMode(simulation1, displayType.Shaded);
+            simulation1.Legends[0].ColorTable = Legend.RedToBlue9;
+            simulation1.Legends[0].IsSlave = true;
+            simulation1.Legends[0].ItemSize = new Size(10, 24);
+            simulation1.Legends[0].Visible = true;
+            simulation1.Legends[0].Title = "FEM";
+
+            Draw.Clamped = fmod;
+            Draw.bolt = bmod;
+            Draw.nut = nmod;
+            Draw.InitConnFem(simulation1);
+            _drawFlangeFemFrameParam = new MulForcesStepsDrawParam()
+            {
+                Forces = opResults,
+                IsOverlay = false
+            };
+            _drawFlangeFemFrameParam.Batch = 0;
+            Draw.DrawConnFemFrame(simulation1, _drawFlangeFemFrameParam);
+        }
         private void _modelingParamOkBtn_Click(object sender, EventArgs e)
         {
             //boltnet(simulation1);
@@ -1076,10 +1108,11 @@ namespace WindowsFormsApp1
 
             var fmod = _createClamedForm.GetModel() as HKFDJClamped;
             if (fmod == null ) return;
+            if (rs == null) return;
             double[,] opResults = new double[2, (int)fmod.n];
             for (int i = 0; i < (int)fmod.n; i++)
             {
-                opResults[0,i] = rs.Fmmax;
+                opResults[0, i] = rs.Fmmax;
             }
             
             SetDisplayMode(simulation1, displayType.Shaded);
@@ -1132,12 +1165,217 @@ namespace WindowsFormsApp1
             _drawFlangeFemFrameParam.Batch = 0;
             Draw.DrawFlangeFemFrame(simulation1, _drawFlangeFemFrameParam);
         }
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Draw.DrawBoltFemFrame(simulation1, boltDram);
+            
+        }
         private void plotTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Draw.fm == null)
                 return;
+            else if (Draw.fm != null && Draw.boltfm == null)
+            {
+                plotfm();
+            }
+            else if(Draw.fm == null && Draw.boltfm != null)
+            {
+                plotBoltfm();
+            }
+            else
+            {
+                Draw.fm = null;
+                Draw.boltfm = null;
+                return;
+            }
+        }
 
+        private void plotBoltfm()
+        {
+            simulation1.Legends[0].Visible = true;
+            Draw.boltfm.ContourPlot = true;
+            simulation1.Legends[0].ColorTable = Legend.RedToBlue17;
+
+            switch (plotTypeComboBox.Text)
+            {
+
+                case "Mesh":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Mesh;
+                    simulation1.Legends[0].Visible = false;
+
+                    break;
+
+                case "Ux":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Ux;
+                    Draw.boltfm.ContourPlot = false;
+
+                    break;
+
+                case "Uy":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Uy;
+                    Draw.boltfm.ContourPlot = false;
+
+                    break;
+
+                case "Uz":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Uz;
+                    Draw.boltfm.ContourPlot = false;
+
+                    break;
+
+                case "U":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.U;
+                    Draw.boltfm.ContourPlot = false;
+
+                    break;
+
+                case "Rx":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Rx;
+
+                    break;
+
+                case "Ry":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Ry;
+
+                    break;
+
+                case "Rz":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Rz;
+
+                    break;
+
+                case "Axial Force":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.AxialForce;
+
+                    break;
+
+                case "Shear Force V":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.ShearForceV;
+
+                    break;
+
+                case "Shear Force W":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.ShearForceW;
+
+                    break;
+
+                case "Torsion Moment":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.TorsionMoment;
+
+                    break;
+
+                case "Bending Moment V":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.BeamBendingMomentV;
+
+                    break;
+
+                case "Bending Moment W":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.BeamBendingMomentW;
+
+                    break;
+
+                case "Twist Angle":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.TwistAngle;
+
+                    break;
+
+                case "X stress":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Sx;
+
+                    break;
+
+                case "Y stress":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Sy;
+
+                    break;
+
+                case "Z stress":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Sz;
+
+                    break;
+
+                case "XY shear":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Txy;
+
+                    break;
+
+                case "YZ shear":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Tyz;
+
+                    break;
+
+                case "XZ shear":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Txz;
+
+                    break;
+
+                case "Maximum Principal":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.P1;
+
+                    break;
+
+                case "Intermediate Principal":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.P2;
+
+                    break;
+
+                case "Minimum Principal":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.P3;
+
+                    break;
+
+                case "Von Mises":
+
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.VonMises;
+
+                    break;
+
+                case "Tresca":
+
+                    Draw.boltfm.PlotMode = FemMesh.plotType.Tresca;
+
+                    break;
+            }
+
+            // re-computes the plot and redraw
+            if (Draw.boltfm != null)
+            {
+                Draw.boltfm.ComputePlot(simulation1, simulation1.Legends[0]);
+                simulation1.Entities.UpdateBoundingBox();
+            }
+            simulation1.Invalidate();
+
+            contourPlotCheckBox.Checked = Draw.boltfm.ContourPlot;
+            nodalAveragesCheckBox.Checked = Draw.boltfm.NodalAverages;
+        }
+
+        private void plotfm()
+        {
             simulation1.Legends[0].Visible = true;
             Draw.fm.ContourPlot = true;
             simulation1.Legends[0].ColorTable = Legend.RedToBlue17;
@@ -1320,6 +1558,192 @@ namespace WindowsFormsApp1
             nodalAveragesCheckBox.Checked = Draw.fm.NodalAverages;
         }
 
+        //private void plotTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (Draw.fm == null)
+        //        return;
+
+        //    simulation1.Legends[0].Visible = true;
+        //    Draw.fm.ContourPlot = true;
+        //    simulation1.Legends[0].ColorTable = Legend.RedToBlue17;
+
+        //    switch (plotTypeComboBox.Text)
+        //    {
+
+        //        case "Mesh":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Mesh;
+        //            simulation1.Legends[0].Visible = false;
+
+        //            break;
+
+        //        case "Ux":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Ux;
+        //            Draw.fm.ContourPlot = false;
+
+        //            break;
+
+        //        case "Uy":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Uy;
+        //            Draw.fm.ContourPlot = false;
+
+        //            break;
+
+        //        case "Uz":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Uz;
+        //            Draw.fm.ContourPlot = false;
+
+        //            break;
+
+        //        case "U":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.U;
+        //            Draw.fm.ContourPlot = false;
+
+        //            break;
+
+        //        case "Rx":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Rx;
+
+        //            break;
+
+        //        case "Ry":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Ry;
+
+        //            break;
+
+        //        case "Rz":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Rz;
+
+        //            break;
+
+        //        case "Axial Force":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.AxialForce;
+
+        //            break;
+
+        //        case "Shear Force V":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.ShearForceV;
+
+        //            break;
+
+        //        case "Shear Force W":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.ShearForceW;
+
+        //            break;
+
+        //        case "Torsion Moment":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.TorsionMoment;
+
+        //            break;
+
+        //        case "Bending Moment V":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.BeamBendingMomentV;
+
+        //            break;
+
+        //        case "Bending Moment W":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.BeamBendingMomentW;
+
+        //            break;
+
+        //        case "Twist Angle":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.TwistAngle;
+
+        //            break;
+
+        //        case "X stress":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Sx;
+
+        //            break;
+
+        //        case "Y stress":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Sy;
+
+        //            break;
+
+        //        case "Z stress":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Sz;
+
+        //            break;
+
+        //        case "XY shear":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Txy;
+
+        //            break;
+
+        //        case "YZ shear":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Tyz;
+
+        //            break;
+
+        //        case "XZ shear":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Txz;
+
+        //            break;
+
+        //        case "Maximum Principal":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.P1;
+
+        //            break;
+
+        //        case "Intermediate Principal":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.P2;
+
+        //            break;
+
+        //        case "Minimum Principal":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.P3;
+
+        //            break;
+
+        //        case "Von Mises":
+
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.VonMises;
+
+        //            break;
+
+        //        case "Tresca":
+
+        //            Draw.fm.PlotMode = FemMesh.plotType.Tresca;
+
+        //            break;
+        //    }
+
+        //    // re-computes the plot and redraw
+        //    if (Draw.fm != null)
+        //    {
+        //        Draw.fm.ComputePlot(simulation1, simulation1.Legends[0]);
+        //        simulation1.Entities.UpdateBoundingBox();
+        //    }
+        //    simulation1.Invalidate();
+
+        //    contourPlotCheckBox.Checked = Draw.fm.ContourPlot;
+        //    nodalAveragesCheckBox.Checked = Draw.fm.NodalAverages;
+        //}
 
         void showRestraintsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -1328,17 +1752,14 @@ namespace WindowsFormsApp1
                 simulation1.ShowRestraint = showRestraintsCheckBox.Checked;
                 simulation1.Invalidate();
             }
-
         }
         private void showJointCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-
             if (simulation1 != null)
             {
                 simulation1.ShowJoint = showJointCheckBox.Checked;
                 simulation1.Invalidate();
             }
-
         }
 
         private void showLoadCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1380,5 +1801,7 @@ namespace WindowsFormsApp1
                 simulation1.Invalidate();
             }
         }
+
+       
     }
 }
