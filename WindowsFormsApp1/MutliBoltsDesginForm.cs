@@ -14,6 +14,7 @@ using CreateBotSpring;
 using devDept.Eyeshot.Translators;
 using devDept.Eyeshot.Fem;
 using WindowsApplication1;
+using WindowsFormsApp1.VDISolution;
 
 namespace WindowsFormsApp1
 {
@@ -990,6 +991,7 @@ namespace WindowsFormsApp1
         #region flange
         public BoltClass boltData { get; private set; }
         public ComputeResult rs { get; private set; }
+        public Solution solution { get; private set; }
 
         private void _assemblyBtn_Click(object sender, EventArgs e)
         {
@@ -1029,7 +1031,12 @@ namespace WindowsFormsApp1
                 {
                     rs = new ComputeResult();
                 }
+                if (solution == null)
+                {
+                    solution = new Solution();
+                }
                 rs = boltsClampedForm.rs;
+                solution = boltsClampedForm.solution;
                 _twoStepsOpParamDataGridView.Rows.Clear();
                 _twoStepsOpParamDataGridView.Rows.Add("twisWay", 1, "拧紧方式，1顺序，2交叉");
                 _twoStepsOpParamDataGridView.Rows.Add("n", fmod.n, "螺栓个数");

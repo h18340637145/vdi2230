@@ -4,14 +4,20 @@ using devDept.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Aspose.Html.Toolkit.Markdown.Syntax;
+using System.IO;
+using Aspose.Html;
+
 using System.Windows.Forms;
 using WindowsFormsApp1.MutiBoltsConnVdiCal;
 using WindowsFormsApp1.VDISolution;
+using Configuration = Aspose.Html.Configuration;
 
 namespace WindowsFormsApp1
 {
@@ -597,7 +603,6 @@ namespace WindowsFormsApp1
                         return ;
                     }
                     solution.r3.setDeltaP_star(clampedMaterial.ClampedMaterialEp.ToString());
-
                 }
             }
             //solution.r3.setMB(clampedMaterial.ClampedMaterialEp.ToString());
@@ -833,6 +838,183 @@ namespace WindowsFormsApp1
         private void _importFEMBtn_Click_1(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
+        }
+
+        private void docBtn_Click(object sender, EventArgs e)
+        {
+            var md = new MarkdownSyntaxTree(new Configuration());
+
+            // Use the SyntaxFactory property to get the factory for creating the Markdown syntax tree
+            var mdf = md.SyntaxFactory;
+
+            #region 标题
+            // 添加文档内容
+            // 标题
+            var title = mdf.Paragraph();
+            title.AppendChild(mdf.Text("<h1 align=\"center\"> VDI2230多螺栓连接结构设计文档 </h1>");
+            md.AppendChild(title);
+            var newLineTrivia = mdf.NewLineTrivia();
+            title.GetTrailingTrivia().Add(newLineTrivia);
+            #endregion
+            
+            #region 几何尺寸
+            // 
+            var jihechcunTitle = mdf.AtxHeading("几何尺寸", 2);
+            md.AppendChild(jihechcunTitle);
+            jihechcunTitle.GetTrailingTrivia().Add(newLineTrivia);
+            var boltIntro = mdf.Paragraph();
+            boltIntro.AppendChild(mdf.Text("圆柱螺栓 M" + boltData.NormalD_d + "X" + boltData.BoltLen_ls + "-" + boltData.boltMaterial.BoltMaterialLevel));
+            md.AppendChild(boltIntro);
+            jihechcunTitle.GetTrailingTrivia().Add(newLineTrivia);
+
+            #endregion
+
+            #region 通用计算值
+            var tong_yong_ji_suan_zhiTitle = mdf.AtxHeading("通用计算值", 2);
+            md.AppendChild(tong_yong_ji_suan_zhiTitle);
+            tong_yong_ji_suan_zhiTitle.GetTrailingTrivia().Add(newLineTrivia);
+
+            var table = mdf.Paragraph();
+            //MarkdownSyntaxNode markdownSyntaxNode = table.AppendChild(mdf.TableRow());
+            //table.WriteTo();
+            //table.AppendChild(mdf.Text("<table>"));
+            string text = "<table>";
+            // 螺栓属性
+            string d = "<tr><td>公称直径</td><td>d</td><td>=</td><td>" + boltData.NormalD_d + "mm</td></tr>";
+            string p = "<tr><td>螺距</td><td>P</p><td>=</td><td>" + boltData.ScrewP_P + "mm</td></tr>";
+            string dh = "<tr><td>镗孔直径</td><td>dh</td><td>=</td><td>" + boltData.BoreD_dh + "mm</td></tr>";
+            string dw = "<tr><td>螺栓头承载面外径</td><td>dw</td><td>=</td><td>" + boltData.BoltHeadOutD_dw + "mm</td></tr>";
+            string da = "<tr><td>螺栓头承载面内径</td><td>da</td><td>=</td><td>" + boltData.BoltHeadInnerD_da + "mm</td></tr>";
+            string d2 = "<tr><td>螺纹中径</td><td>d2</td><td>=</td><td>" + boltData.ScrewMidD_d2 + "mm</td></tr>";
+            string d3 = "<tr><td>螺纹小径</td><td>d3</td><td>=</td><td>" + boltData.ScrewMinD_d3 + "mm</td></tr>";
+            string l1 = "<tr><td>光杆长度</td><td>l1</td><td>=</td><td>" + boltData.PolishRodLen_l1 + "mm</td></tr>";
+            string ls = "<tr><td>螺栓长度</td><td>ls</td><td>=</td><td>" + boltData.BoltLen_ls + "mm</td></tr>";
+            string D1 = "<tr><td>螺母螺纹小径</td><td>D1</td><td>=</td><td>" + boltData.BoltNutScrewMinD_D1 + "mm</td></tr>" + "</br>";
+            string lk = "<tr><td>夹持长度</td><td>lk</td><td>=</td><td>" + solution.r2.Lk + "mm</td></tr>" + "</br>";
+            string phi = "<tr><td>变形锥角</td><td> phi_D </td><td>=</td><td>" + Math.Atan(solution.r2.tanPhi_D) + "°</td></tr>";
+            string DAGr = "<tr><td>变形锥极限外径</td><td>DAGr </td><td>=</td><td>" + solution.r2.DAGr + "mm</td></tr>";
+            string lH = "<tr><td>变形套筒总高度</td><td> l_H </td><td>=</td><td>" + solution.r3.l_H + "mm</td></tr>";
+            string lV = "<tr><td>变形锥总高度</td><td> l_V </td><td>=</td><td>" + solution.r3.l_v + "mm</td></tr>" + "</br>";
+            text = text + d + p + dh + dw + da + d2 + d3 + l1 + ls + D1 + lk + phi + DAGr + lH + lV + "</table>";
+            table.AppendChild(mdf.Text(text));
+            md.AppendChild(table);
+
+
+            #endregion
+
+            #region 加载数据
+            var jia_zai_shu_juTitle = mdf.AtxHeading("加载数据", 2);
+            md.AppendChild(jia_zai_shu_juTitle);
+            jia_zai_shu_juTitle.GetTrailingTrivia().Add(newLineTrivia);
+
+            var jiazaiTable = mdf.Paragraph();
+            
+            text = "<table>";
+            string deltaS = "<tr><td>螺栓的弹性柔度(在室温下)</td><td>deltaS</td><td>=</td><td>" + solution.r3.deltaS + "mm</td></tr>";
+            string deltaP = "<tr><td>连接件的弹性柔度(在室温下)</td><td>deltaP</td><td>=</td><td>" + solution.r3.deltaP + "mm</td></tr>";
+            string alphaA = "<tr><td>拧紧系数</td><td>alpha_A</td><td>=</td><td>" + rs.alphaA + "</td></tr>";
+            string n = "<tr><td>载荷导入系数</td><td>n</td><td>=</td><td>" + solution.r3.Nn + "</td></tr>";
+            string phi_N = "<tr><td>载荷系数</td><td>phi_N</td><td>=</td><td>" + solution.r3.phi + "</td></tr>";
+            string ffz = "<tr><td>嵌入值</td><td>ffz</td><td>=</td><td>" + solution.r4.ffz + "N</td></tr>" + "</br>";
+
+            string Fkp = "<tr><td>密封所需的最小夹紧力</td><td>Fkp</td><td>=</td><td>" + solution.r2.f_kp + "N</td></tr>";
+            string Fkerf = "<tr><td>所需的最小夹紧力</td><td>Fkerf</td><td>=</td><td>" + solution.r2.f_kerf + "N</td></tr>";
+            string Fz = "<tr><td>因嵌入导致的预紧力损失</td><td>Fz</td><td>=</td><td>" + solution.r4.FZ + "N</td></tr>";
+            string Fv = "<tr><td>因工作温度导致的预紧力改变</td><td>△Fv</td><td>=</td><td>" + 0 + "N</td></tr>" + "</br>";
+
+            //string FSAmax = "<tr><td>最大附加螺栓载荷</td><td>FSAmax</td><td>=</td><td>" + solution.r2.Fao * solution.r3.phi + "N</td></tr>" ;
+            //string FPAmax = "<tr><td>最大附加被连接件载荷</td><td>FPAmax</td><td>=</td><td>" + solution.r2.Fao * (1 - solution.r3.phi) + "N</td></tr>" ;
+            string Fmzul = "<tr><td>室温下的许用装配预紧力</td><td>FMzul</td><td>=</td><td>" + solution.r7.getFmzul() + "N</td></tr>" ;
+            string FMmin = "<tr><td>最小必须装配预紧力</td><td>FMmin</td><td>=</td><td>" + solution.r5.getFmmin() + "N</td></tr>" ;
+            string FMmax = "<tr><td>最大耐受装配预紧力</td><td>FMmax</td><td>=</td><td>" + solution.r6.getFmmax() + "N</td></tr>" ;
+
+            text = text + deltaS + deltaP + alphaA + phi_N + ffz + Fkp + Fkerf + Fz + Fv +  Fmzul + FMmin + FMmax + "</table>";
+            jiazaiTable.AppendChild(mdf.Text(text));
+            md.AppendChild(jiazaiTable);
+
+            #endregion
+
+            #region 工作应力
+            var gong_zuo_ying_liTitle = mdf.AtxHeading("安全校核", 2);
+            md.AppendChild(gong_zuo_ying_liTitle);
+            gong_zuo_ying_liTitle.GetTrailingTrivia().Add(newLineTrivia);
+
+            var gongzuo_yingliTable = mdf.Paragraph();
+
+            text = "<table>";
+            string FSmax = "<tr><td>服役最大螺栓力</td><td>FSmax</td><td>=</td><td>" + solution.r8.getFSmax() + "N</td></tr>";
+            string SF = "<tr><td>抗屈服安全系数</td><td>SF</td><td>=</td><td>" + solution.r8.getSf() + "</td></tr>";
+
+            if (rs.Sd == 0)
+            {
+                // 静态加载 跳过
+                text = text + FSmax + SF;
+            }
+            else
+            {
+                string Fsm = "<tr><td>平均螺栓力</td><td>Fsm</td><td>=</td><td>" + solution.r9.fsm + "N</td></tr>";
+                string deltaa = "<tr><td>作用在螺栓上的连续交替应力</td><td>deltaa</td><td>=</td><td>" + solution.r9.delta + "mm</td></tr>";
+                string SD = "<tr><td>疲劳安全系数</td><td>SD</td><td>=</td><td>" + solution.r9.sd + "</td></tr>";
+                text = text + FSmax + SF + Fsm + deltaa + SD;
+            }
+
+            // 表面压应力--- 装配状态
+            string zhuangpei_pG = "<tr><td>连接件表面压力</td><td>pG</td><td>=</td><td>" + solution.r10.pG+ "N/mm2</td></tr>";
+            string sp_bolt = "<tr><td>螺栓头承载面抗压安全系数</td><td>Spmk</td><td>=</td><td>" + rs.Sp+ "</td></tr>";
+            string sp_nut = "<tr><td>螺母承载面抗压安全系数</td><td>Spmmu</td><td>=</td><td>" + rs.Spn+ "</td></tr>";
+            // 表面压应力--- 工作状态
+            string gongzuo_pG = "<tr><td>连接件表面压力</td><td>pG</td><td>=</td><td>" + solution.r10.pG + "N/mm2</td></tr>";
+            string sp_bolt_load = "<tr><td>螺栓头承载面抗压安全系数</td><td>SpBk</td><td>=</td><td>" + rs.Sp_load + "</td></tr>";
+            string sp_nut_load = "<tr><td>螺母承载面抗压安全系数</td><td>SpBmu</td><td>=</td><td>" + rs.Spn_load + "</td></tr>";
+            text += (zhuangpei_pG + sp_bolt + sp_nut + gongzuo_pG + sp_bolt_load + sp_nut_load);
+            
+            // 抗滑移安全系数
+            if (rs.sgoll == 0 || rs.Sa == 0)
+            {
+                // 没有剪力？
+            }
+            else
+            {
+                string SG = "<tr><td>抗滑移安全系数</td><td>SG</td><td>=</td><td>" + rs.sgoll + "</td></tr>";
+                string SA = "<tr><td>抗剪切安全系数</td><td>SA</td><td>=</td><td>" + rs.Sa + "</td></tr>";
+                text += (SG + SA);
+            }
+            // 弯矩
+            string MA = "<tr><td>室温下必要的拧紧扭矩</td><td>MA</td><td>=</td><td>" + (rs.Ma  / 1000) + "N·m</td></tr>";
+            text += MA;
+
+            gongzuo_yingliTable.AppendChild(mdf.Text(text));
+            md.AppendChild(gongzuo_yingliTable);
+
+            #endregion
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.Filter = "单个文件(*.md)|所有文件(*)";
+            saveFileDialog.FileName = "报告.md";
+            
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string mhtPath = saveFileDialog.FileName;
+                try
+                {
+                    string fileName = mhtPath.Split('\\').Last();
+
+                    string directoryPath = mhtPath.Replace(fileName, "");
+                    string dir = directoryPath.Replace("\\", "/");
+
+                    // Prepare a path for MD file saving 
+                    string savePath = Path.Combine(dir, fileName);
+
+                    // Save MD file
+                    md.Save(savePath);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("生成报告出错");
+                }
+            }
+            
         }
     }
 }

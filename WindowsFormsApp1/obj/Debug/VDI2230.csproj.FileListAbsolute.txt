@@ -617,3 +617,5 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.CoreCompileIn
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.CopyComplete
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\Aspose.HTML.dll
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\Aspose.HTML.xml

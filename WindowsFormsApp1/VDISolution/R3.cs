@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -695,7 +696,8 @@ namespace WindowsFormsApp1.VDISolution
         #region deltap
         public void setDeltaP(string ep)
         {
-
+            l_v = r2.D_A - bolt.BoltHeadOutD_dw / (2 * r2.tanPhi_D);
+            l_H = r2.Lk - 2 * l_v / r2.w;
             if (r2.D_A >= r2.DAGr)
             {
                 double dw = bolt.BoltHeadOutD_dw;

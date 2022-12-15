@@ -66,9 +66,9 @@ namespace WindowsFormsApp1
         public FemMesh GetFemMesh()
         {
             // 底部
-            ICurve baseCircle = new Circle(Plane.XY, outer_A/ 2);
+            ICurve baseCircle = new Circle(Plane.XY, outer_A / 2);
             ICurve slotCircle = new Circle(Plane.XY, inner_B / 2);
-            var baseReg = new devDept.Eyeshot.Entities.Region(new List<ICurve>() { baseCircle, slotCircle });
+            var baseReg = new Region(new List<ICurve>() { baseCircle, slotCircle });
 
             _boundingBoxOfBoltHole.Clear();
             Circle boltCircle = new Circle(new Point3D(C / 2, 0, 0), d / 2);
@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
                 box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, .5 * tf);
                 _boundingBoxOfBoltHole.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
 
-                baseReg = devDept.Eyeshot.Entities.Region.Difference(baseReg, new devDept.Eyeshot.Entities.Region(boltCircle))[0];
+                baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
                 boltCircle.Rotate(deltAngle, Vector3D.AxisZ);
             }
             var mesh = baseReg.Triangulate(5);
