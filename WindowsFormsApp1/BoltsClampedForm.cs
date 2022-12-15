@@ -851,7 +851,7 @@ namespace WindowsFormsApp1
             // 添加文档内容
             // 标题
             var title = mdf.Paragraph();
-            title.AppendChild(mdf.Text("<h1 align=\"center\"> VDI2230多螺栓连接结构设计文档 </h1>");
+            title.AppendChild(mdf.Text("<h1 align=\"center\"> VDI2230多螺栓连接结构设计文档 </h1>"));
             md.AppendChild(title);
             var newLineTrivia = mdf.NewLineTrivia();
             title.GetTrailingTrivia().Add(newLineTrivia);

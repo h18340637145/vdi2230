@@ -619,3 +619,12 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\Aspose.HTML.dll
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\Aspose.HTML.xml
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.dll
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.WinForms.dll
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.Wpf.dll
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.pdb
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.xml
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.WinForms.pdb
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.WinForms.xml
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.Wpf.pdb
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.Wpf.xml
