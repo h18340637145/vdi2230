@@ -98,7 +98,6 @@
             chartArea1.Name = "ChartArea1";
             this.lineChart.ChartAreas.Add(chartArea1);
             this.lineChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.lineChart.Legends.Add(legend1);
             this.lineChart.Location = new System.Drawing.Point(0, 0);

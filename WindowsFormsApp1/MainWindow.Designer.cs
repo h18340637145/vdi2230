@@ -37,6 +37,7 @@
             this.BoltMatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClampedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VDI2230BoltConGeo = new System.Windows.Forms.ToolStripMenuItem();
+            this.selfDefLuoshaunlianjiebtn = new System.Windows.Forms.ToolStripMenuItem();
             this.设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.validateCompute = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +51,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ilIcon = new System.Windows.Forms.ImageList(this.components);
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,10 +112,19 @@
             // 
             // VDI2230BoltConGeo
             // 
+            this.VDI2230BoltConGeo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selfDefLuoshaunlianjiebtn,
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem});
             this.VDI2230BoltConGeo.Name = "VDI2230BoltConGeo";
             this.VDI2230BoltConGeo.Size = new System.Drawing.Size(177, 21);
             this.VDI2230BoltConGeo.Text = "VDI2230螺栓连接几何尺寸库";
-            this.VDI2230BoltConGeo.Click += new System.EventHandler(this.VDI2230BoltConGeo_Click);
+            // 
+            // selfDefLuoshaunlianjiebtn
+            // 
+            this.selfDefLuoshaunlianjiebtn.Name = "selfDefLuoshaunlianjiebtn";
+            this.selfDefLuoshaunlianjiebtn.Size = new System.Drawing.Size(233, 22);
+            this.selfDefLuoshaunlianjiebtn.Text = "自定义螺栓管理";
+            this.selfDefLuoshaunlianjiebtn.Click += new System.EventHandler(this.selfDefLuoshaunlianjiebtn_Click);
             // 
             // 设计ToolStripMenuItem
             // 
@@ -249,6 +260,13 @@
             this.ilIcon.Images.SetKeyName(44, "user.png");
             this.ilIcon.Images.SetKeyName(45, "yewujianmogongcheng.png");
             // 
+            // vDI2230螺栓连接几何尺寸库ToolStripMenuItem
+            // 
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Name = "vDI2230螺栓连接几何尺寸库ToolStripMenuItem";
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Text = "VDI2230螺栓连接几何尺寸";
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Click += new System.EventHandler(this.VDI2230BoltConGeo_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -296,5 +314,7 @@
         private System.Windows.Forms.ToolStripMenuItem initDesign;
         private System.Windows.Forms.ToolStripMenuItem validateCompute;
         private System.Windows.Forms.ToolStripMenuItem multiDesignBtn;
+        private System.Windows.Forms.ToolStripMenuItem selfDefLuoshaunlianjiebtn;
+        private System.Windows.Forms.ToolStripMenuItem vDI2230螺栓连接几何尺寸库ToolStripMenuItem;
     }
 }

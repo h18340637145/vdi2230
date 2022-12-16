@@ -26,25 +26,15 @@ namespace WindowsFormsApp1
             model1.Enabled = false;
             model1.ViewCubeIcon.Visible = false;
 
-            Console.WriteLine(model1.BackColor.R);
-            Console.WriteLine(model1.BackColor.G);
-            Console.WriteLine(model1.BackColor.B);
-            Console.WriteLine(model1.BackColor.A);
+            //Console.WriteLine(model1.BackColor.R);
+            //Console.WriteLine(model1.BackColor.G);
+            //Console.WriteLine(model1.BackColor.B);
+            //Console.WriteLine(model1.BackColor.A);
 
             dataGridView1.Columns["ValueField"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView1.Columns["PropeField"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
 
-
-            //dataGridView1.Rows.Add("d", 29);
-            //dataGridView1.Rows.Add("d1", 25.835);
-            //dataGridView1.Rows.Add("p", 2);
-            //dataGridView1.Rows.Add("l", 80);
-            //dataGridView1.Rows.Add("b", 66);
-            //dataGridView1.Rows.Add("e", 58);
-            //dataGridView1.Rows.Add("s", 46);
-            //dataGridView1.Rows.Add("k", 18.7);
-            //dataGridView1.Rows.Add("r", 1);
 
             dataGridView1.Rows.Add("NormalD_d", 12);
             dataGridView1.Rows.Add("ScrewP_P", 1.75);
@@ -64,7 +54,7 @@ namespace WindowsFormsApp1
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (_bolt == null || _boltData == null)
+            if (_bolt == null )
             {
                 return;
             }

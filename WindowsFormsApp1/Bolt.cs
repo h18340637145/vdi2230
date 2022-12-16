@@ -237,21 +237,6 @@ namespace CreateBotSpring
             return points;
         }
 
-        private Point3D[] GetLuoMaoPoints3D()
-        {
-            Point3D[] points = new Point3D[7];
-
-            points[0] = new Point3D(0, e / 2, 0);
-            points[1] = new Point3D(s / 2, e / 2 - s / 2 * Math.Tan(Math.PI / 6), 0);
-            points[2] = new Point3D(s / 2, -(e / 2 - s / 2 * Math.Tan(Math.PI / 6)), 0);
-            points[3] = new Point3D(0, -e / 2, 0);
-            points[4] = new Point3D(-s / 2, -(e / 2 - s / 2 * Math.Tan(Math.PI / 6)), 0);
-            points[5] = new Point3D(-s / 2, e / 2 - s / 2 * Math.Tan(Math.PI / 6), 0);
-            points[6] = new Point3D(0, e / 2-0.1, 0);
-
-            return points;
-        }
-
         /// <summary>
         /// 获取牙型坐标，该坐标包含大径部分，共9个点
         /// </summary>
@@ -271,20 +256,6 @@ namespace CreateBotSpring
             return result;
         }
 
-        private Point3D[] GetPointsForCybine9z()
-        {
-            Point3D[] result = new Point3D[9];
-            result[0] = new Point3D(d / 2, p / 8, 0);
-            result[1] = new Point3D(d1 / 2, 3 * p / 8, 0);
-            result[2] = new Point3D(d1 / 2, p / 2, 0);
-            result[3] = new Point3D(0, p / 2, 0);
-            result[4] = new Point3D(0, -p / 2, 0);
-            result[5] = new Point3D(d1 / 2, -p / 2, 0);
-            result[6] = new Point3D(d1 / 2, -3 * p / 8, 0);
-            result[7] = new Point3D(d / 2, -p / 8, 0);
-            result[8] = new Point3D(d / 2, p / 8, 0);
-            return result;
-        }
         /// <summary>
         /// 获取该螺栓牙型的ZX面的5个顺时针坐标
         /// </summary>

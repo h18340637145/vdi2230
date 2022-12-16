@@ -1,4 +1,6 @@
 ﻿using CreateBotSpring;
+using devDept.Eyeshot.Entities;
+using devDept.Geometry;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +23,7 @@ namespace WindowsFormsApp1
         public double BoltMaterialTmax { get; set; }
     }
 
-    public class BoltClass
+    public class BoltClass : IModelEntity, IModelFemMesh/**/
     {
         // 螺栓数据
         public double NormalD_d { get; set; }
@@ -104,5 +106,222 @@ namespace WindowsFormsApp1
             }
             dr.Close();
         }
+
+
+        private const int _slice = 100;
+        private const double _tol = .1;
+
+        public Entity GetEntity()
+        {
+            return GetBolt(1);
+            //return CombineCybineAndSpring();
+        }
+
+        private Solid GetLuoMao()
+        {
+            Point3D[] points = GetLuoMaoPoints();
+            var r = devDept.Eyeshot.Entities.Region.CreatePolygon(points);
+            var luoMao = r.ExtrudeAsSolid(0, 0, BoltNutSideWid_s / 2, _tol);
+            return luoMao;
+        }
+
+        private Entity GetBolt(int type = 1)
+        {
+            Solid bolt;
+            // 最简单表达方式
+            if (type == 0)
+            {
+                var luoGan = Solid.CreateCylinder(NormalD_d / 2, BoltLen_ls - (BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2), _slice);
+                var luoWen = Solid.CreateCylinder(NormalD_d / 2, (BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2), _slice);
+                luoGan.Translate(0, 0, (BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2));
+                var luoMao = GetLuoMao();
+                var result = Solid.Union(new List<Solid> { luoGan, luoWen, luoMao });
+
+                if (result == null || result.Length != 1)
+                {
+                    throw new Exception($"实体合并结果异常, 合并结果={result.Length}");
+                }
+
+                return bolt = result[0];
+            }
+
+            // 圈式螺纹表达方式
+            if (type == 1)
+            {
+                var section = new LinearPath(GetPointsForCybine9());
+                section.Rotate(Math.PI / 2, new Vector3D(0, 1, 0));
+                devDept.Eyeshot.Entities.Region r = new devDept.Eyeshot.Entities.Region(section);
+                var sectionSlice = r.RevolveAsSolid(0, 2 * Math.PI, Vector3D.AxisZ, Point3D.Origin, _slice, _tol);
+                List<Solid> listOfSlice = new List<Solid>();
+                for (int i = 0; i < (BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2) / ScrewP_P  + 1; i++)
+                {
+                    Solid s = sectionSlice.Clone() as Solid;
+                    s.Translate(0, 0, ScrewP_P * i);
+                    listOfSlice.Add(s);
+                }
+                var luoGan = Solid.CreateCylinder(NormalD_d / 2, BoltLen_ls - (BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2), _slice);
+                var luoMao = GetLuoMao();
+                luoGan.Translate(0, 0, (BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2));
+                listOfSlice.Add(luoGan);
+                listOfSlice.Add(luoMao);
+                var result = Solid.Union(listOfSlice);
+                if (result == null || result.Length != 1)
+                {
+                    throw new Exception($"实体合并结果异常, 合并结果={result.Length}");
+                }
+
+                return bolt = result[0];
+            }
+            Brep spring = CombineCybineAndSpring();
+            // 螺旋扫描表达方式
+            spring.Regen(.1);
+            return spring.ConvertToSolid();
+        }
+        private Point3D[] GetPoints()
+        {
+            Point3D[] result = new Point3D[5];
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = new Point3D();
+            }
+
+            // 0-3 与 4-7 关于Z轴对称
+            result[0].X = ScrewP_P / 8; result[3].X = -ScrewP_P / 8;
+            result[0].Z = NormalD_d / 2; result[3].Z = NormalD_d / 2;
+
+            result[1].X = 3 * ScrewP_P / 8; result[2].X = -3 * ScrewP_P / 8;
+            result[1].Z = BoltNutScrewMinD_D1 / 2; result[2].Z = BoltNutScrewMinD_D1 / 2;
+
+            // 封闭点
+            result[4].X = ScrewP_P / 8;
+            result[4].Z = NormalD_d / 2;
+
+            return result;
+        }
+        private Brep CombineCybineAndSpring()
+        {
+            LinearPath path = new LinearPath(GetPoints());
+            // 旋转至关于X轴对称
+            path.Rotate(Math.PI / 2, Vector3D.AxisY);
+
+            // 旋转扫描螺旋线
+            double turns = (BoltLen_ls-PolishRodLen_l1-PolishRodLen_l2) / ScrewP_P;
+            LinearPath lp = LinearPath.CreateHelix(1, ScrewP_P, turns, false, 0.25);
+            Curve rail = Curve.CubicSplineInterpolation(lp.Vertices);
+            Plane normalToRail = new Plane(rail.StartPoint, rail.StartTangent);
+            // 旋转面
+            devDept.Eyeshot.Entities.Region sectionReg = new devDept.Eyeshot.Entities.Region(path);
+            var spring = sectionReg.SweepAsBrep(rail, .1, sweepMethodType.RoadlikeTop);
+
+            devDept.Eyeshot.Entities.Region r;
+            // 切除底部多余牙
+            r = devDept.Eyeshot.Entities.Region.CreateCircle(Plane.XY, NormalD_d / 2);
+            spring.ExtrudeRemove(r, new Interval(0, -ScrewP_P / 2));
+
+            // 螺杆
+            r = devDept.Eyeshot.Entities.Region.CreateCircle(Plane.XY, NormalD_d / 2);
+            spring.ExtrudeAdd(r, new Interval(BoltLen_ls-PolishRodLen_l1-PolishRodLen_l2, BoltLen_ls));
+            r = devDept.Eyeshot.Entities.Region.CreateCircle(Plane.XY, BoltNutScrewMinD_D1 / 2);
+            spring.ExtrudeAdd(r, new Interval(0, BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2));
+
+            // 螺帽
+            Point3D[] points = GetLuoMaoPoints();
+            r = devDept.Eyeshot.Entities.Region.CreatePolygon(points);
+            spring.ExtrudeAdd(r, new Interval(0, -BoltNutSideWid_s/ 2));
+            return spring;
+
+            // 螺帽倒角
+            // todo 
+        }
+        private Point3D[] GetLuoMaoPoints()
+        {
+            Point3D[] points = new Point3D[6];
+
+            points[0] = new Point3D(0, 1.155 * BoltNutSideWid_s / 2, BoltLen_ls);
+            points[1] = new Point3D(BoltNutSideWid_s / 2, BoltNutSideWid_s * 1.155 / 2 - BoltNutSideWid_s / 2 * Math.Tan(Math.PI / 6), BoltLen_ls);
+            points[2] = new Point3D(BoltNutSideWid_s / 2, -(BoltNutSideWid_s * 1.155 / 2 - BoltNutSideWid_s / 2 * Math.Tan(Math.PI / 6)), BoltLen_ls);
+            points[3] = new Point3D(0, -1.155 * BoltNutSideWid_s / 2, BoltLen_ls);
+            points[4] = new Point3D(-BoltNutSideWid_s / 2, -(BoltNutSideWid_s * 1.155 / 2 - BoltNutSideWid_s / 2 * Math.Tan(Math.PI / 6)), BoltLen_ls);
+            points[5] = new Point3D(-BoltNutSideWid_s / 2, BoltNutSideWid_s * 1.155 / 2 - BoltNutSideWid_s / 2 * Math.Tan(Math.PI / 6), BoltLen_ls);
+            //points[6] = new Point3D(0, e / 2, l);
+            return points;
+        }
+
+        private Point3D[] GetPointsForCybine9()
+        {
+            Point3D[] result = new Point3D[9];
+            result[0] = new Point3D(ScrewP_P / 8, 0, NormalD_d / 2);
+            result[1] = new Point3D(3 * ScrewP_P / 8, 0, ScrewMinD_d3 / 2);
+            result[2] = new Point3D(ScrewP_P / 2, 0, ScrewMinD_d3 / 2);
+            result[3] = new Point3D(ScrewP_P / 2, 0, 0);
+            result[4] = new Point3D(-ScrewP_P / 2, 0, 0);
+            result[5] = new Point3D(-ScrewP_P / 2, 0, ScrewMinD_d3 / 2);
+            result[6] = new Point3D(-3 * ScrewP_P / 8, 0, ScrewMinD_d3 / 2);
+            result[7] = new Point3D(-ScrewP_P / 8, 0, NormalD_d / 2);
+            result[8] = new Point3D(ScrewP_P / 8, 0, NormalD_d / 2);
+            return result;
+        }
+
+        public FemMesh GetFemMesh()
+        {
+            var section = new LinearPath(GetPointsForCybine9());
+            section.Rotate(Math.PI / 2, new Vector3D(0, 1, 0));
+            devDept.Eyeshot.Entities.Region r = new devDept.Eyeshot.Entities.Region(section);
+
+            var sectionSlice = r.RevolveAsSolid(0, 2 * Math.PI, Vector3D.AxisZ, Point3D.Origin, _slice, _tol);
+            List<Solid> listOfSlice = new List<Solid>();
+            for (int i = 0; i < (BoltLen_ls-PolishRodLen_l1-PolishRodLen_l2) / ScrewP_P + 1; i++)
+            {
+                Solid s = sectionSlice.Clone() as Solid;
+                s.Translate(0, 0, ScrewP_P * i);
+                listOfSlice.Add(s);
+            }
+            var luoGan = Solid.CreateCylinder(NormalD_d / 2, BoltLen_ls - (BoltLen_ls-PolishRodLen_l1-PolishRodLen_l2), _slice);
+            var luoMao = GetLuoMao();
+            luoGan.Translate(0, 0, BoltLen_ls-PolishRodLen_l1-PolishRodLen_l2);
+            listOfSlice.Add(luoGan);
+            listOfSlice.Add(luoMao);
+            var result = Solid.Union(listOfSlice);
+            if (result == null || result.Length != 1)
+            {
+                throw new Exception($"实体合并结果异常, 合并结果={result.Length}");
+            }
+            var solid = result[0];
+
+
+            //// 做力的施加点
+            //ICurve curve = new LinearPath(GetLuoMaoPoints3D());
+            //var baseReg = new Region(new List<ICurve>() { curve });
+            //Circle boltCircle = new Circle(new Point3D(0, 0, 0), d / 2);
+
+            //double kd = 3;
+            //var box = Solid.CreateBox(kd, kd, k / 2);
+            //box.Translate(boltCircle.Center.X - kd / 2, boltCircle.Center.Y - kd / 2, l + k / 2); // 螺帽力箭头的位置
+            //luomaoTop.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
+            //baseReg = Region.Difference(baseReg, new Region(boltCircle))[0];
+
+
+
+            double kd = 3;
+            var cylinder = Solid.CreateBox(3, 3, BoltLen_ls + BoltNutSideWid_s / 2);
+            var res = Solid.Difference(solid, cylinder)[0];
+            var box = Solid.CreateBox(kd, kd, BoltNutSideWid_s / 2 / 2);
+            box.Translate(0, 0, BoltLen_ls + BoltNutSideWid_s / 2 / 2);
+            luomaoTop.Add(new Tuple<Point3D, Point3D>(box.BoxMin, box.BoxMax));
+
+            _boltMesh = res.ConvertToMesh().ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
+            _boltMesh.FixAll(Plane.XY, 0.1);
+            return _boltMesh;
+        }
+
+
+        public int ShowType { set; get; }
+        private FemMesh _boltMesh; // 有限元连接件
+
+        const int liujiao = 6;
+        List<Tuple<Point3D, Point3D>> luomaoTop = new List<Tuple<Point3D, Point3D>>();
+        List<Tuple<Point3D, Point3D>> luomaoBottom_luoganTop = new List<Tuple<Point3D, Point3D>>();
+        List<Tuple<Point3D, Point3D>> luoganBottom_luowenTop = new List<Tuple<Point3D, Point3D>>();
     }
+
 }

@@ -84,47 +84,89 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
             //lineChart.ChartAreas[0].AxisY.MajorGrid.Interval = 50;
             lineChart.ChartAreas[0].AxisX.Interval = 0.025;
             lineChart.ChartAreas[0].AxisY.Interval = 5; //设置Y轴的刻度间距
-
             //Y轴范围0-Fmzul  X轴范围0~deltaS + deltaP
             lineChart.ChartAreas[0].AxisX.Minimum = 0;
             lineChart.ChartAreas[0].AxisX.Maximum = (rs.Fmzul * rs.deltas + rs.Fmzul * rs.deltap) * 1.2;
             lineChart.ChartAreas[0].AxisY.Minimum = 0;
             lineChart.ChartAreas[0].AxisY.Maximum = rs.Fmzul * 1.25 / 1000;
-
             lineChart.ChartAreas[0].Area3DStyle.Enable3D = false;//启用3D显示
             //设置空数据时显示坐标轴
             lineChart.ChartAreas[0].AxisX.Enabled = AxisEnabled.True;
             lineChart.ChartAreas[0].AxisY.Enabled = AxisEnabled.True;
-
             blackLine.Points.AddXY(0, 0);
             blackLine.Points.AddXY(rs.Fmzul * rs.deltas, rs.Fmzul / 1000);
             redLine.Points.AddXY(rs.Fmzul * rs.deltas, rs.Fmzul / 1000);
             redLine.Points.AddXY(rs.Fmzul * rs.deltas + rs.Fmzul * rs.deltap, 0);
 
-            // 有问题
-            Series buleLine = new Series("characteristic strutted part(FMmin)");
-            buleLine.Points.AddXY(lineFunc(rs.Fmmin / 1000), rs.Fmmin / 1000);
-            buleLine.Points.AddXY(rs.Fmmin * rs.deltas, 0);
+            // Fmin line
+            Series FminLine = new Series("characteristic strutted part(FMmin)");
+            FminLine.ChartType = SeriesChartType.Line;
+            FminLine.IsVisibleInLegend = false;
+            double x1 = addLineFuncGetX(rs.Fmmin / 1000);
+            double y1 = rs.Fmmin / 1000;
+            double x2 = subLineFuncGetX(x1, y1, 0);
+            double y2 = 0;
+            FminLine.Points.AddXY(x1, y1);
+            FminLine.Points.AddXY(x2, y2);
+            Series FminDottedLine = new Series();
+            FminDottedLine.ChartType = SeriesChartType.StepLine;
+            FminDottedLine.BorderDashStyle = ChartDashStyle.Dash;
+            FminDottedLine.IsValueShownAsLabel = true;
+            FminDottedLine.Points.AddXY(0, y1);
+            FminDottedLine.Points.AddXY(rs.Fmzul * rs.deltas + rs.Fmzul * rs.deltap, rs.Fmmin / 1000);
 
-            MessageBox.Show("point1:" + lineFunc(rs.Fmmin / 1000) + " " + rs.Fmmin / 1000);
-            MessageBox.Show("point2:" + rs.Fmmin * rs.deltas + " 0");
+            // Fmax line
+            Series FmaxLine = new Series("characteristic strutted part(FMmax)");
+            FmaxLine.ChartType = SeriesChartType.Line;
+            //FmaxLine.IsValueShownAsLabel = true;
+            x1 = addLineFuncGetX(rs.Fmmax / 1000);
+            y1 = rs.Fmmax / 1000;
+            x2 = subLineFuncGetX(x1, y1, 0);
+            y2 = 0;
+            FmaxLine.Points.AddXY(x1, y1);
+            FmaxLine.Points.AddXY(x2, y2);
+            Series FmaxDottedLine = new Series();
+            FmaxDottedLine.ChartType = SeriesChartType.Line;
+            FmaxDottedLine.BorderDashStyle = ChartDashStyle.Dash;
+            FmaxDottedLine.IsVisibleInLegend = false;
+            //FmaxDottedLine.IsValueShownAsLabel = true;
+            FmaxDottedLine.Points.AddXY(0, y1);
+            FmaxDottedLine.Points.AddXY(rs.Fmzul * rs.deltas + rs.Fmzul * rs.deltap, rs.Fmmax / 1000);
 
-            Series greenLine = new Series("characteristic strutted part(FMmax)");
-            greenLine.Points.AddXY(lineFunc(rs.Fmmax / 1000), rs.Fmmax / 1000);
-            greenLine.Points.AddXY(rs.Fmmax * rs.deltas, 0);
+            // fmzul
+            Series FmzulLine = new Series();
+            FmzulLine.ChartType = SeriesChartType.FastLine;
+            FmzulLine.BorderDashStyle = ChartDashStyle.Dash;
+
+            FmzulLine.IsVisibleInLegend = false;
+            FmzulLine.Points.AddXY(0, rs.Fmzul / 1000);
+            FmzulLine.Points.AddXY(rs.Fmzul * rs.deltas + rs.Fmzul * rs.deltap, rs.Fmzul / 1000);
+
 
             //把series添加到chart上
             lineChart.Series.Add(blackLine);
             lineChart.Series.Add(redLine);
-            lineChart.Series.Add(buleLine);
-            lineChart.Series.Add(greenLine);
+            lineChart.Series.Add(FminLine);
+            lineChart.Series.Add(FmaxLine);
+            lineChart.Series.Add(FminDottedLine);
+            lineChart.Series.Add(FmaxDottedLine);
+            lineChart.Series.Add(FmzulLine);
 
         }
-
-        double lineFunc(double y)
+        double addLineFuncGetX(double y)
         {
+            //y = kx + b;  k = y0 / x0  过0,0,   y = kx  x = y / k;
             double k = (rs.Fmzul / 1000) / (rs.Fmzul * rs.deltas);
             return y / k;
+        }
+        double subLineFuncGetX(double x0, double y0, double y)
+        {
+            // y - y0 = k (x - x0);
+            //k = (y1 - y2) / (x1 - x2);
+            // 斜率+一个点
+            double k = (rs.Fmzul / 1000 - 0) / (rs.Fmzul * rs.deltas - (rs.Fmzul * rs.deltas + rs.Fmzul * rs.deltap)) ;
+            // 
+            return (y - y0) / k + x0;
         }
     }
 }

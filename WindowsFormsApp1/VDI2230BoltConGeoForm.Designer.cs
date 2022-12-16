@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            devDept.Eyeshot.CancelToolBarButton cancelToolBarButton6 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ProgressBar progressBar6 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton6, false, 0.1D, true);
-            devDept.Graphics.BackgroundSettings backgroundSettings6 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
-            devDept.Eyeshot.Camera camera6 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.4199999264855729D, false, 0.001D);
-            devDept.Eyeshot.HomeToolBarButton homeToolBarButton6 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
-            devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton6 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton6 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ZoomToolBarButton zoomToolBarButton6 = new devDept.Eyeshot.ZoomToolBarButton("Zoom", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.PanToolBarButton panToolBarButton6 = new devDept.Eyeshot.PanToolBarButton("Pan", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.RotateToolBarButton rotateToolBarButton6 = new devDept.Eyeshot.RotateToolBarButton("Rotate", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
-            devDept.Eyeshot.ZoomFitToolBarButton zoomFitToolBarButton6 = new devDept.Eyeshot.ZoomFitToolBarButton("Zoom Fit", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
-            devDept.Eyeshot.ToolBar toolBar6 = new devDept.Eyeshot.ToolBar(devDept.Eyeshot.ToolBar.positionType.HorizontalTopCenter, true, new devDept.Eyeshot.ToolBarButton[] {
-            ((devDept.Eyeshot.ToolBarButton)(homeToolBarButton6)),
-            ((devDept.Eyeshot.ToolBarButton)(magnifyingGlassToolBarButton6)),
-            ((devDept.Eyeshot.ToolBarButton)(zoomWindowToolBarButton6)),
-            ((devDept.Eyeshot.ToolBarButton)(zoomToolBarButton6)),
-            ((devDept.Eyeshot.ToolBarButton)(panToolBarButton6)),
-            ((devDept.Eyeshot.ToolBarButton)(rotateToolBarButton6)),
-            ((devDept.Eyeshot.ToolBarButton)(zoomFitToolBarButton6))});
-            devDept.Eyeshot.Grid grid6 = new devDept.Eyeshot.Grid(new devDept.Geometry.Point3D(-100D, -100D, 0D), new devDept.Geometry.Point3D(100D, 100D, 0D), 10D, new devDept.Geometry.Plane(new devDept.Geometry.Point3D(0D, 0D, 0D), new devDept.Geometry.Vector3D(0D, 0D, 1D)), System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(0))))), false, true, false, false, 10, 100, 10, System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90))))), System.Drawing.Color.Transparent, false, System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255))))));
-            devDept.Eyeshot.RotateSettings rotateSettings6 = new devDept.Eyeshot.RotateSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.None), 10D, true, 1D, devDept.Eyeshot.rotationType.Trackball, devDept.Eyeshot.rotationCenterType.CursorLocation, new devDept.Geometry.Point3D(0D, 0D, 0D), false);
-            devDept.Eyeshot.ZoomSettings zoomSettings6 = new devDept.Eyeshot.ZoomSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Shift), 25, true, devDept.Eyeshot.zoomStyleType.AtCursorLocation, false, 1D, System.Drawing.Color.Empty, devDept.Eyeshot.Camera.perspectiveFitType.Accurate, false, 10, true);
-            devDept.Eyeshot.PanSettings panSettings6 = new devDept.Eyeshot.PanSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Ctrl), 25, true);
-            devDept.Eyeshot.NavigationSettings navigationSettings6 = new devDept.Eyeshot.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Left, devDept.Eyeshot.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
-            devDept.Eyeshot.Viewport.SavedViewsManager savedViewsManager6 = new devDept.Eyeshot.Viewport.SavedViewsManager(8);
-            devDept.Eyeshot.Viewport viewport6 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(877, 342), backgroundSettings6, camera6, new devDept.Eyeshot.ToolBar[] {
-            toolBar6}, devDept.Eyeshot.displayType.Rendered, true, false, false, false, new devDept.Eyeshot.Grid[] {
-            grid6}, false, rotateSettings6, zoomSettings6, panSettings6, navigationSettings6, savedViewsManager6, devDept.Eyeshot.viewType.Trimetric);
-            devDept.Eyeshot.CoordinateSystemIcon coordinateSystemIcon6 = new devDept.Eyeshot.CoordinateSystemIcon(System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.coordinateSystemPositionType.BottomLeft, 37, false);
-            devDept.Eyeshot.OriginSymbol originSymbol6 = new devDept.Eyeshot.OriginSymbol(10, devDept.Eyeshot.originSymbolStyleType.Ball, System.Drawing.Color.Black, System.Drawing.Color.Red, System.Drawing.Color.Green, System.Drawing.Color.Blue, "Origin", "X", "Y", "Z", true, null, false);
-            devDept.Eyeshot.ViewCubeIcon viewCubeIcon6 = new devDept.Eyeshot.ViewCubeIcon(devDept.Eyeshot.coordinateSystemPositionType.TopRight, true, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(20)))), ((int)(((byte)(147))))), true, "FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM", System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), 'S', 'N', 'W', 'E', true, System.Drawing.Color.White, System.Drawing.Color.Black, 120, true, true, null, null, null, null, null, null, false);
+            devDept.Eyeshot.CancelToolBarButton cancelToolBarButton1 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ProgressBar progressBar1 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton1, false, 0.1D, true);
+            devDept.Graphics.BackgroundSettings backgroundSettings1 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
+            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.4199999264855729D, false, 0.001D);
+            devDept.Eyeshot.HomeToolBarButton homeToolBarButton1 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
+            devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton1 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton1 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ZoomToolBarButton zoomToolBarButton1 = new devDept.Eyeshot.ZoomToolBarButton("Zoom", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.PanToolBarButton panToolBarButton1 = new devDept.Eyeshot.PanToolBarButton("Pan", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.RotateToolBarButton rotateToolBarButton1 = new devDept.Eyeshot.RotateToolBarButton("Rotate", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
+            devDept.Eyeshot.ZoomFitToolBarButton zoomFitToolBarButton1 = new devDept.Eyeshot.ZoomFitToolBarButton("Zoom Fit", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
+            devDept.Eyeshot.ToolBar toolBar1 = new devDept.Eyeshot.ToolBar(devDept.Eyeshot.ToolBar.positionType.HorizontalTopCenter, true, new devDept.Eyeshot.ToolBarButton[] {
+            ((devDept.Eyeshot.ToolBarButton)(homeToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(magnifyingGlassToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(zoomWindowToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(zoomToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(panToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(rotateToolBarButton1)),
+            ((devDept.Eyeshot.ToolBarButton)(zoomFitToolBarButton1))});
+            devDept.Eyeshot.Grid grid1 = new devDept.Eyeshot.Grid(new devDept.Geometry.Point3D(-100D, -100D, 0D), new devDept.Geometry.Point3D(100D, 100D, 0D), 10D, new devDept.Geometry.Plane(new devDept.Geometry.Point3D(0D, 0D, 0D), new devDept.Geometry.Vector3D(0D, 0D, 1D)), System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))), System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(0))))), false, true, false, false, 10, 100, 10, System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90))))), System.Drawing.Color.Transparent, false, System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255))))));
+            devDept.Eyeshot.RotateSettings rotateSettings1 = new devDept.Eyeshot.RotateSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.None), 10D, true, 1D, devDept.Eyeshot.rotationType.Trackball, devDept.Eyeshot.rotationCenterType.CursorLocation, new devDept.Geometry.Point3D(0D, 0D, 0D), false);
+            devDept.Eyeshot.ZoomSettings zoomSettings1 = new devDept.Eyeshot.ZoomSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Shift), 25, true, devDept.Eyeshot.zoomStyleType.AtCursorLocation, false, 1D, System.Drawing.Color.Empty, devDept.Eyeshot.Camera.perspectiveFitType.Accurate, false, 10, true);
+            devDept.Eyeshot.PanSettings panSettings1 = new devDept.Eyeshot.PanSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Ctrl), 25, true);
+            devDept.Eyeshot.NavigationSettings navigationSettings1 = new devDept.Eyeshot.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Left, devDept.Eyeshot.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
+            devDept.Eyeshot.Viewport.SavedViewsManager savedViewsManager1 = new devDept.Eyeshot.Viewport.SavedViewsManager(8);
+            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(997, 342), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
+            toolBar1}, devDept.Eyeshot.displayType.Rendered, true, false, false, false, new devDept.Eyeshot.Grid[] {
+            grid1}, false, rotateSettings1, zoomSettings1, panSettings1, navigationSettings1, savedViewsManager1, devDept.Eyeshot.viewType.Trimetric);
+            devDept.Eyeshot.CoordinateSystemIcon coordinateSystemIcon1 = new devDept.Eyeshot.CoordinateSystemIcon(System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.coordinateSystemPositionType.BottomLeft, 37, false);
+            devDept.Eyeshot.OriginSymbol originSymbol1 = new devDept.Eyeshot.OriginSymbol(10, devDept.Eyeshot.originSymbolStyleType.Ball, System.Drawing.Color.Black, System.Drawing.Color.Red, System.Drawing.Color.Green, System.Drawing.Color.Blue, "Origin", "X", "Y", "Z", true, null, false);
+            devDept.Eyeshot.ViewCubeIcon viewCubeIcon1 = new devDept.Eyeshot.ViewCubeIcon(devDept.Eyeshot.coordinateSystemPositionType.TopRight, true, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(20)))), ((int)(((byte)(147))))), true, "FRONT", "BACK", "LEFT", "RIGHT", "TOP", "BOTTOM", System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77))))), 'S', 'N', 'W', 'E', true, System.Drawing.Color.White, System.Drawing.Color.Black, 120, true, true, null, null, null, null, null, null, false);
             this.boltSpeciTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.boltConnectionSystemDataSet2 = new WindowsFormsApp1.BoltConnectionSystemDataSet2();
             this.boltStdTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -114,8 +114,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.seeButton = new System.Windows.Forms.Button();
             this.boltType = new System.Windows.Forms.ComboBox();
+            this.dboboltTypeTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boltConnectionSystemDataSet11 = new WindowsFormsApp1.BoltConnectionSystemDataSet11();
             this.label5 = new System.Windows.Forms.Label();
             this.screwType = new System.Windows.Forms.ComboBox();
+            this.dboscrewTypeTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boltConnectionSystemDataSet10 = new WindowsFormsApp1.BoltConnectionSystemDataSet10();
             this.label6 = new System.Windows.Forms.Label();
             this.boltLen = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -136,22 +140,18 @@
             this.label15 = new System.Windows.Forms.Label();
             this.boltHeadOutD = new System.Windows.Forms.TextBox();
             this.boltSpeci = new System.Windows.Forms.ComboBox();
+            this.dboboltSpeciTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boltConnectionSystemDataSet12 = new WindowsFormsApp1.BoltConnectionSystemDataSet12();
             this.boreD = new System.Windows.Forms.TextBox();
             this.boltStd = new System.Windows.Forms.ComboBox();
+            this.dboboltStdTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boltConnectionSystemDataSet13 = new WindowsFormsApp1.BoltConnectionSystemDataSet13();
             this.screwP = new System.Windows.Forms.TextBox();
             this.normalD = new System.Windows.Forms.TextBox();
             this.model1 = new devDept.Eyeshot.Model();
-            this.boltConnectionSystemDataSet10 = new WindowsFormsApp1.BoltConnectionSystemDataSet10();
-            this.dboscrewTypeTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbo_screwTypeTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet10TableAdapters.dbo_screwTypeTableTableAdapter();
-            this.boltConnectionSystemDataSet11 = new WindowsFormsApp1.BoltConnectionSystemDataSet11();
-            this.dboboltTypeTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbo_boltTypeTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet11TableAdapters.dbo_boltTypeTableTableAdapter();
-            this.boltConnectionSystemDataSet12 = new WindowsFormsApp1.BoltConnectionSystemDataSet12();
-            this.dboboltSpeciTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbo_boltSpeciTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet12TableAdapters.dbo_boltSpeciTableTableAdapter();
-            this.boltConnectionSystemDataSet13 = new WindowsFormsApp1.BoltConnectionSystemDataSet13();
-            this.dboboltStdTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbo_boltStdTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet13TableAdapters.dbo_boltStdTableTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.boltSpeciTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet2)).BeginInit();
@@ -174,15 +174,15 @@
             this.boltGroup.SuspendLayout();
             this.gasketGroup.SuspendLayout();
             this.nutGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dboscrewTypeTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboboltTypeTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dboscrewTypeTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboboltSpeciTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboboltStdTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.model1)).BeginInit();
             this.SuspendLayout();
             // 
             // boltSpeciTableBindingSource
@@ -298,7 +298,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.model1);
-            this.splitContainer1.Size = new System.Drawing.Size(877, 707);
+            this.splitContainer1.Size = new System.Drawing.Size(997, 707);
             this.splitContainer1.SplitterDistance = 361;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -342,7 +342,7 @@
             this.boltGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.boltGroup.Location = new System.Drawing.Point(0, 0);
             this.boltGroup.Name = "boltGroup";
-            this.boltGroup.Size = new System.Drawing.Size(860, 413);
+            this.boltGroup.Size = new System.Drawing.Size(980, 413);
             this.boltGroup.TabIndex = 175;
             this.boltGroup.TabStop = false;
             this.boltGroup.Text = "螺栓";
@@ -371,7 +371,7 @@
             this.gasketGroup.Controls.Add(this.label27);
             this.gasketGroup.Controls.Add(this.gasketstd);
             this.gasketGroup.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gasketGroup.Location = new System.Drawing.Point(347, 17);
+            this.gasketGroup.Location = new System.Drawing.Point(467, 17);
             this.gasketGroup.Name = "gasketGroup";
             this.gasketGroup.Size = new System.Drawing.Size(257, 393);
             this.gasketGroup.TabIndex = 173;
@@ -502,7 +502,7 @@
             this.nutGroup.Controls.Add(this.nutHeight);
             this.nutGroup.Controls.Add(this.nutSpeci);
             this.nutGroup.Dock = System.Windows.Forms.DockStyle.Right;
-            this.nutGroup.Location = new System.Drawing.Point(604, 17);
+            this.nutGroup.Location = new System.Drawing.Point(724, 17);
             this.nutGroup.Name = "nutGroup";
             this.nutGroup.Size = new System.Drawing.Size(253, 393);
             this.nutGroup.TabIndex = 172;
@@ -655,7 +655,7 @@
             // 
             // seeButton
             // 
-            this.seeButton.Location = new System.Drawing.Point(285, 27);
+            this.seeButton.Location = new System.Drawing.Point(267, 27);
             this.seeButton.Margin = new System.Windows.Forms.Padding(2);
             this.seeButton.Name = "seeButton";
             this.seeButton.Size = new System.Drawing.Size(78, 32);
@@ -674,6 +674,16 @@
             this.boltType.Name = "boltType";
             this.boltType.Size = new System.Drawing.Size(115, 20);
             this.boltType.TabIndex = 159;
+            // 
+            // dboboltTypeTableBindingSource
+            // 
+            this.dboboltTypeTableBindingSource.DataMember = "dbo_boltTypeTable";
+            this.dboboltTypeTableBindingSource.DataSource = this.boltConnectionSystemDataSet11;
+            // 
+            // boltConnectionSystemDataSet11
+            // 
+            this.boltConnectionSystemDataSet11.DataSetName = "BoltConnectionSystemDataSet11";
+            this.boltConnectionSystemDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -695,6 +705,16 @@
             this.screwType.Name = "screwType";
             this.screwType.Size = new System.Drawing.Size(115, 20);
             this.screwType.TabIndex = 158;
+            // 
+            // dboscrewTypeTableBindingSource
+            // 
+            this.dboscrewTypeTableBindingSource.DataMember = "dbo_screwTypeTable";
+            this.dboscrewTypeTableBindingSource.DataSource = this.boltConnectionSystemDataSet10;
+            // 
+            // boltConnectionSystemDataSet10
+            // 
+            this.boltConnectionSystemDataSet10.DataSetName = "BoltConnectionSystemDataSet10";
+            this.boltConnectionSystemDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label6
             // 
@@ -889,6 +909,16 @@
             this.boltSpeci.Size = new System.Drawing.Size(115, 20);
             this.boltSpeci.TabIndex = 129;
             // 
+            // dboboltSpeciTableBindingSource
+            // 
+            this.dboboltSpeciTableBindingSource.DataMember = "dbo_boltSpeciTable";
+            this.dboboltSpeciTableBindingSource.DataSource = this.boltConnectionSystemDataSet12;
+            // 
+            // boltConnectionSystemDataSet12
+            // 
+            this.boltConnectionSystemDataSet12.DataSetName = "BoltConnectionSystemDataSet12";
+            this.boltConnectionSystemDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // boreD
             // 
             this.boreD.Location = new System.Drawing.Point(141, 200);
@@ -908,6 +938,16 @@
             this.boltStd.Name = "boltStd";
             this.boltStd.Size = new System.Drawing.Size(115, 20);
             this.boltStd.TabIndex = 130;
+            // 
+            // dboboltStdTableBindingSource
+            // 
+            this.dboboltStdTableBindingSource.DataMember = "dbo_boltStdTable";
+            this.dboboltStdTableBindingSource.DataSource = this.boltConnectionSystemDataSet13;
+            // 
+            // boltConnectionSystemDataSet13
+            // 
+            this.boltConnectionSystemDataSet13.DataSetName = "BoltConnectionSystemDataSet13";
+            this.boltConnectionSystemDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // screwP
             // 
@@ -933,71 +973,31 @@
             this.model1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.model1.Location = new System.Drawing.Point(0, 0);
             this.model1.Name = "model1";
-            this.model1.ProgressBar = progressBar6;
-            this.model1.Size = new System.Drawing.Size(877, 342);
+            this.model1.ProgressBar = progressBar1;
+            this.model1.Size = new System.Drawing.Size(997, 342);
             this.model1.TabIndex = 0;
             this.model1.Text = "model1";
-            coordinateSystemIcon6.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            viewport6.CoordinateSystemIcon = coordinateSystemIcon6;
-            viewport6.Legends = new devDept.Eyeshot.Legend[0];
-            originSymbol6.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            viewport6.OriginSymbol = originSymbol6;
-            viewCubeIcon6.Font = null;
-            viewCubeIcon6.InitialRotation = new devDept.Geometry.Quaternion(0D, 0D, 0D, 1D);
-            viewport6.ViewCubeIcon = viewCubeIcon6;
-            this.model1.Viewports.Add(viewport6);
-            // 
-            // boltConnectionSystemDataSet10
-            // 
-            this.boltConnectionSystemDataSet10.DataSetName = "BoltConnectionSystemDataSet10";
-            this.boltConnectionSystemDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dboscrewTypeTableBindingSource
-            // 
-            this.dboscrewTypeTableBindingSource.DataMember = "dbo_screwTypeTable";
-            this.dboscrewTypeTableBindingSource.DataSource = this.boltConnectionSystemDataSet10;
+            coordinateSystemIcon1.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            viewport1.CoordinateSystemIcon = coordinateSystemIcon1;
+            viewport1.Legends = new devDept.Eyeshot.Legend[0];
+            originSymbol1.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            viewport1.OriginSymbol = originSymbol1;
+            viewCubeIcon1.Font = null;
+            viewCubeIcon1.InitialRotation = new devDept.Geometry.Quaternion(0D, 0D, 0D, 1D);
+            viewport1.ViewCubeIcon = viewCubeIcon1;
+            this.model1.Viewports.Add(viewport1);
             // 
             // dbo_screwTypeTableTableAdapter
             // 
             this.dbo_screwTypeTableTableAdapter.ClearBeforeFill = true;
             // 
-            // boltConnectionSystemDataSet11
-            // 
-            this.boltConnectionSystemDataSet11.DataSetName = "BoltConnectionSystemDataSet11";
-            this.boltConnectionSystemDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dboboltTypeTableBindingSource
-            // 
-            this.dboboltTypeTableBindingSource.DataMember = "dbo_boltTypeTable";
-            this.dboboltTypeTableBindingSource.DataSource = this.boltConnectionSystemDataSet11;
-            // 
             // dbo_boltTypeTableTableAdapter
             // 
             this.dbo_boltTypeTableTableAdapter.ClearBeforeFill = true;
             // 
-            // boltConnectionSystemDataSet12
-            // 
-            this.boltConnectionSystemDataSet12.DataSetName = "BoltConnectionSystemDataSet12";
-            this.boltConnectionSystemDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dboboltSpeciTableBindingSource
-            // 
-            this.dboboltSpeciTableBindingSource.DataMember = "dbo_boltSpeciTable";
-            this.dboboltSpeciTableBindingSource.DataSource = this.boltConnectionSystemDataSet12;
-            // 
             // dbo_boltSpeciTableTableAdapter
             // 
             this.dbo_boltSpeciTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // boltConnectionSystemDataSet13
-            // 
-            this.boltConnectionSystemDataSet13.DataSetName = "BoltConnectionSystemDataSet13";
-            this.boltConnectionSystemDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dboboltStdTableBindingSource
-            // 
-            this.dboboltStdTableBindingSource.DataMember = "dbo_boltStdTable";
-            this.dboboltStdTableBindingSource.DataSource = this.boltConnectionSystemDataSet13;
             // 
             // dbo_boltStdTableTableAdapter
             // 
@@ -1008,7 +1008,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(877, 707);
+            this.ClientSize = new System.Drawing.Size(997, 707);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VDI2230BoltConGeoForm";
@@ -1039,15 +1039,15 @@
             this.gasketGroup.PerformLayout();
             this.nutGroup.ResumeLayout(false);
             this.nutGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.model1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dboscrewTypeTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboboltTypeTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dboscrewTypeTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboboltSpeciTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboboltStdTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.model1)).EndInit();
             this.ResumeLayout(false);
 
         }

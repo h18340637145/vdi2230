@@ -582,8 +582,6 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\devDept.Eyeshot.Control.Win.v12.xml
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\devDept.Geometry.v12.xml
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\devDept.Graphics.Win.v12.xml
-H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.AssemblyReference.cache
-H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.SuggestedBindingRedirects.cache
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BoltChooseForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.BoltsClampedForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CreateBoltForm.resources
@@ -628,3 +626,7 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.WinForms.pdb
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.WinForms.xml
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.Wpf.pdb
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\LiveCharts.Wpf.xml
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SelfDefLuoshaunlianjieForm.resources
+H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\my.mdb
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.AssemblyReference.cache
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.SuggestedBindingRedirects.cache

@@ -22,7 +22,7 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
             zhazhiBtn.Visible = true;
 
             dataGridView1.Rows.Add("Rz", 16, "um平均表面粗糙度");
-            dataGridView1.Rows.Add("alphaA", 1, "拧紧系数");
+            dataGridView1.Rows.Add("alphaA", 1.7, "拧紧系数");
             dataGridView1.Rows.Add("Ugmin", 0.1, "螺纹接触面最小摩擦系数Ugmin");
             dataGridView1.Rows.Add("UTmin", 0.1, "被连接件接合面间最小摩擦系数UTmin");
             dataGridView1.Rows.Add("Ukmin", 0.1, "螺栓头接触面最小摩擦系数Ukmin");

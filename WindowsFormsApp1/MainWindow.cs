@@ -106,5 +106,11 @@ namespace WindowsFormsApp1
             MutliBoltsDesginForm mutliBoltsDesginForm = new MutliBoltsDesginForm();
             mutliBoltsDesginForm.ShowDialog();
         }
+
+        private void selfDefLuoshaunlianjiebtn_Click(object sender, EventArgs e)
+        {
+            SelfDefLuoshaunlianjieForm form = new SelfDefLuoshaunlianjieForm();
+            form.ShowDialog();
+        }
     }
 }
