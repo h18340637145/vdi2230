@@ -227,6 +227,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BoltMaterialConn.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BoltModel\BoltParameter.cs" />
     <Compile Include="BoltsClampedForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +240,8 @@
       <DependentUpon>ChooseClampedFrm.xsd</DependentUpon>
     </Compile>
     <Compile Include="ClampedClass.cs" />
+    <Compile Include="ClampedModel\ClampedHeight.cs" />
+    <Compile Include="ClampedModel\SelfAssClamped.cs" />
     <Compile Include="ComputeResult.cs" />
     <Compile Include="CreateBoltForm.cs">
       <SubType>Form</SubType>

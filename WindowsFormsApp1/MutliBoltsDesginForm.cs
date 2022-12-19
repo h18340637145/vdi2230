@@ -950,7 +950,7 @@ namespace WindowsFormsApp1
             var bolt = _createBoltForm.GetModelEntity();
             var boltData = _createBoltForm.getBoltData();
             this.boltData = boltData;
-            if (bolt == null || boltData == null) return;
+            //if (bolt == null || boltData == null) return;
 
             createBoltBtn.Enabled = false;
         }
@@ -1020,7 +1020,7 @@ namespace WindowsFormsApp1
             boltsClampedForm.boltData = boltData;
 
             var fmod = _createClamedForm.GetModel() as HKFDJClamped;
-            var bmod = _createBoltForm.GetModel() as Bolt;
+            var bmod = _createBoltForm.GetModel() as BoltClass;
             var nmod = _createNutForm.GetModel() as NutClass;
             if (fmod == null || bmod == null || nmod == null) return;
             var result = boltsClampedForm.ShowDialog();
@@ -1079,7 +1079,7 @@ namespace WindowsFormsApp1
             simulation1.Entities.Clear();
 
             var fmod = _createClamedForm.GetModel() as HKFDJClamped;
-            var bmod = _createBoltForm.GetModel() as Bolt;
+            var bmod = _createBoltForm.GetModel() as BoltClass;
             var nmod = _createNutForm.GetModel() as NutClass;
             if (fmod == null || nmod == null || bmod == null) return;
             if (rs == null) return;
@@ -1145,7 +1145,7 @@ namespace WindowsFormsApp1
         {
             simulation1.Entities.Clear();
 
-            var bmod = _createBoltForm.GetModel() as Bolt;
+            var bmod = _createBoltForm.GetModel() as BoltClass;
             var nmod = _createNutForm.GetModel() as NutClass;
             if ( bmod == null || nmod == null) return;
             double opResults = rs.Fmmax;

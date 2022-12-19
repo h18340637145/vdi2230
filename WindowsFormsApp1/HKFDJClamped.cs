@@ -7,10 +7,11 @@ using devDept.Eyeshot;
 using devDept.Eyeshot.Entities;
 using devDept.Geometry;
 using devDept.Graphics;
+using WindowsFormsApp1.ClampedModel;
 
 namespace WindowsFormsApp1
 {
-    public class HKFDJClamped : IModelEntityClampeds, IModelFemMesh
+    public class HKFDJClamped : ClampedHeight, IModelEntityClampeds, IModelFemMesh
     {
         #region PropeField
         
@@ -26,7 +27,7 @@ namespace WindowsFormsApp1
         public double tf { set; get; } 
         public Model Mode { set; get; }
         //public double ddz = 1;  // 垫片厚
-        public double ddx = 1;
+      
         // 弹性模量
         public double TanXingMoLiang { set; get; }
         #endregion  
@@ -39,7 +40,7 @@ namespace WindowsFormsApp1
         private List<Tuple<Point3D, Point3D>> _lastHole = new List<Tuple<Point3D, Point3D>>();
         private FemMesh _flangeFMCache; // 有限元连接件
 
-        public Entity GetEntity()
+        public override Entity GetEntity()
         {
             return GetFlange();
         }
@@ -209,6 +210,11 @@ namespace WindowsFormsApp1
                 entities.Add(temp);
             }
             return entities;
+        }
+
+        public override double GetHeight()
+        {
+            return tf * num;
         }
     }
 

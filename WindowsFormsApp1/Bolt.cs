@@ -169,6 +169,10 @@ namespace CreateBotSpring
                 var luoGan = Solid.CreateCylinder(d / 2, l - b, _slice);
                 var luoMao = GetLuoMao();
                 luoGan.Translate(0, 0, b);
+                var luoGanTop = Solid.CreateCylinder(d * 1.2 / 2, 1, _slice);
+                luoGanTop.Translate(0, 0, l - 1);
+                luoGan = Solid.Union(luoGan, luoGanTop)[0];
+                
                 listOfSlice.Add(luoGan);
                 listOfSlice.Add(luoMao);
                 var result = Solid.Union(listOfSlice);
@@ -447,4 +451,6 @@ namespace CreateBotSpring
         // test only
         public Model model { set; get; }
     }
+
+    
 }

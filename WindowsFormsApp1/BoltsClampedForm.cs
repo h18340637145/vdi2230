@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
             IsBuildModel = true;
             var clamped = ClampedForm.GetModel() as HKFDJClamped;
             num = clamped.num;
-            var bolt = BoltForm.GetModel() as Bolt;
+            var bolt = BoltForm.GetModel() as BoltClass;
             var nut = NutForm.GetModel() as NutClass;
             //boltData = new BoltClass(bolt);
             {

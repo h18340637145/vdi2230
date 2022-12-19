@@ -127,7 +127,7 @@
   <data name="getNTable.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAg4AAAEjCAYAAABaYYlMAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAZfxJREFUeF7tfUF25CzP9T95Jr2nTLKZTGovPclSepKV9CQr+Sb5EbJsAcIGS2Do
+        wQAADsEBuJFr7QAAZfxJREFUeF7tfUF25CzP9T95Jr2nTLKZTGovPclSepKV9CQr+Sb5EbJsAcIGS2Do
         F+nc0zElV1sIowt2wf/7v5+l7fRnUsyokh8zYFaVfBkb84rkzQyYVSRfRkdfWcShqcohHh8zquTHDJhV
         JV/GxrwieTMDZhXJl9HRVxZxaKpyiMfHjCr5MQNmVcmXsTGvSN7MgFlF8mV09JWdOPz3678Fc/yaFJIv
         o0PyYwZIvswAyZex8Wta/DcpJF9mgOTL6JD8qEONBMSB/jbVrw//3f+9/vDSa/Xnvf38/qa/b3zHDbWt
@@ -568,7 +568,7 @@
   <data name="svTable.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASkAAAGSCAYAAAC/lDc0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAARklJREFUeF7tnU2IHkea5+fS/tBXSabkQi3tQW0MogyWoHxQYZB1kOiLr0Pbs5Zs
+        wQAADsEBuJFr7QAARklJREFUeF7tnU2IHkea5+fS/tBXSabkQi3tQW0MogyWoHxQYZB1kOiLr0Pbs5Zs
         75bk0Y5mNLMWjcCX9oA10BezXrBoBF4WZsfdi7yz7dnpavfIHlvT6lnYvvjcGGwZCkENuAyyD77k5j+r
         Qvlk5hMZkfGVkW89z8Ovs974yvj8V0S87tIfff3NRrE9+EZIxL+V/S2kBH0+Rbi2dBGREoLDTTQhJu3F
         PxW4tnQRkRKCw000ISbtxT8VuLZ0uS9SO3Z8b8bZkSXcIgdc2qnwvbK/pwq3SACXNh/Q51OEa0sT9H1D
@@ -892,37 +892,13 @@
   <metadata name="dbomaterialClampedBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>499, 55</value>
   </metadata>
-  <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ES.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Rmmin.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RatioFG.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="fBRatio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="hi.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dbomaterialClampedBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>499, 55</value>
-  </metadata>
-  <metadata name="boltConnectionSystemDataSet18.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>252, 55</value>
-  </metadata>
   <metadata name="boltConnectionSystemDataSet18.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>252, 55</value>
   </metadata>
   <data name="tabPage1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAg4AAAEjCAYAAABaYYlMAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAZfxJREFUeF7tfUF25CzP9T95Jr2nTLKZTGovPclSepKV9CQr+Sb5EbJsAcIGS2Do
+        wQAADsEBuJFr7QAAZfxJREFUeF7tfUF25CzP9T95Jr2nTLKZTGovPclSepKV9CQr+Sb5EbJsAcIGS2Do
         F+nc0zElV1sIowt2wf/7v5+l7fRnUsyokh8zYFaVfBkb84rkzQyYVSRfRkdfWcShqcohHh8zquTHDJhV
         JV/GxrwieTMDZhXJl9HRVxZxaKpyiMfHjCr5MQNmVcmXsTGvSN7MgFlF8mV09JWdOPz3678Fc/yaFJIv
         o0PyYwZIvswAyZex8Wta/DcpJF9mgOTL6JD8qEONBMSB/jbVrw//3f+9/vDSa/Xnvf38/qa/b3zHDbWt
@@ -1363,7 +1339,7 @@
   <data name="tabPage2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASkAAAGSCAYAAAC/lDc0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAARklJREFUeF7tnU2IHkea5+fS/tBXSabkQi3tQW0MogyWoHxQYZB1kOiLr0Pbs5Zs
+        wQAADsEBuJFr7QAARklJREFUeF7tnU2IHkea5+fS/tBXSabkQi3tQW0MogyWoHxQYZB1kOiLr0Pbs5Zs
         75bk0Y5mNLMWjcCX9oA10BezXrBoBF4WZsfdi7yz7dnpavfIHlvT6lnYvvjcGGwZCkENuAyyD77k5j+r
         Qvlk5hMZkfGVkW89z8Ovs974yvj8V0S87tIfff3NRrE9+EZIxL+V/S2kBH0+Rbi2dBGREoLDTTQhJu3F
         PxW4tnQRkRKCw000ISbtxT8VuLZ0uS9SO3Z8b8bZkSXcIgdc2qnwvbK/pwq3SACXNh/Q51OEa0sT9H1D
@@ -1668,9 +1644,6 @@
   </data>
   <metadata name="materialClampedBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>968, 17</value>
-  </metadata>
-  <metadata name="boltConnectionSystemDataSet9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>729, 17</value>
   </metadata>
   <metadata name="boltConnectionSystemDataSet9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>729, 17</value>

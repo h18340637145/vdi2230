@@ -58,7 +58,7 @@ namespace WindowsApplication1
         public static AssFem assfm;
         public static Color Color = Color.Black;
         public static HKFDJClamped Clamped { set; get; }
-        public static Bolt bolt { set; get; }
+        public static BoltClass bolt { set; get; }
         public static NutClass nut { set; get; }
         //public static List<Entity> assEntityList { set; get; }
 

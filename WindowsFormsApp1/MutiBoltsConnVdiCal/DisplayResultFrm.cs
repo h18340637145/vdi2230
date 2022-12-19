@@ -31,38 +31,6 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
             ShowDataChartForOpResult();
         }
 
-        /*
-        private object QuickExtractValueFromDGV(string name)
-        {
-            object rowValue = null;
-            foreach (DataGridViewRow row in _twoStepsOpParamDataGridView.Rows)
-            {
-                var prope = row.Cells["PropeField"].Value as string;
-                if (prope.Equals(name))
-                {
-                    rowValue = row.Cells["ValueField"].Value;
-                    break;
-                }
-            }
-            if (rowValue == null)
-            {
-                return null;
-            }
-            if (name == "C")
-            {
-                string vs = rowValue as string;
-                var ss = vs.Split(',');
-                double[] re = new double[ss.Length];
-                for (int i = 0; i < re.Length; i++)
-                {
-                    re[i] = Convert.ToDouble(ss[i]);
-                }
-                return re;
-            }
-            else return rowValue;
-        }
-        */
-
         private void ShowDataChartForOpResult()
         {
             lineChart.Series.Clear();

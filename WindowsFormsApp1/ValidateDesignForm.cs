@@ -38,9 +38,9 @@ namespace WindowsFormsApp1
         private JavaScriptSerializer serializer = new JavaScriptSerializer();
 
         // 螺栓建模
-        Bolt _bolt;
+        //Bolt _bolt;
         // 螺栓数据
-        public BoltClass bolt = new BoltClass();
+        public BoltClass bolt;//= new BoltClass();
         // 螺母数据
         public NutClass nut;
         // 垫片数据
@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
             boltStd.Text = boltChooseClass.std;
             boringDh.Text = boltChooseClass.NormalD_d.ToString();
             ScrewLengthls.Text = boltChooseClass.BoltLen_ls.ToString();
-            _bolt = new Bolt(boltChooseClass);
+            bolt = boltChooseForm.getBolt(BoltType.Text);
 
             if (BoltType.Text == "内六角螺栓")
             {
@@ -159,6 +159,7 @@ namespace WindowsFormsApp1
             Rpmin_qufu.Text = material.BoltMaterialRpmin.ToString();
             Rm_kangla.Text = material.BoltMaterialRm.ToString();
             fBS.Text = material.BoltMaterialRatio_fB.ToString();
+            bolt.boltMaterial = material;
         }
 
         private void ValidateDesignForm_Load(object sender, EventArgs e)
@@ -458,7 +459,7 @@ namespace WindowsFormsApp1
             simulation1.Enabled = true;
             try
             {
-                _boltEntity = _bolt.GetEntity();
+                _boltEntity = bolt.GetEntity();
                 simulation1.Entities.Add(_boltEntity, color);
                 simulation1.ZoomFit();
                 simulation1.Invalidate();
@@ -484,7 +485,7 @@ namespace WindowsFormsApp1
             }
             try
             {
-                _boltEntity = _bolt.GetEntity();
+                _boltEntity = bolt.GetEntity();
                 simulation1.Entities.Add(_boltEntity, color);
                 simulation1.ZoomFit();
                 simulation1.Invalidate();

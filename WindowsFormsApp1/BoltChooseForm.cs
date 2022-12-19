@@ -71,9 +71,11 @@ namespace WindowsFormsApp1
             //选择螺栓之后要将对应的螺纹也一并赋值
         }
 
-        internal BoltClass getBolt()
+        public BoltClass getBolt()
         {
-            return boltChooseClass;
+            BoltClass bolt = new BoltClass();
+            bolt = boltChooseClass;
+            return bolt;
         }
 
         private void optBtn_Click(object sender, EventArgs e)
@@ -117,6 +119,25 @@ namespace WindowsFormsApp1
             }
             dr.Close(); // 关闭连接
             return boltChooseClass;
+        }
+
+        internal BoltClass getBolt(string value)
+        {
+            BoltClass bolt = new BoltClass();
+            if (value.Equals("外六角螺栓"))
+            {
+               
+                bolt = boltChooseClass;
+            }
+            else if (value.Equals("内六角螺栓"))
+            {
+                bolt = new BoltInner6(boltChooseClass);
+            }
+            else if (value.Equals("法兰螺栓"))
+            {
+                bolt = new BoltFaLan(boltChooseClass);
+            }
+            return bolt;
         }
     }
 }

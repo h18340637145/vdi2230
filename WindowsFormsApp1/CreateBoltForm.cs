@@ -1,4 +1,5 @@
 ﻿using CreateBotSpring;
+using devDept.Eyeshot;
 using devDept.Eyeshot.Entities;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,34 @@ namespace WindowsFormsApp1
             dataGridView1.Rows.Add("BoltNutSideWid_s", 18);
             dataGridView1.Rows.Add("BoltNutScrewMinD_D1", 10.11);
 
+            Inner6Data.Rows.Add("NormalD_d", 12);
+            Inner6Data.Rows.Add("ScrewP_P", 1.75);
+            Inner6Data.Rows.Add("BoltLen_ls", 60);
+            Inner6Data.Rows.Add("BoreD_dh", 13.5);
+            Inner6Data.Rows.Add("BoreD_dT", 0);
+            Inner6Data.Rows.Add("BoltHeadOutD_dw", 16.47);
+            Inner6Data.Rows.Add("BoltHeadInnerD_da", 13.7);
+            Inner6Data.Rows.Add("ScrewMidD_d2", 10.863);
+            Inner6Data.Rows.Add("ScrewMinD_d3", 9.853);
+            Inner6Data.Rows.Add("PolishRodLen_l1", 30);
+            Inner6Data.Rows.Add("PolishRodLen_l2", 0);
+            Inner6Data.Rows.Add("BoltNutSideWid_s", 18);
+            Inner6Data.Rows.Add("BoltNutScrewMinD_D1", 10.11);
+
+            falanData.Rows.Add("NormalD_d", 12);
+            falanData.Rows.Add("ScrewP_P", 1.75);
+            falanData.Rows.Add("BoltLen_ls", 60);
+            falanData.Rows.Add("BoreD_dh", 13.5);
+            falanData.Rows.Add("BoreD_dT", 0);
+            falanData.Rows.Add("BoltHeadOutD_dw", 16.47);
+            falanData.Rows.Add("BoltHeadInnerD_da", 13.7);
+            falanData.Rows.Add("ScrewMidD_d2", 10.863);
+            falanData.Rows.Add("ScrewMinD_d3", 9.853);
+            falanData.Rows.Add("PolishRodLen_l1", 30);
+            falanData.Rows.Add("PolishRodLen_l2", 0);
+            falanData.Rows.Add("BoltNutSideWid_s", 18);
+            falanData.Rows.Add("BoltNutScrewMinD_D1", 10.11);
+
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -86,7 +115,7 @@ namespace WindowsFormsApp1
 
         private void _showFlangeToModel(Color red)
         {
-            if (_bolt == null)
+            if (_boltData == null)
             {
                 throw new Exception("bolt is null");
             }
@@ -95,7 +124,7 @@ namespace WindowsFormsApp1
 
             try
             {
-                _boltEntity = _bolt.GetEntity();
+                _boltEntity = _boltData.GetEntity();
                 model1.Entities.Add(_boltEntity, red);
                 model1.ZoomFit();
                 model1.Invalidate();
@@ -159,7 +188,7 @@ namespace WindowsFormsApp1
 
         public object GetModel()
         {
-            return _bolt;
+            return _boltData;
         }
         Bolt _bolt;
         Entity _boltEntity;
@@ -169,8 +198,65 @@ namespace WindowsFormsApp1
         {
             return _boltData;
         }
+
+        private void Inner6RenderBtn_Click(object sender, EventArgs e)
+        {
+            Inner6OkBtn.Enabled = true;
+            _boltData = new BoltInner6();
+            _setEveryPropFieldFromDataGridViewData();
+            _showBoltToModel(Color.Red);
+        }
+
+        private void _showBoltToModel(Color red)
+        {
+            if (_boltData == null)
+            {
+                throw new Exception("_boltData is null");
+            }
+            model1.Entities.Clear();
+            model1.Enabled = true;
+
+            try
+            {
+                _boltEntity = _boltData.GetEntity();
+                model1.Entities.Add(_boltEntity, red);
+                model1.ZoomFit();
+                model1.Invalidate();
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e);
+                throw new Exception("输入参数错误，请仔细检查");
+            }
+        }
+
+        private void Inner6OkBtn_Click(object sender, EventArgs e)
+        {
+            if (Inner6OkBtn.Enabled == false)
+            {
+                return;
+            }
+            Hide();
+        }
+
+        private void falanRenderBtn_Click(object sender, EventArgs e)
+        {
+            falanOkBtn.Enabled = true;
+            _boltData = new BoltFaLan();
+            _setEveryPropFieldFromDataGridViewData();
+            _showBoltToModel(Color.Red);
+        }
+
+        private void falanOkBtn_Click(object sender, EventArgs e)
+        {
+            if (falanOkBtn.Enabled == false)
+            {
+                return;
+            }
+            Hide();
+        }
     }
-    
+
     public interface IModelBuildForm
     {
         // 从该form中获取已经创建好的模型对象
@@ -181,5 +267,7 @@ namespace WindowsFormsApp1
         // 获取实际可被Model.Entities添加的模型对象
         //return 该对象
         Entity GetModelEntity();
+
+        EntityList GetModelEntities();
     }
 }
