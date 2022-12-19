@@ -240,6 +240,7 @@
       <DependentUpon>ChooseClampedFrm.xsd</DependentUpon>
     </Compile>
     <Compile Include="ClampedClass.cs" />
+    <Compile Include="ClampedModel\AssBase.cs" />
     <Compile Include="ClampedModel\ClampedHeight.cs" />
     <Compile Include="ClampedModel\SelfAssClamped.cs" />
     <Compile Include="ComputeResult.cs" />

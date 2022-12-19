@@ -15,6 +15,7 @@ using devDept.Eyeshot.Translators;
 using devDept.Eyeshot.Fem;
 using WindowsApplication1;
 using WindowsFormsApp1.VDISolution;
+using WindowsFormsApp1.ClampedModel;
 
 namespace WindowsFormsApp1
 {
@@ -1019,7 +1020,16 @@ namespace WindowsFormsApp1
             boltsClampedForm.NutForm = _createNutForm;
             boltsClampedForm.boltData = boltData;
 
-            var fmod = _createClamedForm.GetModel() as HKFDJClamped;
+            object fmod;
+            if (_createClamedForm.std_selfDef == "std")
+            {
+                fmod = _createClamedForm.GetModel() as HKFDJClamped;
+            }
+            else
+            {
+                fmod = _createClamedForm.GetModel() as SelfAssClamped;
+            }
+
             var bmod = _createBoltForm.GetModel() as BoltClass;
             var nmod = _createNutForm.GetModel() as NutClass;
             if (fmod == null || bmod == null || nmod == null) return;
@@ -1038,18 +1048,18 @@ namespace WindowsFormsApp1
                 rs = boltsClampedForm.rs;
                 solution = boltsClampedForm.solution;
                 _twoStepsOpParamDataGridView.Rows.Clear();
-                _twoStepsOpParamDataGridView.Rows.Add("twisWay", 1, "拧紧方式，1顺序，2交叉");
-                _twoStepsOpParamDataGridView.Rows.Add("n", fmod.n, "螺栓个数");
-                _twoStepsOpParamDataGridView.Rows.Add("d", fmod.d, "螺栓公称直径");
-                _twoStepsOpParamDataGridView.Rows.Add("dm", fmod.C, "法兰螺栓定位圆直径");
-                _twoStepsOpParamDataGridView.Rows.Add("Eb", 2e5, "螺栓弹性模量(MPa)");
-                _twoStepsOpParamDataGridView.Rows.Add("F0", 120000, "螺栓目标载荷");
-                _twoStepsOpParamDataGridView.Rows.Add("batch", 2, "拧紧批次，1或2次");
-                _twoStepsOpParamDataGridView.Rows.Add("odf", fmod.outer_A, "法兰外径");
-                _twoStepsOpParamDataGridView.Rows.Add("idf", fmod.inner_B, "法兰内径");
-                _twoStepsOpParamDataGridView.Rows.Add("dj", 31.75, "");
-                _twoStepsOpParamDataGridView.Rows.Add("tff", fmod.tf, "法兰厚");
-                _twoStepsOpParamDataGridView.Rows.Add("Ef", 2e5, "法兰弹性模量(MPa)");
+                //_twoStepsOpParamDataGridView.Rows.Add("twisWay", 1, "拧紧方式，1顺序，2交叉");
+                //_twoStepsOpParamDataGridView.Rows.Add("n", fmod.n, "螺栓个数");
+                //_twoStepsOpParamDataGridView.Rows.Add("d", fmod.d, "螺栓公称直径");
+                //_twoStepsOpParamDataGridView.Rows.Add("dm", fmod.C, "法兰螺栓定位圆直径");
+                //_twoStepsOpParamDataGridView.Rows.Add("Eb", 2e5, "螺栓弹性模量(MPa)");
+                //_twoStepsOpParamDataGridView.Rows.Add("F0", 120000, "螺栓目标载荷");
+                //_twoStepsOpParamDataGridView.Rows.Add("batch", 2, "拧紧批次，1或2次");
+                //_twoStepsOpParamDataGridView.Rows.Add("odf", fmod.outer_A, "法兰外径");
+                //_twoStepsOpParamDataGridView.Rows.Add("idf", fmod.inner_B, "法兰内径");
+                //_twoStepsOpParamDataGridView.Rows.Add("dj", 31.75, "");
+                //_twoStepsOpParamDataGridView.Rows.Add("tff", fmod.tf, "法兰厚");
+                //_twoStepsOpParamDataGridView.Rows.Add("Ef", 2e5, "法兰弹性模量(MPa)");
                 //_twoStepsOpParamDataGridView.Rows.Add("odj", fmod.Ag, "垫片外径");
                 //_twoStepsOpParamDataGridView.Rows.Add("idj", fmod.Bg, "垫片内径");
                 //_twoStepsOpParamDataGridView.Rows.Add("tg", fmod.ddz, "垫片厚");
@@ -1112,9 +1122,20 @@ namespace WindowsFormsApp1
         {
             //boltnet(simulation1);
             simulation1.Entities.Clear();
-
-            var fmod = _createClamedForm.GetModel() as HKFDJClamped;
-            if (fmod == null ) return;
+            HKFDJClamped fmod;
+            if (_createClamedForm.GetModel() is HKFDJClamped)
+            {
+                var temp = _createClamedForm.GetModel() as HKFDJClamped;
+                if (temp == null) return;
+                fmod = temp;
+            }
+            else
+            {
+                SelfAssClamped temp = (SelfAssClamped)_createClamedForm.GetModel();
+                if (temp == null) return;
+                fmod = new HKFDJClamped(temp);
+            }
+            
             if (rs == null) return;
             double[,] opResults = new double[2, (int)fmod.n];
             for (int i = 0; i < (int)fmod.n; i++)

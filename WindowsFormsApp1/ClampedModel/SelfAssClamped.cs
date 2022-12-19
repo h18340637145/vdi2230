@@ -2,6 +2,7 @@
 using devDept.Eyeshot.Entities;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,10 +110,10 @@ namespace WindowsFormsApp1.ClampedModel
             Solid falanSymSolid = falan.GetFlange();
             falanSymSolid.Rotate(Math.PI, new devDept.Geometry.Vector3D(0, 1, 0));
 
-            entities.Add(falanSolid);
-            entities.Add(feilunSolid);
-            entities.Add(feilunSymSolid);
-            entities.Add(falanSymSolid);
+            entities.Add(falanSolid, Color.LightCyan);
+            entities.Add(feilunSolid, Color.Blue);
+            entities.Add(feilunSymSolid,Color.Blue);
+            entities.Add(falanSymSolid, Color.LightCyan);
             return entities;
         }
     }

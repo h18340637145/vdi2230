@@ -34,6 +34,20 @@ namespace WindowsFormsApp1
 
         private const int _slice = 100;
         private const double _tol = 0.1;
+        
+        public HKFDJClamped(SelfAssClamped a)
+        {
+            outer_A = a.falan.A;
+            inner_B = a.falan.B;
+            C = a.falan.C;
+            d = a.falan.d;
+            n = a.falan.n;
+            tf = a.feilun.tf * 2;
+        }
+
+        public HKFDJClamped()
+        {
+        }
 
         // 孔个数？
         private List<Tuple<Point3D, Point3D>> _boundingBoxOfBoltHole = new List<Tuple<Point3D, Point3D>>();
@@ -197,6 +211,7 @@ namespace WindowsFormsApp1
         }
 
         List<Entity> entities = new List<Entity>();
+        EntityList list;
         public List<Entity> GetEntitys()
         {
             entities.Clear();
@@ -215,6 +230,26 @@ namespace WindowsFormsApp1
         public override double GetHeight()
         {
             return tf * num;
+        }
+
+        public override EntityList GetEntitilist()
+        {
+            if (list == null)
+            {
+                list = new EntityList();
+                
+            }
+            var clamped1 = GetEntity();
+            list.Add(clamped1);
+
+            for (int i = 1; i < num; i++)
+            {
+                var temp = clamped1.Clone() as Solid;
+                temp.Translate(0, 0, tf * i);
+                list.Add(temp);
+            }
+
+            return list;
         }
     }
 

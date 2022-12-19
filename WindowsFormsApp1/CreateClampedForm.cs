@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
 {
     public partial class CreateClampedForm : Form, IModelBuildForm
     {
+        public string std_selfDef;
         public CreateClampedForm()
         {
             InitializeComponent();
@@ -131,6 +132,7 @@ namespace WindowsFormsApp1
                 _okBtn.Enabled = false;
                 return;
             }
+            std_selfDef = "std";
             Hide();
         }
 
@@ -146,7 +148,14 @@ namespace WindowsFormsApp1
 
         public object GetModel()
         {
-            return _flange;
+            if (std_selfDef == "std")
+            {
+                return _flange;
+            }
+            else
+            {
+                return selfAssClamped;
+            }
         }
 
         private HKFDJClamped _flange;
@@ -279,6 +288,7 @@ namespace WindowsFormsApp1
         //List<Solid> selfClampedList = new List<Solid>();
 
         SelfAssClamped selfAssClamped;
+        EntityList entityList;
         private void AssBtn_Click(object sender, EventArgs e)
         {
             if (selfAssClamped == null)
@@ -298,57 +308,18 @@ namespace WindowsFormsApp1
             
             if (n4FaLanEntity != null && feilunEntity != null)
             {
-                //entities.Add(n4FaLanEntity);
-                //entities.Add(feilunEntity);
-                //selfClampedList.Clear();
-                var res = selfAssClamped.GetEntity();
-                //double feilunHeight = feilun.GetHeight();
-                //n4FaLanEntity.Translate(0, 0, 2 * feilunHeight);
-                //feilunEntity.Translate(0, 0, feilunHeight);
-
-                //Solid symFeilun = feilun.GetSymFeilun();
-                //symFeilun.Translate(0, 0, feilunHeight);
-
-                //Solid symFalan = n4FaLan.GetSymFalan();
-                //selfClampedList.Add(symFalan);
-                //selfClampedList.Add(symFeilun);
-                //selfClampedList.Add((Solid)n4FaLanEntity);
-                //selfClampedList.Add((Solid)feilunEntity);
-                ////var res = Solid.Union(list);
-
+                entityList = selfAssClamped.GetEntitilist();
                 model1.Entities.Clear();
                 model1.Enabled = true;
-                //for (int i = 0; i < selfClampedList.Count; i++)
-                //{
-                //    model1.Entities.Add(selfClampedList[i], Color.Red);
-                //}
-                //var res = Solid.Union(selfClampedList);
-                model1.Entities.Add(res, Color.LightCyan);
+                for (int i = 0; i < entityList.Count; i++)
+                {
+                    model1.Entities.Add(entityList[i], entityList[i].Color);
 
+                }
                 model1.ZoomFit();
                 model1.Invalidate();
                 assOkBtn.Enabled = true;
             }
-            //else if (n4FaLanEntity != null && feilunEntity == null)
-            //{
-            //    // 法兰成双
-            //    //entities.Add(n4FaLanEntity);
-            //    selfClampedList.Clear();
-            //    Solid symFalan = n4FaLan.GetSymFalan();
-            //    selfClampedList.Add(symFalan);
-            //    selfClampedList.Add((Solid)n4FaLanEntity);
-            //    model1.Entities.Clear();
-            //    model1.Enabled = true;
-            //    //for (int i = 0; i < selfClampedList.Count; i++)
-            //    //{
-            //    //    model1.Entities.Add(selfClampedList[i], Color.Red);
-            //    //}
-            //    var res = Solid.Union(selfClampedList);
-            //    model1.Entities.Add(res[0]);
-            //    model1.ZoomFit();
-            //    model1.Invalidate();
-            //    assOkBtn.Enabled = true;
-            //}
             else
             {
                 return;
@@ -364,6 +335,7 @@ namespace WindowsFormsApp1
                 falanOkBtn.Enabled = false;
                 return;
             }
+            std_selfDef = "selfDef";
             Hide();
         }
 
@@ -374,6 +346,8 @@ namespace WindowsFormsApp1
                 feilunOkBtn.Enabled = false;
                 return;
             }
+            std_selfDef = "selfDef";
+
             Hide();
         }
 
@@ -385,22 +359,24 @@ namespace WindowsFormsApp1
                 falanOkBtn.Enabled = false;
                 return;
             }
+            std_selfDef = "selfDef";
+
             Hide();
         }
 
         public EntityList GetModelEntities()
         {
-            if (_flange == null)
+            if (selfAssClamped == null)
             {
                 return null;
             }
 
-            if (_flangeEntity == null)
+            if (entityList == null)
             {
-                return _flangeEntity = _flange.GetEntity();
+                return entityList = selfAssClamped.GetEntitilist();
             }
 
-            return _flangeEntity;
+            return entityList;
         }
     }
 }

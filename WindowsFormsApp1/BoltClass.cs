@@ -539,8 +539,8 @@ namespace WindowsFormsApp1
                 var luoMao = GetLuoMao();
                 luoGan.Translate(0, 0, (BoltLen_ls - PolishRodLen_l1 - PolishRodLen_l2));
                 var luoGanTop = Solid.CreateCylinder(NormalD_d * 1.2 / 2, 1, _slice);
-                luoGanTop.Translate(0, 0, BoltLen_ls - 1);
-                luoGan = Solid.Union(luoGan, luoGanTop)[0];
+                luoGanTop.Translate(0, 0, BoltLen_ls + 1);
+                luoMao = Solid.Union(luoMao, luoGanTop)[0];
                 listOfSlice.Add(luoGan);
                 listOfSlice.Add(luoMao);
                 var result = Solid.Union(listOfSlice);

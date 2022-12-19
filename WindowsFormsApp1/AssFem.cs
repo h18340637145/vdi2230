@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CreateBotSpring;
+using devDept.Eyeshot;
 using devDept.Eyeshot.Entities;
 using devDept.Geometry;
+using WindowsFormsApp1.ClampedModel;
 
 namespace WindowsFormsApp1
 {
-    public class AssFem : IModelFemMesh, IModelEntityClampeds
+    public class AssFem : AssBase, IModelFemMesh
     {
         public FemMesh GetFemMesh()
         {
@@ -88,40 +91,136 @@ namespace WindowsFormsApp1
 
         private Entity GetAssEntity() { return null; }
 
-        public List<Entity> GetEntitys()
-        {
-            assEntities.Clear();
-            var clampedList = clamped.GetEntitys();
-            for (int i = clampedList.Count - 1; i >= 0; i--)
-            {
-                clampedList[i].Translate(0, 0, bolt.BoltLen_ls - clamped.tf * clampedList.Count);
-                assEntities.Add(clampedList[i]);
-            }
-            // 螺栓螺母组
-            var boltSolid = bolt.GetEntity() as Solid;
-            var nutSolid = nut.GetEntity() as Solid;
-            nutSolid.Translate(0, 0, bolt.BoltLen_ls - clamped.tf * clampedList.Count - nut.NutHeight);
-            var boltconns = Solid.Union(new List<Solid> { boltSolid, nutSolid })[0];
+        //public EntityList GetEntitys()
+        //{
+        //    assEntities.Clear();
+        //    if (clamped != null)
+        //    {
+        //        var clampedList = clamped.GetEntitys();
+        //        for (int i = clampedList.Count - 1; i >= 0; i--)
+        //        {
+        //            clampedList[i].Translate(0, 0, bolt.BoltLen_ls - clamped.tf * clampedList.Count);
+        //            assEntities.Add(clampedList[i]);
+        //        }
+        //        // 螺栓螺母组
+        //        var boltSolid = bolt.GetEntity() as Solid;
+        //        var nutSolid = nut.GetEntity() as Solid;
+        //        nutSolid.Translate(0, 0, bolt.BoltLen_ls - clamped.tf * clampedList.Count - nut.NutHeight);
+        //        var boltconns = Solid.Union(new List<Solid> { boltSolid, nutSolid })[0];
 
-            double angle = Math.PI * 2 / clamped.n;
-            double angletemp = angle;
-            for (int i = 0; i < clamped.n; i++)
+        //        double angle = Math.PI * 2 / clamped.n;
+        //        double angletemp = angle;
+        //        for (int i = 0; i < clamped.n; i++)
+        //        {
+        //            // 螺栓
+        //            var temp = boltconns.Clone() as Solid;
+        //            temp.Translate(clamped.C / 2 * Math.Cos(angle), clamped.C / 2 * Math.Sin(angle), 0);
+        //            angle += angletemp;
+        //            assEntities.Add(temp);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        double feilunHeight = selfClamped.feilun.tf;
+        //        double falanHeight = selfClamped.falan.tf;
+
+        //        var clampedList = selfClamped.GetEntitilist();
+        //        for (int i = clampedList.Count - 1; i >= 0; i--)
+        //        {
+        //            clampedList[i].Translate(0, 0, bolt.BoltLen_ls - feilunHeight * 2 - falanHeight) ;
+        //            assEntities.Add(clampedList[i]);
+        //        }
+        //        // 螺栓螺母组
+        //        var boltSolid = bolt.GetEntity() as Solid;
+        //        var nutSolid = nut.GetEntity() as Solid;
+        //        nutSolid.Translate(0, 0, bolt.BoltLen_ls - feilunHeight * 2 - falanHeight* 2 - nut.NutHeight);
+        //        var boltconns = Solid.Union(new List<Solid> { boltSolid, nutSolid })[0];
+
+        //        double angle = Math.PI * 2 / selfClamped.falan.n;
+        //        double angletemp = angle;
+        //        for (int i = 0; i < selfClamped.falan.n; i++)
+        //        {
+        //            // 螺栓
+        //            var temp = boltconns.Clone() as Solid;
+        //            temp.Translate(selfClamped.falan.C / 2 * Math.Cos(angle), selfClamped.falan.C / 2 * Math.Sin(angle), 0);
+        //            angle += angletemp;
+        //            assEntities.Add(temp);
+        //        }
+        //    }
+            
+        //    return assEntities;
+        //}
+
+        public override EntityList GetEntitilist()
+        {
+            if (assEntities == null)
             {
-                // 螺栓
-                var temp = boltconns.Clone() as Solid;
-                temp.Translate(clamped.C / 2 * Math.Cos(angle), clamped.C / 2 * Math.Sin(angle), 0);
-                angle += angletemp;
-                assEntities.Add(temp);
+                assEntities = new EntityList();
+            }
+            if (clamped != null)
+            {
+                var clampedList = clamped.GetEntitilist();
+                for (int i = clampedList.Count - 1; i >= 0; i--)
+                {
+                    clampedList[i].Translate(0, 0, bolt.BoltLen_ls - clamped.tf * clampedList.Count);
+                    assEntities.Add(clampedList[i], Color.Blue);
+                }
+                // 螺栓螺母组
+                var boltSolid = bolt.GetEntity() as Solid;
+                var nutSolid = nut.GetEntity() as Solid;
+                nutSolid.Translate(0, 0, bolt.BoltLen_ls - clamped.tf * clampedList.Count - nut.NutHeight);
+                var boltconns = Solid.Union(new List<Solid> { boltSolid, nutSolid })[0];
+
+                double angle = Math.PI * 2 / clamped.n;
+                double angletemp = angle;
+                for (int i = 0; i < clamped.n; i++)
+                {
+                    // 螺栓
+                    var temp = boltconns.Clone() as Solid;
+                    temp.Translate(clamped.C / 2 * Math.Cos(angle), clamped.C / 2 * Math.Sin(angle), 0);
+                    angle += angletemp;
+                    assEntities.Add(temp, Color.Red);
+                }
+            }
+            else
+            {
+                double feilunHeight = selfClamped.feilun.tf;
+                double falanHeight = selfClamped.falan.tf;
+
+                var clampedList = selfClamped.GetEntitilist();
+                for (int i = clampedList.Count - 1; i >= 0; i--)
+                {
+                    clampedList[i].Translate(0, 0, bolt.BoltLen_ls - feilunHeight * 2 - falanHeight-1);
+                    assEntities.Add(clampedList[i]);
+                }
+                // 螺栓螺母组
+                var boltSolid = bolt.GetEntity() as Solid;
+                var nutSolid = nut.GetEntity() as Solid;
+                nutSolid.Translate(0, 0, bolt.BoltLen_ls - feilunHeight * 2 - falanHeight * 2 - nut.NutHeight);
+                var boltconns = Solid.Union(new List<Solid> { boltSolid, nutSolid })[0];
+
+                double angle = Math.PI * 2 / selfClamped.falan.n;
+                double angletemp = angle;
+                for (int i = 0; i < selfClamped.falan.n; i++)
+                {
+                    // 螺栓
+                    var temp = boltconns.Clone() as Solid;
+                    temp.Translate(selfClamped.falan.C / 2 * Math.Cos(angle), selfClamped.falan.C / 2 * Math.Sin(angle), 0);
+                    angle += angletemp;
+                    assEntities.Add(temp, Color.Red);
+                }
             }
             return assEntities;
+
         }
 
-        public List<Entity> assEntities = new List<Entity>();
+        public EntityList assEntities ;
         private FemMesh assFemMesh;
         private Entity assEntity;
 
         public BoltClass bolt { get; set; }
         public HKFDJClamped clamped { get; set; }
         public NutClass nut { get; set; }
+        public SelfAssClamped selfClamped { get;  set; }
     }
 }

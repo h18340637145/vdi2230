@@ -1,4 +1,5 @@
-﻿using devDept.Eyeshot.Entities;
+﻿using devDept.Eyeshot;
+using devDept.Eyeshot.Entities;
 using devDept.Graphics;
 using System;
 using System.Collections.Generic;
@@ -124,6 +125,11 @@ namespace WindowsFormsApp1
 
             _setEveryPropFieldsFromDataGridView();
             _showNutToModel(Color.Cyan);
+        }
+
+        public EntityList GetModelEntities()
+        {
+            throw new NotImplementedException();
         }
     }
 }

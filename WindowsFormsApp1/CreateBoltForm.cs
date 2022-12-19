@@ -255,6 +255,11 @@ namespace WindowsFormsApp1
             }
             Hide();
         }
+
+        public EntityList GetModelEntities()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public interface IModelBuildForm
