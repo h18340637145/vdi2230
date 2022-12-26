@@ -153,5 +153,11 @@ namespace WindowsFormsApp1.StepCalForm
             [Description("抗剪切安全验证，无剪力的时候可以忽略")]
             public double Sa { get; set; }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

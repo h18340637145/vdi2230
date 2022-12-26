@@ -72,5 +72,11 @@ namespace WindowsFormsApp1.StepCalForm
             [Description("必要拧紧力矩R13")]
             public double Ma { get; set; }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

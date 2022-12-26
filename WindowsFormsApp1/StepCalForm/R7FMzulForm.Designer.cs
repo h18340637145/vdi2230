@@ -54,12 +54,11 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(3, 113);
             this.cancelBtn.Size = new System.Drawing.Size(473, 28);
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // CalBtn
             // 
-            this.CalBtn.Location = new System.Drawing.Point(3, 81);
             this.CalBtn.Size = new System.Drawing.Size(473, 32);
             // 
             // resGrid
@@ -72,12 +71,10 @@
             // 
             // chooseBoltBtn
             // 
-            this.chooseBoltBtn.Location = new System.Drawing.Point(3, 17);
             this.chooseBoltBtn.Size = new System.Drawing.Size(473, 32);
             // 
             // chooseMaterialBtn
             // 
-            this.chooseMaterialBtn.Location = new System.Drawing.Point(3, 49);
             this.chooseMaterialBtn.Size = new System.Drawing.Size(473, 32);
             // 
             // R7FMzulForm

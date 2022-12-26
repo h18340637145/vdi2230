@@ -588,7 +588,6 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CreateBoltF
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CreateClampedForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CreateNutForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.DetailsForm.resources
-H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.InitDesignChooseForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.InitDesignForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainWindow.resources
@@ -630,3 +629,8 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SelfDefLuos
 H:\linux_windows\vdi2230\WindowsFormsApp1\bin\Debug\my.mdb
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.AssemblyReference.cache
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.SuggestedBindingRedirects.cache
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Login.FrmSplash.resources
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R11MeffForm.resources
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R13MAForm.resources
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R6FMmaxForm.resources
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R8FSmaxForm.resources

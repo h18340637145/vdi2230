@@ -38,6 +38,7 @@
             this.dh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.optBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cancelBtn);
             this.panel2.Controls.Add(this.optBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -134,6 +136,17 @@
             this.optBtn.TabIndex = 47;
             this.optBtn.Text = "选择";
             this.optBtn.UseVisualStyleBackColor = true;
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(43, 96);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(77, 34);
+            this.cancelBtn.TabIndex = 47;
+            this.cancelBtn.Text = "取消";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // BoltChooseForm
             // 
@@ -165,5 +178,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dh;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button optBtn;
+        private System.Windows.Forms.Button cancelBtn;
     }
 }

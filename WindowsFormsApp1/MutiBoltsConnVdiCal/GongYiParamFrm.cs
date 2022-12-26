@@ -157,6 +157,11 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                 zhazhi = "热处理后轧制";
             }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
     public class GongYiParameters

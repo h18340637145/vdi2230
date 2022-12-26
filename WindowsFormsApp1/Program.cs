@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Login;
 using WindowsFormsApp1.MutiBoltsConnVdiCal;
 
 namespace WindowsFormsApp1
@@ -19,7 +20,7 @@ namespace WindowsFormsApp1
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new JiHeParamFrm());
             //Application.Run(new MutliBoltsDesginForm());
-            Application.Run(new MainWindow());
+            Application.Run(new FrmSplash());
 
         }
     }

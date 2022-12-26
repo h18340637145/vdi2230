@@ -58,6 +58,7 @@
             // cancelBtn
             // 
             this.cancelBtn.Size = new System.Drawing.Size(268, 41);
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // okBtn
             // 

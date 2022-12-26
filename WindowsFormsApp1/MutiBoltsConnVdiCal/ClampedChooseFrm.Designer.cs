@@ -40,16 +40,17 @@
             this.dbomaterialBoltBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.materialBoltTableAdapter1 = new WindowsFormsApp1.BoltMaterialConnTableAdapters.materialBoltTableAdapter();
-            this.boltConnectionSystemDataSet20 = new WindowsFormsApp1.BoltConnectionSystemDataSet20();
-            this.dbomaterialClampedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbo_materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet20TableAdapters.dbo_materialClampedTableAdapter();
             this.clampedMaterialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMaterialRatiofBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMatrialRatiofGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMatrialEpyangshiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dbomaterialClampedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boltConnectionSystemDataSet20 = new WindowsFormsApp1.BoltConnectionSystemDataSet20();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.materialBoltTableAdapter1 = new WindowsFormsApp1.BoltMaterialConnTableAdapters.materialBoltTableAdapter();
+            this.dbo_materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet20TableAdapters.dbo_materialClampedTableAdapter();
+            this.cancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltMaterialConn)).BeginInit();
@@ -61,9 +62,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbomaterialClampedBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet20)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dbo_materialBoltTableAdapter
@@ -155,34 +156,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(597, 450);
             this.dataGridView1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.optBtn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 450);
-            this.panel2.TabIndex = 0;
-            // 
-            // materialBoltTableAdapter1
-            // 
-            this.materialBoltTableAdapter1.ClearBeforeFill = true;
-            // 
-            // boltConnectionSystemDataSet20
-            // 
-            this.boltConnectionSystemDataSet20.DataSetName = "BoltConnectionSystemDataSet20";
-            this.boltConnectionSystemDataSet20.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dbomaterialClampedBindingSource
-            // 
-            this.dbomaterialClampedBindingSource.DataMember = "dbo_materialClamped";
-            this.dbomaterialClampedBindingSource.DataSource = this.boltConnectionSystemDataSet20;
-            // 
-            // dbo_materialClampedTableAdapter
-            // 
-            this.dbo_materialClampedTableAdapter.ClearBeforeFill = true;
-            // 
             // clampedMaterialNameDataGridViewTextBoxColumn
             // 
             this.clampedMaterialNameDataGridViewTextBoxColumn.DataPropertyName = "ClampedMaterialName";
@@ -213,6 +186,46 @@
             this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.HeaderText = "抗拉强度Rmmin";
             this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.Name = "clampedMatrialRmminkanglaDataGridViewTextBoxColumn";
             // 
+            // dbomaterialClampedBindingSource
+            // 
+            this.dbomaterialClampedBindingSource.DataMember = "dbo_materialClamped";
+            this.dbomaterialClampedBindingSource.DataSource = this.boltConnectionSystemDataSet20;
+            // 
+            // boltConnectionSystemDataSet20
+            // 
+            this.boltConnectionSystemDataSet20.DataSetName = "BoltConnectionSystemDataSet20";
+            this.boltConnectionSystemDataSet20.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cancelBtn);
+            this.panel2.Controls.Add(this.optBtn);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 450);
+            this.panel2.TabIndex = 0;
+            // 
+            // materialBoltTableAdapter1
+            // 
+            this.materialBoltTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dbo_materialClampedTableAdapter
+            // 
+            this.dbo_materialClampedTableAdapter.ClearBeforeFill = true;
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(43, 98);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(77, 34);
+            this.cancelBtn.TabIndex = 47;
+            this.cancelBtn.Text = "取消";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // ClampedChooseFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -233,9 +246,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbomaterialClampedBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet20)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -263,5 +276,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMatrialRatiofGDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMatrialEpyangshiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMatrialRmminkanglaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button cancelBtn;
     }
 }

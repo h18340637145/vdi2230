@@ -50,6 +50,10 @@
             // 
             this.splitContainer2.SplitterDistance = 201;
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // resGrid
             // 
             this.resGrid.Size = new System.Drawing.Size(468, 245);

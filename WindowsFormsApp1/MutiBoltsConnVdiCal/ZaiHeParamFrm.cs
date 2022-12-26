@@ -77,6 +77,11 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                 dynamic_load = "静态加载";
             }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
     public class ZaiHeParameters

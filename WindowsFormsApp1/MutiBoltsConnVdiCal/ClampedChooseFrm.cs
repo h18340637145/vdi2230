@@ -39,5 +39,10 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
             material.ClampedMaterialRmmin = double.Parse(dataGridView1.SelectedCells[4].Value.ToString());
             Hide();
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

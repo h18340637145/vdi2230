@@ -76,5 +76,11 @@ namespace WindowsFormsApp1.StepCalForm
 
             public double Meff { get; set; }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

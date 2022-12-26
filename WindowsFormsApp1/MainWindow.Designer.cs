@@ -32,12 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selfManagmentBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.otherManagmentBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MatLibToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BoltMatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClampedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VDI2230BoltConGeo = new System.Windows.Forms.ToolStripMenuItem();
             this.selfDefLuoshaunlianjiebtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initDesign = new System.Windows.Forms.ToolStripMenuItem();
             this.validateCompute = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,9 +54,22 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ilIcon = new System.Windows.Forms.ImageList(this.components);
-            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitLogin = new System.Windows.Forms.SplitContainer();
+            this.selfInfo = new System.Windows.Forms.GroupBox();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
+            this.password = new System.Windows.Forms.TextBox();
+            this.passwdLabel = new System.Windows.Forms.Label();
+            this.unameLabel = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.Label();
+            this.flagLabel = new System.Windows.Forms.Label();
+            this.flag = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitLogin)).BeginInit();
+            this.splitLogin.Panel1.SuspendLayout();
+            this.splitLogin.SuspendLayout();
+            this.selfInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -68,22 +84,38 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(554, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(908, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // SystemToolStripMenuItem
             // 
             this.SystemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selfManagmentBtn,
+            this.otherManagmentBtn,
             this.ExitToolStripMenuItem});
             this.SystemToolStripMenuItem.Name = "SystemToolStripMenuItem";
             this.SystemToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.SystemToolStripMenuItem.Text = "系统";
             // 
+            // selfManagmentBtn
+            // 
+            this.selfManagmentBtn.Name = "selfManagmentBtn";
+            this.selfManagmentBtn.Size = new System.Drawing.Size(180, 22);
+            this.selfManagmentBtn.Text = "个人中心";
+            this.selfManagmentBtn.Click += new System.EventHandler(this.selfManagmentBtn_Click);
+            // 
+            // otherManagmentBtn
+            // 
+            this.otherManagmentBtn.Name = "otherManagmentBtn";
+            this.otherManagmentBtn.Size = new System.Drawing.Size(180, 22);
+            this.otherManagmentBtn.Text = "信息管理";
+            this.otherManagmentBtn.Click += new System.EventHandler(this.otherManagmentBtn_Click);
+            // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ExitToolStripMenuItem.Text = "退出";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -99,14 +131,14 @@
             // BoltMatToolStripMenuItem
             // 
             this.BoltMatToolStripMenuItem.Name = "BoltMatToolStripMenuItem";
-            this.BoltMatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.BoltMatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BoltMatToolStripMenuItem.Text = "螺栓材料";
             this.BoltMatToolStripMenuItem.Click += new System.EventHandler(this.螺栓材料ToolStripMenuItem_Click);
             // 
             // ClampedToolStripMenuItem
             // 
             this.ClampedToolStripMenuItem.Name = "ClampedToolStripMenuItem";
-            this.ClampedToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.ClampedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ClampedToolStripMenuItem.Text = "连接件材料";
             this.ClampedToolStripMenuItem.Click += new System.EventHandler(this.连接件材料ToolStripMenuItem_Click);
             // 
@@ -122,9 +154,16 @@
             // selfDefLuoshaunlianjiebtn
             // 
             this.selfDefLuoshaunlianjiebtn.Name = "selfDefLuoshaunlianjiebtn";
-            this.selfDefLuoshaunlianjiebtn.Size = new System.Drawing.Size(233, 22);
+            this.selfDefLuoshaunlianjiebtn.Size = new System.Drawing.Size(221, 22);
             this.selfDefLuoshaunlianjiebtn.Text = "自定义螺栓管理";
             this.selfDefLuoshaunlianjiebtn.Click += new System.EventHandler(this.selfDefLuoshaunlianjiebtn_Click);
+            // 
+            // vDI2230螺栓连接几何尺寸库ToolStripMenuItem
+            // 
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Name = "vDI2230螺栓连接几何尺寸库ToolStripMenuItem";
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Text = "VDI2230螺栓连接几何尺寸";
+            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Click += new System.EventHandler(this.VDI2230BoltConGeo_Click);
             // 
             // 设计ToolStripMenuItem
             // 
@@ -164,10 +203,10 @@
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel4});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 442);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(554, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(908, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -180,7 +219,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(406, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(680, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // toolStripStatusLabel3
@@ -260,23 +299,128 @@
             this.ilIcon.Images.SetKeyName(44, "user.png");
             this.ilIcon.Images.SetKeyName(45, "yewujianmogongcheng.png");
             // 
-            // vDI2230螺栓连接几何尺寸库ToolStripMenuItem
+            // splitLogin
             // 
-            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Name = "vDI2230螺栓连接几何尺寸库ToolStripMenuItem";
-            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Text = "VDI2230螺栓连接几何尺寸";
-            this.vDI2230螺栓连接几何尺寸库ToolStripMenuItem.Click += new System.EventHandler(this.VDI2230BoltConGeo_Click);
+            this.splitLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitLogin.Location = new System.Drawing.Point(0, 25);
+            this.splitLogin.Name = "splitLogin";
+            // 
+            // splitLogin.Panel1
+            // 
+            this.splitLogin.Panel1.Controls.Add(this.selfInfo);
+            this.splitLogin.Panel1MinSize = 1;
+            // 
+            // splitLogin.Panel2
+            // 
+            this.splitLogin.Panel2.BackColor = System.Drawing.Color.White;
+            this.splitLogin.Panel2.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.微信截图_20221226140254;
+            this.splitLogin.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.splitLogin.Panel2MinSize = 1;
+            this.splitLogin.Size = new System.Drawing.Size(908, 516);
+            this.splitLogin.SplitterDistance = 217;
+            this.splitLogin.TabIndex = 3;
+            // 
+            // selfInfo
+            // 
+            this.selfInfo.Controls.Add(this.cancelBtn);
+            this.selfInfo.Controls.Add(this.updateBtn);
+            this.selfInfo.Controls.Add(this.password);
+            this.selfInfo.Controls.Add(this.flag);
+            this.selfInfo.Controls.Add(this.flagLabel);
+            this.selfInfo.Controls.Add(this.passwdLabel);
+            this.selfInfo.Controls.Add(this.username);
+            this.selfInfo.Controls.Add(this.unameLabel);
+            this.selfInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.selfInfo.Location = new System.Drawing.Point(0, 0);
+            this.selfInfo.Name = "selfInfo";
+            this.selfInfo.Size = new System.Drawing.Size(217, 516);
+            this.selfInfo.TabIndex = 5;
+            this.selfInfo.TabStop = false;
+            this.selfInfo.Text = "个人信息";
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(67, 221);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 11;
+            this.cancelBtn.Text = "取消";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click_1);
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Location = new System.Drawing.Point(67, 174);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateBtn.TabIndex = 12;
+            this.updateBtn.Text = "修改";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            // 
+            // password
+            // 
+            this.password.Location = new System.Drawing.Point(113, 84);
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.Size = new System.Drawing.Size(64, 21);
+            this.password.TabIndex = 9;
+            // 
+            // passwdLabel
+            // 
+            this.passwdLabel.AutoSize = true;
+            this.passwdLabel.Location = new System.Drawing.Point(54, 87);
+            this.passwdLabel.Name = "passwdLabel";
+            this.passwdLabel.Size = new System.Drawing.Size(41, 12);
+            this.passwdLabel.TabIndex = 7;
+            this.passwdLabel.Text = "密码：";
+            // 
+            // unameLabel
+            // 
+            this.unameLabel.AutoSize = true;
+            this.unameLabel.Location = new System.Drawing.Point(54, 47);
+            this.unameLabel.Name = "unameLabel";
+            this.unameLabel.Size = new System.Drawing.Size(53, 12);
+            this.unameLabel.TabIndex = 8;
+            this.unameLabel.Text = "用户名：";
+            // 
+            // username
+            // 
+            this.username.AutoSize = true;
+            this.username.Location = new System.Drawing.Point(113, 47);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(0, 12);
+            this.username.TabIndex = 8;
+            // 
+            // flagLabel
+            // 
+            this.flagLabel.AutoSize = true;
+            this.flagLabel.Location = new System.Drawing.Point(54, 129);
+            this.flagLabel.Name = "flagLabel";
+            this.flagLabel.Size = new System.Drawing.Size(41, 12);
+            this.flagLabel.TabIndex = 7;
+            this.flagLabel.Text = "权限：";
+            // 
+            // flag
+            // 
+            this.flag.AutoSize = true;
+            this.flag.Location = new System.Drawing.Point(113, 129);
+            this.flag.Name = "flag";
+            this.flag.Size = new System.Drawing.Size(0, 12);
+            this.flag.TabIndex = 7;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(554, 464);
+            this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.微信截图_20221226140254;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(908, 563);
+            this.Controls.Add(this.splitLogin);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainWindow";
@@ -287,6 +431,11 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.splitLogin.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitLogin)).EndInit();
+            this.splitLogin.ResumeLayout(false);
+            this.selfInfo.ResumeLayout(false);
+            this.selfInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,5 +465,17 @@
         private System.Windows.Forms.ToolStripMenuItem multiDesignBtn;
         private System.Windows.Forms.ToolStripMenuItem selfDefLuoshaunlianjiebtn;
         private System.Windows.Forms.ToolStripMenuItem vDI2230螺栓连接几何尺寸库ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selfManagmentBtn;
+        private System.Windows.Forms.ToolStripMenuItem otherManagmentBtn;
+        private System.Windows.Forms.SplitContainer splitLogin;
+        private System.Windows.Forms.GroupBox selfInfo;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.Label passwdLabel;
+        private System.Windows.Forms.Label unameLabel;
+        private System.Windows.Forms.Label username;
+        private System.Windows.Forms.Label flagLabel;
+        private System.Windows.Forms.Label flag;
     }
 }

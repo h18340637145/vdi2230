@@ -35,6 +35,9 @@
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.intro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.parameters = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.values = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chooseMaterialBtn = new System.Windows.Forms.Button();
@@ -42,9 +45,6 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.CalBtn = new System.Windows.Forms.Button();
             this.resGrid = new System.Windows.Forms.PropertyGrid();
-            this.parameters = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.values = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -147,6 +147,23 @@
             this.dataGridView2.Size = new System.Drawing.Size(266, 256);
             this.dataGridView2.TabIndex = 2;
             // 
+            // parameters
+            // 
+            this.parameters.HeaderText = "参数";
+            this.parameters.Name = "parameters";
+            this.parameters.ReadOnly = true;
+            // 
+            // values
+            // 
+            this.values.HeaderText = "值";
+            this.values.Name = "values";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "说明";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -207,6 +224,7 @@
             this.cancelBtn.TabIndex = 1;
             this.cancelBtn.Text = "取消";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // CalBtn
             // 
@@ -225,23 +243,6 @@
             this.resGrid.Name = "resGrid";
             this.resGrid.Size = new System.Drawing.Size(530, 270);
             this.resGrid.TabIndex = 2;
-            // 
-            // parameters
-            // 
-            this.parameters.HeaderText = "参数";
-            this.parameters.Name = "parameters";
-            this.parameters.ReadOnly = true;
-            // 
-            // values
-            // 
-            this.values.HeaderText = "值";
-            this.values.Name = "values";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "说明";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // R12SgForm
             // 

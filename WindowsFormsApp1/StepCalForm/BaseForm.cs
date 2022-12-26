@@ -60,5 +60,10 @@ namespace WindowsFormsApp1.StepCalForm
             chooseMaterialBtn.Enabled = false;
 
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

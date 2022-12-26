@@ -100,7 +100,7 @@ namespace WindowsFormsApp1
                         sql = "update " + this.materialBase.getTableName() + " set BoltMaterialIndex=" + textBox1.Text + " where BoltMaterialIndex=" + initstr[0];
                     }else
                     {
-                        sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialIndex='" + textBox1.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
+                        sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialIndex=" + textBox1.Text + " where ClampedMaterialIndex=" + initstr[0];
                     }
                     DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
@@ -114,7 +114,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialName='" + textBox2.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
+                        sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialName='" + textBox2.Text + "' where ClampedMaterialIndex=" + initstr[0];
                     }
                     DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
@@ -128,7 +128,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialRatio_fB='" + textBox3.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
+                        sql = "update " + this.materialBase.getTableName() + " set ClampedMaterialRatio_fB=" + textBox3.Text + " where ClampedMaterialIndex=" + initstr[0];
                     }
 
                     DaoAccess dao = new DaoAccess();
@@ -144,7 +144,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialRatio_fG='" + textBox4.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
+                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialRatio_fG=" + textBox4.Text + " where ClampedMaterialIndex=" + initstr[0];
                     }
                     DaoAccess dao = new DaoAccess();
                     int i = dao.Excute(sql);
@@ -152,14 +152,14 @@ namespace WindowsFormsApp1
                 }
                 if (textBox5.Text != initstr[4])
                 {
-                    sql = "update student set jg='" + textBox5.Text + "' where id='" + initstr[0] + "' and name='" + initstr[1] + "'";
+                    //sql = "update student set jg='" + textBox5.Text + "' where id='" + initstr[0] + "' and name='" + initstr[1] + "'";
                     if (materialBase.getIdx() == 1)
                     {
                         sql = "update " + this.materialBase.getTableName() + " set BoltMatrialRpmin_qufu=" + textBox5.Text + " where BoltMaterialIndex=" + initstr[0];
                     }
                     else
                     {
-                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialEp_yangshi='" + textBox5.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
+                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialEp_yangshi=" + textBox5.Text + " where ClampedMaterialIndex=" + initstr[0];
                     }
 
                     DaoAccess dao = new DaoAccess();
@@ -174,7 +174,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialRmmin_kangla='" + textBox6.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
+                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialRmmin_kangla=" + textBox6.Text + " where ClampedMaterialIndex=" + initstr[0];
                     }
 
                     DaoAccess dao = new DaoAccess();
@@ -189,7 +189,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialA_alpha='" + textBox7.Text + "' where ClampedMaterialIndex='" + initstr[0] + "'";
+                        sql = "update " + this.materialBase.getTableName() + " set ClampedMatrialA_alpha=" + textBox7.Text + " where ClampedMaterialIndex=" + initstr[0];
                     }
 
                     DaoAccess dao = new DaoAccess();

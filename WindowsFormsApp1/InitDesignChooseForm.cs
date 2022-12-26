@@ -212,5 +212,9 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

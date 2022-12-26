@@ -16,5 +16,10 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
         {
             InitializeComponent();
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

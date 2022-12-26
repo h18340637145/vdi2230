@@ -36,11 +36,11 @@
             this.intro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chooseMaterialBtn = new System.Windows.Forms.Button();
+            this.chooseBoltBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.CalBtn = new System.Windows.Forms.Button();
             this.resGrid = new System.Windows.Forms.PropertyGrid();
-            this.chooseBoltBtn = new System.Windows.Forms.Button();
-            this.chooseMaterialBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -144,6 +144,28 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // chooseMaterialBtn
+            // 
+            this.chooseMaterialBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chooseMaterialBtn.Location = new System.Drawing.Point(3, 109);
+            this.chooseMaterialBtn.Name = "chooseMaterialBtn";
+            this.chooseMaterialBtn.Size = new System.Drawing.Size(462, 32);
+            this.chooseMaterialBtn.TabIndex = 4;
+            this.chooseMaterialBtn.Text = "选择材料";
+            this.chooseMaterialBtn.UseVisualStyleBackColor = true;
+            this.chooseMaterialBtn.Click += new System.EventHandler(this.chooseMaterialBtn_Click);
+            // 
+            // chooseBoltBtn
+            // 
+            this.chooseBoltBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chooseBoltBtn.Location = new System.Drawing.Point(3, 77);
+            this.chooseBoltBtn.Name = "chooseBoltBtn";
+            this.chooseBoltBtn.Size = new System.Drawing.Size(462, 32);
+            this.chooseBoltBtn.TabIndex = 3;
+            this.chooseBoltBtn.Text = "选择螺栓";
+            this.chooseBoltBtn.UseVisualStyleBackColor = true;
+            this.chooseBoltBtn.Click += new System.EventHandler(this.chooseBoltBtn_Click);
+            // 
             // cancelBtn
             // 
             this.cancelBtn.Dock = System.Windows.Forms.DockStyle.Top;
@@ -153,6 +175,7 @@
             this.cancelBtn.TabIndex = 1;
             this.cancelBtn.Text = "取消";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // CalBtn
             // 
@@ -171,28 +194,6 @@
             this.resGrid.Name = "resGrid";
             this.resGrid.Size = new System.Drawing.Size(468, 285);
             this.resGrid.TabIndex = 1;
-            // 
-            // chooseBoltBtn
-            // 
-            this.chooseBoltBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.chooseBoltBtn.Location = new System.Drawing.Point(3, 77);
-            this.chooseBoltBtn.Name = "chooseBoltBtn";
-            this.chooseBoltBtn.Size = new System.Drawing.Size(462, 32);
-            this.chooseBoltBtn.TabIndex = 3;
-            this.chooseBoltBtn.Text = "选择螺栓";
-            this.chooseBoltBtn.UseVisualStyleBackColor = true;
-            this.chooseBoltBtn.Click += new System.EventHandler(this.chooseBoltBtn_Click);
-            // 
-            // chooseMaterialBtn
-            // 
-            this.chooseMaterialBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.chooseMaterialBtn.Location = new System.Drawing.Point(3, 109);
-            this.chooseMaterialBtn.Name = "chooseMaterialBtn";
-            this.chooseMaterialBtn.Size = new System.Drawing.Size(462, 32);
-            this.chooseMaterialBtn.TabIndex = 4;
-            this.chooseMaterialBtn.Text = "选择材料";
-            this.chooseMaterialBtn.UseVisualStyleBackColor = true;
-            this.chooseMaterialBtn.Click += new System.EventHandler(this.chooseMaterialBtn_Click);
             // 
             // BaseForm
             // 

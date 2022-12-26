@@ -139,5 +139,10 @@ namespace WindowsFormsApp1
             }
             return bolt;
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -60,5 +60,11 @@ namespace WindowsFormsApp1.StepCalForm
             [Description("")]
             public double Fmmin { get; set; }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

@@ -32,7 +32,7 @@
             devDept.Eyeshot.CancelToolBarButton cancelToolBarButton1 = new devDept.Eyeshot.CancelToolBarButton("Cancel", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ProgressBar progressBar1 = new devDept.Eyeshot.ProgressBar(devDept.Eyeshot.ProgressBar.styleType.Circular, 0, "Idle", System.Drawing.Color.Black, System.Drawing.Color.Transparent, System.Drawing.Color.Green, 1D, true, cancelToolBarButton1, false, 0.1D, true);
             devDept.Graphics.BackgroundSettings backgroundSettings1 = new devDept.Graphics.BackgroundSettings(devDept.Graphics.backgroundStyleType.LinearGradient, System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245))))), System.Drawing.Color.DodgerBlue, System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(163)))), ((int)(((byte)(210))))), 0.75D, null, devDept.Graphics.colorThemeType.Auto, 0.33D);
-            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 3.8800002446097692D, false, 0.001D);
+            devDept.Eyeshot.Camera camera1 = new devDept.Eyeshot.Camera(new devDept.Geometry.Point3D(0D, 0D, 45D), 380D, new devDept.Geometry.Quaternion(0.018434349666532526D, 0.039532590434972079D, 0.42221602280006187D, 0.90544518284475428D), devDept.Graphics.projectionType.Perspective, 40D, 2.6000000946351847D, false, 0.001D);
             devDept.Eyeshot.HomeToolBarButton homeToolBarButton1 = new devDept.Eyeshot.HomeToolBarButton("Home", devDept.Eyeshot.ToolBarButton.styleType.PushButton, true, true);
             devDept.Eyeshot.MagnifyingGlassToolBarButton magnifyingGlassToolBarButton1 = new devDept.Eyeshot.MagnifyingGlassToolBarButton("Magnifying Glass", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
             devDept.Eyeshot.ZoomWindowToolBarButton zoomWindowToolBarButton1 = new devDept.Eyeshot.ZoomWindowToolBarButton("Zoom Window", devDept.Eyeshot.ToolBarButton.styleType.ToggleButton, true, true);
@@ -54,7 +54,7 @@
             devDept.Eyeshot.PanSettings panSettings1 = new devDept.Eyeshot.PanSettings(new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Middle, devDept.Eyeshot.modifierKeys.Ctrl), 25, true);
             devDept.Eyeshot.NavigationSettings navigationSettings1 = new devDept.Eyeshot.NavigationSettings(devDept.Eyeshot.Camera.navigationType.Examine, new devDept.Eyeshot.MouseButton(devDept.Eyeshot.mouseButtonsZPR.Left, devDept.Eyeshot.modifierKeys.None), new devDept.Geometry.Point3D(-1000D, -1000D, -1000D), new devDept.Geometry.Point3D(1000D, 1000D, 1000D), 8D, 50D, 50D);
             devDept.Eyeshot.Viewport.SavedViewsManager savedViewsManager1 = new devDept.Eyeshot.Viewport.SavedViewsManager(8);
-            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(459, 388), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
+            devDept.Eyeshot.Viewport viewport1 = new devDept.Eyeshot.Viewport(new System.Drawing.Point(0, 0), new System.Drawing.Size(459, 260), backgroundSettings1, camera1, new devDept.Eyeshot.ToolBar[] {
             toolBar1}, devDept.Eyeshot.displayType.Rendered, true, false, false, false, new devDept.Eyeshot.Grid[] {
             grid1}, false, rotateSettings1, zoomSettings1, panSettings1, navigationSettings1, savedViewsManager1, devDept.Eyeshot.viewType.Trimetric);
             devDept.Eyeshot.CoordinateSystemIcon coordinateSystemIcon1 = new devDept.Eyeshot.CoordinateSystemIcon(System.Drawing.Color.Black, System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80))))), System.Drawing.Color.OrangeRed, "Origin", "X", "Y", "Z", true, devDept.Eyeshot.coordinateSystemPositionType.BottomLeft, 37, false);
@@ -79,7 +79,6 @@
             this.CalSg = new System.Windows.Forms.ToolStripMenuItem();
             this.CalMa = new System.Windows.Forms.ToolStripMenuItem();
             this.genWordBtn = new System.Windows.Forms.ToolStripMenuItem();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.DataInputTable = new System.Windows.Forms.TabControl();
             this.basicData = new System.Windows.Forms.TabPage();
@@ -381,7 +380,6 @@
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.resGrid = new System.Windows.Forms.PropertyGrid();
             this.lineChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.report = new System.Windows.Forms.TabPage();
             this.materialClampedBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.boltConnectionSystemDataSet9 = new WindowsFormsApp1.BoltConnectionSystemDataSet9();
             this.materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet9TableAdapters.materialClampedTableAdapter();
@@ -474,7 +472,6 @@
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineChart)).BeginInit();
-            this.report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.materialClampedBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialClampedBindingSource)).BeginInit();
@@ -603,15 +600,6 @@
             this.genWordBtn.Visible = false;
             this.genWordBtn.Click += new System.EventHandler(this.genWordBtn_Click);
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 3);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1160, 710);
-            this.webBrowser1.TabIndex = 0;
-            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -624,12 +612,11 @@
             this.DataInputTable.Controls.Add(this.basicData);
             this.DataInputTable.Controls.Add(this.connAndLoadData);
             this.DataInputTable.Controls.Add(this.resultData);
-            this.DataInputTable.Controls.Add(this.report);
             this.DataInputTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataInputTable.Location = new System.Drawing.Point(0, 25);
             this.DataInputTable.Name = "DataInputTable";
             this.DataInputTable.SelectedIndex = 0;
-            this.DataInputTable.Size = new System.Drawing.Size(1174, 742);
+            this.DataInputTable.Size = new System.Drawing.Size(1174, 579);
             this.DataInputTable.TabIndex = 5;
             // 
             // basicData
@@ -638,7 +625,7 @@
             this.basicData.Location = new System.Drawing.Point(4, 22);
             this.basicData.Name = "basicData";
             this.basicData.Padding = new System.Windows.Forms.Padding(3);
-            this.basicData.Size = new System.Drawing.Size(1166, 716);
+            this.basicData.Size = new System.Drawing.Size(1166, 553);
             this.basicData.TabIndex = 0;
             this.basicData.Text = "基本数据";
             this.basicData.UseVisualStyleBackColor = true;
@@ -661,8 +648,8 @@
             // 
             this.splitUpDown.Panel2.AutoScroll = true;
             this.splitUpDown.Panel2.Controls.Add(this.splitContainer1);
-            this.splitUpDown.Size = new System.Drawing.Size(1160, 710);
-            this.splitUpDown.SplitterDistance = 556;
+            this.splitUpDown.Size = new System.Drawing.Size(1160, 547);
+            this.splitUpDown.SplitterDistance = 428;
             this.splitUpDown.SplitterWidth = 6;
             this.splitUpDown.TabIndex = 4;
             // 
@@ -683,7 +670,7 @@
             this.splitData.Panel2.AllowDrop = true;
             this.splitData.Panel2.Controls.Add(this.modeAndOpt);
             this.splitData.Panel2.Controls.Add(this.Mode3D);
-            this.splitData.Size = new System.Drawing.Size(1160, 556);
+            this.splitData.Size = new System.Drawing.Size(1160, 428);
             this.splitData.SplitterDistance = 696;
             this.splitData.SplitterWidth = 3;
             this.splitData.TabIndex = 7;
@@ -705,7 +692,7 @@
             // 
             this.splitLeft.Panel2.AutoScroll = true;
             this.splitLeft.Panel2.Controls.Add(this.BoltGroup);
-            this.splitLeft.Size = new System.Drawing.Size(696, 556);
+            this.splitLeft.Size = new System.Drawing.Size(696, 428);
             this.splitLeft.SplitterDistance = 382;
             this.splitLeft.TabIndex = 0;
             // 
@@ -1706,7 +1693,7 @@
             this.BoltGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.BoltGroup.Location = new System.Drawing.Point(0, 0);
             this.BoltGroup.Name = "BoltGroup";
-            this.BoltGroup.Size = new System.Drawing.Size(308, 521);
+            this.BoltGroup.Size = new System.Drawing.Size(291, 521);
             this.BoltGroup.TabIndex = 51;
             this.BoltGroup.TabStop = false;
             this.BoltGroup.Text = "螺栓";
@@ -2077,7 +2064,7 @@
             // modeAndOpt.Panel2
             // 
             this.modeAndOpt.Panel2.Controls.Add(this.simulation1);
-            this.modeAndOpt.Size = new System.Drawing.Size(459, 554);
+            this.modeAndOpt.Size = new System.Drawing.Size(459, 426);
             this.modeAndOpt.SplitterDistance = 162;
             this.modeAndOpt.TabIndex = 4;
             // 
@@ -2313,7 +2300,7 @@
             this.simulation1.Location = new System.Drawing.Point(0, 0);
             this.simulation1.Name = "simulation1";
             this.simulation1.ProgressBar = progressBar1;
-            this.simulation1.Size = new System.Drawing.Size(459, 388);
+            this.simulation1.Size = new System.Drawing.Size(459, 260);
             this.simulation1.TabIndex = 1;
             this.simulation1.Text = "simulation1";
             coordinateSystemIcon1.LabelFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -2350,7 +2337,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableTab);
-            this.splitContainer1.Size = new System.Drawing.Size(1158, 146);
+            this.splitContainer1.Size = new System.Drawing.Size(1158, 111);
             this.splitContainer1.SplitterDistance = 493;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -2360,7 +2347,7 @@
             this.introGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.introGroup.Location = new System.Drawing.Point(0, 0);
             this.introGroup.Name = "introGroup";
-            this.introGroup.Size = new System.Drawing.Size(493, 146);
+            this.introGroup.Size = new System.Drawing.Size(493, 111);
             this.introGroup.TabIndex = 3;
             this.introGroup.TabStop = false;
             this.introGroup.Text = "说明";
@@ -2385,7 +2372,7 @@
             this.tableTab.Location = new System.Drawing.Point(0, 0);
             this.tableTab.Name = "tableTab";
             this.tableTab.SelectedIndex = 0;
-            this.tableTab.Size = new System.Drawing.Size(661, 146);
+            this.tableTab.Size = new System.Drawing.Size(661, 111);
             this.tableTab.TabIndex = 3;
             // 
             // getNTable
@@ -2396,7 +2383,7 @@
             this.getNTable.Location = new System.Drawing.Point(4, 22);
             this.getNTable.Name = "getNTable";
             this.getNTable.Padding = new System.Windows.Forms.Padding(3);
-            this.getNTable.Size = new System.Drawing.Size(653, 120);
+            this.getNTable.Size = new System.Drawing.Size(653, 85);
             this.getNTable.TabIndex = 0;
             this.getNTable.Text = "载荷传导系数";
             this.getNTable.UseVisualStyleBackColor = true;
@@ -2434,7 +2421,7 @@
             this.connAndLoadData.Location = new System.Drawing.Point(4, 22);
             this.connAndLoadData.Name = "connAndLoadData";
             this.connAndLoadData.Padding = new System.Windows.Forms.Padding(3);
-            this.connAndLoadData.Size = new System.Drawing.Size(1166, 716);
+            this.connAndLoadData.Size = new System.Drawing.Size(1166, 523);
             this.connAndLoadData.TabIndex = 1;
             this.connAndLoadData.Text = "连接件及加载数据";
             this.connAndLoadData.UseVisualStyleBackColor = true;
@@ -2453,8 +2440,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer2.Size = new System.Drawing.Size(1160, 710);
-            this.splitContainer2.SplitterDistance = 542;
+            this.splitContainer2.Size = new System.Drawing.Size(1160, 517);
+            this.splitContainer2.SplitterDistance = 394;
             this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer3
@@ -2470,7 +2457,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitRight);
-            this.splitContainer3.Size = new System.Drawing.Size(1160, 542);
+            this.splitContainer3.Size = new System.Drawing.Size(1160, 394);
             this.splitContainer3.SplitterDistance = 341;
             this.splitContainer3.TabIndex = 1;
             // 
@@ -2490,8 +2477,8 @@
             // 
             this.splitConn.Panel2.AutoScroll = true;
             this.splitConn.Panel2.Controls.Add(this.splitContainer4);
-            this.splitConn.Size = new System.Drawing.Size(341, 542);
-            this.splitConn.SplitterDistance = 63;
+            this.splitConn.Size = new System.Drawing.Size(341, 394);
+            this.splitConn.SplitterDistance = 45;
             this.splitConn.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -2502,7 +2489,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.Controls.Add(this.delButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.addButton, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 20);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 11);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -2549,8 +2536,8 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dataClamped);
             this.splitContainer4.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer4.Size = new System.Drawing.Size(341, 475);
-            this.splitContainer4.SplitterDistance = 193;
+            this.splitContainer4.Size = new System.Drawing.Size(341, 345);
+            this.splitContainer4.SplitterDistance = 140;
             this.splitContainer4.TabIndex = 0;
             // 
             // dataClampedChoosed
@@ -2569,7 +2556,7 @@
             this.dataClampedChoosed.Name = "dataClampedChoosed";
             this.dataClampedChoosed.RowTemplate.Height = 23;
             this.dataClampedChoosed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataClampedChoosed.Size = new System.Drawing.Size(341, 193);
+            this.dataClampedChoosed.Size = new System.Drawing.Size(341, 140);
             this.dataClampedChoosed.TabIndex = 2;
             this.dataClampedChoosed.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClampedChoosed_CellEndEdit);
             // 
@@ -2623,7 +2610,7 @@
             this.dataClamped.ReadOnly = true;
             this.dataClamped.RowTemplate.Height = 23;
             this.dataClamped.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataClamped.Size = new System.Drawing.Size(341, 278);
+            this.dataClamped.Size = new System.Drawing.Size(341, 201);
             this.dataClamped.TabIndex = 1;
             // 
             // clampedMaterialNameDataGridViewTextBoxColumn
@@ -2678,7 +2665,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(341, 278);
+            this.dataGridView2.Size = new System.Drawing.Size(341, 201);
             this.dataGridView2.TabIndex = 0;
             // 
             // splitRight
@@ -2697,7 +2684,7 @@
             // 
             this.splitRight.Panel2.AutoScroll = true;
             this.splitRight.Panel2.Controls.Add(this.splitLoadData);
-            this.splitRight.Size = new System.Drawing.Size(815, 542);
+            this.splitRight.Size = new System.Drawing.Size(815, 394);
             this.splitRight.SplitterDistance = 395;
             this.splitRight.TabIndex = 2;
             // 
@@ -2719,8 +2706,8 @@
             this.splitGasketNut.Panel2.AutoScroll = true;
             this.splitGasketNut.Panel2.Controls.Add(this.nutGroup);
             this.splitGasketNut.Panel2MinSize = 20;
-            this.splitGasketNut.Size = new System.Drawing.Size(393, 540);
-            this.splitGasketNut.SplitterDistance = 364;
+            this.splitGasketNut.Size = new System.Drawing.Size(393, 392);
+            this.splitGasketNut.SplitterDistance = 264;
             this.splitGasketNut.TabIndex = 1;
             // 
             // gasketGroup
@@ -3098,7 +3085,7 @@
             this.nutGroup.Dock = System.Windows.Forms.DockStyle.Top;
             this.nutGroup.Location = new System.Drawing.Point(0, 0);
             this.nutGroup.Name = "nutGroup";
-            this.nutGroup.Size = new System.Drawing.Size(393, 146);
+            this.nutGroup.Size = new System.Drawing.Size(376, 146);
             this.nutGroup.TabIndex = 46;
             this.nutGroup.TabStop = false;
             this.nutGroup.Text = "螺母";
@@ -3197,8 +3184,8 @@
             // splitLoadData.Panel2
             // 
             this.splitLoadData.Panel2.AutoScroll = true;
-            this.splitLoadData.Size = new System.Drawing.Size(414, 540);
-            this.splitLoadData.SplitterDistance = 438;
+            this.splitLoadData.Size = new System.Drawing.Size(414, 392);
+            this.splitLoadData.SplitterDistance = 317;
             this.splitLoadData.TabIndex = 0;
             // 
             // loadDataGroup
@@ -3873,7 +3860,7 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.introTable2);
-            this.splitContainer5.Size = new System.Drawing.Size(1160, 164);
+            this.splitContainer5.Size = new System.Drawing.Size(1160, 119);
             this.splitContainer5.SplitterDistance = 485;
             this.splitContainer5.TabIndex = 1;
             // 
@@ -3883,7 +3870,7 @@
             this.introGroup2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.introGroup2.Location = new System.Drawing.Point(0, 0);
             this.introGroup2.Name = "introGroup2";
-            this.introGroup2.Size = new System.Drawing.Size(485, 164);
+            this.introGroup2.Size = new System.Drawing.Size(485, 119);
             this.introGroup2.TabIndex = 3;
             this.introGroup2.TabStop = false;
             this.introGroup2.Text = "说明";
@@ -3908,7 +3895,7 @@
             this.introTable2.Location = new System.Drawing.Point(0, 0);
             this.introTable2.Name = "introTable2";
             this.introTable2.SelectedIndex = 0;
-            this.introTable2.Size = new System.Drawing.Size(671, 164);
+            this.introTable2.Size = new System.Drawing.Size(671, 119);
             this.introTable2.TabIndex = 3;
             // 
             // tabPage1
@@ -3919,7 +3906,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(663, 138);
+            this.tabPage1.Size = new System.Drawing.Size(663, 93);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "载荷传导系数";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3957,7 +3944,7 @@
             this.resultData.Location = new System.Drawing.Point(4, 22);
             this.resultData.Name = "resultData";
             this.resultData.Padding = new System.Windows.Forms.Padding(3);
-            this.resultData.Size = new System.Drawing.Size(1166, 716);
+            this.resultData.Size = new System.Drawing.Size(1166, 523);
             this.resultData.TabIndex = 2;
             this.resultData.Text = "计算结果";
             this.resultData.UseVisualStyleBackColor = true;
@@ -3975,7 +3962,7 @@
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.lineChart);
-            this.splitContainer6.Size = new System.Drawing.Size(1160, 710);
+            this.splitContainer6.Size = new System.Drawing.Size(1160, 517);
             this.splitContainer6.SplitterDistance = 563;
             this.splitContainer6.TabIndex = 0;
             // 
@@ -3984,7 +3971,7 @@
             this.resGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resGrid.Location = new System.Drawing.Point(0, 0);
             this.resGrid.Name = "resGrid";
-            this.resGrid.Size = new System.Drawing.Size(563, 710);
+            this.resGrid.Size = new System.Drawing.Size(563, 517);
             this.resGrid.TabIndex = 1;
             // 
             // lineChart
@@ -4003,20 +3990,9 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.lineChart.Series.Add(series1);
-            this.lineChart.Size = new System.Drawing.Size(593, 710);
+            this.lineChart.Size = new System.Drawing.Size(593, 517);
             this.lineChart.TabIndex = 1;
             this.lineChart.Text = "chart1";
-            // 
-            // report
-            // 
-            this.report.Controls.Add(this.webBrowser1);
-            this.report.Location = new System.Drawing.Point(4, 22);
-            this.report.Name = "report";
-            this.report.Padding = new System.Windows.Forms.Padding(3);
-            this.report.Size = new System.Drawing.Size(1166, 716);
-            this.report.TabIndex = 3;
-            this.report.Text = "报告";
-            this.report.UseVisualStyleBackColor = true;
             // 
             // materialClampedBindingSource1
             // 
@@ -4048,7 +4024,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1174, 767);
+            this.ClientSize = new System.Drawing.Size(1174, 604);
             this.Controls.Add(this.DataInputTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -4160,7 +4136,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lineChart)).EndInit();
-            this.report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.materialClampedBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialClampedBindingSource)).EndInit();
@@ -4193,7 +4168,6 @@
         private System.Windows.Forms.GroupBox phiDimGroup;
         private System.Windows.Forms.Label JointFaceEquOutDiameterLabel;
         private System.Windows.Forms.TextBox DA2;
-        public System.Windows.Forms.WebBrowser webBrowser1;
 
         private System.Windows.Forms.Label DA2Label;
         private System.Windows.Forms.Label JointFaceUpEquOutDiameterLabel;
@@ -4490,7 +4464,6 @@
         private System.Windows.Forms.ToolStripMenuItem CalSg;
         private System.Windows.Forms.ToolStripMenuItem CalMa;
         private System.Windows.Forms.ToolStripMenuItem genWordBtn;
-        private System.Windows.Forms.TabPage report;
         private BoltConnectionSystemDataSet19TableAdapters.dbo_materialClampedTableAdapter dbo_materialClampedTableAdapter1;
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.PropertyGrid resGrid;

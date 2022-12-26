@@ -260,6 +260,11 @@ namespace WindowsFormsApp1.MutiBoltsConnVdiCal
                 }
             }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();   
+        }
     }
     public class JiHeParameters
     {

@@ -35,10 +35,10 @@
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.intro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.zhazhiBtn = new System.Windows.Forms.CheckBox();
             this.pianxinBtn = new System.Windows.Forms.CheckBox();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.okBtn = new System.Windows.Forms.Button();
-            this.zhazhiBtn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -126,6 +126,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "操作";
             // 
+            // zhazhiBtn
+            // 
+            this.zhazhiBtn.AutoSize = true;
+            this.zhazhiBtn.Location = new System.Drawing.Point(64, 127);
+            this.zhazhiBtn.Name = "zhazhiBtn";
+            this.zhazhiBtn.Size = new System.Drawing.Size(96, 16);
+            this.zhazhiBtn.TabIndex = 1;
+            this.zhazhiBtn.Text = "热处理前轧制";
+            this.zhazhiBtn.UseVisualStyleBackColor = true;
+            this.zhazhiBtn.Visible = false;
+            // 
             // pianxinBtn
             // 
             this.pianxinBtn.AutoSize = true;
@@ -146,6 +157,7 @@
             this.cancelBtn.TabIndex = 0;
             this.cancelBtn.Text = "取消";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // okBtn
             // 
@@ -156,17 +168,6 @@
             this.okBtn.TabIndex = 0;
             this.okBtn.Text = "确定";
             this.okBtn.UseVisualStyleBackColor = true;
-            // 
-            // zhazhiBtn
-            // 
-            this.zhazhiBtn.AutoSize = true;
-            this.zhazhiBtn.Location = new System.Drawing.Point(64, 127);
-            this.zhazhiBtn.Name = "zhazhiBtn";
-            this.zhazhiBtn.Size = new System.Drawing.Size(96, 16);
-            this.zhazhiBtn.TabIndex = 1;
-            this.zhazhiBtn.Text = "热处理前轧制";
-            this.zhazhiBtn.UseVisualStyleBackColor = true;
-            this.zhazhiBtn.Visible = false;
             // 
             // ParamBaseFrm
             // 

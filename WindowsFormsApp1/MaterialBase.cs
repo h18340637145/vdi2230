@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Login;
 
 namespace WindowsFormsApp1
 {
@@ -16,6 +17,7 @@ namespace WindowsFormsApp1
         MainWindow form2;
         int idx = 1;//1  表示bolt  2 表示clamp
         string tableName;
+        private User user;
 
         public MaterialBase(MainWindow form2, int idx)
         {
@@ -33,6 +35,23 @@ namespace WindowsFormsApp1
             {
                 this.tableName = "dbo_materialClamped";
                 Table(2);
+            }
+        }
+
+        public MaterialBase(MainWindow form2, int idx, User user) : this(form2, idx)
+        {
+            this.user = user;
+
+            if (user.flag.Equals("0"))
+            {
+                // 没有权限
+                addButton.Visible = false;
+                delButton.Visible = false;
+                updateButton.Visible = false;
+            }
+            else
+            {
+
             }
         }
 
