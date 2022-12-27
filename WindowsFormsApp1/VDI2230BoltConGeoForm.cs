@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Login;
+using WindowsFormsApp1.ManagementBoltConn.Dialog;
 
 namespace WindowsFormsApp1
 {
@@ -23,16 +25,25 @@ namespace WindowsFormsApp1
         GasketClass gasket2;
 
         Entity _boltEntity;
-        Entity _nutEntity;
-        Entity _gaskEntity;
+
+        private string flag;
 
         public VDI2230BoltConGeoForm()
         {
             InitializeComponent();
         }
 
+        public VDI2230BoltConGeoForm(string  flag)
+        {
+            this.flag = flag;
+            InitializeComponent();
+            AdminOrUser();
+        }
+
         private void VDI2230BoltConGeoForm_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet22.dbo_screwTypeTable”中。您可以根据需要移动或删除它。
+            this.dbo_screwTypeTableTableAdapter1.Fill(this.boltConnectionSystemDataSet22.dbo_screwTypeTable);
             // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet13.dbo_boltStdTable”中。您可以根据需要移动或删除它。
             this.dbo_boltStdTableTableAdapter.Fill(this.boltConnectionSystemDataSet13.dbo_boltStdTable);
             // TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet12.dbo_boltSpeciTable”中。您可以根据需要移动或删除它。
@@ -56,6 +67,59 @@ namespace WindowsFormsApp1
             //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet.screwTypeTable”中。您可以根据需要移动或删除它。
             //this.screwTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet.screwTypeTable);
 
+        }
+
+        private void AdminOrUser()
+        {
+            if (flag.Equals("1"))
+            {
+                // 管理员
+                screwTypeBtn.Visible = true;
+                boltTypeBtn.Visible = true;
+                boltSpeciBtn.Visible = true;
+                boltStdBtn.Visible = true;
+                addBtn.Visible = true;
+
+                // 文本可编辑
+                TextEnable();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void TextEnable()
+        {
+            gasketGroup.Visible = true;
+            nutGroup.Visible = true;
+
+            boltLen.ReadOnly = false;
+            normalD.ReadOnly = false;
+            screwP.ReadOnly = false;
+            boreD.ReadOnly = false;
+            boltHeadOutD.ReadOnly = false;
+            boltHeadInnerD.ReadOnly = false;
+            screwMidD.ReadOnly = false;
+            screwMinD.ReadOnly = false;
+            polishRodLen.ReadOnly = false;
+            boltNutSideWid.ReadOnly = false;
+            boltNutScrewMinD.ReadOnly = false;
+
+            nutSpeci.ReadOnly = false;
+            nutStd.ReadOnly = false;
+            nutNutSideWid.ReadOnly = false;
+            nutBearMinD.ReadOnly = false;
+            nutBearMaxD.ReadOnly = false;
+            nutBearOutD.ReadOnly = false;
+            nutHeight.ReadOnly = false;
+
+            gasketstd.ReadOnly = false;
+            gasketinnerD_dhas.ReadOnly = false;
+            gasketoutD_DA.ReadOnly = false;
+            boltheaddowngasketheight_hs1.ReadOnly = false;
+            nutdowngasketheight_hs2.ReadOnly = false;
+            //10377
         }
 
         private void seeButton_Click(object sender, EventArgs e)
@@ -359,6 +423,135 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine(e);
                 throw new Exception("输入参数错误！请仔细检查");
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void screwTypeBtn_Click(object sender, EventArgs e)
+        {
+            ScrewTypeFrm s = new ScrewTypeFrm();
+            s.Show();
+        }
+
+        private void boltTypeBtn_Click(object sender, EventArgs e)
+        {
+            BoltTypeFrm s = new BoltTypeFrm();
+            s.Show();
+
+        }
+
+        private void boltSpeciBtn_Click(object sender, EventArgs e)
+        {
+            BoltSpeciFrm s = new BoltSpeciFrm();
+            s.Show();
+        }
+
+        private void boltStdBtn_Click(object sender, EventArgs e)
+        {
+            BoltStdFrm s = new BoltStdFrm();
+            s.Show();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            
+            BoltClass bolt = new BoltClass();
+            GasketClass gasketClass = new GasketClass();
+            NutClass nut = new NutClass();
+            int screwIdx = screwType.SelectedIndex;
+            int boltTypeIdx = boltType.SelectedIndex;
+            int boltSpecIdx = boltSpeci.SelectedIndex;
+            int boltStdIdx = boltStd.SelectedIndex;
+
+            bolt.NormalD_d = double.Parse(normalD.Text);
+            bolt.BoltLen_ls = double.Parse(boltLen.Text);
+            bolt.ScrewP_P = double.Parse(screwP.Text);
+            bolt.BoreD_dh = double.Parse(boreD.Text);
+            bolt.BoltHeadOutD_dw = double.Parse(boltHeadOutD.Text);
+            bolt.BoltHeadInnerD_da = double.Parse(boltHeadInnerD.Text);
+            bolt.ScrewMidD_d2 = double.Parse(screwMidD.Text);
+            bolt.ScrewMinD_d3 = double.Parse(screwMinD.Text);
+            bolt.PolishRodLen_l1 = double.Parse(polishRodLen.Text);
+            bolt.BoltNutSideWid_s = double.Parse(boltNutSideWid.Text);
+            bolt.BoltNutScrewMinD_D1 = double.Parse(boltNutScrewMinD.Text);
+
+            gasket.Gasketstd = gasketstd.Text;
+            gasket.GasketinnerD_dhas = double.Parse(gasketinnerD_dhas.Text);
+            gasket.GasketoutD_DA = double.Parse(gasketoutD_DA.Text);
+            gasket.Boltheaddowngasketheight_hs1 = double.Parse(boltheaddowngasketheight_hs1.Text);
+            gasket.Nutdowngasketheight_hs2 = double.Parse(nutdowngasketheight_hs2.Text);
+
+            nut.NutSpeci = nutSpeci.Text;
+            nut.NutStd = nutStd.Text;
+            nut.NutNutSideWid = double.Parse(nutNutSideWid.Text);
+            nut.NutBearMinD = double.Parse(nutBearMinD.Text);
+            nut.NutBearMaxD = double.Parse(nutBearMaxD.Text);
+            nut.NutBearOutD = double.Parse(nutBearOutD.Text);
+            nut.NutHeight = double.Parse(nutHeight.Text);
+
+            DaoAccess daoAccess = new DaoAccess();
+            string sql2 = "insert into dbo_gaskettable(gasketstd,gasketinnerD_dhas,gasketoutD_DA,boltheaddowngasketheight_hs1,nutdowngasketheight_hs2) " +
+                    "values('" + gasket.Gasketstd + "'," + gasket.GasketinnerD_dhas + "," + gasket.GasketoutD_DA + "," + gasket.Boltheaddowngasketheight_hs1 + "'" +
+                    gasket.Nutdowngasketheight_hs2 + ")";
+            int i = daoAccess.Excute(sql2);
+            if (i != 0)
+            {
+                MessageBox.Show("插入垫片成功");
+            }
+
+            string sql3 = "insert into dbo_NUTtable(nutSpeci,nutStd,nutNutSideWid_s,nutBearMinD_Damin,nutBearMaxD_Damax,nutBearOutD_dwmu,nutHeight_m) " +
+                "values('" + nut.NutSpeci + "','" + nut.NutStd + "'," + nut.NutNutSideWid + "," + nut.NutBearMinD + "," + nut.NutBearMaxD + "," + nut.NutBearOutD + "," + nut.NutHeight + ")";
+            i = daoAccess.Excute(sql3);
+            if (i != 0)
+            {
+                MessageBox.Show("插入螺母成功");
+            }
+
+
+
+
+            if (gasketstd.Text != "" && nutSpeci.Text != null)
+            {
+                int isnut = 1;
+                int isgasket = 1;
+                string sql_nut = "select nutindex from dbo_NUTtable where nutSpeci='" + nut.NutSpeci + "' and nutStd='" + nut.NutStd + "' and nutNutSideWid_s=" +
+                    nut.NutNutSideWid + " and nutBearMinD_Damin=" + nut.NutBearMinD + " and nutBearMaxD_Damax=" + nut.NutBearMaxD + " and nutHeight_m=" + nut.NutHeight;
+                string sql_gasket = "select gasketindex from dbo_gaskettable where gasketstd='" + gasket.Gasketstd + "' and gasketinnerD_dhas=" + gasket.GasketinnerD_dhas +
+                    " and gasketoutD_DA=" + gasket.GasketoutD_DA + " and nutdowngasketheight_hs2=" + gasket.Nutdowngasketheight_hs2;
+
+                IDataReader dr3 = daoAccess.read(sql_nut);
+                string nutIndex = "";
+                string gasketIndex = "";
+                while (dr3.Read())
+                {
+                    nutIndex = dr3["nutindex"].ToString();
+                }
+                dr3.Close();
+                dr3 = daoAccess.read(sql_gasket);
+                while (dr3.Read())
+                {
+                    gasketIndex = dr3["gasketindex"].ToString();
+                }
+                dr3.Close();
+
+                string sql = "insert into dbo_BoltTable(screwType,boltType,boltSpeci,boltStd," +
+                    "normalD_d,screwP_P,boltLen_ls,boreD_dh,boltHeadOutD_dw,boltHeadInnerD_da," +
+                    "screwMidD_d2,screwMinD_d3,polishRodLen_l1,boltNutSideWid_s,boltNutScrewMinD_D1," +
+                    "isnut,isgasket,nutindex,gasketindex) values(" +
+                    screwIdx + "," + boltTypeIdx + "," + boltSpecIdx + "," + boltStdIdx + "," +
+                    bolt.NormalD_d + "," + bolt.ScrewP_P + "," + bolt.BoltLen_ls + "," + bolt.BoreD_dh + "," + bolt.BoltHeadOutD_dw + "," +
+                    bolt.BoltHeadInnerD_da + "," + bolt.ScrewMidD_d2 + "," + bolt.ScrewMinD_d3 + "," + bolt.PolishRodLen_l1 + "," +
+                    bolt.BoltNutSideWid_s + "," + bolt.BoltNutScrewMinD_D1 + "," + isnut + "," + isgasket + "," + nutIndex + "," + gasketIndex + ")";
+                int k = daoAccess.Excute(sql);
+                if (k != 0)
+                {
+                    MessageBox.Show("插入螺栓成功");
+                }
+
             }
         }
     }

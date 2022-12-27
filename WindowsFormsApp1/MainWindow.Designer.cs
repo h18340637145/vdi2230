@@ -59,11 +59,11 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.TextBox();
-            this.passwdLabel = new System.Windows.Forms.Label();
-            this.unameLabel = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.Label();
-            this.flagLabel = new System.Windows.Forms.Label();
             this.flag = new System.Windows.Forms.Label();
+            this.flagLabel = new System.Windows.Forms.Label();
+            this.passwdLabel = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.Label();
+            this.unameLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitLogin)).BeginInit();
@@ -101,21 +101,21 @@
             // selfManagmentBtn
             // 
             this.selfManagmentBtn.Name = "selfManagmentBtn";
-            this.selfManagmentBtn.Size = new System.Drawing.Size(180, 22);
+            this.selfManagmentBtn.Size = new System.Drawing.Size(124, 22);
             this.selfManagmentBtn.Text = "个人中心";
             this.selfManagmentBtn.Click += new System.EventHandler(this.selfManagmentBtn_Click);
             // 
             // otherManagmentBtn
             // 
             this.otherManagmentBtn.Name = "otherManagmentBtn";
-            this.otherManagmentBtn.Size = new System.Drawing.Size(180, 22);
+            this.otherManagmentBtn.Size = new System.Drawing.Size(124, 22);
             this.otherManagmentBtn.Text = "信息管理";
             this.otherManagmentBtn.Click += new System.EventHandler(this.otherManagmentBtn_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.ExitToolStripMenuItem.Text = "退出";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -131,14 +131,14 @@
             // BoltMatToolStripMenuItem
             // 
             this.BoltMatToolStripMenuItem.Name = "BoltMatToolStripMenuItem";
-            this.BoltMatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BoltMatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.BoltMatToolStripMenuItem.Text = "螺栓材料";
             this.BoltMatToolStripMenuItem.Click += new System.EventHandler(this.螺栓材料ToolStripMenuItem_Click);
             // 
             // ClampedToolStripMenuItem
             // 
             this.ClampedToolStripMenuItem.Name = "ClampedToolStripMenuItem";
-            this.ClampedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ClampedToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.ClampedToolStripMenuItem.Text = "连接件材料";
             this.ClampedToolStripMenuItem.Click += new System.EventHandler(this.连接件材料ToolStripMenuItem_Click);
             // 
@@ -219,7 +219,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(680, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(760, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // toolStripStatusLabel3
@@ -362,35 +362,16 @@
             // 
             this.password.Location = new System.Drawing.Point(113, 84);
             this.password.Name = "password";
-            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(64, 21);
             this.password.TabIndex = 9;
             // 
-            // passwdLabel
+            // flag
             // 
-            this.passwdLabel.AutoSize = true;
-            this.passwdLabel.Location = new System.Drawing.Point(54, 87);
-            this.passwdLabel.Name = "passwdLabel";
-            this.passwdLabel.Size = new System.Drawing.Size(41, 12);
-            this.passwdLabel.TabIndex = 7;
-            this.passwdLabel.Text = "密码：";
-            // 
-            // unameLabel
-            // 
-            this.unameLabel.AutoSize = true;
-            this.unameLabel.Location = new System.Drawing.Point(54, 47);
-            this.unameLabel.Name = "unameLabel";
-            this.unameLabel.Size = new System.Drawing.Size(53, 12);
-            this.unameLabel.TabIndex = 8;
-            this.unameLabel.Text = "用户名：";
-            // 
-            // username
-            // 
-            this.username.AutoSize = true;
-            this.username.Location = new System.Drawing.Point(113, 47);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(0, 12);
-            this.username.TabIndex = 8;
+            this.flag.AutoSize = true;
+            this.flag.Location = new System.Drawing.Point(113, 129);
+            this.flag.Name = "flag";
+            this.flag.Size = new System.Drawing.Size(0, 12);
+            this.flag.TabIndex = 7;
             // 
             // flagLabel
             // 
@@ -401,13 +382,31 @@
             this.flagLabel.TabIndex = 7;
             this.flagLabel.Text = "权限：";
             // 
-            // flag
+            // passwdLabel
             // 
-            this.flag.AutoSize = true;
-            this.flag.Location = new System.Drawing.Point(113, 129);
-            this.flag.Name = "flag";
-            this.flag.Size = new System.Drawing.Size(0, 12);
-            this.flag.TabIndex = 7;
+            this.passwdLabel.AutoSize = true;
+            this.passwdLabel.Location = new System.Drawing.Point(54, 87);
+            this.passwdLabel.Name = "passwdLabel";
+            this.passwdLabel.Size = new System.Drawing.Size(41, 12);
+            this.passwdLabel.TabIndex = 7;
+            this.passwdLabel.Text = "密码：";
+            // 
+            // username
+            // 
+            this.username.AutoSize = true;
+            this.username.Location = new System.Drawing.Point(113, 47);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(0, 12);
+            this.username.TabIndex = 8;
+            // 
+            // unameLabel
+            // 
+            this.unameLabel.AutoSize = true;
+            this.unameLabel.Location = new System.Drawing.Point(54, 47);
+            this.unameLabel.Name = "unameLabel";
+            this.unameLabel.Size = new System.Drawing.Size(53, 12);
+            this.unameLabel.TabIndex = 8;
+            this.unameLabel.Text = "用户名：";
             // 
             // MainWindow
             // 

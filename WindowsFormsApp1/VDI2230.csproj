@@ -187,6 +187,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BoltConnectionSystemDataSet20.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BoltConnectionSystemDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BoltConnectionSystemDataSet22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoltConnectionSystemDataSet22.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BoltConnectionSystemDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -287,6 +297,12 @@
       <DependentUpon>InitDesignForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ISolve.cs" />
+    <Compile Include="Login\AddInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\AddInfo.Designer.cs">
+      <DependentUpon>AddInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\FrmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +333,36 @@
     </Compile>
     <Compile Include="InsertBaseForm.Designer.cs">
       <DependentUpon>InsertBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BaseParamFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BaseParamFrm.Designer.cs">
+      <DependentUpon>BaseParamFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BoltSpeciFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BoltSpeciFrm.Designer.cs">
+      <DependentUpon>BoltSpeciFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BoltStdFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BoltStdFrm.Designer.cs">
+      <DependentUpon>BoltStdFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BoltTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\BoltTypeFrm.Designer.cs">
+      <DependentUpon>BoltTypeFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\ScrewTypeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementBoltConn\Dialog\ScrewTypeFrm.Designer.cs">
+      <DependentUpon>ScrewTypeFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialBase.cs">
       <SubType>Form</SubType>
@@ -495,6 +541,9 @@
     <EmbeddedResource Include="initDesignForm.resx">
       <DependentUpon>InitDesignForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login\AddInfo.resx">
+      <DependentUpon>AddInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </EmbeddedResource>
@@ -506,6 +555,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertBaseForm.resx">
       <DependentUpon>InsertBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementBoltConn\Dialog\BaseParamFrm.resx">
+      <DependentUpon>BaseParamFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementBoltConn\Dialog\BoltSpeciFrm.resx">
+      <DependentUpon>BoltSpeciFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementBoltConn\Dialog\BoltStdFrm.resx">
+      <DependentUpon>BoltStdFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementBoltConn\Dialog\BoltTypeFrm.resx">
+      <DependentUpon>BoltTypeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementBoltConn\Dialog\ScrewTypeFrm.resx">
+      <DependentUpon>ScrewTypeFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaterialBase.resx">
       <DependentUpon>MaterialBase.cs</DependentUpon>
@@ -733,6 +797,28 @@
     </None>
     <None Include="BoltConnectionSystemDataSet20.xss">
       <DependentUpon>BoltConnectionSystemDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet21.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet21.xss">
+      <DependentUpon>BoltConnectionSystemDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet22.xsc">
+      <DependentUpon>BoltConnectionSystemDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="BoltConnectionSystemDataSet22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BoltConnectionSystemDataSet22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BoltConnectionSystemDataSet22.xss">
+      <DependentUpon>BoltConnectionSystemDataSet22.xsd</DependentUpon>
     </None>
     <None Include="BoltConnectionSystemDataSet3.xsc">
       <DependentUpon>BoltConnectionSystemDataSet3.xsd</DependentUpon>

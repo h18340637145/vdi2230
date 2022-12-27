@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
             else
             {
                 // 部分权限
-                selfManagmentBtn.Visible = false;
+                //selfManagmentBtn.Visible = false;
                 otherManagmentBtn.Visible = false;
             }
         }
@@ -117,7 +117,7 @@ namespace WindowsFormsApp1
 
         private void VDI2230BoltConGeo_Click(object sender, EventArgs e)
         {
-            VDI2230BoltConGeoForm f = new VDI2230BoltConGeoForm();
+            VDI2230BoltConGeoForm f = new VDI2230BoltConGeoForm(user.flag);
             f.ShowDialog();
         }
         // 选中节点后进行触发
@@ -175,7 +175,7 @@ namespace WindowsFormsApp1
                 return;
             }
            
-            string sql = "update admin set password='" + password.Text + "' where username='" + user.username + "'";
+            string sql = "UPDATE admin set password='" + password.Text + "' where username='" + user.username + "'";
             DaoAccess dao = new DaoAccess();
             int i = dao.Excute(sql);
         }
@@ -189,7 +189,8 @@ namespace WindowsFormsApp1
         {
             //infoManagementGrp.Visible = true;
             //splitContainer1.SplitterDistance = 1;
-
+            InfoManagement infoManagement = new InfoManagement();
+            infoManagement.Show();
         }
 
         private void cancelInfoBtn_Click(object sender, EventArgs e)
