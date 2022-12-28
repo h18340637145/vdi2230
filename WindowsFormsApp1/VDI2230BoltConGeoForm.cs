@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using WindowsFormsApp1.Login;
 using WindowsFormsApp1.ManagementBoltConn.Dialog;
@@ -66,7 +68,62 @@ namespace WindowsFormsApp1
             //this.boltTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet1.boltTypeTable);
             //// TODO: 这行代码将数据加载到表“boltConnectionSystemDataSet.screwTypeTable”中。您可以根据需要移动或删除它。
             //this.screwTypeTableTableAdapter.Fill(this.boltConnectionSystemDataSet.screwTypeTable);
+            SelScrewType();
+            SelBoltType();
+            SelBoltSpeci();
+            SelBoltStd();
+        }
 
+        private void SelBoltStd()
+        {
+            string sql = "select boltstd from dbo_boltStdTable";
+            DaoAccess dao = new DaoAccess();
+            IDataReader dr = dao.read(sql);
+            while (dr.Read())
+            {
+                string boltStdValue = dr["boltStd"].ToString();
+                boltStd.Items.Add(boltStdValue);
+            }
+            dr.Close();
+        }
+
+        private void SelBoltSpeci()
+        {
+            string sql = "select boltspeci from dbo_boltSpeciTable";
+            DaoAccess dao = new DaoAccess();
+            IDataReader dr = dao.read(sql);
+            while (dr.Read())
+            {
+                string boltspeciValue = dr["boltspeci"].ToString();
+                boltSpeci.Items.Add(boltspeciValue);
+            }
+            dr.Close();
+        }
+
+        private void SelBoltType()
+        {
+            string sql = "select bolttype from dbo_boltTypeTable";
+            DaoAccess dao = new DaoAccess();
+            IDataReader dr = dao.read(sql);
+            while (dr.Read())
+            {
+                string bolttypeValue = dr["bolttype"].ToString();
+                boltType.Items.Add(bolttypeValue);
+            }
+            dr.Close();
+        }
+
+        private void SelScrewType()
+        {
+            string sql = "select screwType from dbo_screwTypeTable";
+            DaoAccess dao = new DaoAccess();
+            IDataReader dr = dao.read(sql);
+            while (dr.Read())
+            {
+                string screwTypeValue = dr["screwType"].ToString();
+                screwType.Items.Add(screwTypeValue);
+            }
+            dr.Close();
         }
 
         private void AdminOrUser()
@@ -459,44 +516,45 @@ namespace WindowsFormsApp1
         private void addBtn_Click(object sender, EventArgs e)
         {
             
-            BoltClass bolt = new BoltClass();
+            BoltClass boltClass = new BoltClass();
             GasketClass gasketClass = new GasketClass();
-            NutClass nut = new NutClass();
-            int screwIdx = screwType.SelectedIndex;
-            int boltTypeIdx = boltType.SelectedIndex;
-            int boltSpecIdx = boltSpeci.SelectedIndex;
-            int boltStdIdx = boltStd.SelectedIndex;
+            NutClass nutClass = new NutClass();
+            int screwIdx = screwType.SelectedIndex + 1;
+            int boltTypeIdx = boltType.SelectedIndex + 1;
+            int boltSpecIdx = boltSpeci.SelectedIndex + 1;
+            int boltStdIdx = boltStd.SelectedIndex + 1;
 
-            bolt.NormalD_d = double.Parse(normalD.Text);
-            bolt.BoltLen_ls = double.Parse(boltLen.Text);
-            bolt.ScrewP_P = double.Parse(screwP.Text);
-            bolt.BoreD_dh = double.Parse(boreD.Text);
-            bolt.BoltHeadOutD_dw = double.Parse(boltHeadOutD.Text);
-            bolt.BoltHeadInnerD_da = double.Parse(boltHeadInnerD.Text);
-            bolt.ScrewMidD_d2 = double.Parse(screwMidD.Text);
-            bolt.ScrewMinD_d3 = double.Parse(screwMinD.Text);
-            bolt.PolishRodLen_l1 = double.Parse(polishRodLen.Text);
-            bolt.BoltNutSideWid_s = double.Parse(boltNutSideWid.Text);
-            bolt.BoltNutScrewMinD_D1 = double.Parse(boltNutScrewMinD.Text);
+            boltClass.NormalD_d = double.Parse(normalD.Text);
+            boltClass.BoltLen_ls = double.Parse(boltLen.Text);
+            boltClass.ScrewP_P = double.Parse(screwP.Text);
+            boltClass.BoreD_dh = double.Parse(boreD.Text);
+            boltClass.BoltHeadOutD_dw = double.Parse(boltHeadOutD.Text);
+            boltClass.BoltHeadInnerD_da = double.Parse(boltHeadInnerD.Text);
+            boltClass.ScrewMidD_d2 = double.Parse(screwMidD.Text);
+            boltClass.ScrewMinD_d3 = double.Parse(screwMinD.Text);
+            boltClass.PolishRodLen_l1 = double.Parse(polishRodLen.Text);
+            boltClass.BoltNutSideWid_s = double.Parse(boltNutSideWid.Text);
+            boltClass.BoltNutScrewMinD_D1 = double.Parse(boltNutScrewMinD.Text);
 
-            gasket.Gasketstd = gasketstd.Text;
-            gasket.GasketinnerD_dhas = double.Parse(gasketinnerD_dhas.Text);
-            gasket.GasketoutD_DA = double.Parse(gasketoutD_DA.Text);
-            gasket.Boltheaddowngasketheight_hs1 = double.Parse(boltheaddowngasketheight_hs1.Text);
-            gasket.Nutdowngasketheight_hs2 = double.Parse(nutdowngasketheight_hs2.Text);
+            gasketClass.Gasketstd = gasketstd.Text;
+            gasketClass.GasketinnerD_dhas = double.Parse(gasketinnerD_dhas.Text);
+            gasketClass.GasketoutD_DA = double.Parse(gasketoutD_DA.Text);
+            gasketClass.Boltheaddowngasketheight_hs1 = double.Parse(boltheaddowngasketheight_hs1.Text);
+            gasketClass.Nutdowngasketheight_hs2 = double.Parse(nutdowngasketheight_hs2.Text);
 
-            nut.NutSpeci = nutSpeci.Text;
-            nut.NutStd = nutStd.Text;
-            nut.NutNutSideWid = double.Parse(nutNutSideWid.Text);
-            nut.NutBearMinD = double.Parse(nutBearMinD.Text);
-            nut.NutBearMaxD = double.Parse(nutBearMaxD.Text);
-            nut.NutBearOutD = double.Parse(nutBearOutD.Text);
-            nut.NutHeight = double.Parse(nutHeight.Text);
+            nutClass.NutSpeci = nutSpeci.Text;
+            nutClass.NutStd = nutStd.Text;
+            nutClass.NutNutSideWid = double.Parse(nutNutSideWid.Text);
+            nutClass.NutBearMinD = double.Parse(nutBearMinD.Text);
+            nutClass.NutBearMaxD = double.Parse(nutBearMaxD.Text);
+            nutClass.NutBearOutD = double.Parse(nutBearOutD.Text);
+            nutClass.NutHeight = double.Parse(nutHeight.Text);
 
             DaoAccess daoAccess = new DaoAccess();
             string sql2 = "insert into dbo_gaskettable(gasketstd,gasketinnerD_dhas,gasketoutD_DA,boltheaddowngasketheight_hs1,nutdowngasketheight_hs2) " +
-                    "values('" + gasket.Gasketstd + "'," + gasket.GasketinnerD_dhas + "," + gasket.GasketoutD_DA + "," + gasket.Boltheaddowngasketheight_hs1 + "'" +
-                    gasket.Nutdowngasketheight_hs2 + ")";
+                    "values('" + gasketClass.Gasketstd + "'," + gasketClass.GasketinnerD_dhas + "," + gasketClass.GasketoutD_DA + "," 
+                    + gasketClass.Boltheaddowngasketheight_hs1 +","+
+                    gasketClass.Nutdowngasketheight_hs2 + ")";
             int i = daoAccess.Excute(sql2);
             if (i != 0)
             {
@@ -504,7 +562,9 @@ namespace WindowsFormsApp1
             }
 
             string sql3 = "insert into dbo_NUTtable(nutSpeci,nutStd,nutNutSideWid_s,nutBearMinD_Damin,nutBearMaxD_Damax,nutBearOutD_dwmu,nutHeight_m) " +
-                "values('" + nut.NutSpeci + "','" + nut.NutStd + "'," + nut.NutNutSideWid + "," + nut.NutBearMinD + "," + nut.NutBearMaxD + "," + nut.NutBearOutD + "," + nut.NutHeight + ")";
+                "values('" + nutClass.NutSpeci + "','" + nutClass.NutStd + "'," + nutClass.NutNutSideWid + "," 
+                + nutClass.NutBearMinD + "," + nutClass.NutBearMaxD + "," + 
+                nutClass.NutBearOutD + "," + nutClass.NutHeight + ")";
             i = daoAccess.Excute(sql3);
             if (i != 0)
             {
@@ -518,10 +578,14 @@ namespace WindowsFormsApp1
             {
                 int isnut = 1;
                 int isgasket = 1;
-                string sql_nut = "select nutindex from dbo_NUTtable where nutSpeci='" + nut.NutSpeci + "' and nutStd='" + nut.NutStd + "' and nutNutSideWid_s=" +
-                    nut.NutNutSideWid + " and nutBearMinD_Damin=" + nut.NutBearMinD + " and nutBearMaxD_Damax=" + nut.NutBearMaxD + " and nutHeight_m=" + nut.NutHeight;
-                string sql_gasket = "select gasketindex from dbo_gaskettable where gasketstd='" + gasket.Gasketstd + "' and gasketinnerD_dhas=" + gasket.GasketinnerD_dhas +
-                    " and gasketoutD_DA=" + gasket.GasketoutD_DA + " and nutdowngasketheight_hs2=" + gasket.Nutdowngasketheight_hs2;
+                string sql_nut = "select nutindex from dbo_NUTtable where nutSpeci='" + nutClass.NutSpeci + "' and nutStd='" 
+                    + nutClass.NutStd + "' and nutNutSideWid_s=" +
+                    nutClass.NutNutSideWid + " and nutBearMinD_Damin=" + nutClass.NutBearMinD + " and nutBearMaxD_Damax=" 
+                    + nutClass.NutBearMaxD + " and nutHeight_m=" + nutClass.NutHeight;
+                string sql_gasket = "select gasketindex from dbo_gaskettable where gasketstd='" + gasketClass.Gasketstd 
+                    + "' and gasketinnerD_dhas=" + gasketClass.GasketinnerD_dhas +
+                    " and gasketoutD_DA=" + gasketClass.GasketoutD_DA + " and nutdowngasketheight_hs2=" +
+                    gasketClass.Nutdowngasketheight_hs2;
 
                 IDataReader dr3 = daoAccess.read(sql_nut);
                 string nutIndex = "";
@@ -543,15 +607,131 @@ namespace WindowsFormsApp1
                     "screwMidD_d2,screwMinD_d3,polishRodLen_l1,boltNutSideWid_s,boltNutScrewMinD_D1," +
                     "isnut,isgasket,nutindex,gasketindex) values(" +
                     screwIdx + "," + boltTypeIdx + "," + boltSpecIdx + "," + boltStdIdx + "," +
-                    bolt.NormalD_d + "," + bolt.ScrewP_P + "," + bolt.BoltLen_ls + "," + bolt.BoreD_dh + "," + bolt.BoltHeadOutD_dw + "," +
-                    bolt.BoltHeadInnerD_da + "," + bolt.ScrewMidD_d2 + "," + bolt.ScrewMinD_d3 + "," + bolt.PolishRodLen_l1 + "," +
-                    bolt.BoltNutSideWid_s + "," + bolt.BoltNutScrewMinD_D1 + "," + isnut + "," + isgasket + "," + nutIndex + "," + gasketIndex + ")";
+                    boltClass.NormalD_d + "," + boltClass.ScrewP_P + "," + boltClass.BoltLen_ls + "," + boltClass.BoreD_dh + "," + boltClass.BoltHeadOutD_dw + "," +
+                    boltClass.BoltHeadInnerD_da + "," + boltClass.ScrewMidD_d2 + "," + boltClass.ScrewMinD_d3 + "," + boltClass.PolishRodLen_l1 + "," +
+                    boltClass.BoltNutSideWid_s + "," + boltClass.BoltNutScrewMinD_D1 + "," + isnut + "," + isgasket + "," + nutIndex + "," + gasketIndex + ")";
                 int k = daoAccess.Excute(sql);
                 if (k != 0)
                 {
                     MessageBox.Show("插入螺栓成功");
                 }
 
+            }
+        }
+
+        private void 读取ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+        // strFileName 是文件的路径+文件名
+        string strFileName = "";
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "JSON文件(*.json)|*.json";
+            ofd.ValidateNames = true; // 验证用户输入是否是一个有效的Windows文件名
+            ofd.CheckFileExists = true; //验证路径的有效性
+            ofd.CheckPathExists = true;//验证路径的有效性
+            if (ofd.ShowDialog() == DialogResult.OK) //用户点击确认按钮，发送确认消息
+            {
+                strFileName = ofd.FileName;//获取在文件对话框中选定的路径或者字符串
+            }
+            try
+            {
+                string JSONstring = File.ReadAllText(strFileName);
+                VdiSaveClass s = serializer.Deserialize<VdiSaveClass>(JSONstring);
+                screwType.Text = s.screwType;
+                boltType.Text = s.boltType;
+                boltSpeci.Text = s.boltSpeci;
+                boltStd.Text = s.boltStd;
+                boltLen.Text = s.boltLen;
+                normalD.Text = s.normalD;
+                screwP.Text = s.screwP;
+                boreD.Text = s.boreD;
+                boltHeadOutD.Text = s.boltHeadOutD;
+                boltHeadInnerD.Text = s.boltHeadInnerD;
+                screwMidD.Text = s.screwMidD;
+                screwMinD.Text = s.screwMinD;
+                polishRodLen.Text = s.polishRodLen;
+                boltNutSideWid.Text = s.boltNutSideWid;
+                boltNutScrewMinD.Text = s.boltNutScrewMinD;
+                gasketstd.Text = s.gasketstd;
+                gasketinnerD_dhas.Text = s.gasketinnerD_dhas;
+                gasketoutD_DA.Text = s.gasketoutD_DA;
+                boltheaddowngasketheight_hs1.Text = s.boltheaddowngasketheight_hs1;
+                nutdowngasketheight_hs2.Text = s.nutdowngasketheight_hs2;
+                nutSpeci.Text = s.nutSpeci;
+                nutStd.Text = s.nutStd;
+                nutNutSideWid.Text = s.nutNutSideWid;
+                nutBearMinD.Text = s.nutBearMinD;
+                nutBearMaxD.Text = s.nutBearMaxD;
+                nutBearOutD.Text = s.nutBearOutD;
+                nutHeight.Text = s.nutHeight;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("未读取数据,请重新输入");
+                return;
+            }
+        }
+
+        private void 暂存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+            // strFileName 是文件的路径+文件名
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "JSON文件(*.json)|*.json";
+            //保存对话框是否记忆上次打开的目录 
+            sfd.RestoreDirectory = true;
+
+            //设置默认的文件名
+            sfd.FileName = "YourFileName";
+            string localFilePath = "";
+            string fileNameExt = "";
+            //点了保存按钮进入 
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                localFilePath = sfd.FileName.ToString(); //获得文件路径 
+                fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1); //获取文件名，不带路径
+            }
+
+            VdiSaveClass s = new VdiSaveClass();
+            s.screwType = screwType.Text;
+            s.boltType = boltType.Text;
+            s.boltSpeci = boltSpeci.Text;
+            s.boltStd = boltStd.Text;
+            s.boltLen = boltLen.Text;
+            s.normalD = normalD.Text;
+            s.screwP = screwP.Text;
+            s.boreD = boreD.Text;
+            s.boltHeadOutD = boltHeadOutD.Text;
+            s.boltHeadInnerD = boltHeadInnerD.Text;
+            s.screwMidD = screwMidD.Text;
+            s.screwMinD = screwMinD.Text;
+            s.polishRodLen = polishRodLen.Text;
+            s.boltNutSideWid = boltNutSideWid.Text;
+            s.boltNutScrewMinD = boltNutScrewMinD.Text;
+            s.gasketstd = gasketstd.Text;
+            s.gasketinnerD_dhas = gasketinnerD_dhas.Text;
+            s.gasketoutD_DA = gasketoutD_DA.Text;
+            s.boltheaddowngasketheight_hs1 = boltheaddowngasketheight_hs1.Text;
+            s.nutdowngasketheight_hs2 = nutdowngasketheight_hs2.Text;
+            s.nutSpeci = nutSpeci.Text;
+            s.nutStd = nutStd.Text;
+            s.nutNutSideWid = nutNutSideWid.Text;
+            s.nutBearMinD = nutBearMinD.Text;
+            s.nutBearMaxD = nutBearMaxD.Text;
+            s.nutBearOutD = nutBearOutD.Text;
+            s.nutHeight = nutHeight.Text;
+
+            try
+            {
+                string out1 = serializer.Serialize(s);
+                File.WriteAllText(localFilePath, out1);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("保存失败，请检查！");
+                return;
             }
         }
     }

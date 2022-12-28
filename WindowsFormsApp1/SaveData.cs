@@ -96,4 +96,36 @@ namespace WindowsFormsApp1
         public string zhouqiN { get; set; }
         public string AD { get; set; }
     }
+
+    public class VdiSaveClass
+    {
+        public string screwType { get; set; }
+        public string boltType { get; set; }
+        public string boltSpeci { get; set; }
+        public string boltStd { get; set; }
+        public string boltLen { get; set; }
+        public string normalD { get; set; }
+        public string screwP { get; set; }
+        public string boreD { get; set; }
+        public string boltHeadOutD { get; set; }
+        public string boltHeadInnerD { get; set; }
+        public string screwMidD { get; set; }
+        public string screwMinD { get; set; }
+        public string polishRodLen { get; set; }
+        public string boltNutSideWid { get; set; }
+        public string boltNutScrewMinD { get; set; }
+        public string gasketstd { get; set; }
+        public string gasketinnerD_dhas { get; set; }
+        public string gasketoutD_DA { get; set; }
+        public string boltheaddowngasketheight_hs1 { get; set; }
+        public string nutdowngasketheight_hs2 { get; set; }
+        public string nutSpeci { get; set; }
+        public string nutStd { get; set; }
+        public string nutNutSideWid { get; set; }
+        public string nutBearMinD { get; set; }
+        public string nutBearMaxD { get; set; }
+        public string nutBearOutD { get; set; }
+        public string nutHeight { get; set; }
+
+    }
 }
