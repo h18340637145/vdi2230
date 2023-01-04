@@ -20,11 +20,11 @@ namespace WindowsFormsApp1.StepCalForm
             InitializeComponent();
             dataGridView1.Rows.Clear();
 
-            dataGridView1.Rows.Add("fmzul", 74947, "许用装配预紧力");
+            dataGridView1.Rows.Add("fmzul", 74947, "N许用装配预紧力");
             dataGridView1.Rows.Add("pG", 1300, "螺纹接触面最小摩擦系数");
             dataGridView1.Rows.Add("alpha", 1.5, "拧紧系数");
-            dataGridView1.Rows.Add("FZ", 3073, "嵌入损失载荷");
-            dataGridView1.Rows.Add("f_sa_max", 24900, "轴向载荷上限");
+            dataGridView1.Rows.Add("FZ", 3073, "N嵌入损失载荷");
+            dataGridView1.Rows.Add("f_sa_max", 24900, "N轴向载荷上限");
 
             CalBtn.Click += CalBtn_Click;
         }

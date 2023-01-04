@@ -19,7 +19,7 @@ namespace WindowsFormsApp1.StepCalForm
             InitializeComponent();
             dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add("alpha", 1.5, "拧紧系数");
-            dataGridView1.Rows.Add("fmmin", 27668, "最小夹紧载荷");
+            dataGridView1.Rows.Add("fmmin", 27668, "N最小夹紧载荷");
             chooseBoltBtn.Visible = false;
             chooseMaterialBtn.Visible = false;
             CalBtn.Click += CalBtn_Click1;

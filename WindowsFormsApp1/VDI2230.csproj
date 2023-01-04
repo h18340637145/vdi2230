@@ -957,6 +957,14 @@
     <Content Include="my.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\pic\连接件.png" />
+    <None Include="Resources\flange_section.png" />
+    <Content Include="Resources\pic\bolt.png" />
+    <Content Include="Resources\pic\垫圈.png" />
+    <Content Include="Resources\pic\夹紧方式.png" />
+    <Content Include="Resources\pic\螺栓.png" />
+    <Content Include="Resources\pic\螺母.png" />
+    <Content Include="Resources\pic\载荷系数.png" />
     <None Include="Resources\微信截图_20221226142256.png" />
     <None Include="Resources\微信图片_20221226140819.jpg" />
     <None Include="Resources\微信截图_20221226140254.png" />

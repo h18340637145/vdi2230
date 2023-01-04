@@ -38,19 +38,19 @@ namespace WindowsFormsApp1
             dataGridView1.Columns["PropeField"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
 
-            dataGridView1.Rows.Add("NormalD_d", 12);
-            dataGridView1.Rows.Add("ScrewP_P", 1.75);
-            dataGridView1.Rows.Add("BoltLen_ls", 60);
-            dataGridView1.Rows.Add("BoreD_dh", 13.5);
-            dataGridView1.Rows.Add("BoreD_dT", 0);
-            dataGridView1.Rows.Add("BoltHeadOutD_dw", 16.47);
-            dataGridView1.Rows.Add("BoltHeadInnerD_da", 13.7);
-            dataGridView1.Rows.Add("ScrewMidD_d2", 10.863);
-            dataGridView1.Rows.Add("ScrewMinD_d3", 9.853);
-            dataGridView1.Rows.Add("PolishRodLen_l1", 30);
-            dataGridView1.Rows.Add("PolishRodLen_l2", 0);
-            dataGridView1.Rows.Add("BoltNutSideWid_s", 18);
-            dataGridView1.Rows.Add("BoltNutScrewMinD_D1", 10.11);
+             dataGridView1.Rows.Add("NormalD_d", 12, "mm公称直径");
+            dataGridView1.Rows.Add("ScrewP_P", 1.75, "mm螺距");
+            dataGridView1.Rows.Add("BoltLen_ls", 60, "mm螺栓长度");
+            dataGridView1.Rows.Add("BoreD_dh", 13.5, "mm镗孔直径");
+            dataGridView1.Rows.Add("BoreD_dT", 0, "mm承载面高度");
+            dataGridView1.Rows.Add("BoltHeadOutD_dw", 16.47, "mm承载面外径");
+            dataGridView1.Rows.Add("BoltHeadInnerD_da", 13.7, "mm承载面内径");
+            dataGridView1.Rows.Add("ScrewMidD_d2", 10.863, "mm节圆直径");
+            dataGridView1.Rows.Add("ScrewMinD_d3", 9.853, "mm螺纹小径");
+            dataGridView1.Rows.Add("PolishRodLen_l1", 30, "mm光杆1长度");
+            dataGridView1.Rows.Add("PolishRodLen_l2", 0, "mm光杆2长度");
+            dataGridView1.Rows.Add("BoltNutSideWid_s", 18, "mm螺母对边宽度");
+            dataGridView1.Rows.Add("BoltNutScrewMinD_D1", 10.11, "mm螺母螺纹小径");
 
             gasketModel.Grid.Visible = false;
             gasketModel.ToolBar.Visible = false;
@@ -64,11 +64,11 @@ namespace WindowsFormsApp1
             //dataGridView2.Columns["PropeField"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView2.CellValueChanged += DataGridView2_CellValueChanged;
 
-            dataGridView2.Rows.Add("Gasketstd", "EN ISO 7089");
-            dataGridView2.Rows.Add("GasketinnerD_dhas", 13);
-            dataGridView2.Rows.Add("GasketoutD_DA", 24);
-            dataGridView2.Rows.Add("Boltheaddowngasketheight_hs1", 2.5);
-            dataGridView2.Rows.Add("Nutdowngasketheight_hs2", 2.5);
+            dataGridView2.Rows.Add("Gasketstd", "EN ISO 7089", "标准");
+            dataGridView2.Rows.Add("GasketinnerD_dhas", 13, "mm内径");
+            dataGridView2.Rows.Add("GasketoutD_DA", 24,"mm外径");
+            dataGridView2.Rows.Add("Boltheaddowngasketheight_hs1", 2.5, "mm螺栓垫片高度");
+            dataGridView2.Rows.Add("Nutdowngasketheight_hs2", 2.5, "mm螺母垫片高度");
 
 
             nutModel.Grid.Visible = false;
@@ -83,13 +83,13 @@ namespace WindowsFormsApp1
             //dataGridView3.Columns["PropeField"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView3.CellValueChanged += DataGridView3_CellValueChanged;
 
-            dataGridView3.Rows.Add("NutSpeci", "M12");
-            dataGridView3.Rows.Add("NutStd", "DIN EN ISO ");
-            dataGridView3.Rows.Add("NutNutSideWid", 18);
-            dataGridView3.Rows.Add("NutBearMinD", 12);
-            dataGridView3.Rows.Add("NutBearMaxD", 13);
-            dataGridView3.Rows.Add("NutBearOutD", 16.6);
-            dataGridView3.Rows.Add("NutHeight", 10.8);
+            dataGridView3.Rows.Add("NutSpeci", "M12","规格");
+            dataGridView3.Rows.Add("NutStd", "DIN EN ISO ", "标准");
+            dataGridView3.Rows.Add("NutNutSideWid", 18, "mm对边宽度");
+            dataGridView3.Rows.Add("NutBearMinD", 12, "mm螺母承载面最小内径");
+            dataGridView3.Rows.Add("NutBearMaxD", 13, "mm螺母承载面最大内径");
+            dataGridView3.Rows.Add("NutBearOutD", 16.6,"mm螺母承载面外径");
+            dataGridView3.Rows.Add("NutHeight", 10.8, "mm螺母高度");
 
         }
 

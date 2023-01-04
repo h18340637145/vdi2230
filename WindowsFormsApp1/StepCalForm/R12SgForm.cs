@@ -24,18 +24,18 @@ namespace WindowsFormsApp1.StepCalForm
             InitializeComponent();
             dataGridView1.Rows.Clear();
 
-            dataGridView1.Rows.Add("fmzul", 74947, "许用装配预紧力");
+            dataGridView1.Rows.Add("fmzul", 74947, "N许用装配预紧力");
             dataGridView1.Rows.Add("alpha", 1.5, "拧紧系数");
             dataGridView1.Rows.Add("phi", 0.014, "载荷系数");
-            dataGridView1.Rows.Add("fao", 24900, "拧紧时材料的屈服点利用率");
-            dataGridView1.Rows.Add("fZ", 4420, "螺纹接触面最小摩擦系数");
+            dataGridView1.Rows.Add("fao", 24900, "N拧紧时材料的屈服点利用率");
+            dataGridView1.Rows.Add("fZ", 4420, "um螺纹接触面最小摩擦系数");
 
-            dataGridView2.Rows.Add("f_qmax", 200, "横向剪力");
+            dataGridView2.Rows.Add("f_qmax", 200, "N横向剪力");
             dataGridView2.Rows.Add("q_f", 1, "接合面数量");
             dataGridView2.Rows.Add("u_Tmin", 0.1, "连接件间最小摩擦系数");
-            dataGridView2.Rows.Add("m_t", 20, "绕螺栓轴扭矩");
+            dataGridView2.Rows.Add("m_t", 20, "N*m绕螺栓轴扭矩");
             dataGridView2.Rows.Add("q_m", 1, "转矩传递结合面数量");
-            dataGridView2.Rows.Add("ra", 25, "摩擦半径");
+            dataGridView2.Rows.Add("ra", 25, "mm摩擦半径");
 
             CalBtn.Click += CalBtn_Click;
             chooseBoltBtn.Click += chooseBoltBtn_Click;

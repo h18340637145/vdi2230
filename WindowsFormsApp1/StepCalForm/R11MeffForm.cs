@@ -20,9 +20,9 @@ namespace WindowsFormsApp1.StepCalForm
 
             dataGridView1.Rows.Clear();
 
-            dataGridView1.Rows.Add("Lk", 30, "夹持长度");
+            dataGridView1.Rows.Add("Lk", 30, "mm夹持长度");
             dataGridView1.Rows.Add("fbm", 0.85, "连接件剪切系数");
-            dataGridView1.Rows.Add("Rmmin", 1000, "连接件最小抗拉强度");
+            dataGridView1.Rows.Add("Rmmin", 1000, "N/mm2连接件最小抗拉强度");
 
             CalBtn.Click += CalBtn_Click;
         }

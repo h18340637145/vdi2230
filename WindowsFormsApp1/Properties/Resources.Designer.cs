@@ -63,6 +63,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap flange_section {
+            get {
+                object obj = ResourceManager.GetObject("flange_section", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap meffd {
             get {
                 object obj = ResourceManager.GetObject("meffd", resourceCulture);
@@ -106,6 +116,36 @@ namespace WindowsFormsApp1.Properties {
         internal static System.Drawing.Bitmap 微信截图_20221226142256 {
             get {
                 object obj = ResourceManager.GetObject("微信截图_20221226142256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 螺栓 {
+            get {
+                object obj = ResourceManager.GetObject("螺栓", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 螺母 {
+            get {
+                object obj = ResourceManager.GetObject("螺母", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 连接件 {
+            get {
+                object obj = ResourceManager.GetObject("连接件", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

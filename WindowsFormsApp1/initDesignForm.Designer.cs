@@ -40,8 +40,13 @@
             this.TightenTheProcessLabel = new System.Windows.Forms.Label();
             this.isEccentricLabel = new System.Windows.Forms.Label();
             this.isEccentric = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.UpperLimitAxialLoadDisplay = new System.Windows.Forms.Label();
+            this.UTmin = new System.Windows.Forms.TextBox();
+            this.FQ = new System.Windows.Forms.TextBox();
             this.upperLimitAxialLoad = new System.Windows.Forms.TextBox();
+            this.uTminLabel = new System.Windows.Forms.Label();
+            this.FQLabel = new System.Windows.Forms.Label();
             this.UpperLimitAxialLoadLabel = new System.Windows.Forms.Label();
             this.workingLoads = new System.Windows.Forms.ComboBox();
             this.workingLoadsLabel = new System.Windows.Forms.Label();
@@ -56,17 +61,13 @@
             this.screwTypeLabel = new System.Windows.Forms.Label();
             this.BoltConTypeLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.strengthGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boltTypeTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet1TableAdapters.boltTypeTableTableAdapter();
             this.boltConnectionSystemDataSet14 = new WindowsFormsApp1.BoltConnectionSystemDataSet14();
             this.dboboltTypeTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbo_boltTypeTableTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet14TableAdapters.dbo_boltTypeTableTableAdapter();
             this.dbo_boltTypeTableTableAdapter1 = new WindowsFormsApp1.BoltConnectionSystemDataSet15TableAdapters.dbo_boltTypeTableTableAdapter();
-            this.FQLabel = new System.Windows.Forms.Label();
-            this.FQ = new System.Windows.Forms.TextBox();
-            this.uTminLabel = new System.Windows.Forms.Label();
-            this.UTmin = new System.Windows.Forms.TextBox();
+            this.strengthGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.strengthGradeAndDNBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet7)).BeginInit();
             this.panel1.SuspendLayout();
@@ -122,6 +123,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.TightenTheProcessLabel);
             this.splitContainer1.Panel1.Controls.Add(this.isEccentricLabel);
             this.splitContainer1.Panel1.Controls.Add(this.isEccentric);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.UpperLimitAxialLoadDisplay);
             this.splitContainer1.Panel1.Controls.Add(this.UTmin);
             this.splitContainer1.Panel1.Controls.Add(this.FQ);
@@ -142,7 +144,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Size = new System.Drawing.Size(600, 398);
-            this.splitContainer1.SplitterDistance = 253;
+            this.splitContainer1.SplitterDistance = 272;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -216,15 +218,43 @@
             this.isEccentric.Size = new System.Drawing.Size(92, 20);
             this.isEccentric.TabIndex = 45;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(235, 310);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 12);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "N";
+            // 
             // UpperLimitAxialLoadDisplay
             // 
             this.UpperLimitAxialLoadDisplay.AutoSize = true;
-            this.UpperLimitAxialLoadDisplay.Location = new System.Drawing.Point(255, 211);
+            this.UpperLimitAxialLoadDisplay.Location = new System.Drawing.Point(235, 205);
             this.UpperLimitAxialLoadDisplay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UpperLimitAxialLoadDisplay.Name = "UpperLimitAxialLoadDisplay";
             this.UpperLimitAxialLoadDisplay.Size = new System.Drawing.Size(11, 12);
             this.UpperLimitAxialLoadDisplay.TabIndex = 44;
             this.UpperLimitAxialLoadDisplay.Text = "N";
+            // 
+            // UTmin
+            // 
+            this.UTmin.Location = new System.Drawing.Point(132, 332);
+            this.UTmin.Margin = new System.Windows.Forms.Padding(2);
+            this.UTmin.Name = "UTmin";
+            this.UTmin.Size = new System.Drawing.Size(92, 21);
+            this.UTmin.TabIndex = 43;
+            this.UTmin.Visible = false;
+            // 
+            // FQ
+            // 
+            this.FQ.Location = new System.Drawing.Point(132, 307);
+            this.FQ.Margin = new System.Windows.Forms.Padding(2);
+            this.FQ.Name = "FQ";
+            this.FQ.Size = new System.Drawing.Size(92, 21);
+            this.FQ.TabIndex = 43;
+            this.FQ.Visible = false;
             // 
             // upperLimitAxialLoad
             // 
@@ -233,6 +263,28 @@
             this.upperLimitAxialLoad.Name = "upperLimitAxialLoad";
             this.upperLimitAxialLoad.Size = new System.Drawing.Size(92, 21);
             this.upperLimitAxialLoad.TabIndex = 43;
+            // 
+            // uTminLabel
+            // 
+            this.uTminLabel.AutoSize = true;
+            this.uTminLabel.Location = new System.Drawing.Point(18, 335);
+            this.uTminLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.uTminLabel.Name = "uTminLabel";
+            this.uTminLabel.Size = new System.Drawing.Size(95, 12);
+            this.uTminLabel.TabIndex = 42;
+            this.uTminLabel.Text = "摩擦系数UTmin：";
+            this.uTminLabel.Visible = false;
+            // 
+            // FQLabel
+            // 
+            this.FQLabel.AutoSize = true;
+            this.FQLabel.Location = new System.Drawing.Point(18, 310);
+            this.FQLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FQLabel.Name = "FQLabel";
+            this.FQLabel.Size = new System.Drawing.Size(77, 12);
+            this.FQLabel.TabIndex = 42;
+            this.FQLabel.Text = "轴向载荷FQ：";
+            this.FQLabel.Visible = false;
             // 
             // UpperLimitAxialLoadLabel
             // 
@@ -367,18 +419,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(344, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(325, 398);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // strengthGrade
-            // 
-            this.strengthGrade.HeaderText = "强度等级";
-            this.strengthGrade.Name = "strengthGrade";
-            // 
-            // DN
-            // 
-            this.DN.HeaderText = "公称直径";
-            this.DN.Name = "DN";
             // 
             // boltTypeTableTableAdapter
             // 
@@ -402,45 +444,15 @@
             // 
             this.dbo_boltTypeTableTableAdapter1.ClearBeforeFill = true;
             // 
-            // FQLabel
+            // strengthGrade
             // 
-            this.FQLabel.AutoSize = true;
-            this.FQLabel.Location = new System.Drawing.Point(18, 310);
-            this.FQLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.FQLabel.Name = "FQLabel";
-            this.FQLabel.Size = new System.Drawing.Size(77, 12);
-            this.FQLabel.TabIndex = 42;
-            this.FQLabel.Text = "轴向载荷FQ：";
-            this.FQLabel.Visible = false;
+            this.strengthGrade.HeaderText = "强度等级";
+            this.strengthGrade.Name = "strengthGrade";
             // 
-            // FQ
+            // DN
             // 
-            this.FQ.Location = new System.Drawing.Point(132, 307);
-            this.FQ.Margin = new System.Windows.Forms.Padding(2);
-            this.FQ.Name = "FQ";
-            this.FQ.Size = new System.Drawing.Size(92, 21);
-            this.FQ.TabIndex = 43;
-            this.FQ.Visible = false;
-            // 
-            // uTminLabel
-            // 
-            this.uTminLabel.AutoSize = true;
-            this.uTminLabel.Location = new System.Drawing.Point(18, 335);
-            this.uTminLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.uTminLabel.Name = "uTminLabel";
-            this.uTminLabel.Size = new System.Drawing.Size(95, 12);
-            this.uTminLabel.TabIndex = 42;
-            this.uTminLabel.Text = "摩擦系数UTmin：";
-            this.uTminLabel.Visible = false;
-            // 
-            // UTmin
-            // 
-            this.UTmin.Location = new System.Drawing.Point(132, 332);
-            this.UTmin.Margin = new System.Windows.Forms.Padding(2);
-            this.UTmin.Name = "UTmin";
-            this.UTmin.Size = new System.Drawing.Size(92, 21);
-            this.UTmin.TabIndex = 43;
-            this.UTmin.Visible = false;
+            this.DN.HeaderText = "公称直径(mm)";
+            this.DN.Name = "DN";
             // 
             // InitDesignForm
             // 
@@ -499,8 +511,6 @@
         private BoltConnectionSystemDataSet1 boltConnectionSystemDataSet1;
         private System.Windows.Forms.BindingSource boltTypeTableBindingSource;
         private BoltConnectionSystemDataSet1TableAdapters.boltTypeTableTableAdapter boltTypeTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strengthGrade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DN;
         private BoltConnectionSystemDataSet14 boltConnectionSystemDataSet14;
         private System.Windows.Forms.BindingSource dboboltTypeTableBindingSource;
         private BoltConnectionSystemDataSet14TableAdapters.dbo_boltTypeTableTableAdapter dbo_boltTypeTableTableAdapter;
@@ -511,5 +521,8 @@
         private System.Windows.Forms.TextBox FQ;
         private System.Windows.Forms.Label uTminLabel;
         private System.Windows.Forms.Label FQLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn strengthGrade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DN;
     }
 }

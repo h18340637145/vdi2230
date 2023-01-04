@@ -40,17 +40,17 @@
             this.dbomaterialBoltBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dbomaterialClampedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boltConnectionSystemDataSet20 = new WindowsFormsApp1.BoltConnectionSystemDataSet20();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.materialBoltTableAdapter1 = new WindowsFormsApp1.BoltMaterialConnTableAdapters.materialBoltTableAdapter();
+            this.dbo_materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet20TableAdapters.dbo_materialClampedTableAdapter();
             this.clampedMaterialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMaterialRatiofBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMatrialRatiofGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMatrialEpyangshiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dbomaterialClampedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.boltConnectionSystemDataSet20 = new WindowsFormsApp1.BoltConnectionSystemDataSet20();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.materialBoltTableAdapter1 = new WindowsFormsApp1.BoltMaterialConnTableAdapters.materialBoltTableAdapter();
-            this.dbo_materialClampedTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet20TableAdapters.dbo_materialClampedTableAdapter();
-            this.cancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.boltConnectionSystemDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialBoltBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boltMaterialConn)).BeginInit();
@@ -156,36 +156,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(597, 450);
             this.dataGridView1.TabIndex = 0;
             // 
-            // clampedMaterialNameDataGridViewTextBoxColumn
-            // 
-            this.clampedMaterialNameDataGridViewTextBoxColumn.DataPropertyName = "ClampedMaterialName";
-            this.clampedMaterialNameDataGridViewTextBoxColumn.HeaderText = "材料名";
-            this.clampedMaterialNameDataGridViewTextBoxColumn.Name = "clampedMaterialNameDataGridViewTextBoxColumn";
-            // 
-            // clampedMaterialRatiofBDataGridViewTextBoxColumn
-            // 
-            this.clampedMaterialRatiofBDataGridViewTextBoxColumn.DataPropertyName = "ClampedMaterialRatio_fB";
-            this.clampedMaterialRatiofBDataGridViewTextBoxColumn.HeaderText = "剪切强度比fB";
-            this.clampedMaterialRatiofBDataGridViewTextBoxColumn.Name = "clampedMaterialRatiofBDataGridViewTextBoxColumn";
-            // 
-            // clampedMatrialRatiofGDataGridViewTextBoxColumn
-            // 
-            this.clampedMatrialRatiofGDataGridViewTextBoxColumn.DataPropertyName = "ClampedMatrialRatio_fG";
-            this.clampedMatrialRatiofGDataGridViewTextBoxColumn.HeaderText = "极限表面压力系数_fG";
-            this.clampedMatrialRatiofGDataGridViewTextBoxColumn.Name = "clampedMatrialRatiofGDataGridViewTextBoxColumn";
-            // 
-            // clampedMatrialEpyangshiDataGridViewTextBoxColumn
-            // 
-            this.clampedMatrialEpyangshiDataGridViewTextBoxColumn.DataPropertyName = "ClampedMatrialEp_yangshi";
-            this.clampedMatrialEpyangshiDataGridViewTextBoxColumn.HeaderText = "杨氏模量Ep";
-            this.clampedMatrialEpyangshiDataGridViewTextBoxColumn.Name = "clampedMatrialEpyangshiDataGridViewTextBoxColumn";
-            // 
-            // clampedMatrialRmminkanglaDataGridViewTextBoxColumn
-            // 
-            this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.DataPropertyName = "ClampedMatrialRmmin_kangla";
-            this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.HeaderText = "抗拉强度Rmmin";
-            this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.Name = "clampedMatrialRmminkanglaDataGridViewTextBoxColumn";
-            // 
             // dbomaterialClampedBindingSource
             // 
             this.dbomaterialClampedBindingSource.DataMember = "dbo_materialClamped";
@@ -207,14 +177,6 @@
             this.panel2.Size = new System.Drawing.Size(200, 450);
             this.panel2.TabIndex = 0;
             // 
-            // materialBoltTableAdapter1
-            // 
-            this.materialBoltTableAdapter1.ClearBeforeFill = true;
-            // 
-            // dbo_materialClampedTableAdapter
-            // 
-            this.dbo_materialClampedTableAdapter.ClearBeforeFill = true;
-            // 
             // cancelBtn
             // 
             this.cancelBtn.Location = new System.Drawing.Point(43, 98);
@@ -225,6 +187,44 @@
             this.cancelBtn.Text = "取消";
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // materialBoltTableAdapter1
+            // 
+            this.materialBoltTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dbo_materialClampedTableAdapter
+            // 
+            this.dbo_materialClampedTableAdapter.ClearBeforeFill = true;
+            // 
+            // clampedMaterialNameDataGridViewTextBoxColumn
+            // 
+            this.clampedMaterialNameDataGridViewTextBoxColumn.DataPropertyName = "ClampedMaterialName";
+            this.clampedMaterialNameDataGridViewTextBoxColumn.HeaderText = "材料名";
+            this.clampedMaterialNameDataGridViewTextBoxColumn.Name = "clampedMaterialNameDataGridViewTextBoxColumn";
+            // 
+            // clampedMaterialRatiofBDataGridViewTextBoxColumn
+            // 
+            this.clampedMaterialRatiofBDataGridViewTextBoxColumn.DataPropertyName = "ClampedMaterialRatio_fB";
+            this.clampedMaterialRatiofBDataGridViewTextBoxColumn.HeaderText = "剪切强度比fB";
+            this.clampedMaterialRatiofBDataGridViewTextBoxColumn.Name = "clampedMaterialRatiofBDataGridViewTextBoxColumn";
+            // 
+            // clampedMatrialRatiofGDataGridViewTextBoxColumn
+            // 
+            this.clampedMatrialRatiofGDataGridViewTextBoxColumn.DataPropertyName = "ClampedMatrialRatio_fG";
+            this.clampedMatrialRatiofGDataGridViewTextBoxColumn.HeaderText = "极限表面压力系数_fG";
+            this.clampedMatrialRatiofGDataGridViewTextBoxColumn.Name = "clampedMatrialRatiofGDataGridViewTextBoxColumn";
+            // 
+            // clampedMatrialEpyangshiDataGridViewTextBoxColumn
+            // 
+            this.clampedMatrialEpyangshiDataGridViewTextBoxColumn.DataPropertyName = "ClampedMatrialEp_yangshi";
+            this.clampedMatrialEpyangshiDataGridViewTextBoxColumn.HeaderText = "杨氏模量Ep(N/mm2)";
+            this.clampedMatrialEpyangshiDataGridViewTextBoxColumn.Name = "clampedMatrialEpyangshiDataGridViewTextBoxColumn";
+            // 
+            // clampedMatrialRmminkanglaDataGridViewTextBoxColumn
+            // 
+            this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.DataPropertyName = "ClampedMatrialRmmin_kangla";
+            this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.HeaderText = "抗拉强度Rmmin(N/mm2)";
+            this.clampedMatrialRmminkanglaDataGridViewTextBoxColumn.Name = "clampedMatrialRmminkanglaDataGridViewTextBoxColumn";
             // 
             // ClampedChooseFrm
             // 
@@ -271,11 +271,11 @@
         private BoltConnectionSystemDataSet20 boltConnectionSystemDataSet20;
         private System.Windows.Forms.BindingSource dbomaterialClampedBindingSource;
         private BoltConnectionSystemDataSet20TableAdapters.dbo_materialClampedTableAdapter dbo_materialClampedTableAdapter;
+        private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMaterialNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMaterialRatiofBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMatrialRatiofGDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMatrialEpyangshiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clampedMatrialRmminkanglaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button cancelBtn;
     }
 }

@@ -19,10 +19,10 @@ namespace WindowsFormsApp1.StepCalForm
             InitializeComponent();
             dataGridView1.Rows.Clear();
 
-            dataGridView1.Rows.Add("da", 12, "头部支撑面内径");
+            dataGridView1.Rows.Add("da", 12, "mm头部支撑面内径");
             dataGridView1.Rows.Add("ukmin", 0.1, "螺栓头承载面最小摩擦系数");
             dataGridView1.Rows.Add("ugmin", 0.1, "螺纹接触面最小摩擦系数");
-            dataGridView1.Rows.Add("fmzul", 75947, "许用装配预紧力");
+            dataGridView1.Rows.Add("fmzul", 75947, "N许用装配预紧力");
 
             chooseMaterialBtn.Visible = false;
 

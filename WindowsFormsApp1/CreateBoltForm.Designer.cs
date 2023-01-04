@@ -67,29 +67,32 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.PropeField = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueField = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._renderBtn = new System.Windows.Forms.Button();
             this._okBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.Inner6Data = new System.Windows.Forms.DataGridView();
-            this.BoltInner6Prop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BoltInner6Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inner6RenderBtn = new System.Windows.Forms.Button();
             this.Inner6OkBtn = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.splitContainer8 = new System.Windows.Forms.SplitContainer();
             this.falanData = new System.Windows.Forms.DataGridView();
-            this.falanRenderBtn = new System.Windows.Forms.Button();
-            this.falanOkBtn = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.falanProp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.falanValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.falanRenderBtn = new System.Windows.Forms.Button();
+            this.falanOkBtn = new System.Windows.Forms.Button();
+            this.PropeField = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueField = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.intro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BoltInner6Prop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BoltInner6Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.intro2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.intro3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -109,7 +112,6 @@
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
@@ -120,7 +122,6 @@
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Inner6Data)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
             this.splitContainer7.Panel1.SuspendLayout();
@@ -131,6 +132,8 @@
             this.splitContainer8.Panel2.SuspendLayout();
             this.splitContainer8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.falanData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -258,23 +261,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PropeField,
-            this.ValueField});
+            this.ValueField,
+            this.intro});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(241, 158);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // PropeField
-            // 
-            this.PropeField.HeaderText = "尺寸";
-            this.PropeField.Name = "PropeField";
-            // 
-            // ValueField
-            // 
-            this.ValueField.HeaderText = "值";
-            this.ValueField.Name = "ValueField";
             // 
             // _renderBtn
             // 
@@ -296,16 +290,6 @@
             this._okBtn.Text = "完成";
             this._okBtn.UseVisualStyleBackColor = true;
             this._okBtn.Click += new System.EventHandler(this._okBtn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(495, 223);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // tabPage2
             // 
@@ -368,23 +352,14 @@
             this.Inner6Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Inner6Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BoltInner6Prop,
-            this.BoltInner6Value});
+            this.BoltInner6Value,
+            this.intro2});
             this.Inner6Data.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Inner6Data.Location = new System.Drawing.Point(0, 0);
             this.Inner6Data.Name = "Inner6Data";
             this.Inner6Data.RowTemplate.Height = 23;
             this.Inner6Data.Size = new System.Drawing.Size(241, 158);
             this.Inner6Data.TabIndex = 0;
-            // 
-            // BoltInner6Prop
-            // 
-            this.BoltInner6Prop.HeaderText = "尺寸";
-            this.BoltInner6Prop.Name = "BoltInner6Prop";
-            // 
-            // BoltInner6Value
-            // 
-            this.BoltInner6Value.HeaderText = "值";
-            this.BoltInner6Value.Name = "BoltInner6Value";
             // 
             // Inner6RenderBtn
             // 
@@ -406,16 +381,6 @@
             this.Inner6OkBtn.Text = "完成";
             this.Inner6OkBtn.UseVisualStyleBackColor = true;
             this.Inner6OkBtn.Click += new System.EventHandler(this.Inner6OkBtn_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(495, 223);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // tabPage3
             // 
@@ -478,13 +443,24 @@
             this.falanData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.falanData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.falanProp,
-            this.falanValue});
+            this.falanValue,
+            this.intro3});
             this.falanData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.falanData.Location = new System.Drawing.Point(0, 0);
             this.falanData.Name = "falanData";
             this.falanData.RowTemplate.Height = 23;
             this.falanData.Size = new System.Drawing.Size(241, 158);
             this.falanData.TabIndex = 0;
+            // 
+            // falanProp
+            // 
+            this.falanProp.HeaderText = "尺寸";
+            this.falanProp.Name = "falanProp";
+            // 
+            // falanValue
+            // 
+            this.falanValue.HeaderText = "值";
+            this.falanValue.Name = "falanValue";
             // 
             // falanRenderBtn
             // 
@@ -507,25 +483,71 @@
             this.falanOkBtn.UseVisualStyleBackColor = true;
             this.falanOkBtn.Click += new System.EventHandler(this.falanOkBtn_Click);
             // 
+            // PropeField
+            // 
+            this.PropeField.HeaderText = "尺寸";
+            this.PropeField.Name = "PropeField";
+            // 
+            // ValueField
+            // 
+            this.ValueField.HeaderText = "值";
+            this.ValueField.Name = "ValueField";
+            // 
+            // intro
+            // 
+            this.intro.HeaderText = "说明";
+            this.intro.Name = "intro";
+            // 
+            // BoltInner6Prop
+            // 
+            this.BoltInner6Prop.HeaderText = "尺寸";
+            this.BoltInner6Prop.Name = "BoltInner6Prop";
+            // 
+            // BoltInner6Value
+            // 
+            this.BoltInner6Value.HeaderText = "值";
+            this.BoltInner6Value.Name = "BoltInner6Value";
+            // 
+            // intro2
+            // 
+            this.intro2.HeaderText = "说明";
+            this.intro2.Name = "intro2";
+            // 
+            // intro3
+            // 
+            this.intro3.HeaderText = "说明";
+            this.intro3.Name = "intro3";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(495, 223);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(495, 223);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Image = global::WindowsFormsApp1.Properties.Resources.螺栓;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(495, 223);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
-            // 
-            // falanProp
-            // 
-            this.falanProp.HeaderText = "尺寸";
-            this.falanProp.Name = "falanProp";
-            // 
-            // falanValue
-            // 
-            this.falanValue.HeaderText = "值";
-            this.falanValue.Name = "falanValue";
             // 
             // CreateBoltForm
             // 
@@ -554,7 +576,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
@@ -565,7 +586,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Inner6Data)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.splitContainer7.Panel1.ResumeLayout(false);
             this.splitContainer7.Panel2.ResumeLayout(false);
@@ -576,6 +596,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
             this.splitContainer8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.falanData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -591,8 +613,6 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PropeField;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValueField;
         private System.Windows.Forms.Button _renderBtn;
         private System.Windows.Forms.Button _okBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -600,8 +620,6 @@
         private System.Windows.Forms.SplitContainer splitContainer5;
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.DataGridView Inner6Data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BoltInner6Prop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BoltInner6Value;
         private System.Windows.Forms.Button Inner6RenderBtn;
         private System.Windows.Forms.Button Inner6OkBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -614,5 +632,12 @@
         private System.Windows.Forms.Button falanRenderBtn;
         private System.Windows.Forms.Button falanOkBtn;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PropeField;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueField;
+        private System.Windows.Forms.DataGridViewTextBoxColumn intro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BoltInner6Prop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BoltInner6Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn intro2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn intro3;
     }
 }

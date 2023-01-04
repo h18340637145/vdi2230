@@ -245,11 +245,11 @@
                 this.Column2.Name = "Column2";
                 this.Column3.HeaderText = "剪切强度比fB";
                 this.Column3.Name = "Column3";
-                this.Column4.HeaderText = "弹性模量Es";
+                this.Column4.HeaderText = "弹性模量Es(N/mm2)";
                 this.Column4.Name = "Column4";
-                this.Column5.HeaderText = "最小屈服强度Rpmin";
+                this.Column5.HeaderText = "最小屈服强度Rpmin(N/mm2)";
                 this.Column5.Name = "Column5";
-                this.Column6.HeaderText = "抗拉强度Rm";
+                this.Column6.HeaderText = "抗拉强度Rm(N/mm2)";
                 this.Column6.Name = "Column6";
                 this.Column7.HeaderText = "热膨胀系数α";
                 this.Column7.Name = "Column7";
@@ -264,9 +264,9 @@
                 this.Column3.Name = "Column3";
                 this.Column4.HeaderText = "极限表面压力比fG";
                 this.Column4.Name = "Column4";
-                this.Column5.HeaderText = "弹性模量Ep";
+                this.Column5.HeaderText = "弹性模量Ep(N/mm2)";
                 this.Column5.Name = "Column5";
-                this.Column6.HeaderText = "最小抗拉强度Rmmin";
+                this.Column6.HeaderText = "最小抗拉强度Rmmin(N/mm2)";
                 this.Column6.Name = "Column6";
                 this.Column7.HeaderText = "热膨胀系数α";
                 this.Column7.Name = "Column7";

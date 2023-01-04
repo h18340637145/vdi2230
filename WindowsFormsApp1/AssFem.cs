@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
             }
 
             var solid = Solid.Union(list);
-            MessageBox.Show(solid.Length + "实体个数");
+            //MessageBox.Show(solid.Length + "实体个数");
             var mesh = solid[0].ConvertToMesh();
             assFemMesh = mesh.ConvertToFemMesh(devDept.Graphics.Material.StainlessSteel, false);
             return assFemMesh;

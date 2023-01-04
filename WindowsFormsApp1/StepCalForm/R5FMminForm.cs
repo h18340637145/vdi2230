@@ -19,10 +19,10 @@ namespace WindowsFormsApp1.StepCalForm
             InitializeComponent();
             dataGridView1.Rows.Clear();
 
-            dataGridView1.Rows.Add("f_kerf", 0, "最小夹紧力");
+            dataGridView1.Rows.Add("f_kerf", 0, "N最小夹紧力");
             dataGridView1.Rows.Add("phi", 0.013, "载荷系数" );
-            dataGridView1.Rows.Add("fao", 24900 , "轴向载荷上限值");
-            dataGridView1.Rows.Add("fZ", 3073, "嵌入损失");
+            dataGridView1.Rows.Add("fao", 24900 , "N轴向载荷上限值");
+            dataGridView1.Rows.Add("fZ", 3073, "um嵌入损失");
             chooseBoltBtn.Visible = false;
             chooseMaterialBtn.Visible = false;
             CalBtn.Click += CalBtn_Click;

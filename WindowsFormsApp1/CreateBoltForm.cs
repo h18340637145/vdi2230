@@ -37,48 +37,47 @@ namespace WindowsFormsApp1
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
 
 
-            dataGridView1.Rows.Add("NormalD_d", 12);
-            dataGridView1.Rows.Add("ScrewP_P", 1.75);
-            dataGridView1.Rows.Add("BoltLen_ls", 60);
-            dataGridView1.Rows.Add("BoreD_dh", 13.5);
-            dataGridView1.Rows.Add("BoreD_dT", 0);
-            dataGridView1.Rows.Add("BoltHeadOutD_dw", 16.47);
-            dataGridView1.Rows.Add("BoltHeadInnerD_da", 13.7);
-            dataGridView1.Rows.Add("ScrewMidD_d2", 10.863);
-            dataGridView1.Rows.Add("ScrewMinD_d3", 9.853);
-            dataGridView1.Rows.Add("PolishRodLen_l1", 30);
-            dataGridView1.Rows.Add("PolishRodLen_l2", 0);
-            dataGridView1.Rows.Add("BoltNutSideWid_s", 18);
-            dataGridView1.Rows.Add("BoltNutScrewMinD_D1", 10.11);
+            dataGridView1.Rows.Add("NormalD_d", 12, "mm公称直径");
+            dataGridView1.Rows.Add("ScrewP_P", 1.75, "mm螺距");
+            dataGridView1.Rows.Add("BoltLen_ls", 60, "mm螺栓长度");
+            dataGridView1.Rows.Add("BoreD_dh", 13.5, "mm镗孔直径");
+            dataGridView1.Rows.Add("BoreD_dT", 0, "mm承载面高度");
+            dataGridView1.Rows.Add("BoltHeadOutD_dw", 16.47, "mm承载面外径");
+            dataGridView1.Rows.Add("BoltHeadInnerD_da", 13.7, "mm承载面内径");
+            dataGridView1.Rows.Add("ScrewMidD_d2", 10.863, "mm节圆直径");
+            dataGridView1.Rows.Add("ScrewMinD_d3", 9.853, "mm螺纹小径");
+            dataGridView1.Rows.Add("PolishRodLen_l1", 30, "mm光杆1长度");
+            dataGridView1.Rows.Add("PolishRodLen_l2", 0, "mm光杆2长度");
+            dataGridView1.Rows.Add("BoltNutSideWid_s", 18, "mm螺母对边宽度");
+            dataGridView1.Rows.Add("BoltNutScrewMinD_D1", 10.11, "mm螺母螺纹小径");
 
-            Inner6Data.Rows.Add("NormalD_d", 12);
-            Inner6Data.Rows.Add("ScrewP_P", 1.75);
-            Inner6Data.Rows.Add("BoltLen_ls", 60);
-            Inner6Data.Rows.Add("BoreD_dh", 13.5);
-            Inner6Data.Rows.Add("BoreD_dT", 0);
-            Inner6Data.Rows.Add("BoltHeadOutD_dw", 16.47);
-            Inner6Data.Rows.Add("BoltHeadInnerD_da", 13.7);
-            Inner6Data.Rows.Add("ScrewMidD_d2", 10.863);
-            Inner6Data.Rows.Add("ScrewMinD_d3", 9.853);
-            Inner6Data.Rows.Add("PolishRodLen_l1", 30);
-            Inner6Data.Rows.Add("PolishRodLen_l2", 0);
-            Inner6Data.Rows.Add("BoltNutSideWid_s", 18);
-            Inner6Data.Rows.Add("BoltNutScrewMinD_D1", 10.11);
+            Inner6Data.Rows.Add("NormalD_d", 12, "mm公称直径");
+            Inner6Data.Rows.Add("ScrewP_P", 1.75, "mm螺距");
+            Inner6Data.Rows.Add("BoltLen_ls", 60, "mm螺栓长度");
+            Inner6Data.Rows.Add("BoreD_dh", 13.5, "mm镗孔直径");
+            Inner6Data.Rows.Add("BoreD_dT", 0, "mm承载面高度");
+            Inner6Data.Rows.Add("BoltHeadOutD_dw", 16.47, "mm承载面外径");
+            Inner6Data.Rows.Add("BoltHeadInnerD_da", 13.7, "mm承载面内径");
+            Inner6Data.Rows.Add("ScrewMidD_d2", 10.863, "mm节圆直径");
+            Inner6Data.Rows.Add("ScrewMinD_d3", 9.853, "mm螺纹小径");
+            Inner6Data.Rows.Add("PolishRodLen_l1", 30, "mm光杆1长度");
+            Inner6Data.Rows.Add("PolishRodLen_l2", 0, "mm光杆2长度");
+            Inner6Data.Rows.Add("BoltNutSideWid_s", 18, "mm螺母对边宽度");
+            Inner6Data.Rows.Add("BoltNutScrewMinD_D1", 10.11, "mm螺母螺纹小径");
 
-            falanData.Rows.Add("NormalD_d", 12);
-            falanData.Rows.Add("ScrewP_P", 1.75);
-            falanData.Rows.Add("BoltLen_ls", 60);
-            falanData.Rows.Add("BoreD_dh", 13.5);
-            falanData.Rows.Add("BoreD_dT", 0);
-            falanData.Rows.Add("BoltHeadOutD_dw", 16.47);
-            falanData.Rows.Add("BoltHeadInnerD_da", 13.7);
-            falanData.Rows.Add("ScrewMidD_d2", 10.863);
-            falanData.Rows.Add("ScrewMinD_d3", 9.853);
-            falanData.Rows.Add("PolishRodLen_l1", 30);
-            falanData.Rows.Add("PolishRodLen_l2", 0);
-            falanData.Rows.Add("BoltNutSideWid_s", 18);
-            falanData.Rows.Add("BoltNutScrewMinD_D1", 10.11);
-
+            falanData.Rows.Add("NormalD_d", 12, "mm公称直径");
+            falanData.Rows.Add("ScrewP_P", 1.75, "mm螺距");
+            falanData.Rows.Add("BoltLen_ls", 60, "mm螺栓长度");
+            falanData.Rows.Add("BoreD_dh", 13.5, "mm镗孔直径");
+            falanData.Rows.Add("BoreD_dT", 0, "mm承载面高度");
+            falanData.Rows.Add("BoltHeadOutD_dw", 16.47, "mm承载面外径");
+            falanData.Rows.Add("BoltHeadInnerD_da", 13.7, "mm承载面内径");
+            falanData.Rows.Add("ScrewMidD_d2", 10.863, "mm节圆直径");
+            falanData.Rows.Add("ScrewMinD_d3", 9.853, "mm螺纹小径");
+            falanData.Rows.Add("PolishRodLen_l1", 30, "mm光杆1长度");
+            falanData.Rows.Add("PolishRodLen_l2", 0, "mm光杆2长度");
+            falanData.Rows.Add("BoltNutSideWid_s", 18, "mm螺母对边宽度");
+            falanData.Rows.Add("BoltNutScrewMinD_D1", 10.11, "mm螺母螺纹小径");
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)

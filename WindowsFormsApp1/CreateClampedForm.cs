@@ -31,37 +31,37 @@ namespace WindowsFormsApp1
 
             _okBtn.Enabled = false;
 
-            dataGridView1.Rows.Add("num", 3);
-            dataGridView1.Rows.Add("d", 12);
-            dataGridView1.Rows.Add("n", 12);
-            dataGridView1.Rows.Add("outer_A", 200);
-            dataGridView1.Rows.Add("C", 160);
-            dataGridView1.Rows.Add("inner_B", 100);
-            dataGridView1.Rows.Add("tf", 15);
+            dataGridView1.Rows.Add("num", 3, "连接件个数");
+            dataGridView1.Rows.Add("d", 12, "mm螺孔直径");
+            dataGridView1.Rows.Add("n", 12, "mm螺栓个数");
+            dataGridView1.Rows.Add("outer_A", 200, "mm连接件外径");
+            dataGridView1.Rows.Add("C", 160, "mm节圆直径");
+            dataGridView1.Rows.Add("inner_B", 100, "mm连接件内径");
+            dataGridView1.Rows.Add("tf", 15, "mm连接件高度");
 
 
             dataGridView2.Columns["falanValue"].ReadOnly = false;
 
-            dataGridView2.Rows.Add("d", 12);
-            dataGridView2.Rows.Add("n", 12);
-            dataGridView2.Rows.Add("A", 200);
-            dataGridView2.Rows.Add("C", 160);
-            dataGridView2.Rows.Add("B", 100);
-            dataGridView2.Rows.Add("Ag", 110);
-            dataGridView2.Rows.Add("Bg", 62);
-            dataGridView2.Rows.Add("tf", 8);
-            dataGridView2.Rows.Add("th", 13);
-            dataGridView2.Rows.Add("tc", 3);
-            dataGridView2.Rows.Add("h", 22);
-            dataGridView2.Rows.Add("L", 15);
+            dataGridView2.Rows.Add("d", 12, "mm螺孔直径");
+            dataGridView2.Rows.Add("n", 12, "mm螺栓个数");
+            dataGridView2.Rows.Add("A", 200, "mm连接件外径");
+            dataGridView2.Rows.Add("C", 160, "mm节圆直径");
+            dataGridView2.Rows.Add("B", 100, "mm连接件内径");
+            dataGridView2.Rows.Add("Ag", 110, "mm外孔直径");
+            dataGridView2.Rows.Add("Bg", 62, "mm内孔直径");
+            dataGridView2.Rows.Add("tf", 8,"mm底盘高度");
+            dataGridView2.Rows.Add("th", 13, "mm扩展宽度");
+            dataGridView2.Rows.Add("tc", 3,"mm上切口宽度");
+            dataGridView2.Rows.Add("h", 22, "mm扩展高度");
+            dataGridView2.Rows.Add("L", 15, "mm上切口高度");
 
             dataGridView3.Columns["feilunValue"].ReadOnly = false;
-            dataGridView3.Rows.Add("d", 12);
-            dataGridView3.Rows.Add("n", 12);
-            dataGridView3.Rows.Add("outer_A", 220);
-            dataGridView3.Rows.Add("C", 160);
-            dataGridView3.Rows.Add("inner_B", 100);
-            dataGridView3.Rows.Add("tf", 8);
+            dataGridView3.Rows.Add("d", 12, "mm螺孔直径");
+            dataGridView3.Rows.Add("n", 12, "mm螺栓个数");
+            dataGridView3.Rows.Add("outer_A", 220, "mm连接件外径");
+            dataGridView3.Rows.Add("C", 160,"mm节圆直径");
+            dataGridView3.Rows.Add("inner_B", 1000, "mm连接件内径");
+            dataGridView3.Rows.Add("tf", 8,"mm厚度");
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -377,6 +377,36 @@ namespace WindowsFormsApp1
             }
 
             return entityList;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                // 标准
+                pictureBox1.Image = Image.FromFile("./Resources/pic/连接件.png");
+                pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pictureBox1.Image = Image.FromFile("./Resources/flange_section.png");
+                pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            }
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl2.SelectedIndex == 0)
+            {
+                // 标准
+                pictureBox1.Image = Image.FromFile("./Resources/flange_section.png");
+                pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pictureBox1.Image = Image.FromFile("./Resources/pic/连接件.png");
+                pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            }
         }
     }
 }

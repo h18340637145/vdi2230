@@ -21,8 +21,8 @@ namespace WindowsFormsApp1.StepCalForm
 
             dataGridView1.Rows.Clear();
 
-            dataGridView1.Rows.Add("Fmzul", 75947, "许用装配预紧力");
-            dataGridView1.Rows.Add("fao", 24900, "轴向载荷上限值");
+            dataGridView1.Rows.Add("Fmzul", 75947, "N许用装配预紧力");
+            dataGridView1.Rows.Add("fao", 24900, "N轴向载荷上限值");
             dataGridView1.Rows.Add("phi", 0.012, "载荷系数");
             dataGridView1.Rows.Add("ugmin", 0.1, "螺纹接触面最小摩擦系数");
 

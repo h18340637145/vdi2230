@@ -632,7 +632,6 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R13MAForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R6FMmaxForm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StepCalForm.R8FSmaxForm.resources
-H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csprojAssemblyReference.cache
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Login.InfoManagement.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Login.AddInfo.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ManagementBoltConn.Dialog.BaseParamFrm.resources
@@ -640,3 +639,5 @@ H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ManagementB
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ManagementBoltConn.Dialog.BoltSpeciFrm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ManagementBoltConn.Dialog.BoltStdFrm.resources
 H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ManagementBoltConn.Dialog.BoltTypeFrm.resources
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.AssemblyReference.cache
+H:\linux_windows\vdi2230\WindowsFormsApp1\obj\Debug\VDI2230.csproj.SuggestedBindingRedirects.cache

@@ -31,16 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.boltMaterialLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boltMatrialEsyangshiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boltMatrialRpminqufuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boltMaterialRmkanglaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boltMaterialRatiofBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boltMaterialTmaxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BoltMaterialA_alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dbomaterialBoltBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.boltConnectionSystemDataSet17 = new WindowsFormsApp1.BoltConnectionSystemDataSet17();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.optBtn = new System.Windows.Forms.Button();
             this.materialBoltBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.boltMaterialConn = new WindowsFormsApp1.BoltMaterialConn();
@@ -49,7 +43,13 @@
             this.materialBoltTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet8TableAdapters.materialBoltTableAdapter();
             this.materialBoltTableAdapter1 = new WindowsFormsApp1.BoltMaterialConnTableAdapters.materialBoltTableAdapter();
             this.dbo_materialBoltTableAdapter = new WindowsFormsApp1.BoltConnectionSystemDataSet17TableAdapters.dbo_materialBoltTableAdapter();
-            this.cancelBtn = new System.Windows.Forms.Button();
+            this.boltMaterialLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boltMatrialEsyangshiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boltMatrialRpminqufuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boltMaterialRmkanglaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boltMaterialRatiofBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boltMaterialTmaxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BoltMaterialA_alpha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -108,48 +108,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // boltMaterialLevelDataGridViewTextBoxColumn
-            // 
-            this.boltMaterialLevelDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialLevel";
-            this.boltMaterialLevelDataGridViewTextBoxColumn.HeaderText = "强度等级";
-            this.boltMaterialLevelDataGridViewTextBoxColumn.Name = "boltMaterialLevelDataGridViewTextBoxColumn";
-            // 
-            // boltMatrialEsyangshiDataGridViewTextBoxColumn
-            // 
-            this.boltMatrialEsyangshiDataGridViewTextBoxColumn.DataPropertyName = "BoltMatrialEs_yangshi";
-            this.boltMatrialEsyangshiDataGridViewTextBoxColumn.HeaderText = "Es";
-            this.boltMatrialEsyangshiDataGridViewTextBoxColumn.Name = "boltMatrialEsyangshiDataGridViewTextBoxColumn";
-            // 
-            // boltMatrialRpminqufuDataGridViewTextBoxColumn
-            // 
-            this.boltMatrialRpminqufuDataGridViewTextBoxColumn.DataPropertyName = "BoltMatrialRpmin_qufu";
-            this.boltMatrialRpminqufuDataGridViewTextBoxColumn.HeaderText = "Rpmin";
-            this.boltMatrialRpminqufuDataGridViewTextBoxColumn.Name = "boltMatrialRpminqufuDataGridViewTextBoxColumn";
-            // 
-            // boltMaterialRmkanglaDataGridViewTextBoxColumn
-            // 
-            this.boltMaterialRmkanglaDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialRm_kangla";
-            this.boltMaterialRmkanglaDataGridViewTextBoxColumn.HeaderText = "Rm";
-            this.boltMaterialRmkanglaDataGridViewTextBoxColumn.Name = "boltMaterialRmkanglaDataGridViewTextBoxColumn";
-            // 
-            // boltMaterialRatiofBDataGridViewTextBoxColumn
-            // 
-            this.boltMaterialRatiofBDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialRatio_fB";
-            this.boltMaterialRatiofBDataGridViewTextBoxColumn.HeaderText = "fBS";
-            this.boltMaterialRatiofBDataGridViewTextBoxColumn.Name = "boltMaterialRatiofBDataGridViewTextBoxColumn";
-            // 
-            // boltMaterialTmaxDataGridViewTextBoxColumn
-            // 
-            this.boltMaterialTmaxDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialTmax";
-            this.boltMaterialTmaxDataGridViewTextBoxColumn.HeaderText = "Tmax";
-            this.boltMaterialTmaxDataGridViewTextBoxColumn.Name = "boltMaterialTmaxDataGridViewTextBoxColumn";
-            // 
-            // BoltMaterialA_alpha
-            // 
-            this.BoltMaterialA_alpha.DataPropertyName = "BoltMaterialA_alpha";
-            this.BoltMaterialA_alpha.HeaderText = "alpha";
-            this.BoltMaterialA_alpha.Name = "BoltMaterialA_alpha";
-            // 
             // dbomaterialBoltBindingSource
             // 
             this.dbomaterialBoltBindingSource.DataMember = "dbo_materialBolt";
@@ -172,6 +130,17 @@
             this.panel2.Size = new System.Drawing.Size(200, 450);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(43, 107);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(77, 34);
+            this.cancelBtn.TabIndex = 47;
+            this.cancelBtn.Text = "取消";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // optBtn
             // 
@@ -218,16 +187,47 @@
             // 
             this.dbo_materialBoltTableAdapter.ClearBeforeFill = true;
             // 
-            // cancelBtn
+            // boltMaterialLevelDataGridViewTextBoxColumn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(43, 107);
-            this.cancelBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(77, 34);
-            this.cancelBtn.TabIndex = 47;
-            this.cancelBtn.Text = "取消";
-            this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            this.boltMaterialLevelDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialLevel";
+            this.boltMaterialLevelDataGridViewTextBoxColumn.HeaderText = "强度等级";
+            this.boltMaterialLevelDataGridViewTextBoxColumn.Name = "boltMaterialLevelDataGridViewTextBoxColumn";
+            // 
+            // boltMatrialEsyangshiDataGridViewTextBoxColumn
+            // 
+            this.boltMatrialEsyangshiDataGridViewTextBoxColumn.DataPropertyName = "BoltMatrialEs_yangshi";
+            this.boltMatrialEsyangshiDataGridViewTextBoxColumn.HeaderText = "Es(N/mm2)";
+            this.boltMatrialEsyangshiDataGridViewTextBoxColumn.Name = "boltMatrialEsyangshiDataGridViewTextBoxColumn";
+            // 
+            // boltMatrialRpminqufuDataGridViewTextBoxColumn
+            // 
+            this.boltMatrialRpminqufuDataGridViewTextBoxColumn.DataPropertyName = "BoltMatrialRpmin_qufu";
+            this.boltMatrialRpminqufuDataGridViewTextBoxColumn.HeaderText = "Rpmin(N/mm2)";
+            this.boltMatrialRpminqufuDataGridViewTextBoxColumn.Name = "boltMatrialRpminqufuDataGridViewTextBoxColumn";
+            // 
+            // boltMaterialRmkanglaDataGridViewTextBoxColumn
+            // 
+            this.boltMaterialRmkanglaDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialRm_kangla";
+            this.boltMaterialRmkanglaDataGridViewTextBoxColumn.HeaderText = "Rm(N/mm2)";
+            this.boltMaterialRmkanglaDataGridViewTextBoxColumn.Name = "boltMaterialRmkanglaDataGridViewTextBoxColumn";
+            // 
+            // boltMaterialRatiofBDataGridViewTextBoxColumn
+            // 
+            this.boltMaterialRatiofBDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialRatio_fB";
+            this.boltMaterialRatiofBDataGridViewTextBoxColumn.HeaderText = "fBS";
+            this.boltMaterialRatiofBDataGridViewTextBoxColumn.Name = "boltMaterialRatiofBDataGridViewTextBoxColumn";
+            // 
+            // boltMaterialTmaxDataGridViewTextBoxColumn
+            // 
+            this.boltMaterialTmaxDataGridViewTextBoxColumn.DataPropertyName = "BoltMaterialTmax";
+            this.boltMaterialTmaxDataGridViewTextBoxColumn.HeaderText = "Tmax(°C)";
+            this.boltMaterialTmaxDataGridViewTextBoxColumn.Name = "boltMaterialTmaxDataGridViewTextBoxColumn";
+            // 
+            // BoltMaterialA_alpha
+            // 
+            this.BoltMaterialA_alpha.DataPropertyName = "BoltMaterialA_alpha";
+            this.BoltMaterialA_alpha.HeaderText = "alpha";
+            this.BoltMaterialA_alpha.Name = "BoltMaterialA_alpha";
             // 
             // StrengthGradeForm
             // 
@@ -269,6 +269,7 @@
         private BoltConnectionSystemDataSet17 boltConnectionSystemDataSet17;
         private System.Windows.Forms.BindingSource dbomaterialBoltBindingSource;
         private BoltConnectionSystemDataSet17TableAdapters.dbo_materialBoltTableAdapter dbo_materialBoltTableAdapter;
+        private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn boltMaterialLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn boltMatrialEsyangshiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn boltMatrialRpminqufuDataGridViewTextBoxColumn;
@@ -276,6 +277,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn boltMaterialRatiofBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn boltMaterialTmaxDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoltMaterialA_alpha;
-        private System.Windows.Forms.Button cancelBtn;
     }
 }

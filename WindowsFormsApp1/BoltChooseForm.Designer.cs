@@ -30,15 +30,15 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.optBtn = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.std = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ls = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.l1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.optBtn = new System.Windows.Forms.Button();
-            this.cancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,6 +86,38 @@
             this.dataGridView1.Size = new System.Drawing.Size(522, 332);
             this.dataGridView1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cancelBtn);
+            this.panel2.Controls.Add(this.optBtn);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(174, 332);
+            this.panel2.TabIndex = 0;
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(43, 96);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(77, 34);
+            this.cancelBtn.TabIndex = 47;
+            this.cancelBtn.Text = "取消";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // optBtn
+            // 
+            this.optBtn.Location = new System.Drawing.Point(43, 47);
+            this.optBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.optBtn.Name = "optBtn";
+            this.optBtn.Size = new System.Drawing.Size(77, 34);
+            this.optBtn.TabIndex = 47;
+            this.optBtn.Text = "选择";
+            this.optBtn.UseVisualStyleBackColor = true;
+            // 
             // name
             // 
             this.name.HeaderText = "名称";
@@ -103,50 +135,18 @@
             // 
             // ls
             // 
-            this.ls.HeaderText = "ls";
+            this.ls.HeaderText = "ls(mm)";
             this.ls.Name = "ls";
             // 
             // l1
             // 
-            this.l1.HeaderText = "l1";
+            this.l1.HeaderText = "l1(mm)";
             this.l1.Name = "l1";
             // 
             // dh
             // 
-            this.dh.HeaderText = "dh";
+            this.dh.HeaderText = "dh(mm)";
             this.dh.Name = "dh";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cancelBtn);
-            this.panel2.Controls.Add(this.optBtn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(174, 332);
-            this.panel2.TabIndex = 0;
-            // 
-            // optBtn
-            // 
-            this.optBtn.Location = new System.Drawing.Point(43, 47);
-            this.optBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.optBtn.Name = "optBtn";
-            this.optBtn.Size = new System.Drawing.Size(77, 34);
-            this.optBtn.TabIndex = 47;
-            this.optBtn.Text = "选择";
-            this.optBtn.UseVisualStyleBackColor = true;
-            // 
-            // cancelBtn
-            // 
-            this.cancelBtn.Location = new System.Drawing.Point(43, 96);
-            this.cancelBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(77, 34);
-            this.cancelBtn.TabIndex = 47;
-            this.cancelBtn.Text = "取消";
-            this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // BoltChooseForm
             // 
@@ -170,14 +170,14 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button optBtn;
+        private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn std;
         private System.Windows.Forms.DataGridViewTextBoxColumn DN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ls;
         private System.Windows.Forms.DataGridViewTextBoxColumn l1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dh;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button optBtn;
-        private System.Windows.Forms.Button cancelBtn;
     }
 }
